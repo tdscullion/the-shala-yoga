@@ -1,0 +1,556 @@
+/* ============================================================
+   THE SHALA — heroes.css
+   Shared hero styles for all page hero variants.
+   Extracted from shala-hero-mockups-v16.html
+
+   HERO VARIANTS:
+   .hero-home        — Home page only (680px splash)
+   .hero-standard    — About, Programmes, Blog index, Retreat, SEO (480px)
+   .hero-utility     — FAQ, T&Cs, Contact, Bursaries, Course Dates,
+                       New Students, Blog post (380px)
+   .hero-teacher     — Teacher profile pages (480px)
+   .hero-course      — Individual course pages (480px)
+
+   RESPONSIVE:
+   1100px / 900px / 600px only
+============================================================ */
+
+/* ============================================================
+   Helpers
+============================================================ */
+
+.bg-pinked-linen {
+  background: var(--pinked-linen);
+}
+
+.bg-linen {
+  background: var(--linen);
+}
+
+.bg-greige {
+  background: var(--greige);
+}
+
+.bg-light-plum {
+  background: var(--light-plum);
+}
+
+.bg-charcoal-plum {
+  background: var(--charcoal-plum);
+}
+
+.bg-chalk {
+  background: var(--chalk);
+}
+
+.bg-grey-magenta {
+  background: var(--grey-magenta);
+}
+
+.bg-aubergine {
+  background: var(--aubergine);
+}
+
+/* ============================================================
+   Text Themes
+============================================================ */
+
+.text-on-light .hero-standard-title,
+.text-on-light .hero-utility-title {
+  color: var(--aubergine);
+}
+
+.text-on-light .hero-standard-title em,
+.text-on-light .hero-utility-title em {
+  color: var(--pink);
+}
+
+.text-on-light .hero-standard-sub,
+.text-on-light .hero-utility-sub {
+  color: var(--aubergine);
+  opacity: 0.78;
+}
+
+.text-on-dark .hero-standard-title,
+.text-on-dark .hero-utility-title {
+  color: white;
+}
+
+.text-on-dark .hero-standard-title em,
+.text-on-dark .hero-utility-title em {
+  color: var(--orange);
+}
+
+.text-on-dark .hero-standard-sub,
+.text-on-dark .hero-utility-sub {
+  color: white;
+}
+
+/* ============================================================
+   Shared Components
+============================================================ */
+
+.spiral-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.spiral-circle::after {
+  content: "spiral";
+  opacity: 0.65;
+}
+
+.hero-standard-spiral,
+.hero-home-spiral,
+.hero-utility-spiral {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================================
+   Hero — Home
+============================================================ */
+.hero-home {
+  position: relative;
+  background: var(--chalk);
+  min-height: 680px;
+  overflow: hidden;
+  padding: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-home-inner {
+  position: relative;
+  max-width: 1112px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-home-spiral {
+  position: absolute;
+  top: 50%;
+  left: -110px;
+  width: 560px;
+  height: 560px;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-home-spiral img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hero-home-titlewrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 48px;
+}
+
+.hero-home-titlewrap::before {
+  content: "";
+  position: absolute;
+  left: -64px;
+  right: -64px;
+  top: -12px;
+  bottom: -12px;
+  background: rgba(247, 243, 238, 0.82);
+  filter: blur(18px);
+  z-index: -1;
+}
+
+.hero-home-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--aubergine);
+  max-width: 900px;
+}
+
+.hero-home-title em {
+  font-style: italic;
+  color: var(--pink);
+}
+
+.hero-home-textcol {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-home-textinner {
+  position: relative;
+  max-width: 520px;
+  z-index: 2;
+}
+
+.hero-home-textinner::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  right: -40px;
+  top: -28px;
+  bottom: -28px;
+
+  background: rgba(247, 243, 238, 0.62);
+
+  filter: blur(18px);
+
+  z-index: -1;
+}
+
+.hero-home-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--aubergine);
+  opacity: 0.82;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.hero-home-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+/* ============================================================
+   Hero — Standard
+============================================================ */
+
+.hero-standard {
+  position: relative;
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px 64px;
+}
+
+.hero-standard-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1112px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+.hero-standard-spiral {
+  flex: 0 0 440px;
+  width: 440px;
+  height: 440px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-standard-content {
+  max-width: 580px;
+  margin-right: 0;
+}
+
+.hero-standard-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 4.4vw, 54px);
+  font-weight: 400;
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+.hero-standard-title em {
+  font-style: italic;
+}
+
+.hero-standard-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.hero-standard-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* ============================================================
+   Hero — Utility
+============================================================ */
+
+.hero-utility {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+}
+
+.hero-utility-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 840px;
+}
+
+.hero-utility-spiral {
+  position: absolute;
+  bottom: -240px;
+  left: -240px;
+  width: 480px;
+  height: 480px;
+}
+
+.hero-utility-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4.2vw, 50px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero-utility-title em {
+  font-style: italic;
+}
+
+.hero-utility-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Hero — Teacher
+============================================================ */
+
+.hero-teacher {
+  position: relative;
+  background: var(--grey-magenta);
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px 64px;
+}
+
+.hero-teacher-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1112px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+.hero-teacher-media {
+  position: relative;
+  flex: 0 0 440px;
+  width: 440px;
+  height: 440px;
+}
+
+.hero-teacher-spiral {
+  position: absolute;
+  inset: 0;
+  width: 440px;
+  height: 440px;
+  z-index: 1;
+}
+
+.hero-teacher-spiral img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-teacher-photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 220px;
+  height: 220px;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+
+  border-radius: 50%;
+  background: #5a4a52;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-teacher-content {
+  max-width: 580px;
+  padding-top: 16px;
+}
+
+.hero-teacher-name {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(40px, 4.8vw, 58px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.hero-teacher-name em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.hero-teacher-role {
+  display: block;
+
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: white;
+
+  margin-bottom: 18px;
+}
+
+.hero-teacher-bio {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: white;
+}
+
+/* ============================================================
+   Hero — Course
+============================================================ */
+
+.hero-course {
+  position: relative;
+  background: var(--aubergine);
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px 64px;
+}
+
+.hero-course-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1112px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+.hero-course-spiral {
+  position: relative;
+  flex: 0 0 440px;
+  width: 440px;
+  height: 440px;
+  color: var(--pink);
+}
+
+.hero-course-content {
+  max-width: 580px;
+}
+
+.hero-course-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.hero-course-title em {
+  font-style: italic;
+  color: var(--pink);
+}
+
+.hero-course-with {
+  display: block;
+
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--orange);
+
+  margin-bottom: 18px;
+}
+
+.hero-course-bio {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: white;
+}
+
+/* ============================================================
+   Spiral Animation
+============================================================ */
+
+@keyframes spiralRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-standard-spiral,
+.hero-utility-spiral,
+.hero-teacher-spiral,
+.hero-course-spiral,
+.hero-home-spiral img {
+  transform-origin: center;
+  animation: spiralRotate 180s linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
