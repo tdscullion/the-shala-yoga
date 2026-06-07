@@ -4,6 +4,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+function theshala_highlight_text($text) {
+    if (!$text) {
+        return '';
+    }
+
+    $text = esc_html($text);
+
+    return preg_replace(
+        '/\{\{(.*?)\}\}/',
+        '<span class="highlight-text">$1</span>',
+        $text
+    );
+}
+
 function theshala_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -112,6 +126,34 @@ function theshala_enqueue_assets() {
         wp_get_theme()->get('Version'),
         true
     );
+
+    if (is_singular('faculty')) {
+
+        wp_enqueue_style(
+            'theshala-teacher',
+            get_template_directory_uri() . '/assets/css/teacher.css',
+            ['theshala-main', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/teacher.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-teacher',
+            get_template_directory_uri() . '/assets/js/teacher.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/teacher.js'),
+            true
+        );
+
+    }
+    if (is_singular('course')) {
+        wp_enqueue_script(
+            'theshala-course',
+            get_template_directory_uri() . '/assets/js/course.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/course.js'),
+            true
+        );
+    }
 }
 
 add_action('wp_enqueue_scripts', 'theshala_enqueue_assets');

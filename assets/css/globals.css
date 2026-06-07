@@ -687,3 +687,15 @@ p:last-child {
     justify-content: center;
   }
 }
+
+/* ADDITIONAL */
+.highlight-text {
+  font-style: italic;
+}
+.single-course .highlight-text {
+  color: var(--orange);
+}
+
+.single-faculty .highlight-text {
+  color: var(--pink);
+}
