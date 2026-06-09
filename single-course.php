@@ -106,7 +106,7 @@
 
             <div class="main-col">
 
-                <a href="<?php echo esc_url(get_post_type_archive_link('course')); ?>" class="bio-backlink">
+                <a href="<?php echo home_url('/cpds/'); ?>" class="bio-backlink">
                     All Courses
                 </a>
 
@@ -495,7 +495,578 @@
         <?php endif; ?>
         <!-- End Mantras-->
 
+        <!-- Teacher Band -->
+         <?php
+        $instructors = get_field('course_instructors');
+        ?>
 
+        <?php if ($instructors) : ?>
+            <div class="teacher-band" id="section-teacher">
+                <div class="teacher-band-grid">
+
+                    <div class="teacher-band-text">
+                        <h2 class="jump-anchor">Your Teacher</h2>
+
+                        <?php foreach ($instructors as $instructor) : ?>
+                            <?php
+                            $instructor_id = $instructor->ID;
+
+                            $display_name = get_field('display_name', $instructor_id) ?: get_the_title($instructor_id);
+                            $role_title = get_field('role_title', $instructor_id);
+                            $short_bio = get_field('short_bio', $instructor_id);
+                            ?>
+
+                            <div class="s-div">
+                                <h2>
+                                    Your teacher <?php echo wp_kses_post(theshala_highlight_text($display_name)); ?>
+                                </h2>
+                            </div>
+
+                            <div class="teacher-profile">
+                                <div class="teacher-info">
+
+                                    <?php if ($role_title) : ?>
+                                        <span class="teacher-creds">
+                                            <?php echo esc_html($role_title); ?>
+                                        </span>
+                                    <?php endif; ?>
+
+                                    <?php if ($short_bio) : ?>
+                                        <p class="teacher-bio">
+                                            <?php echo nl2br(esc_html($short_bio)); ?>
+                                        </p>
+                                    <?php endif; ?>
+
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
+                    </div>
+
+                    <?php
+                    $first_instructor = $instructors[0];
+                    $main_image = get_field('main_image', $first_instructor->ID);
+
+                    if (!$main_image) {
+                        $main_image = get_field('headshot', $first_instructor->ID);
+                    }
+                    ?>
+
+                    <?php if ($main_image) : ?>
+                        <div class="teacher-band-img">
+                            <img
+                                src="<?php echo esc_url($main_image['url']); ?>"
+                                alt="<?php echo esc_attr($main_image['alt'] ?: get_the_title($first_instructor->ID)); ?>"
+                            >
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- End Teacher Band -->
+
+        <!-- Shala Gallery -->
+         <?php
+        $gallery_heading = get_field('gallery_heading');
+        $gallery_items = get_field('gallery_items');
+        $gallery_count = $gallery_items ? count($gallery_items) : 0;
+        $gallery_classes = ['g-a', 'g-b', 'g-c', 'g-d', 'g-e'];
+        ?>
+
+        <?php if ($gallery_count > 0) : ?>
+            <div class="gallery-band" id="section-gallery">
+                <div class="gallery-band-inner">
+
+                    <h2 class="jump-anchor">Gallery</h2>
+
+                    <?php if ($gallery_heading) : ?>
+                        <div class="s-div">
+                            <h2>
+                                <?php echo wp_kses_post(theshala_highlight_text($gallery_heading)); ?>
+                            </h2>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="gallery-grid">
+
+                        <?php foreach ($gallery_items as $index => $item) : ?>
+                            <?php
+                            if ($index >= 5) {
+                                break;
+                            }
+
+                            $grid_image = $item['grid_image'] ?? null;
+                            $caption = $item['caption'] ?? '';
+                            $cell_class = $gallery_classes[$index] ?? '';
+                            ?>
+
+                            <?php if ($grid_image) : ?>
+                                <div
+                                    class="g-cell <?php echo esc_attr($cell_class); ?>"
+                                    onclick="openLightbox(<?php echo esc_attr($index); ?>)"
+                                >
+                                    <img
+                                        src="<?php echo esc_url($grid_image['url']); ?>"
+                                        alt="<?php echo esc_attr($grid_image['alt'] ?: $caption); ?>"
+                                    >
+
+                                    <div class="g-tint"></div>
+
+                                    <?php if ($caption) : ?>
+                                        <div class="g-caption">
+                                            <span class="g-caption-text">
+                                                <?php echo esc_html($caption); ?>
+                                            </span>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="g-overlay">
+                                        <div class="g-zoom">+</div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- End Shala Gallery -->
+
+        <?php
+        $gallery_lightbox_images = [];
+
+        if ($gallery_items) {
+            foreach ($gallery_items as $item) {
+                $grid_image = $item['grid_image'] ?? null;
+                $lightbox_image = $item['lightbox_image'] ?? null;
+                $caption = $item['caption'] ?? '';
+
+                $image = $lightbox_image ?: $grid_image;
+
+                if ($image) {
+                    $gallery_lightbox_images[] = [
+                        'src' => $image['url'],
+                        'alt' => $image['alt'] ?: $caption,
+                    ];
+                }
+            }
+        }
+        ?>
+        <?php if (!empty($gallery_lightbox_images)) : ?>
+            <script>
+                window.courseGalleryImgs = <?php echo wp_json_encode($gallery_lightbox_images); ?>;
+            </script>
+
+            <!-- Lightbox -->
+            <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+                <button class="lightbox-close" type="button" onclick="closeLightbox()">✕</button>
+
+                <button class="lightbox-nav lightbox-prev" type="button" onclick="shiftLightbox(-1)">
+                    ←
+                </button>
+
+                <div class="lightbox-inner">
+                    <img id="lightboxImg" src="" alt="">
+                </div>
+
+                <button class="lightbox-nav lightbox-next" type="button" onclick="shiftLightbox(1)">
+                    →
+                </button>
+
+                <span class="lightbox-counter" id="lightboxCounter"></span>
+            </div>
+        <!-- End Lightbox -->
+        <?php endif; ?>
+
+        <!--  -->
+        <?php
+        $course_details = [
+            'techniques_training_practices' => 'Techniques, Training &amp; Practices',
+            'anatomy_physiology' => 'Anatomy &amp; Physiology',
+            'yoga_science' => 'Yoga Science',
+            'yoga_philosophy_ethics' => 'Yoga Philosophy &amp; Ethics',
+            'teaching_methodology' => 'Teaching Methodology',
+            'child_development_inclusion' => 'Child Development &amp; Inclusion',
+            'practicum_assessment' => 'Practicum &amp; Assessment',
+            'course_aims' => 'Course Aims',
+            'methods_of_learning' => 'Methods of Learning',
+            'what_is_required' => 'What is Required',
+            'yoga_alliance_accreditation' => 'Yoga Alliance Accreditation',
+        ];
+
+        $has_course_details = false;
+
+        foreach ($course_details as $field_name => $label) {
+            if (have_rows($field_name)) {
+                $has_course_details = true;
+                break;
+            }
+        }
+
+        $has_schedule = have_rows('schedule_items');
+
+        $future_cohort_eyebrow = get_field('future_cohort_eyebrow');
+        $future_cohort_heading = get_field('future_cohort_heading');
+        $future_cohort_intro = get_field('future_cohort_intro');
+        $future_cohort_date = get_field('future_cohort_date');
+        $future_cohort_delivery_type = get_field('future_cohort_delivery_type');
+
+        $has_future_cohort = $future_cohort_date || $future_cohort_heading || $future_cohort_intro;
+        ?>
+
+        <?php if ($has_course_details || $has_schedule || $has_future_cohort) : ?>
+            <div class="curriculum-dates-band">
+                <div class="curriculum-dates-inner">
+                    <div class="curriculum-dates-grid">
+
+                        <?php if ($has_course_details) : ?>
+                            <div class="cd-col cd-curriculum" id="section-curriculum">
+                                <div class="s-div">
+                                    <h2>Course <em>details</em></h2>
+                                </div>
+
+                                <div class="curriculum">
+                                    <?php $accordion_index = 0; ?>
+
+                                    <?php foreach ($course_details as $field_name => $label) : ?>
+                                        <?php if (have_rows($field_name)) : ?>
+
+                                            <?php
+                                            $is_open = $accordion_index === 0;
+                                            ?>
+
+                                            <div class="acc-item">
+                                                <button
+                                                    class="acc-trigger <?php echo $is_open ? 'open' : ''; ?>"
+                                                    type="button"
+                                                    onclick="toggleAcc(this)"
+                                                >
+                                                    <?php echo wp_kses_post($label); ?>
+                                                    <span class="acc-icon"></span>
+                                                </button>
+
+                                                <div class="acc-body <?php echo $is_open ? 'open' : ''; ?>">
+                                                    <div class="acc-inner">
+                                                        <ul>
+                                                            <?php while (have_rows($field_name)) : the_row(); ?>
+                                                                <?php if (get_sub_field('list_item')) : ?>
+                                                                    <li>
+                                                                        <?php echo esc_html(get_sub_field('list_item')); ?>
+                                                                    </li>
+                                                                <?php endif; ?>
+                                                            <?php endwhile; ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <?php $accordion_index++; ?>
+
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($has_schedule || $has_future_cohort) : ?>
+                            <div class="cd-col cd-dates" id="section-dates">
+                                <h2 class="jump-anchor">Course Dates</h2>
+
+                                <?php if ($has_schedule) : ?>
+                                    <div class="s-div">
+                                        <h2>Course dates <em>&amp; schedule</em></h2>
+                                    </div>
+
+                                    <div class="schedule">
+                                        <?php while (have_rows('schedule_items')) : the_row(); ?>
+                                            <?php
+                                            $schedule_date = get_sub_field('schedule_date');
+                                            $schedule_label = get_sub_field('schedule_label');
+                                            $schedule_time = get_sub_field('schedule_time');
+                                            $schedule_delivery_type = get_sub_field('schedule_delivery_type');
+                                            $schedule_description = get_sub_field('schedule_description');
+
+                                            $date_day = '';
+                                            $date_month = '';
+
+                                            if ($schedule_date) {
+                                                $timestamp = strtotime($schedule_date);
+                                                $date_day = date_i18n('j', $timestamp);
+                                                $date_month = date_i18n('l · M', $timestamp);
+                                            }
+
+                                            $pill_class = strtolower($schedule_delivery_type) === 'in studio' ? 'pill-studio' : 'pill-live';
+                                            ?>
+
+                                            <?php if ($schedule_date || $schedule_label || $schedule_time || $schedule_delivery_type || $schedule_description) : ?>
+                                                <div class="sched-day">
+                                                    <div class="sched-left">
+                                                        <?php if ($date_day) : ?>
+                                                            <span class="sched-date">
+                                                                <?php echo esc_html($date_day); ?>
+                                                            </span>
+                                                        <?php endif; ?>
+
+                                                        <?php if ($date_month) : ?>
+                                                            <span class="sched-dow">
+                                                                <?php echo esc_html($date_month); ?>
+                                                            </span>
+                                                        <?php endif; ?>
+                                                    </div>
+
+                                                    <div class="sched-right">
+                                                        <?php if ($schedule_label || $schedule_time || $schedule_delivery_type) : ?>
+                                                            <span class="sched-label">
+                                                                <?php echo esc_html($schedule_label); ?>
+
+                                                                <?php if ($schedule_time) : ?>
+                                                                    <span class="sched-time-inline">
+                                                                        <?php echo esc_html($schedule_time); ?>
+                                                                    </span>
+                                                                <?php endif; ?>
+
+                                                                <?php if ($schedule_delivery_type) : ?>
+                                                                    <span class="sched-type-pill <?php echo esc_attr($pill_class); ?>">
+                                                                        <?php echo esc_html($schedule_delivery_type); ?>
+                                                                    </span>
+                                                                <?php endif; ?>
+                                                            </span>
+                                                        <?php endif; ?>
+
+                                                        <?php if ($schedule_description) : ?>
+                                                            <div class="sched-detail">
+                                                                <?php echo esc_html($schedule_description); ?>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                        <?php endwhile; ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ($has_future_cohort) : ?>
+                                    <div class="future-dates">
+                                        <span class="future-dates-eyebrow">
+                                            Future Cohort
+                                        </span>
+
+                                        <?php if ($future_cohort_heading) : ?>
+                                            <h3 class="future-dates-heading">
+                                                <?php echo wp_kses_post(theshala_highlight_text($future_cohort_heading)); ?>
+                                            </h3>
+                                        <?php endif; ?>
+
+                                        <?php if ($future_cohort_intro) : ?>
+                                            <p class="future-dates-note">
+                                                <?php echo nl2br(esc_html($future_cohort_intro)); ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                        <?php if ($future_cohort_date || $future_cohort_delivery_type) : ?>
+                                            <div class="future-run">
+                                                <?php if ($future_cohort_date) : ?>
+                                                    <span class="future-run-dates">
+                                                        <?php echo esc_html($future_cohort_date); ?>
+                                                    </span>
+                                                <?php endif; ?>
+
+                                                <?php if ($future_cohort_delivery_type) : ?>
+                                                    <span class="future-run-label">
+                                                        <?php echo esc_html($future_cohort_delivery_type); ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- End -->
+
+        <!-- Suggested Courses -->
+        <?php
+        $suggested_courses = get_field('suggested_courses');
+        $suggested_count = $suggested_courses ? count($suggested_courses) : 0;
+        ?>
+
+        <?php if ($suggested_count > 0) : ?>
+            <div class="related">
+                <div class="related-inner">
+
+                    <div class="related-head-row">
+                        <div class="related-head">
+                            <h2 class="related-head-title">
+                                You might also <em>like</em>
+                            </h2>
+                        </div>
+
+                        <?php if ($suggested_count > 3) : ?>
+                            <div class="related-arrows">
+                                <button class="related-arrow" type="button" onclick="shiftRelated(-1)" aria-label="Previous">
+                                    ←
+                                </button>
+
+                                <button class="related-arrow" type="button" onclick="shiftRelated(1)" aria-label="Next">
+                                    →
+                                </button>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="related-grid" id="relatedGrid">
+
+                        <?php foreach ($suggested_courses as $course) : ?>
+                            <?php
+                            $course_id = $course->ID;
+
+                            $short_title = get_field('short_title', $course_id) ?: get_the_title($course_id);
+                            $card_subtitle = get_field('card_subtitle', $course_id);
+                            $course_format = get_field('course_format', $course_id);
+                            $display_date = get_field('display_date', $course_id);
+                            $course_price = get_field('course_price', $course_id);
+                            $course_card_image = get_field('course_card_image', $course_id);
+
+                            $tag = $course_format ?: $card_subtitle;
+                            ?>
+
+                            <a
+                                href="<?php echo esc_url(get_permalink($course_id)); ?>"
+                                class="rc"
+                                style="--rt: rgba(75, 58, 67, 1); text-decoration:none;"
+                            >
+                                <?php if ($course_card_image) : ?>
+                                    <div class="bg">
+                                        <img
+                                            src="<?php echo esc_url($course_card_image['url']); ?>"
+                                            alt="<?php echo esc_attr($course_card_image['alt'] ?: $short_title); ?>"
+                                        >
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="tint"></div>
+                                <div class="fade"></div>
+
+                                <div class="rcontent">
+
+                                    <?php if ($tag) : ?>
+                                        <span class="rc-tag">
+                                            <?php echo esc_html($tag); ?>
+                                        </span>
+                                    <?php endif; ?>
+
+                                    <div class="rc-title">
+                                        <?php echo wp_kses_post(theshala_highlight_text($short_title)); ?>
+                                    </div>
+
+                                    <?php if ($display_date || $course_price) : ?>
+                                        <div class="rc-foot">
+                                            <?php if ($display_date) : ?>
+                                                <div class="rc-date">
+                                                    <strong><?php echo esc_html($display_date); ?></strong>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ($course_price) : ?>
+                                                <div class="rc-price">
+                                                    <?php echo esc_html($course_price); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                </div>
+                            </a>
+
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- Suggested Courses End -->
+
+        <!-- Contact Form -->
+         <div class="interest-section" id="express-interest">
+            <div class="interest-inner">
+
+                <div class="interest-copy">
+                    <h2 class="interest-heading">
+                        Interested in this <em>course?</em>
+                    </h2>
+
+                    <p class="interest-body">
+                        Not ready to book yet — or want to hear about future dates?
+                        Register your interest and we'll be in touch with everything you
+                        need to know including when new dates are announced.
+                    </p>
+
+                    <p class="interest-reassure">
+                        No commitment required · No spam, ever · Priority notification of new dates
+                    </p>
+                </div>
+
+                <div class="interest-form">
+                    <div class="interest-form-card">
+
+                        <div class="int-field">
+                            <label class="int-label" for="int-name">Your Name</label>
+                            <input
+                                class="int-input"
+                                id="int-name"
+                                type="text"
+                                placeholder="First and last name"
+                            >
+                        </div>
+
+                        <div class="int-field">
+                            <label class="int-label" for="int-email">Email Address</label>
+                            <input
+                                class="int-input"
+                                id="int-email"
+                                type="email"
+                                placeholder="your@email.com"
+                            >
+                        </div>
+
+                        <div class="int-field">
+                            <label class="int-label" for="int-background">
+                                Additional Information
+                                <span class="int-label-optional">(optional)</span>
+                            </label>
+
+                            <textarea
+                                class="int-input int-textarea"
+                                id="int-background"
+                                placeholder="E.g. yoga teacher, school teacher, something else — helps us tailor our reply"
+                            ></textarea>
+                        </div>
+
+                        <button class="int-submit" type="button" onclick="handleInterestSubmit(this)">
+                            Register My Interest →
+                        </button>
+
+                        <p class="int-note">
+                            We'll only use your details to contact you about this course and related Shala School news.
+                            Unsubscribe at any time.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Contact Form -->
        
 
     <?php endwhile; ?>

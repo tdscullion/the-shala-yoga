@@ -62,7 +62,7 @@
   margin-bottom: 10px;
 }
 .section-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   color: var(--text-dark);
@@ -119,7 +119,7 @@
   border-right: none;
 }
 .stat-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 24px;
   display: block;
   margin-bottom: 2px;
@@ -127,7 +127,7 @@
   color: var(--aubergine);
 }
 .stat-num-sm {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 16px;
   display: block;
   margin-bottom: 2px;
@@ -272,7 +272,7 @@
   align-self: flex-start;
 }
 .hdr-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: clamp(40px, 5.2vw, 66px);
   line-height: 1.06;
@@ -362,7 +362,7 @@ blockquote.feature-quote {
 }
 .feature-quote::before {
   content: "\201C";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   position: absolute;
@@ -373,7 +373,7 @@ blockquote.feature-quote {
 }
 .feature-quote::after {
   content: "\201D";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   line-height: 0;
@@ -679,7 +679,7 @@ blockquote.inline-quote {
   margin-bottom: 10px;
 }
 .pc-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   font-weight: 400;
   color: white;
@@ -710,7 +710,7 @@ blockquote.inline-quote {
   font-weight: 500;
 }
 .pc-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -932,7 +932,7 @@ blockquote.inline-quote {
   font-weight: 500;
 }
 .cta-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(30px, 4vw, 52px);
   font-weight: 400;
   color: white;

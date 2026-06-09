@@ -113,6 +113,17 @@
                     <?php if (get_field('instructor_approach')) : ?>
                         <h3 class="bio-subhead">Approach</h3>
                         <p><?php echo nl2br(esc_html(get_field('instructor_approach'))); ?></p>
+                        <?php if (get_field('quote_1_text')) : ?>
+                            <blockquote class="feature-quote">
+                                <?php echo esc_html(get_field('quote_1_text')); ?>
+
+                                <?php if (get_field('quote_1_attribution')) : ?>
+                                    <span class="feature-quote-attr">
+                                        <?php echo esc_html(get_field('quote_1_attribution')); ?>
+                                    </span>
+                                <?php endif; ?>
+                            </blockquote>
+                        <?php endif; ?>
                     <?php endif; ?>
 
                     <?php if (get_field('early_years')) : ?>
@@ -130,17 +141,7 @@
                         <p><?php echo nl2br(esc_html(get_field('instructor_teaching_today'))); ?></p>
                     <?php endif; ?>
 
-                    <?php if (get_field('quote_1_text')) : ?>
-                        <blockquote class="feature-quote">
-                            <?php echo esc_html(get_field('quote_1_text')); ?>
-
-                            <?php if (get_field('quote_1_attribution')) : ?>
-                                <span class="feature-quote-attr">
-                                    <?php echo esc_html(get_field('quote_1_attribution')); ?>
-                                </span>
-                            <?php endif; ?>
-                        </blockquote>
-                    <?php endif; ?>
+                    
 
                     <?php if (get_field('quote_2_text')) : ?>
                         <blockquote class="feature-quote">

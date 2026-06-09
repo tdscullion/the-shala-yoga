@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="main-content">
+
     <section class="hero-standard bg-linen text-on-light">
         <div class="hero-standard-inner">
 
@@ -31,5 +31,75 @@
 
         </div>
     </section>
+
+    <main id="main-content" style="padding:80px 48px;">
+
+    <h1>CPD &amp; Modules</h1>
+
+    <?php
+    $cpd_courses = new WP_Query([
+        'post_type' => 'course',
+        'posts_per_page' => -1,
+        'orderby' => 'meta_value',
+        'meta_key' => 'start_date',
+        'order' => 'ASC',
+    ]);
+    ?>
+
+    <?php if ($cpd_courses->have_posts()) : ?>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+
+            <?php while ($cpd_courses->have_posts()) : $cpd_courses->the_post(); ?>
+
+                <?php
+                $short_title = get_field('short_title') ?: get_the_title();
+                $card_subtitle = get_field('card_subtitle');
+                $course_card_image = get_field('course_card_image');
+                $display_date = get_field('display_date');
+                $course_price = get_field('course_price');
+                $course_format = get_field('course_format');
+                ?>
+
+                <article>
+                    <a href="<?php the_permalink(); ?>" style="text-decoration:none; color:inherit;">
+
+                        <?php if ($course_card_image) : ?>
+                            <img
+                                src="<?php echo esc_url($course_card_image['url']); ?>"
+                                alt="<?php echo esc_attr($course_card_image['alt']); ?>"
+                                style="width:100%; height:320px; object-fit:cover;"
+                            >
+                        <?php endif; ?>
+
+                        <?php if ($course_format || $card_subtitle) : ?>
+                            <p><strong><?php echo esc_html($course_format ?: $card_subtitle); ?></strong></p>
+                        <?php endif; ?>
+
+                        <h2>
+                            <?php echo wp_kses_post(theshala_highlight_text($short_title)); ?>
+                        </h2>
+
+                        <?php if ($display_date) : ?>
+                            <p><?php echo esc_html($display_date); ?></p>
+                        <?php endif; ?>
+
+                        <?php if ($course_price) : ?>
+                            <p><?php echo esc_html($course_price); ?></p>
+                        <?php endif; ?>
+
+                    </a>
+                </article>
+
+            <?php endwhile; ?>
+
+        </div>
+
+        <?php wp_reset_postdata(); ?>
+
+    <?php else : ?>
+        <p>No courses found.</p>
+    <?php endif; ?>
+
 </main>
+
 <?php get_footer(); ?>

@@ -76,6 +76,17 @@ function theshala_register_post_types() {
 }
 add_action('init', 'theshala_register_post_types');
 
+function theshala_faculty_archive_posts($query) {
+    if (
+        !is_admin() &&
+        $query->is_main_query() &&
+        is_post_type_archive('faculty')
+    ) {
+        $query->set('posts_per_page', -1);
+    }
+}
+add_action('pre_get_posts', 'theshala_faculty_archive_posts');
+
 function theshala_enqueue_assets() {
     wp_enqueue_style(
         'theshala-style',

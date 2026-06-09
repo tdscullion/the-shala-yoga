@@ -12,35 +12,52 @@
      TODO WordPress: pass image array via wp_localize_script()
      from the ACF gallery field on the course CPT.
   ─────────────────────────────────────────────────────────── */
-  var galleryImgs = [
-    {
-      src: "assets/images/course-kids-yoga-1.jpg",
-      alt: "Charli Van Ness — lead teacher",
-    },
-    {
-      src: "assets/images/course-kids-yoga-2.jpg",
-      alt: "Kids yoga in practice",
-    },
-    { src: "assets/images/course-kids-yoga-3.jpg", alt: "Kids yoga class" },
-    { src: "assets/images/course-kids-yoga-4.jpg", alt: "Kids yoga training" },
-    { src: "assets/images/course-kids-yoga-5.jpg", alt: "Kula Kids group" },
-  ];
+  // var galleryImgs = [
+  //   {
+  //     src: "assets/images/course-kids-yoga-1.jpg",
+  //     alt: "Charli Van Ness — lead teacher",
+  //   },
+  //   {
+  //     src: "assets/images/course-kids-yoga-2.jpg",
+  //     alt: "Kids yoga in practice",
+  //   },
+  //   { src: "assets/images/course-kids-yoga-3.jpg", alt: "Kids yoga class" },
+  //   { src: "assets/images/course-kids-yoga-4.jpg", alt: "Kids yoga training" },
+  //   { src: "assets/images/course-kids-yoga-5.jpg", alt: "Kula Kids group" },
+  // ];
+  var galleryImgs = window.courseGalleryImgs || [];
 
   var currentImg = 0;
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightboxImg");
   var lightboxCounter = document.getElementById("lightboxCounter");
 
+  // function openLightbox(idx) {
+  //   currentImg = idx;
+  //   lightboxImg.src = galleryImgs[idx].src;
+  //   lightboxImg.alt = galleryImgs[idx].alt;
+  //   lightboxCounter.textContent = idx + 1 + " / " + galleryImgs.length;
+  //   lightbox.classList.add("open");
+  //   document.body.style.overflow = "hidden";
+  // }
   function openLightbox(idx) {
+    if (!galleryImgs.length || !galleryImgs[idx] || !lightbox || !lightboxImg) {
+      return;
+    }
+
     currentImg = idx;
     lightboxImg.src = galleryImgs[idx].src;
-    lightboxImg.alt = galleryImgs[idx].alt;
+    lightboxImg.alt = galleryImgs[idx].alt || "";
     lightboxCounter.textContent = idx + 1 + " / " + galleryImgs.length;
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
   }
 
   function closeLightbox() {
+    if (!lightbox) {
+      return;
+    }
+
     lightbox.classList.remove("open");
     document.body.style.overflow = "";
   }
@@ -51,10 +68,20 @@
     }
   }
 
+  // function shiftLightbox(dir) {
+  //   currentImg = (currentImg + dir + galleryImgs.length) % galleryImgs.length;
+  //   lightboxImg.src = galleryImgs[currentImg].src;
+  //   lightboxImg.alt = galleryImgs[currentImg].alt;
+  //   lightboxCounter.textContent = currentImg + 1 + " / " + galleryImgs.length;
+  // }
   function shiftLightbox(dir) {
+    if (!galleryImgs.length || !lightboxImg) {
+      return;
+    }
+
     currentImg = (currentImg + dir + galleryImgs.length) % galleryImgs.length;
     lightboxImg.src = galleryImgs[currentImg].src;
-    lightboxImg.alt = galleryImgs[currentImg].alt;
+    lightboxImg.alt = galleryImgs[currentImg].alt || "";
     lightboxCounter.textContent = currentImg + 1 + " / " + galleryImgs.length;
   }
 

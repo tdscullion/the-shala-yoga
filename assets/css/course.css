@@ -18,7 +18,7 @@
   transform: translateY(0);
 }
 .bar-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 15px;
   font-weight: 400;
   color: var(--aubergine);
@@ -111,7 +111,7 @@
   margin-bottom: 5px;
 }
 .h-stat-value {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: white;
   line-height: 1.15;
@@ -138,7 +138,7 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
 }
 .body-wrap {
   max-width: 1240px;
@@ -177,7 +177,7 @@
 
 /* ── INTRO — quote + body inline within main-col ── */
 .intro-overview-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 400;
   margin-bottom: 24px;
@@ -212,7 +212,7 @@ blockquote.feature-quote {
 }
 .feature-quote::before {
   content: "\201C";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   position: absolute;
@@ -223,7 +223,7 @@ blockquote.feature-quote {
 }
 .feature-quote::after {
   content: "\201D";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   line-height: 0;
@@ -326,7 +326,7 @@ blockquote.inline-quote {
   }
 }
 .suitability-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(17px, 2vw, 22px);
   font-weight: 400;
   color: var(--text-dark);
@@ -383,7 +383,7 @@ blockquote.inline-quote {
   margin-bottom: 36px;
 }
 .s-div h2 {
-  font-family: "Playfair Display", serif !important;
+  font-family: "Exquise", serif !important;
   font-size: clamp(20px, 2.6vw, 30px) !important;
   font-weight: 400;
   color: var(--text-dark);
@@ -609,7 +609,7 @@ blockquote.inline-quote {
   border-left: 1px solid rgba(243, 153, 0, 0.35);
 }
 .sched-date {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 48px;
   font-weight: 400;
   color: var(--pink);
@@ -870,7 +870,7 @@ blockquote.inline-quote {
   display: none;
 }
 .teacher-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 28px;
   font-weight: 400;
   color: white;
@@ -921,7 +921,7 @@ blockquote.inline-quote {
   margin-bottom: 3px;
 }
 .bc-meta-value {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 16px;
   color: var(--text-dark);
   display: block;
@@ -946,7 +946,7 @@ blockquote.inline-quote {
   padding: 24px 28px;
 }
 .bc-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 38px;
   font-weight: 400;
   color: var(--aubergine);
@@ -1169,7 +1169,7 @@ blockquote.inline-quote {
   margin-bottom: 14px;
 }
 .future-dates-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 400;
   color: var(--aubergine);
@@ -1199,7 +1199,7 @@ blockquote.inline-quote {
   border-bottom: none;
 }
 .future-run-dates {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: var(--aubergine);
   font-weight: 400;
@@ -1400,7 +1400,7 @@ blockquote.inline-quote {
   margin-bottom: 10px;
 }
 .rc-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   font-weight: 400;
   color: white;
@@ -1433,7 +1433,7 @@ blockquote.inline-quote {
   font-weight: 500;
 }
 .rc-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -1445,7 +1445,7 @@ blockquote.inline-quote {
   text-align: center;
 }
 .page-footer h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(24px, 3.5vw, 38px);
   font-weight: 400;
   font-style: italic;
@@ -1528,7 +1528,7 @@ blockquote.inline-quote {
   gap: 0;
 }
 .mantra-strip-inner .ws-verb {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(16px, 1.8vw, 22px);
   font-style: italic;
   color: var(--pink);
@@ -1543,7 +1543,7 @@ blockquote.inline-quote {
   margin-left: 6px;
 }
 .mantra-strip-inner .word-strip-sep {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: var(--greige);
   padding: 0 16px;
@@ -1873,7 +1873,7 @@ blockquote.inline-quote {
   margin-bottom: 16px;
 }
 .interest-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   color: white;
@@ -2643,7 +2643,7 @@ blockquote.inline-quote {
   border-top: 1px solid rgba(59, 19, 46, 0.12);
 }
 .cd-dates .sched-date {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 30px;
   color: var(--pink);
