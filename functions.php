@@ -12,8 +12,8 @@ function theshala_highlight_text($text) {
     $text = esc_html($text);
 
     return preg_replace(
-        '/\{\{(.*?)\}\}/',
-        '<span class="highlight-text">$1</span>',
+        '/\{\{\s*(.*?)\s*\}\}/',
+        '<em>$1</em>',
         $text
     );
 }
@@ -137,6 +137,13 @@ function theshala_enqueue_assets() {
         wp_get_theme()->get('Version'),
         true
     );
+    wp_enqueue_script(
+        'theshala-nav',
+        get_template_directory_uri() . '/assets/js/nav.js',
+        [],
+        filemtime(get_template_directory() . '/assets/js/nav.js'),
+        true
+    );
 
     if (is_singular('faculty')) {
 
@@ -162,6 +169,102 @@ function theshala_enqueue_assets() {
             get_template_directory_uri() . '/assets/js/course.js',
             [],
             filemtime(get_template_directory() . '/assets/js/course.js'),
+            true
+        );
+    }
+    if (is_front_page()) {
+        wp_enqueue_style(
+            'theshala-home',
+            get_template_directory_uri() . '/assets/css/home.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/home.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-home',
+            get_template_directory_uri() . '/assets/js/home.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/home.js'),
+            true
+        );
+    }
+    if (is_page_template('page-about.php')) {
+        wp_enqueue_style(
+            'theshala-about',
+            get_template_directory_uri() . '/assets/css/about.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/about.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-about',
+            get_template_directory_uri() . '/assets/js/about.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/about.js'),
+            true
+        );
+    }
+    if (is_post_type_archive('faculty')) {
+        wp_enqueue_style(
+            'theshala-faculty-archive',
+            get_template_directory_uri() . '/assets/css/faculty.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/faculty.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-faculty-archive',
+            get_template_directory_uri() . '/assets/js/faculty.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/faculty.js'),
+            true
+        );
+    }
+    if (is_page_template('page-cpds.php')) {
+        wp_enqueue_style(
+            'theshala-cpds',
+            get_template_directory_uri() . '/assets/css/cpds.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/cpds.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-cpds',
+            get_template_directory_uri() . '/assets/js/cpds.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/cpds.js'),
+            true
+        );
+    }
+    if (is_page_template('page-200-hour.php')) {
+        wp_enqueue_style(
+            'theshala-200-hour',
+            get_template_directory_uri() . '/assets/css/200-hour.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/200-hour.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-200-hour',
+            get_template_directory_uri() . '/assets/js/200-hour.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/200-hour.js'),
+            true
+        );
+    }
+    if (is_page_template('page-300-hour.php')) {
+        wp_enqueue_style(
+            'theshala-300-hour',
+            get_template_directory_uri() . '/assets/css/300-hour.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/300-hour.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-300-hour',
+            get_template_directory_uri() . '/assets/js/300-hour.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/300-hour.js'),
             true
         );
     }

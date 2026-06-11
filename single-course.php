@@ -286,15 +286,45 @@
                             <hr class="bc-sep">
                         <?php endif; ?>
 
-                        <?php if (have_rows('good_to_know')) : ?>
+                        <?php
+                        $has_good_to_know = have_rows('good_to_know');
+                        ?>
+
+                        <?php if ($has_good_to_know) : ?>
                             <span class="bc-dates-label">Good to know</span>
 
                             <ul class="bc-notes">
+
                                 <?php while (have_rows('good_to_know')) : the_row(); ?>
                                     <?php if (get_sub_field('list_item')) : ?>
-                                        <li><?php echo wp_kses_post(get_sub_field('list_item')); ?></li>
+                                        <li>
+                                            <?php echo wp_kses_post(get_sub_field('list_item')); ?>
+                                        </li>
                                     <?php endif; ?>
                                 <?php endwhile; ?>
+                                <li>
+                                    Prefer a different payment plan? Pay your deposit and email us to arrange. Full payment must be received before the course starts.
+                                </li>
+                                <li>
+                                    Select <strong>bank transfer (BACS)</strong> at checkout — it helps us keep
+                                    course fees down by lowering card processing charges.
+                                </li>
+
+                                <li>
+                                    Bursary available: one 50% bursary place is offered each year.
+                                    <a href="/bursaries/">Learn more →</a>
+                                </li>
+
+                                <li>
+                                    FAQs
+                                    <a href="/faqs/">Learn more →</a>
+                                </li>
+
+                                <li>
+                                    T&amp;Cs
+                                    <a href="/terms-conditions/">Learn more →</a>
+                                </li>
+
                             </ul>
 
                             <hr class="bc-sep">
@@ -681,34 +711,12 @@
         <!-- End Lightbox -->
         <?php endif; ?>
 
-        <!--  -->
+        <!-- Course Details  -->
+        
         <?php
-        $course_details = [
-            'techniques_training_practices' => 'Techniques, Training &amp; Practices',
-            'anatomy_physiology' => 'Anatomy &amp; Physiology',
-            'yoga_science' => 'Yoga Science',
-            'yoga_philosophy_ethics' => 'Yoga Philosophy &amp; Ethics',
-            'teaching_methodology' => 'Teaching Methodology',
-            'child_development_inclusion' => 'Child Development &amp; Inclusion',
-            'practicum_assessment' => 'Practicum &amp; Assessment',
-            'course_aims' => 'Course Aims',
-            'methods_of_learning' => 'Methods of Learning',
-            'what_is_required' => 'What is Required',
-            'yoga_alliance_accreditation' => 'Yoga Alliance Accreditation',
-        ];
-
-        $has_course_details = false;
-
-        foreach ($course_details as $field_name => $label) {
-            if (have_rows($field_name)) {
-                $has_course_details = true;
-                break;
-            }
-        }
-
+        $has_course_details = have_rows('course_detail_accordions');
         $has_schedule = have_rows('schedule_items');
 
-        $future_cohort_eyebrow = get_field('future_cohort_eyebrow');
         $future_cohort_heading = get_field('future_cohort_heading');
         $future_cohort_intro = get_field('future_cohort_intro');
         $future_cohort_date = get_field('future_cohort_date');
@@ -731,42 +739,54 @@
                                 <div class="curriculum">
                                     <?php $accordion_index = 0; ?>
 
-                                    <?php foreach ($course_details as $field_name => $label) : ?>
-                                        <?php if (have_rows($field_name)) : ?>
+                                    <?php while (have_rows('course_detail_accordions')) : the_row(); ?>
 
-                                            <?php
-                                            $is_open = $accordion_index === 0;
-                                            ?>
+                                        <?php
+                                        $accordion_title = get_sub_field('accordion_title');
+                                        $accordion_content = get_sub_field('accordion_content');
+
+                                        $accordion_items = $accordion_content
+                                            ? array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $accordion_content)))
+                                            : [];
+
+                                        $is_open = $accordion_index === 0;
+                                        ?>
+
+                                        <?php if ($accordion_title && !empty($accordion_items)) : ?>
 
                                             <div class="acc-item">
+
                                                 <button
                                                     class="acc-trigger <?php echo $is_open ? 'open' : ''; ?>"
                                                     type="button"
                                                     onclick="toggleAcc(this)"
                                                 >
-                                                    <?php echo wp_kses_post($label); ?>
+                                                    <?php echo esc_html($accordion_title); ?>
                                                     <span class="acc-icon"></span>
                                                 </button>
 
                                                 <div class="acc-body <?php echo $is_open ? 'open' : ''; ?>">
                                                     <div class="acc-inner">
                                                         <ul>
-                                                            <?php while (have_rows($field_name)) : the_row(); ?>
-                                                                <?php if (get_sub_field('list_item')) : ?>
-                                                                    <li>
-                                                                        <?php echo esc_html(get_sub_field('list_item')); ?>
-                                                                    </li>
-                                                                <?php endif; ?>
-                                                            <?php endwhile; ?>
+
+                                                            <?php foreach ($accordion_items as $item) : ?>
+                                                                <li>
+                                                                    <?php echo esc_html($item); ?>
+                                                                </li>
+                                                            <?php endforeach; ?>
+
                                                         </ul>
                                                     </div>
                                                 </div>
+
                                             </div>
 
                                             <?php $accordion_index++; ?>
 
                                         <?php endif; ?>
-                                    <?php endforeach; ?>
+
+                                    <?php endwhile; ?>
+
                                 </div>
                             </div>
                         <?php endif; ?>
@@ -892,7 +912,7 @@
                 </div>
             </div>
         <?php endif; ?>
-        <!-- End -->
+        <!-- End Course Details   -->
 
         <!-- Suggested Courses -->
         <?php

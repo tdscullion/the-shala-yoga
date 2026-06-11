@@ -1,0 +1,349 @@
+/* ══ ANNOUNCEMENT BAR — see snippet-announcement.html ══ */
+/* ══ NAV — see snippet-nav.html ══ */
+/* ══ PAGE HEADER (matches About) ══ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes circle-in {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ══ STATS BAR (orange, matches home style) ══ */
+.stats-bar {
+  background: var(--orange);
+  padding: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.stats-bar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.stat-box {
+  padding: 20px 28px;
+  border-right: 1px solid rgba(59, 19, 46, 0.15);
+}
+.stat-box:last-child {
+  border-right: none;
+}
+.stat-num {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  display: block;
+  margin-bottom: 4px;
+  line-height: 1;
+  color: var(--aubergine);
+}
+.stat-desc {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--aubergine);
+  font-weight: 500;
+  opacity: 0.8;
+}
+@media (max-width: 600px) {
+  .stats-bar-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-box {
+    border-bottom: 1px solid rgba(59, 19, 46, 0.1);
+  }
+}
+
+/* ══ TEACHERS SECTION ══ */
+.teachers-section {
+  padding: 0;
+  max-width: none;
+}
+
+/* ══ TEACHERS GRID ══ */
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  background: var(--chalk);
+}
+
+/* Teacher card — portrait ratio */
+.tc {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #b8adb0;
+}
+.tc::after {
+  content: "";
+  display: block;
+  padding-top: 128%;
+}
+
+.tc-img {
+  position: absolute;
+  inset: 0;
+}
+.tc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) brightness(0.92);
+  transition: transform 0.55s ease;
+}
+.tc:hover .tc-img img {
+  transform: scale(1.05);
+}
+
+/* Tint overlay — only shows on hover */
+.tc-tint {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.tc:hover .tc-tint {
+  opacity: 0.38;
+}
+/* Cycle tints */
+.tc:nth-child(3n + 1) .tc-tint {
+  background: var(--pink);
+}
+.tc:nth-child(3n + 2) .tc-tint {
+  background: var(--orange);
+}
+.tc:nth-child(3n + 3) .tc-tint {
+  background: var(--aubergine);
+}
+
+/* Base gradient for text legibility — lighter, starts lower */
+.tc-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(30, 10, 20, 0.78) 0%,
+    rgba(30, 10, 20, 0.55) 18%,
+    rgba(30, 10, 20, 0.15) 35%,
+    transparent 45%
+  );
+}
+
+/* Placeholder silhouette */
+.tc-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--new-linen);
+}
+.tc-placeholder svg {
+  opacity: 0.15;
+}
+
+/* Caption — always visible, centred, large */
+.tc-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 12px 22px;
+  z-index: 3;
+  text-align: center;
+}
+.tc-name {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 2.4vw, 38px);
+  line-height: 1.1;
+  margin-bottom: 8px;
+  font-weight: 400;
+  margin-top: 0;
+}
+.tc-name .fn {
+  color: var(--pink);
+  font-style: italic;
+  display: inline;
+}
+.tc-name .sn {
+  color: white;
+  display: inline;
+  margin-left: 0.25em;
+}
+.tc-spec {
+  font-family: "Jost", sans-serif;
+  font-size: clamp(10px, 1vw, 13px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: var(--orange);
+  height: 2.6em;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ══ FOOTER — see snippet-footer.html ══ */
+/* ══ ANIMATE ══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-band-faculty {
+  background: var(--pink);
+  padding: 72px 48px;
+  text-align: center;
+}
+.cta-band-faculty-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cta-band-faculty-h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 400;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.cta-band-faculty-h2 em {
+  font-style: italic;
+  color: var(--orange);
+}
+.cta-band-faculty-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+.cta-band-faculty-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn-white-solid {
+  display: inline-block;
+  padding: 14px 36px;
+  background: white;
+  color: var(--pink);
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-white-solid:hover {
+  background: var(--chalk);
+}
+.btn-ghost-white {
+  display: inline-block;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.btn-ghost-white:hover {
+  border-color: white;
+}
+
+@media (max-width: 600px) {
+  .cta-band-faculty {
+    padding: 56px 22px;
+  }
+  .cta-band-faculty-btns {
+    flex-direction: column;
+  }
+  .btn-white-solid,
+  .btn-ghost-white {
+    text-align: center;
+  }
+}
+
+/* ══ MOBILE RESPONSIVE ══ */
+@media (max-width: 900px) {
+  /* Teachers grid: 2 columns */
+  .teachers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Stats bar: tighter padding */
+  .stats-bar-inner {
+    padding: 0 24px;
+  }
+  .stat-box {
+    padding: 18px 18px;
+  }
+  .stat-num {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Teachers grid stays 2 columns even on small phones — single column would be too tall */
+  .teachers-grid {
+    gap: 2px;
+  }
+  .tc-name {
+    font-size: 22px;
+  }
+  .tc-spec {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .tc-body {
+    padding: 0 10px 18px;
+  }
+
+  /* Stats: 2x2 already from earlier rule, just tighten num */
+  .stat-num {
+    font-size: 26px;
+  }
+  .stat-desc {
+    font-size: 9px;
+  }
+  .stat-box {
+    padding: 16px 14px;
+  }
+
+  /* Pink CTA banner */
+  section[style*="--pink"] {
+    padding: 56px 22px !important;
+  }
+}
