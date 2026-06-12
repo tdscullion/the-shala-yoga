@@ -1,3 +1,248 @@
+.booking-bar {
+  position: fixed;
+  top: 69px;
+  left: 0;
+  right: 0;
+  z-index: 199;
+  background: var(--orange);
+  padding: 0 48px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-110px);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.booking-bar.visible {
+  transform: translateY(0);
+}
+.bar-title {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--aubergine);
+}
+.bar-meta {
+  font-size: 11px;
+  color: var(--aubergine);
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+  margin-left: 16px;
+}
+.bar-format {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--aubergine);
+  margin-left: 12px;
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  border: 1px solid rgba(59, 19, 46, 0.4);
+  padding: 3px 8px;
+}
+.bar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+.bar-btns {
+  display: flex;
+  gap: 10px;
+}
+.bar-btn {
+  padding: 8px 20px;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.bar-btn-primary {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+}
+.bar-btn-primary:hover {
+  background: var(--pink-deep);
+  border-color: var(--pink-deep);
+}
+.bar-btn-ghost {
+  background: transparent;
+  border-color: rgba(59, 19, 46, 0.35);
+  color: var(--aubergine);
+}
+.bar-btn-ghost:hover {
+  background: rgba(59, 19, 46, 0.08);
+  border-color: var(--aubergine);
+  color: var(--aubergine);
+}
+
+/* ── HERO ── */
+/* ── EDITORIAL HEADER — 200hr variant (warm chalk + Vimeo video left, text right) ── */
+.course-header {
+  background: linear-gradient(135deg, #f7f3ee 0%, #f1e7dc 100%);
+  padding: 96px 56px;
+  position: relative;
+  overflow: hidden;
+}
+/* Decorative pink spiral — sits behind text column on the right */
+.course-header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -120px;
+  transform: translateY(-50%);
+  width: 720px;
+  height: 720px;
+  background-image: url("vecteezy_abstractspiralgraphicresource_.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.18;
+  filter: hue-rotate(330deg) saturate(1.8);
+  pointer-events: none;
+  z-index: 1;
+}
+@media (max-width: 900px) {
+  .course-header::before {
+    width: 460px;
+    height: 460px;
+    right: -160px;
+    opacity: 0.12;
+  }
+}
+.ch-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+}
+.ch-text-col {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  order: 2;
+}
+/* Video column — left side */
+.ch-img-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  overflow: visible;
+  order: 1;
+}
+/* Hero video frame */
+.ch-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--aubergine);
+  overflow: hidden;
+  box-shadow: 0 18px 48px -16px rgba(59, 19, 46, 0.35);
+  z-index: 2;
+}
+.ch-video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.ch-video-caption {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 14px;
+  display: block;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .course-header {
+    padding: 64px 32px 72px;
+  }
+  .ch-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ch-text-col {
+    order: 1;
+  }
+  .ch-img-col {
+    order: 2;
+  }
+}
+.ch-eyebrow {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 18px;
+  display: block;
+}
+.ch-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(44px, 5.4vw, 76px);
+  font-weight: 400;
+  color: var(--aubergine);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.ch-title em {
+  color: var(--pink);
+  font-style: italic;
+  font-weight: 400;
+}
+.ch-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-style: italic;
+  color: var(--text-mid);
+  line-height: 1.45;
+  margin: 0 0 28px;
+  max-width: 640px;
+  position: relative;
+  z-index: 1;
+}
+.ch-rule {
+  width: 48px;
+  height: 2px;
+  background: var(--orange);
+  margin-top: 8px;
+}
+/* Legacy Kids classes still present but unused for 200hr */
+.ch-tag {
+  display: none;
+}
+.ch-meta {
+  display: none;
+}
+.ch-pill {
+  display: none;
+}
+.ch-spiral {
+  display: none;
+}
+/* Stats strip — orange band */
+
 /* Stats bar — matches Home page styling */
 .stats-bar {
   background: var(--orange);
@@ -96,10 +341,79 @@
 }
 
 /* ── INTRO — quote + body inline within main-col ── */
+.intro-overview-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+.intro-overview-heading em {
+  font-style: italic;
+  color: var(--pink);
+}
+
 .intro-quote-block {
   margin-bottom: 48px;
   padding-bottom: 36px;
   border-bottom: 1px solid var(--linen);
+}
+/* ── PULL QUOTES — shared system ─────────────────────────────
+   .feature-quote  Tier 1 — hero moment, big decorative pink ❝ ❞
+   .inline-quote   Tier 2 — supporting voices, restrained
+   ─────────────────────────────────────────────────────────── */
+.feature-quote,
+blockquote.feature-quote {
+  position: relative;
+  padding: 20px 0;
+  margin: 36px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--pink);
+}
+.feature-quote::before {
+  content: "\201C";
+  font-family: "Playfair Display", serif;
+  font-size: 72px;
+  color: var(--pink);
+  position: absolute;
+  left: 0;
+  top: -18px;
+  line-height: 1;
+  opacity: 0.7;
+}
+.feature-quote::after {
+  content: "\201D";
+  font-family: "Playfair Display", serif;
+  font-size: 72px;
+  color: var(--pink);
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-left: 6px;
+  opacity: 0.7;
+}
+.feature-quote-attr {
+  display: block;
+  margin-top: 16px;
+  font-style: normal;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.feature-quote-attr::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--linen);
+  vertical-align: middle;
+  margin-right: 12px;
 }
 .inline-quote,
 p.inline-quote,
@@ -141,6 +455,22 @@ blockquote.inline-quote {
   margin-top: 20px;
 }
 
+/* Remove old magazine styles */
+.intro-magazine,
+.intro-mag-left,
+.intro-mag-right,
+.intro-mag-openquote,
+.intro-mag-closequote,
+.intro-mag-quote,
+.intro-mag-attr,
+.intro-issue,
+.intro-kicker {
+  display: none;
+}
+.intro-quote {
+  display: none;
+}
+
 /* ── COURSE SUITABILITY ── */
 .suitability {
   margin-bottom: 72px;
@@ -170,6 +500,16 @@ blockquote.inline-quote {
 .suitability-heading em {
   font-style: italic;
   color: var(--pink);
+}
+.suitability-label {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+  display: block;
 }
 .suitability-pills {
   display: flex;
@@ -239,6 +579,12 @@ blockquote.inline-quote {
   height: 3px;
   background: var(--orange);
   margin-bottom: 0;
+}
+/* section separator on chalk/linen bg */
+.sec-sep {
+  border: none;
+  border-top: 1px solid var(--linen);
+  margin: 72px 0 0;
 }
 
 /* ── ACCORDION CURRICULUM ── */
@@ -343,7 +689,61 @@ blockquote.inline-quote {
   color: var(--text-mid);
 }
 
-/* ── SCHEDULE BASE STYLES (used in cd-dates) ── */
+/* ── SCHEDULE BAND — warm neutral, full width ── */
+.schedule-band {
+  background: #e9e1d7;
+  padding: 52px 48px 56px;
+}
+.schedule-band-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.schedule-band .s-div h2 {
+  color: var(--text-dark) !important;
+}
+.schedule-band .s-div h2 em {
+  color: var(--pink);
+}
+.schedule-band .s-div .s-div-rule {
+  background: var(--orange);
+}
+.schedule-band .s-div .s-div-eyebrow {
+  color: var(--orange);
+}
+.schedule-band .sched-date {
+  color: var(--text-dark);
+}
+.schedule-band .sched-dow {
+  color: var(--text-light);
+}
+.schedule-band .sched-label {
+  color: var(--orange);
+}
+.schedule-band .sched-detail {
+  color: var(--text-dark);
+}
+.schedule-band .sched-detail-secondary {
+  color: var(--text-light);
+}
+.schedule-band .sched-time {
+  color: var(--text-light);
+}
+.schedule-band .sched-topic {
+  color: var(--text-mid);
+}
+.schedule-band .sched-topic::before {
+  color: var(--orange);
+}
+.schedule-band .sched-day {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+.schedule-band .sched-day:first-child {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+.schedule-band .sched-topics-col {
+  border-left-color: rgba(0, 0, 0, 0.1);
+}
+
 .schedule {
   margin-bottom: 0;
 }
@@ -357,6 +757,10 @@ blockquote.inline-quote {
 }
 .sched-day:first-child {
   border-top: 1px solid var(--greige);
+}
+.sched-topics-col {
+  border-left: 1px solid var(--greige);
+  padding-left: 28px;
 }
 .sched-time-inline {
   font-family: "Jost", sans-serif;
@@ -400,6 +804,39 @@ blockquote.inline-quote {
   font-size: 18px;
   color: var(--aubergine);
   line-height: 1.65;
+}
+.sched-detail-secondary {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.sched-time {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 8px;
+  display: block;
+  letter-spacing: 0.06em;
+}
+.sched-topics {
+  margin-top: 12px;
+}
+.sched-topic {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  color: var(--text-mid);
+  padding: 3px 0;
+  display: block;
+  padding-left: 12px;
+  position: relative;
+}
+.sched-topic::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-size: 10px;
 }
 .sched-type-pill {
   display: inline-block;
@@ -472,6 +909,12 @@ blockquote.inline-quote {
 .testi-featured-name::before {
   display: none;
 }
+.testi-featured-right {
+  display: none;
+}
+.testi-context-card {
+  display: none;
+}
 .testi-carousel-head {
   display: flex;
   align-items: center;
@@ -520,6 +963,13 @@ blockquote.inline-quote {
 .testi-card:hover {
   background: rgba(255, 255, 255, 0.14);
 }
+.testi-mark {
+  display: none;
+}
+.testi-lotus {
+  display: none;
+}
+
 .testi-quote {
   font-family: "Cormorant Garamond", serif;
   font-size: 17px;
@@ -561,6 +1011,57 @@ blockquote.inline-quote {
     flex: 0 0 100%;
   }
 }
+.testimonials-section .s-div-old-placeholder {
+  display: none;
+}
+
+/* ── TEACHER PROFILE ── */
+.teacher-profile {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 0;
+  overflow: visible;
+}
+.teacher-profile:hover {
+  background: transparent;
+}
+.teacher-info {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.teacher-eyebrow {
+  display: none;
+}
+.teacher-name {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+.teacher-creds {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+  display: block;
+}
+.teacher-bio {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 16px;
+}
+.teacher-quals {
+  display: none;
+}
 
 /* ── BOOKING SIDEBAR ── */
 /* ── BOOKING CARD META STRIP ── */
@@ -591,6 +1092,14 @@ blockquote.inline-quote {
   display: block;
   line-height: 1.1;
 }
+.bc-meta-sub {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+  display: block;
+  margin-top: 3px;
+  line-height: 1.3;
+}
 
 .booking-card {
   background: var(--white);
@@ -607,6 +1116,12 @@ blockquote.inline-quote {
   font-weight: 400;
   color: var(--aubergine);
   line-height: 1;
+}
+.bc-deposit {
+  font-size: 11px;
+  color: rgba(59, 19, 46, 0.55);
+  margin-top: 6px;
+  display: block;
 }
 .bc-badges {
   display: flex;
@@ -635,6 +1150,33 @@ blockquote.inline-quote {
   margin-bottom: 12px;
   display: block;
 }
+.bc-date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.bc-date-name {
+  font-family: "Jost", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.35;
+}
+.bc-date-time {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 2px;
+  display: block;
+}
+.bc-date-type {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 1px;
+  font-weight: 500;
+}
 .bc-sep {
   border: none;
   border-top: 1px solid var(--linen);
@@ -659,6 +1201,15 @@ blockquote.inline-quote {
 .bc-full-schedule:hover {
   color: var(--aubergine);
   border-bottom-color: var(--aubergine);
+}
+.bc-info {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+.bc-info strong {
+  color: var(--text-mid);
 }
 .bc-notes {
   list-style: none;
@@ -727,6 +1278,192 @@ blockquote.inline-quote {
 .bc-btn-ghost:hover {
   border-color: var(--pink);
   color: var(--pink);
+}
+.bc-discount {
+  background: var(--pinked-linen);
+  padding: 14px 18px;
+  margin-top: 16px;
+}
+.bc-discount p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-mid);
+}
+.bc-discount strong {
+  color: var(--pink);
+}
+.bc-openday {
+  background: var(--chalk);
+  border: 1px solid rgba(59, 19, 46, 0.1);
+  padding: 16px 18px;
+  margin-top: 16px;
+}
+.bc-openday-eyebrow {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 8px;
+}
+.bc-openday-date {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--aubergine);
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+.bc-openday-copy {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.bc-openday-link {
+  display: inline-block;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pink);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.bc-openday-link:hover {
+  color: var(--aubergine);
+  border-bottom-color: var(--aubergine);
+}
+.bc-interest {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+.bc-interest:hover {
+  color: var(--pink);
+  border-bottom-color: var(--pink);
+}
+.bc-next-run {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(59, 19, 46, 0.18);
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+.bc-next-run strong {
+  color: var(--aubergine);
+  font-weight: 500;
+}
+.bc-next-run a {
+  color: var(--text-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(59, 19, 46, 0.25);
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s,
+    text-decoration-color 0.2s;
+}
+.bc-next-run a:hover {
+  color: var(--pink);
+  text-decoration-color: var(--pink);
+}
+
+/* ── 200HR SIDEBAR ADDITIONS ── */
+/* Module schedule list (compact rows, label | date) */
+.bc-module-list {
+  margin-bottom: 6px;
+}
+.bc-module-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(59, 19, 46, 0.06);
+}
+.bc-module-row:last-child {
+  border-bottom: none;
+}
+.bc-mod-label {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+}
+.bc-mod-date {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+.bc-module-row--grad {
+  margin-top: 0;
+  padding: 7px 0;
+  border-top: none;
+  border-bottom: none;
+}
+.bc-module-row--grad .bc-mod-label {
+  color: var(--text-mid);
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.bc-module-row--grad .bc-mod-date {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Future cohorts — compact in panel */
+.bc-future-cohorts {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(59, 19, 46, 0.18);
+}
+.bc-future-cohorts-label {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 10px;
+}
+.bc-future-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 0;
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+}
+.bc-future-row .bc-fr-label {
+  color: var(--text-mid);
+}
+.bc-future-row .bc-fr-date {
+  color: var(--text-dark);
+  font-weight: 500;
 }
 
 /* PROMINENT OPEN DAY BOX — pink background to make it pop */
@@ -831,82 +1568,46 @@ blockquote.inline-quote {
   font-size: 14px;
 }
 
-/* ── 200HR SIDEBAR ADDITIONS ── */
-/* Module schedule list (compact rows, label | date) */
-.bc-module-list {
-  margin-bottom: 6px;
-}
-.bc-module-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(59, 19, 46, 0.06);
-}
-.bc-module-row:last-child {
-  border-bottom: none;
-}
-.bc-mod-label {
+/* Deposit caption under price */
+.bc-deposit {
   font-family: "Jost", sans-serif;
-  font-size: 12px;
-  color: var(--text-mid);
+  font-size: 11px;
+  color: rgba(59, 19, 46, 0.6);
+  margin-top: 4px;
+  display: block;
   letter-spacing: 0.02em;
-}
-.bc-mod-date {
-  font-family: "Jost", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-dark);
-  letter-spacing: 0.01em;
-}
-.bc-module-row--grad {
-  margin-top: 0;
-  padding: 7px 0;
-  border-top: none;
-  border-bottom: none;
-}
-.bc-module-row--grad .bc-mod-label {
-  color: var(--text-mid);
-  font-weight: 400;
-  text-transform: none;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-}
-.bc-module-row--grad .bc-mod-date {
-  color: var(--text-dark);
-  font-weight: 500;
 }
 
-/* Future cohorts — compact in panel */
-.bc-future-cohorts {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px dashed rgba(59, 19, 46, 0.18);
+/* WAITLIST VARIANT — reusable for any fully-booked cohort */
+.bc-waitlist {
+  background: var(--pinked-linen);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  border-left: 2px solid var(--orange);
 }
-.bc-future-cohorts-label {
+.bc-waitlist-copy {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.55;
+  margin: 6px 0 0;
+}
+.bc-waitlist-copy strong {
+  color: var(--aubergine);
+  font-weight: 500;
+  font-style: normal;
+}
+.bc-status-pill {
+  display: inline-block;
   font-family: "Jost", sans-serif;
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 10px;
-}
-.bc-future-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 5px 0;
-  font-family: "Jost", sans-serif;
-  font-size: 12px;
-}
-.bc-future-row .bc-fr-label {
-  color: var(--text-mid);
-}
-.bc-future-row .bc-fr-date {
-  color: var(--text-dark);
-  font-weight: 500;
+  padding: 4px 11px;
+  background: var(--orange);
+  color: white;
+  border-radius: 1px;
 }
 
 /* Single RYS200 badge (larger than the Kids Yoga paired badges) */
@@ -1015,6 +1716,18 @@ blockquote.inline-quote {
 }
 .aim-num {
   display: none;
+}
+.aim-item:nth-child(8n + 1) .aim-num,
+.aim-item:nth-child(8n + 2) .aim-num,
+.aim-item:nth-child(8n + 4) .aim-num,
+.aim-item:nth-child(8n + 5) .aim-num,
+.aim-item:nth-child(8n + 6) .aim-num,
+.aim-item:nth-child(8n + 7) .aim-num {
+  color: rgba(255, 255, 255, 0.45);
+}
+.aim-item:nth-child(8n + 3) .aim-num,
+.aim-item:nth-child(8n + 8) .aim-num {
+  color: var(--pink);
 }
 .aim-text {
   font-family: "Cormorant Garamond", serif;
@@ -1178,6 +1891,13 @@ blockquote.inline-quote {
   margin-bottom: 4px;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
+.rc-teacher {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+}
 .rc-foot {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding-top: 12px;
@@ -1195,9 +1915,39 @@ blockquote.inline-quote {
   font-size: 12px;
   font-weight: 500;
 }
+.rc-price {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── PAGE FOOTER ── */
+.page-footer {
+  background: var(--pink);
+  padding: 72px 48px;
+  text-align: center;
+}
+.page-footer h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 400;
+  font-style: italic;
+  color: white;
+  margin-bottom: 12px;
+}
+.page-footer p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 28px;
+}
 
 /* ══════════════════════════════════════════
    EDITORIAL GALLERY
+   Sits on a full-bleed warm linen band.
+   Layout: [tall-left spanning 2 rows] [top-right] [bottom-right]
+           [wide-bottom spanning full width]
+   All B&W with brand tint on hover, lightbox on click.
 ══════════════════════════════════════════ */
 
 /* ── GALLERY BAND — now aubergine (dark) ── */
@@ -1220,6 +1970,16 @@ blockquote.inline-quote {
 }
 .gallery-band .s-div .s-div-rule {
   background: var(--orange);
+}
+
+/* ── CURRICULUM BAND — dusky pink within main col ── */
+.curriculum-band {
+  background: #f5e6ea;
+  margin: 0 -48px;
+  padding: 40px 48px 48px;
+}
+.curriculum-band .s-div h2 em {
+  color: var(--pink-deep);
 }
 
 /* ── LOWER WRAP ── */
@@ -1283,6 +2043,64 @@ blockquote.inline-quote {
   .mantra-strip-inner .word-strip-sep {
     display: none;
   }
+}
+
+/* ── TEACHER BAND — full-width bg, centred inner grid ── */
+.teacher-band {
+  background: var(--charcoal-plum);
+  padding: 0 48px;
+}
+.teacher-band-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(340px, 440px);
+  align-items: stretch;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.teacher-band-text {
+  padding: 72px 48px 72px 0;
+  width: 100%;
+}
+.teacher-band-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal-plum);
+}
+.teacher-band-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) brightness(1) contrast(0.95);
+  display: block;
+  transition: filter 0.5s ease;
+}
+.teacher-band-img:hover img {
+  filter: grayscale(70%) brightness(1.05) contrast(1);
+}
+.teacher-band-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(to top, rgba(59, 19, 46, 0.18), transparent);
+  pointer-events: none;
+}
+.teacher-band .s-div h2 {
+  color: white !important;
+}
+.teacher-band .s-div h2 em {
+  color: var(--orange);
+}
+.teacher-band .s-div .s-div-eyebrow {
+  color: var(--orange);
+}
+.teacher-band .s-div .s-div-rule {
+  background: var(--orange);
 }
 
 .gallery-grid {
@@ -1543,6 +2361,14 @@ blockquote.inline-quote {
 }
 .interest-copy {
 }
+.interest-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 16px;
+}
 .interest-heading {
   font-family: "Playfair Display", serif;
   font-size: clamp(28px, 3.5vw, 44px);
@@ -1649,6 +2475,63 @@ blockquote.inline-quote {
   font-style: normal;
 }
 
+/* ── UTILITY STRIP — hidden ── */
+.utility-strip {
+  display: none;
+}
+.utility-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.utility-left {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.util-link {
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.util-link:hover {
+  color: var(--pink);
+  border-bottom-color: var(--pink);
+}
+.util-link svg {
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.util-link:hover svg {
+  opacity: 1;
+}
+.util-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--greige);
+}
+.utility-right {
+  font-size: 11px;
+  color: var(--text-light);
+}
+.utility-right strong {
+  color: var(--text-mid);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1020px) {
   .body-wrap {
@@ -1658,9 +2541,35 @@ blockquote.inline-quote {
   .side-col {
     position: static;
   }
+  .teacher-band {
+    padding: 0;
+  }
+  .teacher-band-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  .teacher-band-text {
+    padding: 56px 44px;
+    max-width: none;
+    margin: 0;
+  }
+  .teacher-band-img {
+    min-height: 420px;
+  }
   .interest-inner {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .intro-magazine {
+    grid-template-columns: 1fr;
+  }
+  .intro-mag-left {
+    padding: 44px 44px;
+    border-right: none;
+    border-bottom: 1px solid var(--dusty-blush);
+  }
+  .intro-mag-right {
+    padding: 44px 44px;
   }
 }
 
@@ -1669,6 +2578,56 @@ blockquote.inline-quote {
 /* ═══════════════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
+  /* Hero */
+  .course-header {
+    padding: 0 32px 64px;
+  }
+  .ch-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: left;
+  }
+  .ch-img-col img {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+  .ch-title {
+    font-size: clamp(38px, 7vw, 58px);
+  }
+  .ch-sub {
+    font-size: 19px;
+  }
+
+  /* Sticky booking bar — allow wrap on mobile */
+  .booking-bar {
+    padding: 0 20px;
+    height: auto;
+    min-height: 52px;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transform: translateY(-200px);
+  }
+  .booking-bar.visible {
+    transform: translateY(0);
+  }
+  .bar-title {
+    font-size: 13px;
+  }
+  .bar-meta {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+  .bar-btns {
+    gap: 8px;
+  }
+  .bar-btn {
+    padding: 7px 14px;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+  }
+
   /* Body wrap — stack sidebar below main */
   .body-wrap {
     grid-template-columns: 1fr;
@@ -1692,6 +2651,43 @@ blockquote.inline-quote {
   .curriculum-dates-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  /* Schedule — tighten columns */
+  .schedule-band {
+    padding: 44px 32px 48px;
+  }
+  .sched-day {
+    grid-template-columns: 100px 1fr;
+    gap: 0 24px;
+  }
+  .sched-topics-col {
+    grid-column: 1 / -1;
+    border-left: none;
+    padding-left: 0;
+    margin-top: 12px;
+    border-top: 1px solid var(--greige);
+    padding-top: 16px;
+  }
+  .sched-date {
+    font-size: 40px;
+  }
+
+  /* Teacher band */
+  .teacher-band {
+    padding: 0;
+  }
+  .teacher-band-grid {
+    grid-template-columns: 1fr;
+  }
+  .teacher-band-text {
+    padding: 52px 32px;
+  }
+  .teacher-band-img {
+    min-height: 360px;
+  }
+  .teacher-band-img img {
+    object-position: center 18% !important;
   }
 
   /* Gallery images — keep faces in frame on mobile */
@@ -1801,9 +2797,62 @@ blockquote.inline-quote {
   .lower-wrap {
     padding: 44px 32px 48px;
   }
+
+  /* Curriculum band inside main col */
+  .curriculum-band {
+    margin: 0 -32px;
+    padding: 32px 32px 40px;
+  }
 }
 
 @media (max-width: 600px) {
+  /* Hero */
+  .course-header {
+    padding: 0 20px 48px;
+  }
+  .ch-img-col img {
+    max-width: 120px;
+  }
+  .ch-title {
+    font-size: clamp(34px, 9vw, 44px);
+    line-height: 1.1;
+  }
+  .ch-sub {
+    font-size: 17px;
+  }
+
+  /* Sticky booking bar — stack tightly */
+  .booking-bar {
+    padding: 10px 16px;
+  }
+  .bar-left {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .bar-title {
+    font-size: 12.5px;
+    display: block;
+    width: 100%;
+  }
+  .bar-meta {
+    margin-left: 0;
+    font-size: 10px;
+    display: block;
+    width: 100%;
+    padding: 2px 0 0;
+  }
+  .bar-btns {
+    width: 100%;
+  }
+  .bar-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 9px;
+  }
+
+  /* Announcement bar */
+
   /* Body wrap */
   .body-wrap {
     padding: 40px 20px;
@@ -1811,8 +2860,17 @@ blockquote.inline-quote {
   }
 
   /* Intro */
+  .intro-overview-heading,
   .intro-body {
     font-size: 16.5px;
+  }
+  .feature-quote {
+    font-size: 20px;
+    margin: 28px 0;
+  }
+  .feature-quote::before,
+  .feature-quote::after {
+    font-size: 54px;
   }
   .inline-quote {
     font-size: 19px;
@@ -1884,7 +2942,10 @@ blockquote.inline-quote {
     gap: 40px;
   }
 
-  /* Schedule (used in cd-dates) */
+  /* Schedule */
+  .schedule-band {
+    padding: 36px 20px 44px;
+  }
   .sched-day {
     grid-template-columns: 80px 1fr;
     gap: 0 18px;
@@ -1920,6 +2981,20 @@ blockquote.inline-quote {
     padding: 12px 0;
   }
   .future-run-dates {
+    font-size: 16px;
+  }
+
+  /* Teacher band */
+  .teacher-band-text {
+    padding: 40px 20px 48px;
+  }
+  .teacher-band-img {
+    min-height: 280px;
+  }
+  .teacher-name {
+    font-size: 24px;
+  }
+  .teacher-bio {
     font-size: 16px;
   }
 
@@ -1983,12 +3058,30 @@ blockquote.inline-quote {
     padding: 36px 20px 40px;
   }
 
+  /* Curriculum band inside main */
+  .curriculum-band {
+    margin: 0 -20px;
+    padding: 28px 20px 32px;
+  }
+
   /* Section headings */
   .s-div h2 {
     font-size: clamp(22px, 5vw, 28px) !important;
   }
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ══ FOOTER — see snippet-footer.html ══ */
 /* ── CURRICULUM + COURSE DATES BAND ── */
 .curriculum-dates-band {
   background: var(--chalk);

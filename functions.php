@@ -123,13 +123,6 @@ function theshala_enqueue_assets() {
         filemtime(get_template_directory() . '/assets/css/heroes.css')
     );
 
-    wp_enqueue_style(
-        'theshala-course',
-        get_template_directory_uri() . '/assets/css/course.css',
-        ['theshala-main'],
-        filemtime(get_template_directory() . '/assets/css/course.css')
-    );
-
     wp_enqueue_script(
         'theshala-main',
         get_template_directory_uri() . '/assets/js/main.js',
@@ -164,6 +157,13 @@ function theshala_enqueue_assets() {
 
     }
     if (is_singular('course')) {
+        wp_enqueue_style(
+            'theshala-course',
+            get_template_directory_uri() . '/assets/css/course.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/course.css')
+        );
+
         wp_enqueue_script(
             'theshala-course',
             get_template_directory_uri() . '/assets/js/course.js',
@@ -172,6 +172,7 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
     if (is_front_page()) {
         wp_enqueue_style(
             'theshala-home',
@@ -188,6 +189,7 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
     if (is_page_template('page-about.php')) {
         wp_enqueue_style(
             'theshala-about',
@@ -204,6 +206,7 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
     if (is_post_type_archive('faculty')) {
         wp_enqueue_style(
             'theshala-faculty-archive',
@@ -220,11 +223,12 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
     if (is_page_template('page-cpds.php')) {
         wp_enqueue_style(
             'theshala-cpds',
             get_template_directory_uri() . '/assets/css/cpds.css',
-            [],
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
             filemtime(get_template_directory() . '/assets/css/cpds.css')
         );
 
@@ -236,6 +240,7 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
     if (is_page_template('page-200-hour.php')) {
         wp_enqueue_style(
             'theshala-200-hour',
@@ -252,6 +257,7 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
     if (is_page_template('page-300-hour.php')) {
         wp_enqueue_style(
             'theshala-300-hour',
@@ -265,6 +271,187 @@ function theshala_enqueue_assets() {
             get_template_directory_uri() . '/assets/js/300-hour.js',
             [],
             filemtime(get_template_directory() . '/assets/js/300-hour.js'),
+            true
+        );
+    }
+    
+    if (is_page_template('page-our-space.php')) {
+        wp_enqueue_style(
+            'theshala-our-space',
+            get_template_directory_uri() . '/assets/css/our-space.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/our-space.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-our-space',
+            get_template_directory_uri() . '/assets/js/our-space.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/our-space.js'),
+            true
+        );
+    }
+
+    if (is_page_template('page-retreats.php')) {
+        wp_enqueue_style(
+            'theshala-retreats',
+            get_template_directory_uri() . '/assets/css/retreats.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/retreats.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-retreats',
+            get_template_directory_uri() . '/assets/js/retreats.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/retreats.js'),
+            true
+        );
+    }
+    if (is_page_template('page-gallery.php')) {
+        wp_enqueue_style(
+            'theshala-gallery',
+            get_template_directory_uri() . '/assets/css/gallery.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/gallery.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-gallery',
+            get_template_directory_uri() . '/assets/js/gallery.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/gallery.js'),
+            true
+        );
+    }
+    if (is_page_template('page-testimonials.php')) {
+        wp_enqueue_style(
+            'theshala-testimonials',
+            get_template_directory_uri() . '/assets/css/testimonials.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/testimonials.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-testimonials',
+            get_template_directory_uri() . '/assets/js/testimonials.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/testimonials.js'),
+            true
+        );
+    }
+    if (is_page_template('page-yoga-teacher-training-calendar.php')) {
+        wp_enqueue_style(
+            'theshala-course-calendar',
+            get_template_directory_uri() . '/assets/css/yoga-teacher-training-calendar.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/yoga-teacher-training-calendar.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-course-calendar',
+            get_template_directory_uri() . '/assets/js/yoga-teacher-training-calendar.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/yoga-teacher-training-calendar.js'),
+            true
+        );
+    }
+    if (is_page_template('page-new-student-advice.php')) {
+        wp_enqueue_style(
+            'theshala-new-student-advice',
+            get_template_directory_uri() . '/assets/css/new-student-advice.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/new-student-advice.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-new-student-advice',
+            get_template_directory_uri() . '/assets/js/new-student-advice.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/new-student-advice.js'),
+            true
+        );
+    }
+    if (is_page_template('page-bursaries.php')) {
+        wp_enqueue_style(
+            'theshala-bursaries',
+            get_template_directory_uri() . '/assets/css/bursaries.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/bursaries.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-bursaries',
+            get_template_directory_uri() . '/assets/js/bursaries.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/bursaries.js'),
+            true
+        );
+    }
+    if (is_page_template('page-faq.php')) {
+
+        wp_enqueue_style(
+            'theshala-faq',
+            get_template_directory_uri() . '/assets/css/faq.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/faq.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-faq',
+            get_template_directory_uri() . '/assets/js/faq.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/faq.js'),
+            true
+        );
+    }
+    if (is_page_template('page-terms-and-conditions.php')) {
+        wp_enqueue_style(
+            'theshala-terms-and-conditions',
+            get_template_directory_uri() . '/assets/css/terms-and-conditions.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/terms-and-conditions.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-terms-and-conditions',
+            get_template_directory_uri() . '/assets/js/terms-and-conditions.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/terms-and-conditions.js'),
+            true
+        );
+    }
+
+    if (is_page_template('page-contact.php')) {
+        wp_enqueue_style(
+            'theshala-contact',
+            get_template_directory_uri() . '/assets/css/contact.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/contact.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-contact',
+            get_template_directory_uri() . '/assets/js/contact.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/contact.js'),
+            true
+        );
+    }
+
+    if (is_home()) {
+        wp_enqueue_style(
+            'theshala-blog',
+            get_template_directory_uri() . '/assets/css/blog.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/blog.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-blog-index',
+            get_template_directory_uri() . '/assets/js/blog-index.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/blog-index.js'),
             true
         );
     }

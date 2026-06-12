@@ -12,7 +12,7 @@ get_header();
     <div class="hero-standard-inner">
         <img
             class="hero-standard-spiral"
-            src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.svg'); ?>"
+            src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
             alt=""
             aria-hidden="true"
         >

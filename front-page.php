@@ -6,7 +6,7 @@
       <section class="hero-home">
         <div class="hero-home-inner">
           <div class="hero-home-spiral" aria-hidden="true">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-4-cropped.png'); ?>" alt="Spiral pattern" />
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>" alt="Spiral pattern" />
           </div>
 
           <div class="hero-home-titlewrap">

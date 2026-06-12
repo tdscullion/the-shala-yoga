@@ -1,0 +1,887 @@
+/* ── NAV / ANNOUNCEMENT / FOOTER — see snippet masters ── */
+
+/* ── PAGE HEADER ── */
+.page-header {
+  background: var(--chalk);
+  padding: 52px 48px 40px;
+}
+.page-header-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.page-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.page-title {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+.page-title .year {
+  color: var(--pink);
+  font-style: italic;
+}
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+  margin-top: 10px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ── ORANGE RULE (replaces info banner) ── */
+.orange-rule {
+  height: 2px;
+  background: var(--orange);
+  margin: 0;
+}
+.bursary-note {
+  font-size: 0.82rem;
+  color: var(--charcoal);
+  opacity: 0.7;
+  margin-top: 14px;
+  font-weight: 300;
+  line-height: 1.55;
+  font-family: var(--cormorant);
+  font-style: italic;
+}
+.bursary-note a {
+  color: var(--pink);
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(212, 0, 98, 0.3);
+  padding-bottom: 1px;
+  margin-left: 6px;
+  transition:
+    border-color 0.18s,
+    color 0.18s;
+  white-space: nowrap;
+}
+.bursary-note a:hover {
+  color: var(--pink-d);
+  border-bottom-color: var(--pink);
+}
+
+/* ── LEGEND ROW ── */
+.legend-row {
+  background: var(--linen);
+  border-bottom: 1px solid var(--greige);
+  padding: 0 48px;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+}
+.legend-row-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.legend-label {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.45;
+  font-weight: 600;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.legend {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10.5px;
+  color: var(--charcoal);
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+}
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+}
+.legend-dot.studio {
+  background: var(--pink);
+}
+.legend-dot.live {
+  background: var(--orange);
+}
+.legend-dot.both {
+  background: linear-gradient(90deg, var(--pink) 0 50%, var(--orange) 50% 100%);
+}
+.legend-dot.free {
+  background: var(--greige);
+  border: 1px solid #bbb;
+}
+/* ── ALTERNATING ROW COLOURS ── */
+.cal-table tbody tr:nth-child(even) {
+  background: var(--chalk);
+}
+.cal-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+.cal-table tbody tr:hover {
+  background: var(--pinked) !important;
+}
+
+/* ── MAIN WRAP ── */
+.main {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 44px 48px 80px;
+}
+
+/* ── FLAGSHIP CARDS (portrait grid) ── */
+.flagship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 48px;
+}
+.flagship-card {
+  border-radius: 3px;
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 380px;
+}
+.flagship-200 {
+  background: var(--linen);
+}
+.flagship-300 {
+  background: var(--pinked-linen);
+}
+.flagship-cpd {
+  background: var(--dusty-blush);
+}
+
+/* YA logo at top */
+.flagship-card-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72px;
+  margin-bottom: 18px;
+}
+.flagship-card-top img {
+  max-height: 72px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+/* Body content */
+.flagship-card-.flagship-card-eyebrow {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal-plum);
+  opacity: 0.55;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.flagship-card-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--charcoal-plum);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.005em;
+}
+.flagship-card-title em {
+  color: var(--pink);
+  font-style: italic;
+}
+.flagship-card-meta {
+  font-family: var(--cormorant);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--charcoal-plum);
+  opacity: 0.75;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  max-width: 240px;
+}
+.flagship-card-dates {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal-plum);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.flagship-card-price {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--pink);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.flagship-card-price-sub {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal-plum);
+  opacity: 0.5;
+  margin-bottom: 22px;
+}
+
+/* CTA at bottom */
+.flagship-card-cta {
+  margin-top: auto;
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--pink);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.2s;
+  align-self: center;
+}
+.flagship-card-cta:hover {
+  background: var(--pink-d);
+}
+.flagship-card-cta.is-orange {
+  background: var(--orange);
+}
+.flagship-card-cta.is-orange:hover {
+  background: var(--orange-d);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--greige);
+}
+.section-label h2 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label h2::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.section-count {
+  font-size: 10px;
+  color: var(--charcoal);
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+}
+
+/* ── TABLE ── */
+.cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 44px;
+}
+.cal-table thead th {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--charcoal);
+  opacity: 0.45;
+  padding: 10px 16px 10px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--greige);
+}
+.cal-table thead th:last-child {
+  text-align: right;
+  padding-right: 0;
+}
+.cal-table thead th.th-price,
+.cal-table thead th.th-hrs {
+  text-align: right;
+}
+
+.cal-table tbody tr {
+  border-bottom: 1px solid rgba(207, 198, 189, 0.5);
+  transition: background 0.15s;
+}
+.cal-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Row first cell — flat, no accent */
+.cal-table tbody tr td:first-child {
+  padding-left: 0;
+}
+
+.cal-table td {
+  padding: 14px 16px 14px 0;
+  vertical-align: middle;
+  font-size: 0.84rem;
+  color: var(--charcoal);
+}
+.cal-table td:first-child {
+  padding-left: 14px;
+}
+
+/* Course name */
+td.td-course a {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  transition: color 0.18s;
+  line-height: 1.3;
+}
+td.td-course a:hover {
+  color: var(--pink);
+}
+.course-sub {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 3px;
+  display: block;
+}
+
+/* Date */
+td.td-date {
+  font-size: 0.81rem;
+  white-space: nowrap;
+  color: var(--charcoal);
+  opacity: 0.8;
+  min-width: 160px;
+}
+td.td-date strong {
+  display: block;
+  font-weight: 500;
+  opacity: 1;
+}
+td.td-date span {
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+/* Teacher */
+td.td-teacher {
+  font-size: 0.81rem;
+  color: var(--charcoal);
+  opacity: 0.75;
+  min-width: 140px;
+}
+
+/* Format pill */
+td.td-format {
+  min-width: 120px;
+}
+.format-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.fp-studio {
+  background: var(--pinked);
+  color: var(--pink);
+}
+.fp-live {
+  background: #fef3e2;
+  color: #9c6400;
+}
+/* Hybrid: split fill — pink + orange, no third colour */
+.fp-both {
+  background: linear-gradient(90deg, var(--pinked) 0 50%, #fef3e2 50% 100%);
+  color: var(--charcoal);
+  padding: 0;
+  border: none;
+}
+.fp-both .fp-half {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.fp-both .fp-half-l {
+  color: var(--pink);
+}
+.fp-both .fp-half-r {
+  color: #9c6400;
+}
+.fp-free {
+  background: var(--linen);
+  color: var(--charcoal);
+}
+
+/* Price */
+td.td-price {
+  text-align: right;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+td.td-price.is-free {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* Hours */
+td.td-hrs {
+  text-align: right;
+  font-size: 0.78rem;
+  opacity: 0.55;
+  white-space: nowrap;
+  padding-right: 0;
+}
+
+/* CTA link */
+td.td-cta {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 12px;
+}
+td.td-cta a {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--pink);
+  border-bottom: 1px solid rgba(212, 0, 98, 0.3);
+  padding-bottom: 1px;
+  transition:
+    border-color 0.18s,
+    color 0.18s;
+  white-space: nowrap;
+}
+td.td-cta a:hover {
+  color: var(--pink-d);
+  border-bottom-color: var(--pink);
+}
+
+/* ── SPECIAL ROW TYPOGRAPHY (no tinted bg) ── */
+.row-saha td.td-course a {
+  color: var(--charcoal);
+  font-size: 0.88rem;
+  font-family: var(--sans);
+}
+.row-openday td.td-price {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* Philosophy Club section */
+a.philo-main {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  transition: color 0.18s;
+  display: block;
+  line-height: 1.3;
+}
+a.philo-main:hover {
+  color: var(--pink);
+}
+.philo-session {
+  font-family: var(--cormorant);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--charcoal);
+  opacity: 0.6;
+  display: block;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+/* ── ACCORDION ── */
+.accordion-section {
+  margin-bottom: 8px;
+}
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px 0 12px;
+  border-bottom: 1.5px solid var(--greige);
+  text-align: left;
+}
+.accordion-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.accordion-trigger-left h2 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.accordion-trigger-left h2::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.accordion-trigger-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-count {
+  font-size: 10px;
+  color: var(--charcoal);
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+}
+.accordion-chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--charcoal);
+  opacity: 0.4;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.accordion-trigger[aria-expanded="true"] .accordion-chevron {
+  transform: rotate(180deg);
+}
+.accordion-.accordion-body.open {
+  max-height: 4000px;
+  opacity: 1;
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--pink);
+  padding: 48px;
+  text-align: center;
+}
+.cta-band h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.cta-band p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-white {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #fff;
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-white:hover {
+  background: var(--chalk);
+}
+.btn-ghost-w {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color 0.2s;
+}
+.btn-ghost-w:hover {
+  border-color: #fff;
+}
+
+/* ── FOOTER — see snippet-footer.html ── */
+
+/* ════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS
+   ════════════════════════════════════════════════ */
+
+/* ── 1100px: tighten gutters ── */
+@media (max-width: 1100px) {
+  .page-header {
+    padding: 44px 32px 36px;
+  }
+  .legend-row {
+    padding: 0 32px;
+  }
+  .main {
+    padding: 36px 32px 64px;
+  }
+  .cta-band {
+    padding: 44px 32px;
+  }
+  .flagship-grid {
+    gap: 14px;
+  }
+  .flagship-card {
+    padding: 28px 22px 24px;
+  }
+  .flagship-card-title {
+    font-size: 1.35rem;
+  }
+}
+
+/* ── 900px: tablet — stack flagship strips, simplify table, single-line legend scroll ── */
+@media (max-width: 900px) {
+  .page-header {
+    padding: 36px 24px 28px;
+  }
+  .page-title {
+    font-size: 2.1rem;
+  }
+  .info-banner,
+  .legend-row {
+    padding: 10px 24px;
+  }
+  .legend-row-inner {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+  .main {
+    padding: 32px 24px 56px;
+  }
+
+  /* Flagship cards: stack to 1 column at tablet+ */
+  .flagship-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .flagship-card {
+    min-height: auto;
+    padding: 28px 24px 24px;
+  }
+
+  /* Calendar table: drop hours column, condense */
+  .cal-table thead th.th-hrs,
+  .cal-table td.td-hrs {
+    display: none;
+  }
+  .cal-table td,
+  .cal-table thead th {
+    padding: 12px 10px 12px 0;
+  }
+  .cal-table td:first-child {
+    padding-left: 12px;
+  }
+  td.td-date,
+  td.td-teacher {
+    min-width: 0;
+  }
+  td.td-course a {
+    font-size: 0.85rem;
+  }
+  td.td-price {
+    font-size: 0.92rem;
+  }
+
+  .cta-band {
+    padding: 40px 24px;
+  }
+  .cta-band h2 {
+    font-size: 1.65rem;
+  }
+}
+
+/* ── 600px: mobile — table → card layout ── */
+@media (max-width: 600px) {
+  .page-header {
+    padding: 30px 18px 22px;
+  }
+  .page-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  .page-subtitle {
+    font-size: 0.85rem;
+  }
+  .legend-row {
+    padding: 10px 18px;
+  }
+  .legend {
+    gap: 10px 14px;
+  }
+  .legend-item {
+    font-size: 10px;
+  }
+
+  .main {
+    padding: 26px 18px 48px;
+  }
+
+  /* Section labels */
+  .section-label,
+  .accordion-trigger {
+    padding: 12px 0 10px;
+  }
+  .section-label h2,
+  .accordion-trigger-left h2 {
+    font-size: 1rem;
+  }
+  .section-count {
+    display: none;
+  }
+
+  /* ── Calendar table → card layout ── */
+  .cal-table,
+  .cal-table tbody,
+  .cal-table tr,
+  .cal-table td {
+    display: block;
+    width: 100%;
+  }
+  .cal-table thead {
+    display: none;
+  }
+  .cal-table tbody tr {
+    border: 1px solid var(--greige);
+    background: #fff;
+    padding: 14px 14px 12px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+  .cal-table tbody tr:nth-child(even),
+  .cal-table tbody tr:nth-child(odd) {
+    background: #fff;
+  }
+  .cal-table tbody tr td {
+    padding: 3px 0;
+    border: none;
+    text-align: left !important;
+    white-space: normal;
+    font-size: 0.82rem;
+  }
+  .cal-table tbody tr td:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+  td.td-course a {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    display: inline-block;
+    margin-bottom: 2px;
+  }
+  td.td-date {
+    padding-top: 6px !important;
+    font-size: 0.78rem;
+    opacity: 0.75;
+  }
+  td.td-teacher {
+    font-size: 0.78rem;
+    opacity: 0.7;
+  }
+  td.td-format {
+    padding-top: 8px !important;
+  }
+  td.td-price {
+    text-align: left !important;
+    font-size: 0.95rem;
+    padding-top: 8px !important;
+    color: var(--pink);
+  }
+  td.td-cta {
+    padding-top: 10px !important;
+    padding-left: 0 !important;
+  }
+  td.td-cta a {
+    font-size: 10px;
+  }
+
+  /* CTA band */
+  .cta-band {
+    padding: 34px 20px;
+  }
+  .cta-band h2 {
+    font-size: 1.4rem;
+  }
+  .cta-band p {
+    font-size: 0.85rem;
+  }
+  .cta-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-white,
+  .btn-ghost-w {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+  }
+}
