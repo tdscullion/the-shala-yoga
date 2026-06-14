@@ -161,8 +161,8 @@
             <h2 class="posts-h2">More from <em>the journal</em></h2>
             <span class="posts-count">Showing 1–9 of 64 articles</span>
           </div>
-
-          <div class="posts-grid">
+          <!-- Static -->
+          <!-- <div class="posts-grid">
             <a href="#" class="post-card">
               <div class="post-card-img">
                 <img
@@ -371,10 +371,61 @@
                 </div>
               </div>
             </a>
-          </div>
+          </div> -->
+          <!-- End Static -->
+          <div class="posts-grid">
+            <?php if (have_posts()) : ?>
+                <?php while (have_posts()) : the_post(); ?>
+
+                    <a href="<?php the_permalink(); ?>" class="post-card">
+                        <div class="post-card-img">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('medium_large'); ?>
+                            <?php else : ?>
+                                <img
+                                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/blog-featured.jpg'); ?>"
+                                    alt="<?php echo esc_attr(get_the_title()); ?>"
+                                />
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="post-card-body">
+                            <?php
+                            $categories = get_the_category();
+                            if (!empty($categories)) :
+                            ?>
+                                <span class="post-card-eyebrow">
+                                    <?php echo esc_html($categories[0]->name); ?>
+                                </span>
+                            <?php endif; ?>
+
+                            <h3 class="post-card-title">
+                                <?php the_title(); ?>
+                            </h3>
+
+                            <p class="post-card-excerpt">
+                                <?php echo esc_html(wp_trim_words(get_the_excerpt(), 24)); ?>
+                            </p>
+
+                            <div class="post-card-foot">
+                                <span class="post-card-date">
+                                    <?php echo esc_html(get_the_date('M Y')); ?>
+                                </span>
+
+                                <span class="post-card-read">Read more →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                <?php endwhile; ?>
+            <?php else : ?>
+                <p>No blog posts found.</p>
+            <?php endif; ?>
+        </div>
 
           <!-- Pagination -->
-          <nav class="pagination" aria-label="Blog pagination">
+          <!-- Static -->
+          <!-- <nav class="pagination" aria-label="Blog pagination">
             <a href="#" class="prev disabled">← Prev</a>
             <span class="current">1</span>
             <a href="#">2</a>
@@ -383,7 +434,16 @@
             <span class="ellipsis">…</span>
             <a href="#">13</a>
             <a href="#" class="next">Next →</a>
-          </nav>
+          </nav> -->
+          <!-- End Static -->
+          <nav class="pagination" aria-label="Blog pagination">
+            <?php
+            echo paginate_links([
+                'prev_text' => '← Prev',
+                'next_text' => 'Next →',
+            ]);
+            ?>
+        </nav>
         </div>
       </section>
 
