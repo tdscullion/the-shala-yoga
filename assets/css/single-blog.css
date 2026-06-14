@@ -1,0 +1,617 @@
+.blog-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.blog-author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--charcoal-plum);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.blog-author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.blog-author-name {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  display: block;
+}
+.blog-author-role {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+}
+.blog-meta-sep {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.blog-date {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+}
+
+/* ══ FEATURED IMAGE — B&W ══ */
+.blog-featured-img {
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+}
+.blog-featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) brightness(0.92);
+}
+
+/* ══ MAIN LAYOUT ══ */
+.blog-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ══ ARTICLE BODY ══ */
+.blog-body {
+  min-width: 0;
+}
+.blog-body h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 400;
+  color: var(--aubergine);
+  line-height: 1.15;
+  margin: 48px 0 16px;
+}
+.blog-body h2:first-child {
+  margin-top: 0;
+}
+.blog-body h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--aubergine);
+  line-height: 1.2;
+  margin: 36px 0 12px;
+}
+.blog-body p {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.78;
+  color: var(--aubergine);
+  margin-bottom: 24px;
+}
+.blog-body a {
+  color: var(--pink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dusty-blush);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+.blog-body a:hover {
+  border-color: var(--pink);
+}
+
+/* Body images — colour, full width */
+.blog-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 36px 0;
+}
+
+.blog-body ul,
+.blog-body ol {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.78;
+  color: var(--aubergine);
+  margin: 0 0 24px 24px;
+}
+.blog-body li {
+  margin-bottom: 8px;
+}
+
+/* Pull quote — canonical style (matches .pull-quote in style guide v3) */
+.blog-pull-quote {
+  padding: 40px 0;
+  text-align: center;
+  margin: 24px 0;
+}
+.blog-pull-quote-mark {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 72px;
+  line-height: 0.4;
+  color: var(--pink);
+  margin-bottom: 16px;
+  display: block;
+}
+.blog-pull-quote-text {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  color: var(--aubergine);
+  margin: 0 0 20px;
+  font-weight: 400;
+}
+.blog-pull-quote cite {
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Section divider */
+.blog-divider {
+  height: 1px;
+  background: var(--greige);
+  opacity: 0.7;
+  margin: 48px 0;
+}
+
+/* Post nav — prev/next */
+.blog-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--greige);
+  margin-top: 56px;
+  border-top: 3px solid var(--pink);
+}
+.blog-post-nav-item {
+  background: var(--chalk);
+  padding: 24px 28px;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: block;
+}
+.blog-post-nav-item:hover {
+  background: var(--linen);
+}
+.blog-post-nav-item.next {
+  text-align: right;
+}
+.blog-post-nav-label {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 6px;
+}
+.blog-post-nav-title {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  color: var(--text-dark);
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+/* Tags */
+.blog-tags {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--greige);
+}
+.blog-tags-label {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 12px;
+}
+.blog-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.blog-tag {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 5px 10px;
+  border: 1px solid var(--greige);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.blog-tag:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+/* Share */
+.blog-share {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.blog-share-label {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.share-btn {
+  display: inline-block;
+  padding: 7px 16px;
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--greige);
+  color: var(--text-mid);
+  transition: all 0.2s;
+}
+.share-btn:hover {
+  border-color: var(--aubergine);
+  color: var(--aubergine);
+}
+
+/* ══ SIDEBAR ══ */
+.blog-sidebar {
+  position: sticky;
+  top: 90px;
+}
+.sidebar-block {
+  margin-bottom: 36px;
+}
+.sidebar-label {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--greige);
+}
+
+/* About the author — TOGGLE: set display:none on .sidebar-author-block to hide */
+.sidebar-author-block {
+}
+.sidebar-author {
+  background: var(--charcoal-plum);
+  padding: 20px;
+}
+.sidebar-author-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 2px solid var(--greige);
+}
+.sidebar-author-name {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 4px;
+}
+.sidebar-author-role {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 12px;
+  display: block;
+}
+.sidebar-author-bio {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.65;
+}
+
+/* Related posts */
+.sidebar-related-post {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  align-items: flex-start;
+}
+.sidebar-related-post:last-child {
+  margin-bottom: 0;
+}
+.srp-thumb {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.srp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.95);
+  transition: filter 0.3s;
+}
+.sidebar-related-post:hover .srp-thumb img {
+  filter: grayscale(0%) brightness(1);
+}
+.srp-title {
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+.sidebar-related-post:hover .srp-title {
+  color: var(--pink);
+}
+.srp-date {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  color: var(--text-light);
+  margin-top: 4px;
+  display: block;
+}
+
+/* Course CTA sidebar — orange */
+.sidebar-course {
+  background: var(--orange);
+  padding: 24px;
+}
+.sidebar-course-eyebrow {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 10px;
+}
+.sidebar-course-title {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.sidebar-course-desc {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.sidebar-course-btn {
+  display: block;
+  text-align: center;
+  padding: 11px 20px;
+  background: white;
+  color: var(--orange);
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+  font-weight: 500;
+}
+.sidebar-course-btn:hover {
+  background: var(--chalk);
+}
+
+/* ══ COURSE CTA BAND (replaces newsletter) ══ */
+.course-cta-band {
+  background: var(--pink);
+  padding: 72px 48px;
+}
+.course-cta-band-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.course-cta-band h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3.2vw, 38px);
+  color: white;
+  margin-bottom: 18px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.course-cta-band h3 em {
+  font-style: italic;
+  color: var(--orange);
+}
+.course-cta-band p {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.course-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-band-btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  background: white;
+  color: var(--pink);
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.cta-band-btn-primary:hover {
+  background: var(--chalk);
+}
+.cta-band-btn-ghost {
+  display: inline-block;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: white;
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.cta-band-btn-ghost:hover {
+  border-color: white;
+}
+
+/* ══ ANIMATIONS — reveal disabled, content visible by default ══ */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ══ RESPONSIVE — 1100 / 900 / 600 ══ */
+@media (max-width: 1100px) {
+  .blog-layout {
+    padding: 56px 36px;
+    gap: 48px;
+  }
+}
+@media (max-width: 900px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 48px 28px;
+  }
+  .blog-sidebar {
+    position: static;
+  }
+  .blog-hero {
+    padding: 56px 28px 44px;
+  }
+  .blog-featured-img {
+    max-height: 340px;
+  }
+  .course-cta-band {
+    padding: 60px 28px;
+  }
+}
+@media (max-width: 600px) {
+  .blog-hero {
+    padding: 44px 20px 36px;
+  }
+  .blog-hero-title {
+    font-size: 30px;
+    line-height: 1.12;
+  }
+  .blog-hero-intro {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .blog-meta-row {
+    gap: 14px;
+    padding-top: 20px;
+  }
+  .blog-author-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .blog-meta-sep {
+    display: none;
+  }
+  .blog-featured-img {
+    max-height: 240px;
+  }
+  .blog-layout {
+    padding: 36px 20px;
+    gap: 36px;
+  }
+  .blog-body h2 {
+    margin: 36px 0 14px;
+  }
+  .blog-body p,
+  .blog-body ul,
+  .blog-body ol {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .blog-body img {
+    margin: 24px 0;
+  }
+  .blog-pull-quote {
+    padding: 28px 0;
+    margin: 16px 0;
+  }
+  .blog-pull-quote-mark {
+    font-size: 56px;
+  }
+  .blog-divider {
+    margin: 36px 0;
+  }
+  .blog-post-nav {
+    grid-template-columns: 1fr;
+  }
+  .blog-post-nav-item.next {
+    text-align: left;
+  }
+  .blog-share {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .course-cta-band {
+    padding: 48px 20px;
+  }
+  .course-cta-band h3 {
+    font-size: 26px;
+  }
+  .course-cta-band p {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+  .course-cta-btns {
+    flex-direction: column;
+  }
+  .cta-band-btn-primary,
+  .cta-band-btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
+}

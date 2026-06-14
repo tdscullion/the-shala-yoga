@@ -455,6 +455,23 @@ function theshala_enqueue_assets() {
             true
         );
     }
+
+    if (is_single()) {
+        wp_enqueue_style(
+            'theshala-single-blog',
+            get_template_directory_uri() . '/assets/css/single-blog.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/single-blog.css')
+        );
+
+        wp_enqueue_script(
+            'theshala-single-blog',
+            get_template_directory_uri() . '/assets/js/single-blog.js',
+            [],
+            filemtime(get_template_directory() . '/assets/js/single-blog.js'),
+            true
+        );
+    }
 }
 
 add_action('wp_enqueue_scripts', 'theshala_enqueue_assets');
