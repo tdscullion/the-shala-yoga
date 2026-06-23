@@ -1,5 +1,12 @@
-<?php get_header(); ?>
+<?php
 
+get_header();
+
+$blog_page_id = get_option('page_for_posts');
+
+$hero_title = get_field('hero_title', $blog_page_id);
+$hero_subtitle = get_field('hero_subtitle', $blog_page_id);
+?>
 <main id="main-content">
       <!-- PAGE HEADER -->
       <section class="hero-standard bg-pinked-linen text-on-light">
@@ -12,13 +19,11 @@
           />
           <div class="hero-standard-content">
             <h1 class="hero-standard-title">
-              <em>Reflections</em> from the mat
+               <?php echo theshala_highlight_text($hero_title); ?>
             </h1>
 
             <p class="hero-standard-sub">
-              Writing, interviews and free practices from our teachers — on
-              philosophy, anatomy, breath, the menstrual cycle, menopause,
-              teaching life and the long arc of practice.
+               <?php echo esc_html($hero_subtitle); ?>
             </p>
           </div>
         </div>

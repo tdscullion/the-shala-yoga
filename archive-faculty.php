@@ -1,4 +1,17 @@
-<?php get_header(); ?>
+<?php
+
+get_header();
+
+
+$faculty_page = get_page_by_path('faculty');
+$faculty_page_id = $faculty_page ? $faculty_page->ID : null;
+
+$hero_title = get_field('hero_title', $faculty_page_id);
+$hero_subtitle = get_field('hero_subtitle', $faculty_page_id);
+
+$featured_faculty_grid = get_field('featured_faculty_grid', $faculty_page_id);
+
+?>
 
 <main id="main-content">
       <!-- Hero-->
@@ -11,13 +24,10 @@
             aria-hidden="true"
           />
           <div class="hero-standard-content">
-            <h1 class="hero-standard-title">Meet the <em>Faculty</em></h1>
+            <h1 class="hero-standard-title"><?php echo theshala_highlight_text($hero_title); ?></h1>
 
             <p class="hero-standard-sub">
-              The teachers behind every Shala training — senior, specialist and
-              experienced. Each module of our 200-Hour and 300-Hour programmes
-              is led by a dedicated subject expert, so you learn from those who
-              have devoted their careers to the practice they teach.
+              <?php echo esc_html($hero_subtitle); ?>
             </p>
           </div>
         </div>
@@ -50,249 +60,60 @@
       <!-- TEACHERS GRID -->
       <div class="teachers-section reveal">
         <div class="teachers-grid">
-          <a href="faculty/gingi-lee.html" class="tc">
-            <div class="tc-img">
-              <img src="assets/images/gingi-lee.jpg" alt="Gingi Lee" />
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Gingi</span><span class="sn">Lee</span>
-              </div>
-              <div class="tc-spec">
-                Founder · Adjustments &amp; Assists · Yoga Philosophy
-              </div>
-            </div>
-          </a>
+          
 
-          <a href="faculty/adelene-cheong.html" class="tc">
-            <div class="tc-img">
-              <img
-                src="assets/images/adelene-cheong.jpg"
-                alt="Adelene Cheong"
-              />
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Adelene</span><span class="sn">Cheong</span>
-              </div>
-              <div class="tc-spec">
-                Yoga for Scoliosis · Restorative Yoga · Somatic Embodiment
-              </div>
-            </div>
-          </a>
+         <?php if ($featured_faculty_grid) : ?>
+            <?php foreach ($featured_faculty_grid as $faculty_member) : ?>
+                <?php
+                $faculty_id = $faculty_member->ID;
 
-          <a href="faculty/alexa-dean.html" class="tc">
-            <div class="tc-img">
-              <img src="assets/images/alexa-dean.jpg" alt="Alexa Dean" />
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Alexa</span><span class="sn">Dean</span>
-              </div>
-              <div class="tc-spec">
-                Pregnancy Yoga · Women's Health · Postnatal
-              </div>
-            </div>
-          </a>
+                $faculty_name = get_the_title($faculty_id);
+                $faculty_link = get_permalink($faculty_id);
+                $card_image = get_field('card_image', $faculty_id);
+                $highlighted_tags = get_field('highlighted_tags', $faculty_id);
 
-          <a href="faculty/anne-malone.html" class="tc">
-            <div class="tc-img">
-              <img src="assets/images/anne-malone.jpg" alt="Anne Malone" />
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Anne</span><span class="sn">Malone</span>
-              </div>
-              <div class="tc-spec">Vinyasa · Alignment · Therapeutics</div>
-            </div>
-          </a>
+                $name_parts = explode(' ', $faculty_name, 2);
+                $first_name = $name_parts[0];
+                $surname = $name_parts[1] ?? '';
+                ?>
 
-          <a href="faculty/charli-van-ness.html" class="tc">
-            <div class="tc-img">
-              <img
-                src="assets/images/charli-van-ness.jpg"
-                alt="Charli Van Ness"
-              />
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Charli</span><span class="sn">Van Ness</span>
-              </div>
-              <div class="tc-spec">
-                Kids Yoga · Creative Sequencing · 200-Hour Training
-              </div>
-            </div>
-          </a>
+                <a href="<?php echo esc_url($faculty_link); ?>" class="tc">
+                    <?php if ($card_image) : ?>
+                        <img
+                            class="tc-img"
+                            src="<?php echo esc_url($card_image['url']); ?>"
+                            alt="<?php echo esc_attr($card_image['alt']); ?>"
+                        >
+                    <?php else : ?>
+                        <div class="tc-placeholder">
+                            <svg width="70" height="90" viewBox="0 0 70 90">
+                                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
+                                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
+                            </svg>
+                        </div>
+                    <?php endif; ?>
 
-          <a href="faculty/daniel-simpson.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Daniel</span><span class="sn">Simpson</span>
-              </div>
-              <div class="tc-spec">
-                Yoga Philosophy · Yoga Sutras · Practice Club
-              </div>
-            </div>
-          </a>
+                    <div class="tc-tint"></div>
+                    <div class="tc-fade"></div>
 
-          <a href="faculty/dina-cohen.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Dina</span><span class="sn">Cohen</span>
-              </div>
-              <div class="tc-spec">Hatha · Chair Yoga · Yoga Nidra</div>
-            </div>
-          </a>
+                    <div class="tc-body">
+                        <div class="tc-name">
+                            <span class="fn"><?php echo esc_html($first_name); ?></span>
+                            <span class="sn"><?php echo esc_html($surname); ?></span>
+                        </div>
 
-          <a href="faculty/ellie-grace.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Ellie</span><span class="sn">Grace</span>
-              </div>
-              <div class="tc-spec">
-                Trauma Informed Yoga · Somatic · Therapeutic
-              </div>
-            </div>
-          </a>
+                        <?php if ($highlighted_tags) : ?>
+                            <div class="tc-spec">
+                                <?php echo esc_html(str_replace("\n", ' · ', trim($highlighted_tags))); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </a>
 
-          <a href="faculty/emma-landolt.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Emma</span><span class="sn">Landolt</span>
-              </div>
-              <div class="tc-spec">Elemental Mandala · Vinyasa Flow</div>
-            </div>
-          </a>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
-          <a href="faculty/jennie-wadsten-sharma.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Jennie</span
-                ><span class="sn">Wadsten Sharma</span>
-              </div>
-              <div class="tc-spec">Yoga Nidra · Pranayama · Meditation</div>
-            </div>
-          </a>
-
-          <a href="faculty/kookie-punam-gill.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Kookie Punam</span><span class="sn">Gill</span>
-              </div>
-              <div class="tc-spec">EDI · Community · Inclusive Practice</div>
-            </div>
-          </a>
-
-          <a href="faculty/matthew-clark.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Dr Matthew</span><span class="sn">Clark</span>
-              </div>
-              <div class="tc-spec">Yoga History · Philosophy · Sanskrit</div>
-            </div>
-          </a>
-
-          <a href="faculty/melanie-cooper.html" class="tc">
-            <div class="tc-img">
-              <img
-                src="assets/images/melanie-cooper.jpg"
-                alt="Melanie Cooper"
-              />
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Melanie</span><span class="sn">Cooper</span>
-              </div>
-              <div class="tc-spec">
-                Anatomy &amp; Physiology · 200-Hour · 300-Hour
-              </div>
-            </div>
-          </a>
-
-          <a href="faculty/norman-blair.html" class="tc">
-            <div class="tc-placeholder">
-              <svg width="70" height="90" viewBox="0 0 70 90">
-                <circle cx="35" cy="26" r="18" fill="#9E8D95" />
-                <ellipse cx="35" cy="78" rx="30" ry="22" fill="#9E8D95" />
-              </svg>
-            </div>
-            <div class="tc-tint"></div>
-            <div class="tc-fade"></div>
-            <div class="tc-body">
-              <div class="tc-name">
-                <span class="fn">Norman</span><span class="sn">Blair</span>
-              </div>
-              <div class="tc-spec">Yin Yoga · Mindfulness · Meditation</div>
-            </div>
-          </a>
+         
         </div>
       </div>
 

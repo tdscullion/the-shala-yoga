@@ -7,7 +7,7 @@
         <!-- Sticky Bar & Hero -->
         <?php
         $course_intro = get_field('course_intro');
-        $short_title = get_field('short_title') ?: get_the_title();
+        $short_title = get_field('course_hero_title');
         $display_date = get_field('display_date');
         $course_price = get_field('course_price');
         $course_format = get_field('course_format');

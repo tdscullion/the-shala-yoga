@@ -4,6 +4,9 @@ Template Name: Bursaries Page
 */
 
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
 ?>
 
 <main id="main-content">
@@ -18,14 +21,11 @@ get_header();
 
         <div class="hero-utility-inner">
           <h1 class="hero-utility-title">
-            Diversity &amp; Inclusion<br /><em>Bursary</em>
+             <?php echo theshala_highlight_text($hero_title); ?>
           </h1>
 
           <p class="hero-utility-sub">
-            Yoga should be made accessible to everyone, though often it is not
-            reaching the communities that need it the most. Our bursary exists
-            to support people from groups historically marginalised in the yoga
-            world, who may not otherwise have access to yoga teacher training.
+              <?php echo esc_html($hero_subtitle); ?>            
           </p>
         </div>
       </section>

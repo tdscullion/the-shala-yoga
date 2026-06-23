@@ -3,7 +3,15 @@
 Template Name: CPDs Page
 */
 
-get_header(); ?>
+get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
+$hero_button_1_text = get_field('hero_button_1_text');
+$hero_button_1_link = get_field('hero_button_1_link');
+$hero_button_2_text = get_field('hero_button_2_text');
+$hero_button_2_link = get_field('hero_button_2_link');
+?>
 
  <main id="main-content">
       <section class="hero-standard bg-linen text-on-light">
@@ -15,17 +23,34 @@ get_header(); ?>
             aria-hidden="true"
           />
           <div class="hero-standard-content">
-            <h1 class="hero-standard-title">CPD &amp; <em>Modules</em></h1>
+            <h1 class="hero-standard-title">
+              <?php echo theshala_highlight_text($hero_title); ?>
+            </h1>
 
             <p class="hero-standard-sub">
-              Deepen your practice, expand your skills, and find your specialism
-              — from single-day workshops to multi-week immersions with some of
-              the UK's most respected teachers.
+              <?php echo esc_html($hero_subtitle); ?>
             </p>
 
             <div class="hero-standard-btns">
-              <a href="#" class="btn btn-pink">Browse Modules</a>
-              <a href="#" class="btn-ghost btn-pink">300-Hour →</a>
+             <?php if ($hero_button_1_text && $hero_button_1_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_1_link['url']); ?>"
+                      class="btn btn-pink"
+                      target="<?php echo esc_attr($hero_button_1_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_1_text); ?>
+                  </a>
+              <?php endif; ?>
+
+              <?php if ($hero_button_2_text && $hero_button_2_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_2_link['url']); ?>"
+                      class="btn-ghost btn-pink"
+                      target="<?php echo esc_attr($hero_button_2_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_2_text); ?>
+                  </a>
+              <?php endif; ?>
             </div>
           </div>
         </div>

@@ -268,22 +268,21 @@
   border-bottom-color: var(--pink);
 }
 
-/* ══ MAP PLACEHOLDER ══ */
+/* ══ MAP ══ */
 .map-embed {
   width: 100%;
-  height: 380px;
-  background: var(--linen);
-  border: 1px solid var(--greige);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 500px;
+  border-radius: 4px;
+  overflow: hidden;
 }
-.map-embed span {
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-light);
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
+
 .transport-link {
   display: inline-block;
   margin-top: 14px;

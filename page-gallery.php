@@ -5,6 +5,12 @@ Template Name: Gallery Page
 */
 
 get_header(); 
+
+$gallery_all_images = get_field('gallery_all_images');
+$gallery_200_hour_images = get_field('gallery_200_hour_images');
+$gallery_300_hour_images = get_field('gallery_300_hour_images');
+$gallery_cpds_images = get_field('gallery_cpds_images');
+$gallery_retreats_images = get_field('gallery_retreats_images');
 ?>
 
     <main id="main-content">
@@ -30,592 +36,92 @@ get_header();
 
           <!-- ALL -->
           <div class="tab-panel active" data-panel="all">
-            <div class="mosaic" data-gallery="all">
-              <div class="m-cell c1">
-                <img
-                  src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
+              <div class="mosaic" data-gallery="all">
+                  <?php if ($gallery_all_images) : ?>
+                      <?php foreach ($gallery_all_images as $index => $image) : ?>
+                          <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
+                              <img
+                                  src="<?php echo esc_url($image['url']); ?>"
+                                  alt="<?php echo esc_attr($image['alt']); ?>"
+                              >
+                              <div class="m-tint"></div>
+                              <div class="m-zoom">+</div>
+                          </div>
+                      <?php endforeach; ?>
+                  <?php endif; ?>
               </div>
-              <div class="m-cell c2">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c3">
-                <img
-                  src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c4">
-                <img
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c5">
-                <img
-                  src="https://images.unsplash.com/photo-1517363898874-737b62a7db91?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c6">
-                <img
-                  src="https://images.unsplash.com/photo-1552286450-4a669f880062?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c7">
-                <img
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c8">
-                <img
-                  src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c9">
-                <img
-                  src="https://images.unsplash.com/photo-1540206395-68808572332f?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c10">
-                <img
-                  src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?w=900&h=500&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c11">
-                <img
-                  src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c12">
-                <img
-                  src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c13">
-                <img
-                  src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&h=600&fit=crop&sat=-20"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c14">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-            </div>
           </div>
 
           <!-- 200 HOUR -->
           <div class="tab-panel" data-panel="200">
-            <div class="mosaic" data-gallery="200">
-              <div class="m-cell c1">
-                <img
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
+              <div class="mosaic" data-gallery="200">
+                  <?php if ($gallery_200_hour_images) : ?>
+                      <?php foreach ($gallery_200_hour_images as $index => $image) : ?>
+                          <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
+                              <img
+                                  src="<?php echo esc_url($image['url']); ?>"
+                                  alt="<?php echo esc_attr($image['alt']); ?>"
+                              >
+                              <div class="m-tint"></div>
+                              <div class="m-zoom">+</div>
+                          </div>
+                      <?php endforeach; ?>
+                  <?php endif; ?>
               </div>
-              <div class="m-cell c2">
-                <img
-                  src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=900&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c3">
-                <img
-                  src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c4">
-                <img
-                  src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c5">
-                <img
-                  src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c6">
-                <img
-                  src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c7">
-                <img
-                  src="https://images.unsplash.com/photo-1552286450-4a669f880062?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c8">
-                <img
-                  src="https://images.unsplash.com/photo-1517363898874-737b62a7db91?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c9">
-                <img
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c10">
-                <img
-                  src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?w=900&h=500&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c11">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c12">
-                <img
-                  src="https://images.unsplash.com/photo-1540206395-68808572332f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c13">
-                <img
-                  src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c14">
-                <img
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-            </div>
           </div>
 
           <!-- 300 HOUR -->
           <div class="tab-panel" data-panel="300">
-            <div class="mosaic" data-gallery="300">
-              <div class="m-cell c1">
-                <img
-                  src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
+              <div class="mosaic" data-gallery="300">
+                  <?php if ($gallery_300_hour_images) : ?>
+                      <?php foreach ($gallery_300_hour_images as $index => $image) : ?>
+                          <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
+                              <img
+                                  src="<?php echo esc_url($image['url']); ?>"
+                                  alt="<?php echo esc_attr($image['alt']); ?>"
+                              >
+                              <div class="m-tint"></div>
+                              <div class="m-zoom">+</div>
+                          </div>
+                      <?php endforeach; ?>
+                  <?php endif; ?>
               </div>
-              <div class="m-cell c2">
-                <img
-                  src="https://images.unsplash.com/photo-1552286450-4a669f880062?w=900&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c3">
-                <img
-                  src="https://images.unsplash.com/photo-1517363898874-737b62a7db91?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c4">
-                <img
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c5">
-                <img
-                  src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c6">
-                <img
-                  src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c7">
-                <img
-                  src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c8">
-                <img
-                  src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c9">
-                <img
-                  src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c10">
-                <img
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=900&h=500&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c11">
-                <img
-                  src="https://images.unsplash.com/photo-1540206395-68808572332f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c12">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c13">
-                <img
-                  src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c14">
-                <img
-                  src="https://images.unsplash.com/photo-1552286450-4a669f880062?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-            </div>
           </div>
 
           <!-- CPD -->
           <div class="tab-panel" data-panel="cpd">
-            <div class="mosaic" data-gallery="cpd">
-              <div class="m-cell c1">
-                <img
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
+              <div class="mosaic" data-gallery="cpd">
+                  <?php if ($gallery_cpds_images) : ?>
+                      <?php foreach ($gallery_cpds_images as $index => $image) : ?>
+                          <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
+                              <img
+                                  src="<?php echo esc_url($image['url']); ?>"
+                                  alt="<?php echo esc_attr($image['alt']); ?>"
+                              >
+                              <div class="m-tint"></div>
+                              <div class="m-zoom">+</div>
+                          </div>
+                      <?php endforeach; ?>
+                  <?php endif; ?>
               </div>
-              <div class="m-cell c2">
-                <img
-                  src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=900&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c3">
-                <img
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c4">
-                <img
-                  src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c5">
-                <img
-                  src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c6">
-                <img
-                  src="https://images.unsplash.com/photo-1517363898874-737b62a7db91?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c7">
-                <img
-                  src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c8">
-                <img
-                  src="https://images.unsplash.com/photo-1552286450-4a669f880062?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c9">
-                <img
-                  src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c10">
-                <img
-                  src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?w=900&h=500&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c11">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c12">
-                <img
-                  src="https://images.unsplash.com/photo-1540206395-68808572332f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c13">
-                <img
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c14">
-                <img
-                  src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-            </div>
           </div>
 
           <!-- RETREATS -->
           <div class="tab-panel" data-panel="retreats">
-            <div class="mosaic" data-gallery="retreats">
-              <div class="m-cell c1">
-                <img
-                  src="https://images.unsplash.com/photo-1540206395-68808572332f?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
+              <div class="mosaic" data-gallery="retreats">
+                  <?php if ($gallery_retreats_images) : ?>
+                      <?php foreach ($gallery_retreats_images as $index => $image) : ?>
+                          <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
+                              <img
+                                  src="<?php echo esc_url($image['url']); ?>"
+                                  alt="<?php echo esc_attr($image['alt']); ?>"
+                              >
+                              <div class="m-tint"></div>
+                              <div class="m-zoom">+</div>
+                          </div>
+                      <?php endforeach; ?>
+                  <?php endif; ?>
               </div>
-              <div class="m-cell c2">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c3">
-                <img
-                  src="https://images.unsplash.com/photo-1593810450967-f9c42742e326?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c4">
-                <img
-                  src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c5">
-                <img
-                  src="https://images.unsplash.com/photo-1552286450-4a669f880062?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c6">
-                <img
-                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c7">
-                <img
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c8">
-                <img
-                  src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c9">
-                <img
-                  src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=700&h=900&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c10">
-                <img
-                  src="https://images.unsplash.com/photo-1517363898874-737b62a7db91?w=900&h=500&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c11">
-                <img
-                  src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c12">
-                <img
-                  src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c13">
-                <img
-                  src="https://images.unsplash.com/photo-1540206395-68808572332f?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-              <div class="m-cell c14">
-                <img
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=600&fit=crop"
-                  alt=""
-                />
-                <div class="m-tint"></div>
-                <div class="m-zoom">+</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

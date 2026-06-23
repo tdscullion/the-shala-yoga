@@ -4,6 +4,13 @@ Template Name: 200 Hour Page
 */
 
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
+$hero_button_1_text = get_field('hero_button_1_text');
+$hero_button_1_link = get_field('hero_button_1_link');
+$hero_button_2_text = get_field('hero_button_2_text');
+$hero_button_2_link = get_field('hero_button_2_link');
 ?>
 
     <main id="main-content">
@@ -40,19 +47,35 @@ get_header();
           />
           <div class="hero-standard-content">
             <h1 class="hero-standard-title">
-              200-Hour Yoga<br /><em>Teacher Training</em>
+              <?php echo theshala_highlight_text($hero_title); ?>
             </h1>
 
             <p class="hero-standard-sub">
-              A soulful, thought provoking seven-month immersion in the
-              practice, philosophy and craft of yoga — likely to change the way
-              you move, think and live your life. Led by Gingi Lee &amp; Charli
-              Van Ness.
+             <?php echo esc_html($hero_subtitle); ?>
             </p>
 
             <div class="hero-standard-btns">
-              <a href="#" class="btn btn-pink">Browse Modules</a>
-              <a href="#" class="btn-ghost btn-pink">300-Hour →</a>
+              <!-- <a href="#" class="btn btn-pink">Browse Modules</a>
+              <a href="#" class="btn-ghost btn-pink">300-Hour →</a> -->
+              <?php if ($hero_button_1_text && $hero_button_1_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_1_link['url']); ?>"
+                      class="btn btn-pink"
+                      target="<?php echo esc_attr($hero_button_1_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_1_text); ?>
+                  </a>
+              <?php endif; ?>
+
+              <?php if ($hero_button_2_text && $hero_button_2_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_2_link['url']); ?>"
+                      class="btn-ghost btn-pink"
+                      target="<?php echo esc_attr($hero_button_2_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_2_text); ?>
+                  </a>
+              <?php endif; ?>
             </div>
           </div>
         </div>

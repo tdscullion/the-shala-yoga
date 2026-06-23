@@ -1,4 +1,45 @@
-<?php get_header(); ?>
+<?php
+
+get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
+$hero_button_1_text = get_field('hero_button_1_text');
+$hero_button_1_link = get_field('hero_button_1_link');
+$hero_button_2_text = get_field('hero_button_2_text');
+$hero_button_2_link = get_field('hero_button_2_link');
+
+$show_flagship_section = get_field('show_flagship_section');
+$flagship_200_image = get_field('flagship_200_image');
+$flagship_300_image = get_field('flagship_300_image');
+
+$show_retreat_section = get_field('show_retreat_section');
+$retreat_heading = get_field('retreat_heading');
+$retreat_link = get_field('retreat_link');
+$retreat_title = get_field('retreat_title');
+$retreat_dates_label = get_field('retreat_dates_label');
+$retreat_options = get_field('retreat_options');
+$retreat_description = get_field('retreat_description');
+$retreat_meta_1_label = get_field('retreat_meta_1_label');
+$retreat_meta_1_value = get_field('retreat_meta_1_value');
+$retreat_meta_2_label = get_field('retreat_meta_2_label');
+$retreat_meta_2_value = get_field('retreat_meta_2_value');
+$retreat_meta_3_label = get_field('retreat_meta_3_label');
+$retreat_meta_3_value = get_field('retreat_meta_3_value');
+$retreat_button = get_field('retreat_button');
+$retreat_image_1_wide = get_field('retreat_image_1_wide');
+$retreat_image_2 = get_field('retreat_image_2');
+$retreat_image_3 = get_field('retreat_image_3');
+$retreat_image_4 = get_field('retreat_image_4');
+$retreat_image_5_wide = get_field('retreat_image_5_wide');
+$retreat_image_6 = get_field('retreat_image_6');
+
+$gallery_image_1 = get_field('gallery_image_1');
+$gallery_image_2 = get_field('gallery_image_2');
+$gallery_image_3 = get_field('gallery_image_3');
+$gallery_image_4 = get_field('gallery_image_4');
+$gallery_image_5 = get_field('gallery_image_5');
+?>
 
 
     <main id="main-content">
@@ -11,22 +52,36 @@
 
           <div class="hero-home-titlewrap">
             <h1 class="hero-home-title">
-              Authentic yoga education — grounded, transformative, profoundly
-              <em>human.</em>
+              <?php echo theshala_highlight_text($hero_title); ?>
             </h1>
           </div>
 
           <div class="hero-home-textcol">
             <div class="hero-home-textinner">
               <p class="hero-home-sub">
-                Yoga education rooted in decades of experience, exceptional
-                teachers and genuine connection — where ancient wisdom meets
-                modern insight to deepen personal and professional growth.
+                <?php echo esc_html($hero_subtitle); ?>
               </p>
 
               <div class="hero-home-btns">
-                <a href="#" class="btn btn-pink">Explore Courses</a>
-                <a href="#" class="btn btn-ghost-pink">Our Story</a>
+                 <?php if ($hero_button_1_text && $hero_button_1_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_1_link['url']); ?>"
+                      class="btn btn-pink"
+                      target="<?php echo esc_attr($hero_button_1_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_1_text); ?>
+                  </a>
+                  <?php endif; ?>
+
+                  <?php if ($hero_button_2_text && $hero_button_2_link) : ?>
+                    <a
+                        href="<?php echo esc_url($hero_button_2_link['url']); ?>"
+                        class="btn-ghost btn-pink"
+                        target="<?php echo esc_attr($hero_button_2_link['target']); ?>"
+                    >
+                        <?php echo esc_html($hero_button_2_text); ?>
+                    </a>
+                  <?php endif; ?>
               </div>
             </div>
           </div>
@@ -66,202 +121,165 @@
       </div>
 
       <!-- COURSE CAROUSEL -->
-      <section class="carousel-section" id="section-courses">
-        <h2 class="sr-only">Courses</h2>
-        <div class="carousel-header">
-          <div>
-            <h3 class="section-heading" style="margin-bottom: 0">
-              Choose a <em>course</em>
-            </h3>
+       <section class="carousel-section" id="section-courses">
+          <h2 class="sr-only">Courses</h2>
+
+          <div class="carousel-header">
+              <div>
+                  <h3 class="section-heading" style="margin-bottom: 0">
+                      Choose a <em>course</em>
+                  </h3>
+              </div>
+
+              <div class="slider-arrows">
+                  <button class="s-arrow" onclick="shiftCar(-1)">←</button>
+                  <button class="s-arrow" onclick="shiftCar(1)">→</button>
+              </div>
           </div>
-          <div class="slider-arrows">
-            <button class="s-arrow" onclick="shiftCar(-1)">←</button>
-            <button class="s-arrow" onclick="shiftCar(1)">→</button>
+
+          <div class="carousel-track-wrap">
+              <div class="carousel-track" id="carTrack">
+
+                  <?php
+                  $today = date('Ymd');
+
+                  $home_courses = new WP_Query([
+                      'post_type'      => 'course',
+                      'posts_per_page' => 8,
+                      'meta_key'       => 'start_date',
+                      'orderby'        => 'meta_value',
+                      'order'          => 'ASC',
+                      'meta_query'     => [
+                          [
+                              'key'     => 'start_date',
+                              'value'   => $today,
+                              'compare' => '>=',
+                              'type'    => 'NUMERIC',
+                          ],
+                      ],
+                  ]);
+
+                  if ($home_courses->have_posts()) :
+                      while ($home_courses->have_posts()) :
+                          $home_courses->the_post();
+
+                          $course_id = get_the_ID();
+                          $course_title = get_field('short_title', $course_id);
+
+                          if (!$course_title) {
+                              $course_title = get_the_title();
+                          }
+
+                          $course_link = get_permalink();
+                          
+                          $course_card_image = get_field('course_card_image', $course_id);
+                          $course_price = get_field('course_price', $course_id);
+                          $course_start_date = get_field('start_date', $course_id);
+                          $course_card_dates = get_field('course_card_dates', $course_id);
+
+                          $tint_colours = [
+                              'rgba(212, 0, 98, 1)',  // pink
+                              'rgba(59, 19, 46, 1)',  // plum
+                              'rgba(75, 58, 67, 1)',  // mauve
+                              'rgba(139, 82, 0, 1)',  // amber
+                          ];
+
+                          $tint_index = $home_courses->current_post % count($tint_colours);
+                          $course_tint = $tint_colours[$tint_index];
+                          $course_format = get_field('course_format', $course_id);
+                          $course_instructors = get_field('course_instructors', $course_id);
+
+                          $teacher_names = '';
+
+                          if ($course_instructors) {
+                              $names = [];
+
+                              foreach ($course_instructors as $instructor) {
+                                  if (is_object($instructor)) {
+                                      $names[] = get_the_title($instructor->ID);
+                                  } else {
+                                      $names[] = get_the_title($instructor);
+                                  }
+                              }
+
+                              $teacher_names = implode(', ', $names);
+                          }
+                          ?>
+
+                          <a href="<?php echo esc_url($course_link); ?>" class="cc">
+                              <div class="cc-bg">
+                                  <?php if ($course_card_image) : ?>
+                                      <img
+                                          src="<?php echo esc_url($course_card_image['url']); ?>"
+                                          alt="<?php echo esc_attr($course_card_image['alt']); ?>"
+                                      />
+                                  <?php endif; ?>
+                              </div>
+
+                              <div
+                                  class="cc-tint"
+                                  style="background: <?php echo esc_attr($course_tint); ?>"
+                              ></div>
+
+                              <div class="cc-fade"></div>
+
+                              <div class="cc-body">
+                                  <?php if ($course_format) : ?>
+                                      <span class="cc-tag">
+                                          <?php
+                                          if (is_array($course_format)) {
+                                              echo esc_html(implode(' + ', array_column($course_format, 'label')));
+                                          } else {
+                                              echo esc_html($course_format);
+                                          }
+                                          ?>
+                                      </span>
+                                  <?php endif; ?>
+
+                                  <div class="cc-title">
+                                      <?php echo esc_html($course_title); ?>
+                                  </div>
+
+                                  <?php if ($teacher_names) : ?>
+                                      <div class="cc-teacher">
+                                          <?php echo esc_html($teacher_names); ?>
+                                      </div>
+                                  <?php endif; ?>
+
+                                  <div class="cc-foot">
+                                      <div class="cc-date">
+                                          <?php if ($course_card_dates) : ?>
+                                              <strong>
+                                                  <?php echo esc_html($course_card_dates); ?>
+                                              </strong>
+                                          <?php endif; ?>
+
+                                          <?php if ($course_price) : ?>
+                                            <span class="cc-price">
+                                                <?php echo esc_html($course_price); ?>
+                                            </span>
+                                        <?php endif; ?>
+                                      </div>
+                                  </div>
+                              </div>
+                          </a>
+
+                      <?php
+                      endwhile;
+                      wp_reset_postdata();
+                  endif;
+                  ?>
+
+              </div>
           </div>
-        </div>
-        <div class="carousel-track-wrap">
-          <div class="carousel-track" id="carTrack">
-            <div class="cc">
-              <div class="cc-bg">
-                <img
-                  src="assets/images/course-sequencing.jpg"
-                  alt="Creative Yoga Sequencing"
-                />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(212, 0, 98, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">Studio + Livestream</span>
-                <div class="cc-title">Creative Yoga Sequencing</div>
-                <div class="cc-teacher">Melanie Cooper</div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>21–23 Mar 2026</strong>£395</div>
-                </div>
-              </div>
-            </div>
 
-            <div class="cc">
-              <div class="cc-bg">
-                <img
-                  src="assets/images/course-kids-yoga.jpg"
-                  alt="Holistic Kids Yoga"
-                />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(59, 19, 46, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">Studio + Livestream</span>
-                <div class="cc-title">Holistic Kids Yoga</div>
-                <div class="cc-teacher">Charli Van Ness</div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>10–12 Apr 2026</strong>£595</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cc">
-              <div class="cc-bg">
-                <img
-                  src="assets/images/course-chair-yoga.jpg"
-                  alt="Chair Yoga"
-                />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(75, 58, 67, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">Studio + Livestream</span>
-                <div class="cc-title">Chair Yoga</div>
-                <div class="cc-teacher">Dina Cohen</div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>9–26 Apr 2026</strong>£195</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cc">
-              <div class="cc-bg">
-                <img
-                  src="assets/images/course-trauma-yoga.jpg"
-                  alt="Trauma Informed Yoga"
-                />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(140, 0, 63, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">Livestream</span>
-                <div class="cc-title">Trauma Informed Yoga</div>
-                <div class="cc-teacher">Ellie Grace</div>
-                <div class="cc-foot">
-                  <div class="cc-date">
-                    <strong>14 Apr – 19 May</strong>£450
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cc">
-              <div class="cc-bg">
-                <img src="assets/images/course-nidra.jpg" alt="Yoga Nidra" />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(139, 82, 0, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">Livestream</span>
-                <div class="cc-title">Yoga Nidra</div>
-                <div class="cc-teacher">
-                  Melanie Cooper &amp; Jennie Wadsten Sharma
-                </div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>24–26 Apr 2026</strong>£395</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cc">
-              <div class="cc-bg">
-                <img
-                  src="assets/images/course-adjustments.jpg"
-                  alt="Yoga Adjusts"
-                />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(59, 19, 46, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">In Studio</span>
-                <div class="cc-title">Yoga Adjusts &amp; Assists</div>
-                <div class="cc-teacher">Gingi Lee</div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>9–11 May 2026</strong>£450</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cc">
-              <div class="cc-bg">
-                <img src="assets/images/course-yin.jpg" alt="Yin Yoga" />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(59, 19, 46, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">In Studio</span>
-                <div class="cc-title">Yin Yoga</div>
-                <div class="cc-teacher">Norman Blair</div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>15–19 May 2026</strong>£675</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cc">
-              <div class="cc-bg">
-                <img
-                  src="assets/images/course-elemental.jpg"
-                  alt="Elemental Mandala Vinyasa"
-                />
-              </div>
-              <div
-                class="cc-tint"
-                style="background: rgba(212, 0, 98, 1)"
-              ></div>
-              <div class="cc-fade"></div>
-              <div class="cc-body">
-                <span class="cc-tag">In Studio</span>
-                <div class="cc-title">Elemental Mandala Vinyasa</div>
-                <div class="cc-teacher">Emma Landolt</div>
-                <div class="cc-foot">
-                  <div class="cc-date"><strong>6–8 Jun 2026</strong>£450</div>
-                </div>
-              </div>
-            </div>
+          <div class="carousel-footer">
+              <a href="<?php echo esc_url(home_url('/cpds')); ?>" class="see-all see-all-strong">
+                  View all 25+ courses →
+              </a>
           </div>
-        </div>
-        <div class="carousel-footer">
-          <a href="/cpds" class="see-all see-all-strong"
-            >View all 25+ courses →</a
-          >
-        </div>
       </section>
+     
 
       <!-- TRAINING PATHS -->
       <section class="paths-section" id="section-paths">
@@ -370,6 +388,7 @@
       </section>
 
       <!-- FLAGSHIP PROGRAMMES -->
+       <?php if ($show_flagship_section) : ?>
       <section class="flagship-section" id="section-flagship">
         <h2 class="sr-only">200 &amp; 300 Hour</h2>
         <div class="flagship-inner">
@@ -387,10 +406,12 @@
             <div class="fc">
               <div class="fc-image-layer">
                 <div class="fc-bg">
-                  <img
-                    src="assets/images/200-hour-hero.jpg"
-                    alt="200-Hour YTT"
-                  />
+                  <?php if ($flagship_200_image) : ?>
+                      <img
+                          src="<?php echo esc_url($flagship_200_image['url']); ?>"
+                          alt="<?php echo esc_attr($flagship_200_image['alt']); ?>"
+                      />
+                  <?php endif; ?>
                 </div>
                 <div class="fc-fade"></div>
               </div>
@@ -437,10 +458,12 @@
             <div class="fc">
               <div class="fc-image-layer">
                 <div class="fc-bg">
-                  <img
-                    src="assets/images/300-hour-hero.jpg"
-                    alt="300-Hour YTT"
-                  />
+                  <?php if ($flagship_300_image) : ?>
+                      <img
+                          src="<?php echo esc_url($flagship_300_image['url']); ?>"
+                          alt="<?php echo esc_attr($flagship_300_image['alt']); ?>"
+                      />
+                  <?php endif; ?>
                 </div>
                 <div class="fc-fade"></div>
               </div>
@@ -484,6 +507,7 @@
           </div>
         </div>
       </section>
+      <?php endif; ?>
 
       <!-- WHY TRAIN WITH US -->
       <section class="why-train" id="section-why">
@@ -619,107 +643,92 @@
             <a href="/faculty" class="see-all">All teachers →</a>
           </div>
           <div class="faculty-grid">
-            <div class="fac-card fac-card--gingi">
-              <div class="fac-img">
-                <img src="assets/images/gingi-lee.jpg" alt="Gingi Lee" />
-                <div class="fac-img-fade"></div>
-              </div>
-              <div class="fac-colour">
-                <div class="fac-colour-body">
-                  <span class="fac-tag"
-                    >Founder &amp; Lead Teacher Trainer</span
-                  >
-                  <div class="fac-name"><em>Gingi</em> Lee</div>
-                  <span class="fac-role"
-                    >200-Hour · 300-Hour · Assists &amp; Adjustments</span
-                  >
-                  <p class="fac-bio">
-                    Gingi founded the Shala in 1997 and has been teaching yoga
-                    for over 30 years. He brings rare depth, warmth, humour and
-                    insight to every training — a teacher who changes not just
-                    how you teach, but how you see.
-                  </p>
-                  <a href="/faculty" class="fac-link">About Gingi →</a>
-                </div>
-              </div>
-              <div class="fac-body">
-                <span class="fac-tag">Founder &amp; Lead Teacher Trainer</span>
-                <div class="fac-name"><em>Gingi</em> Lee</div>
-                <span class="fac-role"
-                  >200-Hour · 300-Hour · Assists &amp; Adjustments</span
-                >
-              </div>
-            </div>
+             <?php
+              $featured_faculty = get_field('home_featured_faculty');
 
-            <div class="fac-card fac-card--melanie">
-              <div class="fac-img">
-                <img
-                  src="assets/images/melanie-cooper.jpg"
-                  alt="Melanie Cooper"
-                />
-                <div class="fac-img-fade"></div>
-              </div>
-              <div class="fac-colour">
-                <div class="fac-colour-body">
-                  <span class="fac-tag">Lead Teacher Trainer</span>
-                  <div class="fac-name"><em>Melanie</em> Cooper</div>
-                  <span class="fac-role"
-                    >300-Hour · 200-Hour · Anatomy · Yoga Nidra · Yin Yoga ·
-                    Pranayama</span
-                  >
-                  <p class="fac-bio">
-                    Melanie's teaching is unlike anything else — clear,
-                    accessible, safe and transformative. She brings deep
-                    embodied knowledge and genuine curiosity to every room she
-                    teaches in.
-                  </p>
-                  <a href="/faculty" class="fac-link">About Melanie →</a>
-                </div>
-              </div>
-              <div class="fac-body">
-                <span class="fac-tag">Lead Teacher Trainer</span>
-                <div class="fac-name"><em>Melanie</em> Cooper</div>
-                <span class="fac-role"
-                  >300-Hour · 200-Hour · Anatomy · Yoga Nidra · Yin Yoga ·
-                  Pranayama</span
-                >
-              </div>
-            </div>
+              if ($featured_faculty) :
+                  foreach ($featured_faculty as $faculty_member) :
+                      $faculty_id = $faculty_member->ID;
 
-            <div class="fac-card fac-card--charli">
-              <div class="fac-img">
-                <img
-                  src="assets/images/charli-van-ness.jpg"
-                  alt="Charli Van Ness"
-                />
-                <div class="fac-img-fade"></div>
-              </div>
-              <div class="fac-colour">
-                <div class="fac-colour-body">
-                  <span class="fac-tag">Lead Teacher Trainer</span>
-                  <div class="fac-name"><em>Charli</em> Van Ness</div>
-                  <span class="fac-role"
-                    >200-Hour · 300-Hour · Meditation · Kids Yoga · Somatic Yoga
-                    · Sound Healing</span
-                  >
-                  <p class="fac-bio">
-                    Multi-gifted Charli brings extraordinary skill, lightness,
-                    and rigour to her teaching. Her trainings provide a rich
-                    landscape of knowledge, creativity and self-exploration —
-                    leaving you confident, equipped and inspired.
-                  </p>
-                  <a href="/faculty" class="fac-link">About Charli →</a>
-                </div>
-              </div>
-              <div class="fac-body">
-                <span class="fac-tag">Lead Teacher Trainer</span>
-                <div class="fac-name"><em>Charli</em> Van Ness</div>
-                <span class="fac-role"
-                  >200-Hour · 300-Hour · Meditation · Kids Yoga · Somatic Yoga ·
-                  Sound Healing</span
-                >
-              </div>
-            </div>
+                      $faculty_name = get_the_title($faculty_id);
+                      $faculty_link = get_permalink($faculty_id);
+                      $card_image = get_field('card_image', $faculty_id);
+
+                      $role_title = get_field('role_title', $faculty_id);
+                      $short_bio = get_field('short_bio', $faculty_id);
+                      $highlighted_tags = get_field('highlighted_tags', $faculty_id);
+
+                      $first_name = strtok($faculty_name, ' ');
+                      $surname = trim(str_replace($first_name, '', $faculty_name));
+              ?>
+
+                      <div class="fac-card">
+                          <div class="fac-img">
+                             <?php if ($card_image) : ?>
+                                <img
+                                    src="<?php echo esc_url($card_image['url']); ?>"
+                                    alt="<?php echo esc_attr($card_image['alt']); ?>"
+                                />
+                              <?php endif; ?>
+
+                              <div class="fac-img-fade"></div>
+                          </div>
+
+                          <div class="fac-colour">
+                              <div class="fac-colour-body">
+                                  <?php if ($role_title) : ?>
+                                      <span class="fac-tag">
+                                          <?php echo esc_html($role_title); ?>
+                                      </span>
+                                  <?php endif; ?>
+
+                                  <div class="fac-name">
+                                      <em><?php echo esc_html($first_name); ?></em>
+                                      <?php echo esc_html($surname); ?>
+                                  </div>
+
+                                  <?php if ($highlighted_tags) : ?>
+                                      <span class="fac-role">
+                                          <?php echo esc_html(str_replace("\n", ' · ', trim($highlighted_tags))); ?>
+                                      </span>
+                                  <?php endif; ?>
+
+                                  <?php if ($short_bio) : ?>
+                                      <p class="fac-bio">
+                                          <?php echo esc_html($short_bio); ?>
+                                      </p>
+                                  <?php endif; ?>
+
+                                  <a href="<?php echo esc_url($faculty_link); ?>" class="fac-link">
+                                      About <?php echo esc_html($first_name); ?> →
+                                  </a>
+                              </div>
+                          </div>
+
+                          <div class="fac-body">
+                              <?php if ($role_title) : ?>
+                                  <span class="fac-tag">
+                                      <?php echo esc_html($role_title); ?>
+                                  </span>
+                              <?php endif; ?>
+
+                              <div class="fac-name">
+                                  <em><?php echo esc_html($first_name); ?></em>
+                                  <?php echo esc_html($surname); ?>
+                              </div>
+
+                              <?php if ($highlighted_tags) : ?>
+                                  <span class="fac-role">
+                                      <?php echo esc_html(str_replace("\n", ' · ', trim($highlighted_tags))); ?>
+                                  </span>
+                              <?php endif; ?>
+                          </div>
+                      </div>
+
+              <?php
+                  endforeach;
+              endif;
+              ?>
           </div>
         </div>
       </section>
@@ -851,7 +860,7 @@
       </section>
 
       <!-- SHALA LIFE GALLERY -->
-      <div class="gallery-band" id="section-life">
+      <section class="gallery-band" id="section-life">
         <h2 class="sr-only">Shala Life</h2>
         <div class="gallery-band-header">
           <div>
@@ -862,95 +871,185 @@
           <a href="/gallery" class="see-all">See our space →</a>
         </div>
         <div class="gallery-grid">
-          <!-- TODO: add gallery images to assets/images/ -->
-          <div class="g-cell g-tall"><div class="g-overlay"></div></div>
-          <div class="g-cell"><div class="g-overlay"></div></div>
-          <div class="g-cell"><div class="g-overlay"></div></div>
-          <div class="g-cell"><div class="g-overlay"></div></div>
-          <div class="g-cell"><div class="g-overlay"></div></div>
-        </div>
-      </div>
+        <!-- GALLERY Grid -->
+          <div class="g-cell g-tall">
+              <?php if ($gallery_image_1) : ?>
+                  <img
+                      src="<?php echo esc_url($gallery_image_1['url']); ?>"
+                      alt="<?php echo esc_attr($gallery_image_1['alt']); ?>"
+                  >
+              <?php endif; ?>
+              <div class="g-overlay"></div>
+          </div>
+          <div class="g-cell">
+              <?php if ($gallery_image_2) : ?>
+                  <img
+                      src="<?php echo esc_url($gallery_image_2['url']); ?>"
+                      alt="<?php echo esc_attr($gallery_image_2['alt']); ?>"
+                  >
+              <?php endif; ?>
+              <div class="g-overlay"></div>
+          </div>                    
+          <div class="g-cell">
+              <?php if ($gallery_image_3) : ?>
+                  <img
+                      src="<?php echo esc_url($gallery_image_3['url']); ?>"
+                      alt="<?php echo esc_attr($gallery_image_3['alt']); ?>"
+                  >
+              <?php endif; ?>
+              <div class="g-overlay"></div>
+          </div>
+          <div class="g-cell">
+              <?php if ($gallery_image_4) : ?>
+                  <img
+                      src="<?php echo esc_url($gallery_image_4['url']); ?>"
+                      alt="<?php echo esc_attr($gallery_image_4['alt']); ?>"
+                  >
+              <?php endif; ?>
+              <div class="g-overlay"></div>
+          </div>
+          <div class="g-cell">
+              <?php if ($gallery_image_5) : ?>
+                  <img
+                      src="<?php echo esc_url($gallery_image_5['url']); ?>"
+                      alt="<?php echo esc_attr($gallery_image_5['alt']); ?>"
+                  >
+              <?php endif; ?>
+              <div class="g-overlay"></div>
+          </div>
 
-      <!-- RETREAT -->
-      <section class="retreat-section" id="section-retreat">
-        <h2 class="sr-only">Retreats</h2>
-        <div class="retreat-inner">
-          <div class="section-header-row">
-            <div>
-              <h3 class="section-heading" style="margin-bottom: 0">
-                Escape <em>2027</em>
-              </h3>
-            </div>
-            <a href="/retreats" class="see-all">Full details →</a>
-          </div>
-          <div class="retreat-layout">
-            <div class="retreat-collage">
-              <div class="rc-cell rc-wide">
-                <img
-                  src="assets/images/ulpotha-wide.jpg"
-                  alt="Ulpotha Sri Lanka"
-                />
-              </div>
-              <div class="rc-cell">
-                <img
-                  src="assets/images/retreat-community.jpg"
-                  alt="Retreat community"
-                />
-              </div>
-              <div class="rc-cell">
-                <img
-                  src="assets/images/retreat-practice.jpg"
-                  alt="Retreat practice"
-                />
-              </div>
-              <div class="rc-cell">
-                <img src="assets/images/retreat-yoga.jpg" alt="Retreat yoga" />
-              </div>
-              <div class="rc-cell rc-span2">
-                <img
-                  src="assets/images/retreat-gathering.jpg"
-                  alt="Retreat gathering"
-                />
-              </div>
-              <div class="rc-cell">
-                <img
-                  src="assets/images/retreat-teaching.jpg"
-                  alt="Retreat teaching"
-                />
-              </div>
-            </div>
-            <div class="retreat-copy">
-              <div class="retreat-accent"></div>
-              <h3 class="retreat-title">Ulpotha Retreat <em>2027</em></h3>
-              <span class="retreat-dates-label">14–28 March 2027</span>
-              <span class="retreat-options"
-                >Available as 1 week or 2 weeks</span
-              >
-              <p class="retreat-desc">
-                Ulpotha is one of the world's most extraordinary retreat
-                sanctuaries. This will be our 8th visit to this ancient village
-                in the Sri Lankan jungle, without electricity, where time slows
-                and practice deepens. A setting unlike anywhere else on earth.
-              </p>
-              <div class="retreat-meta">
-                <div>
-                  <span class="rmi-label">Duration</span
-                  ><span class="rmi-val">1 or 2 weeks</span>
-                </div>
-                <div>
-                  <span class="rmi-label">Dates</span
-                  ><span class="rmi-val">Mar 2027</span>
-                </div>
-                <div>
-                  <span class="rmi-label">Places</span
-                  ><span class="rmi-val">Very Limited</span>
-                </div>
-              </div>
-              <a href="/retreats" class="retreat-btn">Find Out More</a>
-            </div>
-          </div>
         </div>
       </section>
+
+      <!-- RETREAT -->
+      <?php if ($show_retreat_section) : ?>
+      <section class="retreat-section" id="section-retreat">
+          <h2 class="sr-only">Retreats</h2>
+
+          <div class="retreat-inner">
+              <div class="section-header-row">
+                  <div>
+                      <?php if ($retreat_heading) : ?>
+                          <h3 class="section-heading" style="margin-bottom: 0">
+                              <?php echo theshala_highlight_text($retreat_heading); ?>
+                          </h3>
+                      <?php endif; ?>
+                  </div>
+
+                  <?php if ($retreat_link) : ?>
+                      <a
+                          href="<?php echo esc_url($retreat_link['url']); ?>"
+                          class="see-all"
+                          target="<?php echo esc_attr($retreat_link['target']); ?>"
+                      >
+                          <?php echo esc_html($retreat_link['title']); ?>
+                      </a>
+                  <?php endif; ?>
+              </div>
+
+              <div class="retreat-layout">
+                 <div class="retreat-collage">
+                    <div class="rc-cell rc-wide">
+                        <?php if ($retreat_image_1_wide) : ?>
+                            <img src="<?php echo esc_url($retreat_image_1_wide['url']); ?>" alt="<?php echo esc_attr($retreat_image_1_wide['alt']); ?>">
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="rc-cell">
+                        <?php if ($retreat_image_2) : ?>
+                            <img src="<?php echo esc_url($retreat_image_2['url']); ?>" alt="<?php echo esc_attr($retreat_image_2['alt']); ?>">
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="rc-cell">
+                        <?php if ($retreat_image_3) : ?>
+                            <img src="<?php echo esc_url($retreat_image_3['url']); ?>" alt="<?php echo esc_attr($retreat_image_3['alt']); ?>">
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="rc-cell">
+                        <?php if ($retreat_image_4) : ?>
+                            <img src="<?php echo esc_url($retreat_image_4['url']); ?>" alt="<?php echo esc_attr($retreat_image_4['alt']); ?>">
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="rc-cell rc-span2">
+                        <?php if ($retreat_image_5_wide) : ?>
+                            <img src="<?php echo esc_url($retreat_image_5_wide['url']); ?>" alt="<?php echo esc_attr($retreat_image_5_wide['alt']); ?>">
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="rc-cell">
+                        <?php if ($retreat_image_6) : ?>
+                            <img src="<?php echo esc_url($retreat_image_6['url']); ?>" alt="<?php echo esc_attr($retreat_image_6['alt']); ?>">
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                  <div class="retreat-copy">
+                      <div class="retreat-accent"></div>
+
+                      <?php if ($retreat_title) : ?>
+                          <h3 class="retreat-title">
+                              <?php echo theshala_highlight_text($retreat_title); ?>
+                          </h3>
+                      <?php endif; ?>
+
+                      <?php if ($retreat_dates_label) : ?>
+                          <span class="retreat-dates-label">
+                              <?php echo esc_html($retreat_dates_label); ?>
+                          </span>
+                      <?php endif; ?>
+
+                      <?php if ($retreat_options) : ?>
+                          <span class="retreat-options">
+                              <?php echo esc_html($retreat_options); ?>
+                          </span>
+                      <?php endif; ?>
+
+                      <?php if ($retreat_description) : ?>
+                          <p class="retreat-desc">
+                              <?php echo esc_html($retreat_description); ?>
+                          </p>
+                      <?php endif; ?>
+
+                      <div class="retreat-meta">
+                          <?php if ($retreat_meta_1_label || $retreat_meta_1_value) : ?>
+                              <div>
+                                  <span class="rmi-label"><?php echo esc_html($retreat_meta_1_label); ?></span>
+                                  <span class="rmi-val"><?php echo esc_html($retreat_meta_1_value); ?></span>
+                              </div>
+                          <?php endif; ?>
+
+                          <?php if ($retreat_meta_2_label || $retreat_meta_2_value) : ?>
+                              <div>
+                                  <span class="rmi-label"><?php echo esc_html($retreat_meta_2_label); ?></span>
+                                  <span class="rmi-val"><?php echo esc_html($retreat_meta_2_value); ?></span>
+                              </div>
+                          <?php endif; ?>
+
+                          <?php if ($retreat_meta_3_label || $retreat_meta_3_value) : ?>
+                              <div>
+                                  <span class="rmi-label"><?php echo esc_html($retreat_meta_3_label); ?></span>
+                                  <span class="rmi-val"><?php echo esc_html($retreat_meta_3_value); ?></span>
+                              </div>
+                          <?php endif; ?>
+                      </div>
+
+                      <?php if ($retreat_button) : ?>
+                          <a
+                              href="<?php echo esc_url($retreat_button['url']); ?>"
+                              class="retreat-btn"
+                              target="<?php echo esc_attr($retreat_button['target']); ?>"
+                          >
+                              <?php echo esc_html($retreat_button['title']); ?>
+                          </a>
+                      <?php endif; ?>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <?php endif; ?>
 
       <!-- VAHNI BANNER -->
       <div class="vahni-banner">
@@ -995,10 +1094,10 @@
           <div class="vahni-logo-wrap">
             <!-- TODO: add Vahni logo to assets/logos/ -->
             <img
-              src="assets/logos/vahni-logo.jpg"
-              alt="Vahni — the alchemy of wellbeing"
-              style="mix-blend-mode: multiply"
-            />
+                src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/vahni-logo.jpg'); ?>"
+                alt="Vahni — the alchemy of wellbeing"
+                style="mix-blend-mode: multiply"
+            />                
           </div>
         </div>
       </div>
@@ -1023,104 +1122,61 @@
           </div>
           <div class="blog-track-wrap">
             <div class="blog-track" id="blogTrack">
-              <div class="blog-card">
-                <div class="blog-img">
-                  <img src="assets/images/blog-01.jpg" alt="Blog" />
-                </div>
-                <div class="blog-copy">
-                  <span class="blog-cat">Philosophy</span>
-                  <div class="blog-title">
-                    What does it really mean to teach yoga ethically?
-                  </div>
-                  <p class="blog-excerpt">
-                    Beyond the Yamas and Niyamas — a practical look at ethical
-                    teaching in the modern world.
-                  </p>
-                  <span class="blog-meta">Gingi Lee · February 2026</span>
-                </div>
-              </div>
-              <div class="blog-card">
-                <div class="blog-img">
-                  <img src="assets/images/blog-02.jpg" alt="Blog" />
-                </div>
-                <div class="blog-copy">
-                  <span class="blog-cat">Teaching</span>
-                  <div class="blog-title">
-                    How to start teaching yoga to children — the honest guide
-                  </div>
-                  <p class="blog-excerpt">
-                    Charli Van Ness shares what nobody tells you about building
-                    a kids yoga practice.
-                  </p>
-                  <span class="blog-meta">Charli Van Ness · January 2026</span>
-                </div>
-              </div>
-              <div class="blog-card">
-                <div class="blog-img">
-                  <img src="assets/images/blog-03.jpg" alt="Blog" />
-                </div>
-                <div class="blog-copy">
-                  <span class="blog-cat">Anatomy</span>
-                  <div class="blog-title">
-                    Why every yoga teacher needs to understand the nervous
-                    system
-                  </div>
-                  <p class="blog-excerpt">
-                    Melanie Cooper on the one shift in understanding that will
-                    transform your teaching.
-                  </p>
-                  <span class="blog-meta">Melanie Cooper · December 2025</span>
-                </div>
-              </div>
-              <div class="blog-card">
-                <div class="blog-img">
-                  <img src="assets/images/blog-04.jpg" alt="Blog" />
-                </div>
-                <div class="blog-copy">
-                  <span class="blog-cat">Community</span>
-                  <div class="blog-title">
-                    Why the yoga teacher community matters more than you think
-                  </div>
-                  <p class="blog-excerpt">
-                    Gingi Lee on Saha gatherings and why peer connection is the
-                    missing piece in most trainings.
-                  </p>
-                  <span class="blog-meta">Gingi Lee · November 2025</span>
-                </div>
-              </div>
-              <div class="blog-card">
-                <div class="blog-img">
-                  <img src="assets/images/blog-05.jpg" alt="Blog" />
-                </div>
-                <div class="blog-copy">
-                  <span class="blog-cat">Training</span>
-                  <div class="blog-title">
-                    What to expect from your first year as a yoga teacher
-                  </div>
-                  <p class="blog-excerpt">
-                    The questions nobody prepares you for — and how to navigate
-                    them with grace.
-                  </p>
-                  <span class="blog-meta">Charli Van Ness · October 2025</span>
-                </div>
-              </div>
-              <div class="blog-card">
-                <div class="blog-img">
-                  <img src="assets/images/blog-06.jpg" alt="Blog" />
-                </div>
-                <div class="blog-copy">
-                  <span class="blog-cat">Sequencing</span>
-                  <div class="blog-title">
-                    The art of creative sequencing — less formula, more feeling
-                  </div>
-                  <p class="blog-excerpt">
-                    Melanie Cooper on why the best sequences emerge from deep
-                    listening, not clever planning.
-                  </p>
-                  <span class="blog-meta">Melanie Cooper · September 2025</span>
-                </div>
-              </div>
-            </div>
+              <?php
+              $latest_posts = new WP_Query([
+                  'post_type'      => 'post',
+                  'posts_per_page' => 6,
+                  'post_status'    => 'publish',
+              ]);
+
+              if ($latest_posts->have_posts()) :
+                  while ($latest_posts->have_posts()) :
+                      $latest_posts->the_post();
+
+                      $post_id = get_the_ID();
+                      $post_title = get_the_title();
+                      $post_link = get_permalink();
+                      $post_image = get_the_post_thumbnail_url($post_id, 'large');
+                      $post_excerpt = get_the_excerpt();
+                      $categories = get_the_category();
+                      $category_name = !empty($categories) ? $categories[0]->name : 'Blog';
+                      ?>
+
+                      <a href="<?php echo esc_url($post_link); ?>" class="blog-card">
+                          <div class="blog-img">
+                              <?php if ($post_image) : ?>
+                                  <img
+                                      src="<?php echo esc_url($post_image); ?>"
+                                      alt="<?php echo esc_attr($post_title); ?>"
+                                  />
+                              <?php endif; ?>
+                          </div>
+
+                          <div class="blog-copy">
+                              <span class="blog-cat">
+                                  <?php echo esc_html($category_name); ?>
+                              </span>
+
+                              <div class="blog-title">
+                                  <?php echo esc_html($post_title); ?>
+                              </div>
+
+                              <p class="blog-excerpt">
+                                  <?php echo esc_html(wp_trim_words($post_excerpt, 22)); ?>
+                              </p>
+
+                              <span class="blog-meta">
+                                  <?php echo esc_html(get_the_author()); ?> · <?php echo esc_html(get_the_date('F Y')); ?>
+                              </span>
+                          </div>
+                      </a>
+
+                  <?php
+                  endwhile;
+                  wp_reset_postdata();
+              endif;
+              ?>
+          </div>
           </div>
         </div>
       </section>

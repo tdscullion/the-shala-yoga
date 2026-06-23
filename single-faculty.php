@@ -5,6 +5,7 @@
     <?php while (have_posts()) : the_post(); ?>
 
         <?php
+        $hero_display_name = get_field('hero_display_name');
         $role_title = get_field('role_title');
         $hero_intro = get_field('hero_intro');
         $headshot = get_field('headshot');
@@ -36,7 +37,7 @@
                 <div class="hero-teacher-content">
 
                     <h1 class="hero-teacher-name">
-                        <?php the_title(); ?>
+                        <?php echo theshala_highlight_text($hero_display_name ?: get_the_title()); ?>
                     </h1>
 
                     <?php if ($role_title) : ?>

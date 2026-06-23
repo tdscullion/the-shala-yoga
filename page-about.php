@@ -4,30 +4,37 @@ Template Name: About Page
 */
 
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
+$community_carousel_images = get_field('community_carousel_images');
+$intro_image = get_field('intro_image');
+$story_timeline_images = get_field('story_timeline_images');
+$about_faculty_grid = get_field('about_faculty_grid');
 ?>
 
 <main id="main-content">
 
     <section class="hero-standard bg-pinked-linen text-on-light">
-    <div class="hero-standard-inner">
-        <img
-            class="hero-standard-spiral"
-            src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
-            alt=""
-            aria-hidden="true"
-        >
+        <div class="hero-standard-inner">
+            <img
+                class="hero-standard-spiral"
+                src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
+                alt=""
+                aria-hidden="true"
+            >
 
-        <div class="hero-standard-content">
-            <h1 class="hero-standard-title">Our <em>Story</em></h1>
+            <div class="hero-standard-content">
+                <h1 class="hero-standard-title">
+                    <?php echo theshala_highlight_text($hero_title); ?>
+                </h1>
 
-            <p class="hero-standard-sub">
-                Twenty-nine years of teaching, training and tending a community of
-                yoga teachers — built on depth, rigour, and the belief that yoga
-                belongs to everyone.
-            </p>
+                <p class="hero-standard-sub">
+                    <?php echo esc_html($hero_subtitle); ?>
+                </p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
       <!-- STATS BAR -->
       <div class="stats-bar">
@@ -55,58 +62,40 @@ get_header();
       </div>
 
       <!-- COMMUNITY CAROUSEL -->
+      <?php if ($community_carousel_images) : ?>
+
       <div class="carousel-band">
-        <div class="carousel-label">
-          <h2 class="carousel-h2">Our <em>community</em></h2>
-          <div class="carousel-controls">
-            <button class="carousel-btn" id="prevBtn">‹</button>
-            <button class="carousel-btn" id="nextBtn">›</button>
+          <div class="carousel-label">
+              <h2 class="carousel-h2">Our <em>community</em></h2>
+
+              <div class="carousel-controls">
+                  <button class="carousel-btn" id="prevBtn">‹</button>
+                  <button class="carousel-btn" id="nextBtn">›</button>
+              </div>
           </div>
-        </div>
-        <div class="carousel-viewport">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="c-card">
-              <img src="assets/images/community-01.jpg" alt="Shala student" />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img src="assets/images/community-02.jpg" alt="Shala community" />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img
-                src="assets/images/community-03.jpg"
-                alt="Personal development"
-              />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img src="assets/images/gingi-lee.jpg" alt="Gingi Lee teaching" />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img src="assets/images/community-04.jpg" alt="Yoga practice" />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img src="assets/images/alexa-dean.jpg" alt="Alexa Dean" />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img src="assets/images/anne-malone.jpg" alt="Anne Malone" />
-              <div class="c-filter"></div>
-            </div>
-            <div class="c-card">
-              <img
-                src="assets/images/adelene-cheong.jpg"
-                alt="Adelene Cheong"
-              />
-              <div class="c-filter"></div>
-            </div>
+
+          <div class="carousel-viewport">
+              <div class="carousel-track" id="carouselTrack">
+
+                  <?php foreach ($community_carousel_images as $image) : ?>
+
+                      <div class="c-card">
+                          <img
+                              src="<?php echo esc_url($image['url']); ?>"
+                              alt="<?php echo esc_attr($image['alt']); ?>"
+                          >
+                          <div class="c-filter"></div>
+                      </div>
+
+                  <?php endforeach; ?>
+
+              </div>
           </div>
-        </div>
-        <div class="carousel-dots" id="carouselDots"></div>
+
+          <div class="carousel-dots" id="carouselDots"></div>
       </div>
+
+      <?php endif; ?>
 
       <!-- INTRO -->
       <section class="intro-band" id="intro">
@@ -147,11 +136,13 @@ get_header();
               </div>
             </div>
             <div class="founder-panel">
-              <img
-                class="founder-img"
-                src="assets/images/gingi-lee.jpg"
-                alt="Gingi Lee, Founder"
-              />
+                <?php if ($intro_image) : ?>
+                  <img
+                      class="founder-img"
+                      src="<?php echo esc_url($intro_image['url']); ?>"
+                      alt="<?php echo esc_attr($intro_image['alt']); ?>"
+                  />
+                <?php endif; ?>
               <div class="founder-body">
                 <h3 class="founder-name">Founder <em>Gingi</em> Lee</h3>
                 <p class="founder-bio">
@@ -358,51 +349,25 @@ get_header();
               </div>
             </div>
             <div class="story-right-col">
-              <div class="story-img-main">
-                <img
-                  src="assets/images/studio-west-norwood.jpg"
-                  alt="The Shala community"
-                />
-                <div class="story-img-caption">
-                  <p class="story-img-caption-text">
-                    The Shala's Victorian warehouse studio, West Norwood
-                  </p>
-                </div>
-              </div>
-              <div class="story-img-main" style="height: 280px">
-                <img
-                  src="assets/images/teacher-training-classroom.jpg"
-                  alt="Teacher training"
-                />
-                <div class="story-img-caption">
-                  <p class="story-img-caption-text">
-                    In the trainee teacher classroom
-                  </p>
-                </div>
-              </div>
-              <div class="story-img-main" style="height: 280px">
-                <img
-                  src="assets/images/studio-practice.jpg"
-                  alt="Studio practice"
-                />
-                <div class="story-img-caption">
-                  <p class="story-img-caption-text">
-                    Transformation through shared practice
-                  </p>
-                </div>
-              </div>
-              <div class="story-img-main" style="height: 280px">
-                <img
-                  src="assets/images/gingi-lee.jpg"
-                  alt="Teaching at The Shala"
-                />
-                <div class="story-img-caption">
-                  <p class="story-img-caption-text">
-                    Decades of practice and teaching
-                  </p>
-                </div>
-              </div>
-            </div>
+              <?php if ($story_timeline_images) : ?>
+
+                  <?php foreach ($story_timeline_images as $index => $image) : ?>
+
+                      <div
+                          class="story-img-main"
+                          <?php echo $index > 0 ? 'style="height: 280px"' : ''; ?>
+                      >
+                          <img
+                              src="<?php echo esc_url($image['url']); ?>"
+                              alt="<?php echo esc_attr($image['alt']); ?>"
+                          >
+                      </div>
+
+                  <?php endforeach; ?>
+
+              <?php endif; ?>
+
+          </div>
           </div>
         </div>
       </section>
@@ -430,7 +395,7 @@ get_header();
             </p>
             <span class="faculty-quote-attr">— LS, 200-Hour Graduate</span>
           </blockquote>
-          <div class="faculty-unified-grid">
+          <!-- <div class="faculty-unified-grid">
             <a href="/faculty" class="faculty-card faculty-card-lead">
               <span class="fc-eyebrow">Founder · Lead Teacher</span>
               <p class="fc-name-lg"><em>Gingi</em> Lee</p>
@@ -517,6 +482,79 @@ get_header();
               ><span class="fc-name"><em>Kookie</em> Punam Gill</span>
               <div class="fc-tags"><span class="fc-tag">EDI</span></div></a
             >
+          </div> -->
+          <div class="faculty-unified-grid">
+            <?php if ($about_faculty_grid) : ?>
+                <?php foreach ($about_faculty_grid as $index => $faculty_member) : ?>
+
+                    <?php
+                    $faculty_id = $faculty_member->ID;
+
+                    $faculty_name = get_the_title($faculty_id);
+                    $faculty_link = get_permalink($faculty_id);
+
+                    $role_title = get_field('role_title', $faculty_id);
+                    $short_bio = get_field('short_bio', $faculty_id);
+                    $highlighted_tags = get_field('highlighted_tags', $faculty_id);
+
+                    $first_name = strtok($faculty_name, ' ');
+                    $surname = trim(str_replace($first_name, '', $faculty_name));
+
+                    $is_lead_card = $index < 3;
+                    ?>
+
+                    <a
+                        href="<?php echo esc_url($faculty_link); ?>"
+                        class="faculty-card <?php echo $is_lead_card ? 'faculty-card-lead' : ''; ?>"
+                    >
+                        <?php if ($is_lead_card) : ?>
+
+                            <?php if ($role_title) : ?>
+                                <span class="fc-eyebrow">
+                                    <?php echo esc_html($role_title); ?>
+                                </span>
+                            <?php endif; ?>
+
+                            <p class="fc-name-lg">
+                                <em><?php echo esc_html($first_name); ?></em>
+                                <?php echo esc_html($surname); ?>
+                            </p>
+
+                            <?php if ($short_bio) : ?>
+                                <p class="fc-desc">
+                                    <?php echo esc_html($short_bio); ?>
+                                </p>
+                            <?php endif; ?>
+
+                        <?php else : ?>
+
+                            <span class="fc-name">
+                                <em><?php echo esc_html($first_name); ?></em>
+                                <?php echo esc_html($surname); ?>
+                            </span>
+
+                            <?php if ($highlighted_tags) : ?>
+                                <div class="fc-tags">
+                                    <?php
+                                    $tags = preg_split('/\r\n|\r|\n/', trim($highlighted_tags));
+
+                                    foreach ($tags as $tag) :
+                                        if (!$tag) {
+                                            continue;
+                                        }
+                                    ?>
+                                        <span class="fc-tag">
+                                            <?php echo esc_html($tag); ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+                        <?php endif; ?>
+                    </a>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </section>

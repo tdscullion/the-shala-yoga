@@ -885,3 +885,10 @@ a.philo-main:hover {
     padding: 14px 24px;
   }
 }
+
+.courses-empty {
+  text-align: center;
+  padding: 40px 20px;
+  font-style: italic;
+  opacity: 0.8;
+}

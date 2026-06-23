@@ -3,6 +3,9 @@
 Template Name: FAQ
 */
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
 ?>
 
 <main id="main-content">
@@ -17,11 +20,12 @@ get_header();
         />
 
         <div class="hero-utility-inner">
-          <h1 class="hero-utility-title">New Student <em>Information</em></h1>
+          <h1 class="hero-utility-title">
+            <?php echo theshala_highlight_text($hero_title); ?>
+          </h1>
 
           <p class="hero-utility-sub">
-            Answers to your most common questions about our programmes, modules,
-            accreditation and Yoga Alliance registration.
+            <?php echo esc_html($hero_subtitle); ?>
           </p>
         </div>
       </section>

@@ -4,6 +4,9 @@ Template Name: Terms and Conditions
 */
 
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
 ?>
 
  <main id="main-content">
@@ -17,11 +20,10 @@ get_header();
         />
 
         <div class="hero-utility-inner">
-          <h1 class="hero-utility-title">Terms &amp; <em>Conditions</em></h1>
+          <h1 class="hero-utility-title"><?php echo theshala_highlight_text($hero_title); ?></h1>
 
           <p class="hero-utility-sub">
-            Please read our terms carefully — they govern all bookings,
-            cancellations and participation in our courses and trainings.
+            <?php echo esc_html($hero_subtitle); ?>
           </p>
         </div>
       </section>

@@ -4,6 +4,9 @@ Template Name: New Student Advice
 */
 
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
 ?>
 
 <main id="main-content">
@@ -17,11 +20,10 @@ get_header();
         />
 
         <div class="hero-utility-inner">
-          <h1 class="hero-utility-title">New Student <em>Information</em></h1>
+          <h1 class="hero-utility-title"><?php echo theshala_highlight_text($hero_title); ?></h1>
 
           <p class="hero-utility-sub">
-            Answers to your most common questions about our programmes, modules,
-            accreditation and Yoga Alliance registration.
+            <?php echo esc_html($hero_subtitle); ?>
           </p>
         </div>
       </section>
@@ -763,7 +765,14 @@ get_header();
               </div>
             </div>
             <div>
-              <div class="map-placeholder">Map — embed Google Maps here</div>
+              <div class="map-embed">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.4289156824043!2d-0.10308579999999999!3d51.4343022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876045109687eb5%3A0x9b8d9a179971bc67!2sThe%20Shala%20School%20of%20Yoga!5e1!3m2!1sen!2suk!4v1782251916530!5m2!1sen!2suk"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+              </div>
               <p
                 style="
                   margin-top: 16px;

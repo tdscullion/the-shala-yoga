@@ -4,6 +4,13 @@
 Template Name: Retreats Page
 */
 
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
+$hero_button_1_text = get_field('hero_button_1_text');
+$hero_button_1_link = get_field('hero_button_1_link');
+$hero_button_2_text = get_field('hero_button_2_text');
+$hero_button_2_link = get_field('hero_button_2_link');
+
 get_header(); ?>
 
 <main id="main-content">
@@ -17,17 +24,32 @@ get_header(); ?>
             aria-hidden="true"
           />
           <div class="hero-standard-content">
-            <h1 class="hero-standard-title">Yoga <em>Retreat</em></h1>
+            <h1 class="hero-standard-title"><?php echo theshala_highlight_text($hero_title); ?></h1>
 
             <p class="hero-standard-sub">
-              A quiet immersion in a beautiful place — a small-group retreat led
-              by senior faculty, designed to deepen practice and restore
-              perspective.
+              <?php echo esc_html($hero_subtitle); ?>
             </p>
 
             <div class="hero-standard-btns">
-              <a href="#" class="btn btn-pink">View Retreat</a>
-              <a href="#" class="btn-ghost btn-pink">Dates &amp; Booking →</a>
+             <?php if ($hero_button_1_text && $hero_button_1_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_1_link['url']); ?>"
+                      class="btn btn-pink"
+                      target="<?php echo esc_attr($hero_button_1_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_1_text); ?>
+                  </a>
+              <?php endif; ?>
+
+              <?php if ($hero_button_2_text && $hero_button_2_link) : ?>
+                  <a
+                      href="<?php echo esc_url($hero_button_2_link['url']); ?>"
+                      class="btn-ghost btn-pink"
+                      target="<?php echo esc_attr($hero_button_2_link['target']); ?>"
+                  >
+                      <?php echo esc_html($hero_button_2_text); ?>
+                  </a>
+              <?php endif; ?>
             </div>
           </div>
         </div>

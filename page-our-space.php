@@ -4,6 +4,19 @@ Template Name: Our Space Page
 */
 
 get_header();
+
+$hero_title = get_field('hero_title');
+$hero_subtitle = get_field('hero_subtitle');
+
+$full_width_image_band = get_field('full_width_image_band');
+$lounge_area_image = get_field('lounge_area_image');
+$mysore_studio_image = get_field('mysore_studio_image');
+$hampi_studio_image = get_field('hampi_studio_image');
+$pushkar_studio_image = get_field('pushkar_studio_image');
+$our_building_image = get_field('our_building_image');
+$facilities_image = get_field('facilities_image');
+$artwork_image = get_field('artwork_image');
+$derek_ireland_image = get_field('derek_ireland_image');
 ?>
 
 <main id="main-content">
@@ -17,11 +30,10 @@ get_header();
             aria-hidden="true"
           />
           <div class="hero-standard-content">
-            <h1 class="hero-standard-title">Our <em>Space</em></h1>
+            <h1 class="hero-standard-title"><?php echo theshala_highlight_text($hero_title); ?></h1>
 
             <p class="hero-standard-sub">
-              A bespoke yoga sanctuary — purpose-built with warmth, character
-              and community at its heart.
+              <?php echo esc_html($hero_subtitle); ?>
             </p>
           </div>
         </div>
@@ -110,12 +122,17 @@ get_header();
 
       <div class="section-divider"></div>
 
-      <!-- FULL-WIDTH IMAGE BAND -->
+     <!-- FULL-WIDTH IMAGE BAND -->
       <div class="hero-image-band">
-        <div class="img-placeholder" style="height: 100%">
-          <span>Main Studio — Image</span>
-        </div>
-        <div class="hero-image-overlay"></div>
+          <?php if ($full_width_image_band) : ?>
+              <img
+                  class="hero-image-band-img"
+                  src="<?php echo esc_url($full_width_image_band['url']); ?>"
+                  alt="<?php echo esc_attr($full_width_image_band['alt']); ?>"
+              >
+          <?php endif; ?>
+
+          <div class="hero-image-overlay"></div>
       </div>
 
       <!-- LOUNGE AREA -->
@@ -134,8 +151,12 @@ get_header();
             </p>
           </div>
           <div class="studio-image">
-            <div class="img-placeholder"><span>Lounge Area — Image</span></div>
-          </div>
+            <?php if ($lounge_area_image) : ?>
+                <img
+                    src="<?php echo esc_url($lounge_area_image['url']); ?>"
+                    alt="<?php echo esc_attr($lounge_area_image['alt']); ?>"
+                >
+            <?php endif; ?>
         </div>
       </section>
 
@@ -157,9 +178,12 @@ get_header();
             </p>
           </div>
           <div class="studio-image">
-            <div class="img-placeholder">
-              <span>Mysore Studio — Image</span>
-            </div>
+              <?php if ($mysore_studio_image) : ?>
+                  <img
+                      src="<?php echo esc_url($mysore_studio_image['url']); ?>"
+                      alt="<?php echo esc_attr($mysore_studio_image['alt']); ?>"
+                  >
+              <?php endif; ?>
           </div>
         </div>
       </section>
@@ -179,7 +203,12 @@ get_header();
             </p>
           </div>
           <div class="studio-image">
-            <div class="img-placeholder"><span>Hampi Studio — Image</span></div>
+              <?php if ($hampi_studio_image) : ?>
+                  <img
+                      src="<?php echo esc_url($hampi_studio_image['url']); ?>"
+                      alt="<?php echo esc_attr($hampi_studio_image['alt']); ?>"
+                  >
+              <?php endif; ?>
           </div>
         </div>
       </section>
@@ -199,9 +228,12 @@ get_header();
             </p>
           </div>
           <div class="studio-image">
-            <div class="img-placeholder">
-              <span>Pushkar Studio — Image</span>
-            </div>
+              <?php if ($pushkar_studio_image) : ?>
+                  <img
+                      src="<?php echo esc_url($pushkar_studio_image['url']); ?>"
+                      alt="<?php echo esc_attr($pushkar_studio_image['alt']); ?>"
+                  >
+              <?php endif; ?>
           </div>
         </div>
       </section>
@@ -210,10 +242,13 @@ get_header();
       <section id="our-building" class="building-section">
         <div class="building-inner">
           <div class="building-image">
-            <div class="img-placeholder">
-              <span>Building Exterior — Image</span>
-            </div>
-          </div>
+            <?php if ($our_building_image) : ?>
+                <img
+                    src="<?php echo esc_url($our_building_image['url']); ?>"
+                    alt="<?php echo esc_attr($our_building_image['alt']); ?>"
+                >
+            <?php endif; ?>
+        </div>
           <div class="building-copy">
             <h2 class="sr-only">Our Building</h2>
             <h3>A Victorian <em>warehouse</em> reimagined</h3>
@@ -246,14 +281,27 @@ get_header();
             </p>
           </div>
           <div class="facilities-image">
-            <div class="img-placeholder"><span>Facilities — Image</span></div>
-          </div>
+              <?php if ($facilities_image) : ?>
+                  <img
+                      src="<?php echo esc_url($facilities_image['url']); ?>"
+                      alt="<?php echo esc_attr($facilities_image['alt']); ?>"
+                  >
+              <?php endif; ?>
+          </div>  
         </div>
       </section>
 
       <!-- ARTWORK -->
       <section id="artwork" class="artwork-section">
         <div class="artwork-inner">
+          <div class="artwork-images">
+              <?php if ($artwork_image) : ?>
+                  <img
+                      src="<?php echo esc_url($artwork_image['url']); ?>"
+                      alt="<?php echo esc_attr($artwork_image['alt']); ?>"
+                  >
+              <?php endif; ?>
+          </div>
           <div class="artwork-copy">
             <h2 class="sr-only">Artwork</h2>
             <h3>Artwork at <em>the Shala</em></h3>
@@ -280,22 +328,12 @@ get_header();
               student and graphic designer Lisa Kosky.
             </p>
           </div>
-          <div class="artwork-images">
-            <div class="img-placeholder">
-              <span>Shala Artwork — Image</span>
-            </div>
-          </div>
         </div>
       </section>
 
       <!-- DEREK IRELAND -->
       <section id="derek" class="derek-section">
         <div class="derek-inner">
-          <div class="derek-image">
-            <div class="img-placeholder">
-              <span>Derek Ireland — Image</span>
-            </div>
-          </div>
           <div class="derek-copy">
             <h2 class="sr-only">Dedication</h2>
             <h3>Dedication to <em>Derek Ireland</em></h3>
@@ -310,6 +348,14 @@ get_header();
               area and in the entrance.
             </p>
             <span class="derek-dates">Derek Ireland · 1949–1998</span>
+          </div>
+           <div class="derek-image">
+              <?php if ($derek_ireland_image) : ?>
+                  <img
+                      src="<?php echo esc_url($derek_ireland_image['url']); ?>"
+                      alt="<?php echo esc_attr($derek_ireland_image['alt']); ?>"
+                  >
+              <?php endif; ?>
           </div>
         </div>
       </section>

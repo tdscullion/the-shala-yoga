@@ -789,4 +789,44 @@
   }
 }
 
-/* ══ FOOTER — see snippet-footer.html ══ */
+/* for section images and mobile section layout*/
+
+.hero-image-band,
+.studio-image,
+.building-image,
+.facilities-image,
+.artwork-images,
+.derek-image {
+  overflow: hidden;
+}
+
+.hero-image-band img,
+.studio-image img,
+.building-image img,
+.facilities-image img,
+.artwork-images img,
+.derek-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .studio-copy,
+  .building-copy,
+  .facilities-copy,
+  .artwork-copy,
+  .derek-copy {
+    order: 1;
+  }
+
+  .studio-image,
+  .building-image,
+  .facilities-image,
+  .artwork-images,
+  .derek-image {
+    order: 2;
+  }
+}

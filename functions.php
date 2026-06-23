@@ -3,14 +3,19 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+// For highlighted text and line breaks
 function theshala_highlight_text($text) {
     if (!$text) {
         return '';
     }
 
+    // Escape everything first for safety.
     $text = esc_html($text);
 
+    // Convert line breaks from the ACF textarea/text field into <br>.
+    $text = nl2br($text);
+
+    // Convert {{ highlighted words }} into <em>highlighted words</em>.
     return preg_replace(
         '/\{\{\s*(.*?)\s*\}\}/',
         '<em>$1</em>',
