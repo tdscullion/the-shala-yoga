@@ -11,6 +11,16 @@ $hero_button_1_text = get_field('hero_button_1_text');
 $hero_button_1_link = get_field('hero_button_1_link');
 $hero_button_2_text = get_field('hero_button_2_text');
 $hero_button_2_link = get_field('hero_button_2_link');
+
+$core_module_image_1 = get_field('core_module_image_1');
+$core_module_image_2 = get_field('core_module_image_2');
+$core_module_image_3 = get_field('core_module_image_3');
+
+$teacher_slider_faculty = get_field('teacher_slider_faculty');
+
+$gallery_images = get_field('300_hour_gallery');
+
+$suggested_courses = get_field('suggested_courses');
 ?>
 
  <main id="main-content">
@@ -547,10 +557,12 @@ $hero_button_2_link = get_field('hero_button_2_link');
           <div class="core-modules-grid">
             <div class="cm-card">
               <div class="cm-card-img">
-                <img
-                  src="assets/images/core-module-1.jpg"
-                  alt="Beyond the Postures — Core Module 1"
-                />
+                <?php if ($core_module_image_1) : ?>
+    <img
+        src="<?php echo esc_url($core_module_image_1['url']); ?>"
+        alt="<?php echo esc_attr($core_module_image_1['alt']); ?>"
+    />
+<?php endif; ?>
               </div>
               <div class="cm-card-body">
                 <span class="cm-card-eyebrow">Core Module 1</span>
@@ -576,10 +588,12 @@ $hero_button_2_link = get_field('hero_button_2_link');
 
             <div class="cm-card">
               <div class="cm-card-img">
-                <img
-                  src="assets/images/core-module-2.jpg"
-                  alt="Embodied Asana — Core Module 2"
-                />
+                <?php if ($core_module_image_2) : ?>
+    <img
+        src="<?php echo esc_url($core_module_image_2['url']); ?>"
+        alt="<?php echo esc_attr($core_module_image_2['alt']); ?>"
+    />
+<?php endif; ?>
               </div>
               <div class="cm-card-body">
                 <span class="cm-card-eyebrow">Core Module 2</span>
@@ -607,10 +621,12 @@ $hero_button_2_link = get_field('hero_button_2_link');
 
             <div class="cm-card">
               <div class="cm-card-img">
-                <img
-                  src="assets/images/core-module-3.jpg"
-                  alt="Yoga Philosophy Club — Core Module 3"
-                />
+                <?php if ($core_module_image_3) : ?>
+    <img
+        src="<?php echo esc_url($core_module_image_3['url']); ?>"
+        alt="<?php echo esc_attr($core_module_image_2['alt']); ?>"
+    />
+<?php endif; ?>
               </div>
               <div class="cm-card-body">
                 <span class="cm-card-eyebrow">Core Module 3</span>
@@ -909,117 +925,46 @@ $hero_button_2_link = get_field('hero_button_2_link');
               </button>
             </div>
           </div>
-          <div class="t-carousel" id="teacherCarousel">
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/gingi-lee.jpg" alt="Gingi Lee" />
-              </div>
-              <span class="t-card-name"><em>Gingi</em> Lee</span
-              ><span class="t-card-role">Lead Faculty · Co-founder</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/alexa-dean.jpg" alt="Alexa Dean" />
-              </div>
-              <span class="t-card-name"><em>Alexa</em> Dean</span
-              ><span class="t-card-role">Specialist Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/anne-malone.jpg" alt="Anne Malone" />
-              </div>
-              <span class="t-card-name"><em>Anne</em> Malone</span
-              ><span class="t-card-role">Specialist Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img
-                  src="assets/images/charli-van-ness.jpg"
-                  alt="Charli Van Ness"
-                />
-              </div>
-              <span class="t-card-name"><em>Charli</em> Van Ness</span
-              ><span class="t-card-role">Lead Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img
-                  src="assets/images/daniel-simpson.jpg"
-                  alt="Daniel Simpson"
-                />
-              </div>
-              <span class="t-card-name"><em>Daniel</em> Simpson</span
-              ><span class="t-card-role">Philosophy</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/dina-cohen.jpg" alt="Dina Cohen" />
-              </div>
-              <span class="t-card-name"><em>Dina</em> Cohen</span
-              ><span class="t-card-role">Specialist Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/ellie-grace.jpg" alt="Ellie Grace" />
-              </div>
-              <span class="t-card-name"><em>Ellie</em> Grace</span
-              ><span class="t-card-role">Specialist Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/emma-landolt.jpg" alt="Emma Landolt" />
-              </div>
-              <span class="t-card-name"><em>Emma</em> Landolt</span
-              ><span class="t-card-role">Specialist Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img
-                  src="assets/images/jennie-wadsten.jpg"
-                  alt="Jennie Wadsten Sharma"
-                />
-              </div>
-              <span class="t-card-name"><em>Jennie</em> Wadsten Sharma</span
-              ><span class="t-card-role">Yoga Nidra · Yoga Treat</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img
-                  src="assets/images/kookie-punam-gill.jpg"
-                  alt="Kookie Punam Gill"
-                />
-              </div>
-              <span class="t-card-name"><em>Kookie</em> Punam Gill</span
-              ><span class="t-card-role">Specialist Faculty</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img
-                  src="assets/images/matthew-clark.jpg"
-                  alt="Dr Matthew Clark"
-                />
-              </div>
-              <span class="t-card-name">Dr <em>Matthew</em> Clark</span
-              ><span class="t-card-role">History &amp; Philosophy</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img
-                  src="assets/images/melanie-cooper.jpg"
-                  alt="Melanie Cooper"
-                />
-              </div>
-              <span class="t-card-name"><em>Melanie</em> Cooper</span
-              ><span class="t-card-role">Lead Faculty · Yoga Treat</span></a
-            >
-            <a href="/faculty" class="t-card"
-              ><div class="t-card-img">
-                <img src="assets/images/norman-blair.jpg" alt="Norman Blair" />
-              </div>
-              <span class="t-card-name"><em>Norman</em> Blair</span
-              ><span class="t-card-role">Yin Yoga</span></a
-            >
-          </div>
+         <div class="t-carousel" id="teacherCarousel">
+          <?php if ($teacher_slider_faculty) : ?>
+              <?php foreach ($teacher_slider_faculty as $teacher) : ?>
+                  <?php
+                  $teacher_id = $teacher->ID;
+                  $teacher_link = get_permalink($teacher_id);
+
+                  $card_image = get_field('card_image', $teacher_id);
+                  $display_name = get_field('display_name', $teacher_id);
+                  $role_title = get_field('role_title', $teacher_id);
+
+                  if (!$display_name) {
+                      $display_name = get_the_title($teacher_id);
+                  }
+                  ?>
+
+                  <a href="<?php echo esc_url($teacher_link); ?>" class="t-card">
+                      <div class="t-card-img">
+                          <?php if ($card_image) : ?>
+                              <img
+                                  src="<?php echo esc_url($card_image['url']); ?>"
+                                  alt="<?php echo esc_attr($card_image['alt']); ?>"
+                              />
+                          <?php endif; ?>
+                      </div>
+
+                      <span class="t-card-name">
+                          <?php echo theshala_highlight_text($display_name); ?>
+                      </span>
+
+                      <?php if ($role_title) : ?>
+                          <span class="t-card-role">
+                              <?php echo esc_html($role_title); ?>
+                          </span>
+                      <?php endif; ?>
+                  </a>
+
+              <?php endforeach; ?>
+          <?php endif; ?>
+      </div>
         </div>
       </div>
 
@@ -1031,45 +976,52 @@ $hero_button_2_link = get_field('hero_button_2_link');
           </div>
           <div class="gallery-grid">
             <div class="g-cell g-a" onclick="openLightbox(0)">
-              <img
-                src="assets/images/300hr-gallery-1.jpg"
-                alt="Teaching at The Shala"
-              />
+             <?php if (!empty($gallery_images[0])) : ?>
+                  <img
+                      src="<?php echo esc_url($gallery_images[0]['url']); ?>"
+                      alt="<?php echo esc_attr($gallery_images[0]['alt']); ?>"
+                  />
+              <?php endif; ?>
               <div class="g-tint"></div>
-              <div class="g-caption">
-                <span class="g-caption-text">In the training room</span>
-              </div>
               <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-b" onclick="openLightbox(1)">
-              <img
-                src="assets/images/300hr-gallery-2.jpg"
-                alt="Studio practice"
-              />
+              <?php if (!empty($gallery_images[1])) : ?>
+    <img
+        src="<?php echo esc_url($gallery_images[1]['url']); ?>"
+        alt="<?php echo esc_attr($gallery_images[1]['alt']); ?>"
+    />
+<?php endif; ?>
               <div class="g-tint"></div>
               <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-c" onclick="openLightbox(2)">
-              <img
-                src="assets/images/300hr-gallery-3.jpg"
-                alt="Teacher training"
-              />
+             <?php if (!empty($gallery_images[2])) : ?>
+    <img
+        src="<?php echo esc_url($gallery_images[2]['url']); ?>"
+        alt="<?php echo esc_attr($gallery_images[2]['alt']); ?>"
+    />
+<?php endif; ?>
               <div class="g-tint"></div>
               <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-d" onclick="openLightbox(3)">
-              <img
-                src="assets/images/300hr-gallery-4.jpg"
-                alt="Shared practice"
-              />
+              <?php if (!empty($gallery_images[3])) : ?>
+    <img
+        src="<?php echo esc_url($gallery_images[3]['url']); ?>"
+        alt="<?php echo esc_attr($gallery_images[3]['alt']); ?>"
+    />
+<?php endif; ?>
               <div class="g-tint"></div>
               <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-e" onclick="openLightbox(4)">
-              <img
-                src="assets/images/300hr-gallery-5.jpg"
-                alt="The whole group"
-              />
+              <?php if (!empty($gallery_images[4])) : ?>
+    <img
+        src="<?php echo esc_url($gallery_images[4]['url']); ?>"
+        alt="<?php echo esc_attr($gallery_images[4]['alt']); ?>"
+    />
+<?php endif; ?>
               <div class="g-tint"></div>
               <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
@@ -1530,52 +1482,96 @@ $hero_button_2_link = get_field('hero_button_2_link');
             </div>
           </div>
           <div class="related-grid" id="relatedGrid">
-            <div class="rc" style="--rt: rgba(59, 19, 46, 1)">
-              <div class="bg">
-                <img src="assets/images/course-yin.jpg" alt="Yin Yoga" />
-              </div>
-              <div class="tint"></div>
-              <div class="fade"></div>
-              <div class="rcontent">
-                <span class="rc-tag">CPD · In Studio</span>
-                <div class="rc-title">Yin Yoga (Norman Blair)</div>
-                <div class="rc-foot">
-                  <div class="rc-date"><strong>Dates TBC</strong></div>
+
+    <?php if ($suggested_courses) : ?>
+
+        <?php foreach ($suggested_courses as $index => $course) : ?>
+
+            <?php
+            $course_id = $course->ID;
+
+            $course_title = get_field('short_title', $course_id);
+
+            if (!$course_title) {
+                $course_title = get_the_title($course_id);
+            }
+
+            $course_link = get_permalink($course_id);
+
+            $course_image = get_field('course_card_image', $course_id);
+            $course_format = get_field('course_format', $course_id);
+            $course_card_dates = get_field('course_card_dates', $course_id);
+
+            $tints = [
+                'rgba(59, 19, 46, 1)',
+                'rgba(140, 0, 63, 1)',
+                'rgba(139, 82, 0, 1)',
+            ];
+
+            $tint = $tints[$index % count($tints)];
+
+            $format_label = '';
+
+            if (is_array($course_format)) {
+                $format_label = $course_format['label'] ?? implode(' + ', $course_format);
+            } else {
+                $format_label = $course_format;
+            }
+            ?>
+
+            <a
+                href="<?php echo esc_url($course_link); ?>"
+                class="rc"
+                style="--rt: <?php echo esc_attr($tint); ?>"
+            >
+                <div class="bg">
+
+                    <?php if ($course_image) : ?>
+
+                        <img
+                            src="<?php echo esc_url($course_image['url']); ?>"
+                            alt="<?php echo esc_attr($course_image['alt']); ?>"
+                        >
+
+                    <?php endif; ?>
+
                 </div>
-              </div>
-            </div>
-            <div class="rc" style="--rt: rgba(140, 0, 63, 1)">
-              <div class="bg">
-                <img
-                  src="assets/images/course-adjustments.jpg"
-                  alt="Yoga Adjusts"
-                />
-              </div>
-              <div class="tint"></div>
-              <div class="fade"></div>
-              <div class="rcontent">
-                <span class="rc-tag">CPD · In Studio</span>
-                <div class="rc-title">Yoga Adjusts &amp; Assists</div>
-                <div class="rc-foot">
-                  <div class="rc-date"><strong>9–11 May 2026</strong></div>
+
+                <div class="tint"></div>
+                <div class="fade"></div>
+
+                <div class="rcontent">
+
+                    <?php if ($format_label) : ?>
+
+                        <span class="rc-tag">
+                            <?php echo esc_html($format_label); ?>
+                        </span>
+
+                    <?php endif; ?>
+
+                    <div class="rc-title">
+                        <?php echo esc_html($course_title); ?>
+                    </div>
+
+                    <?php if ($course_card_dates) : ?>
+
+                        <div class="rc-foot">
+                            <div class="rc-date">
+                                <strong><?php echo esc_html($course_card_dates); ?></strong>
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
                 </div>
-              </div>
-            </div>
-            <div class="rc" style="--rt: rgba(139, 82, 0, 1)">
-              <div class="bg">
-                <img src="assets/images/course-nidra.jpg" alt="Yoga Nidra" />
-              </div>
-              <div class="tint"></div>
-              <div class="fade"></div>
-              <div class="rcontent">
-                <span class="rc-tag">CPD · Yoga Treat</span>
-                <div class="rc-title">Yoga Nidra</div>
-                <div class="rc-foot">
-                  <div class="rc-date"><strong>Dates TBC</strong></div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </a>
+
+        <?php endforeach; ?>
+
+    <?php endif; ?>
+
+</div>
         </div>
       </div>
     </main>

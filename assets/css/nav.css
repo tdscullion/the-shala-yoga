@@ -510,6 +510,28 @@ body.nav-open {
   overflow: hidden;
 }
 
+.nav-mobile-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-burger {
+  position: relative;
+  z-index: 1001;
+}
+
 /* ────────────────────────────────────────────────────────────
    BREAKPOINTS
 ──────────────────────────────────────────────────────────── */

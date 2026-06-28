@@ -7,7 +7,8 @@
         <!-- Sticky Bar & Hero -->
         <?php
         $course_intro = get_field('course_intro');
-        $short_title = get_field('course_hero_title');
+        $short_title = get_field('short_title');
+        $hero_title = get_field('course_hero_title');
         $display_date = get_field('display_date');
         $course_price = get_field('course_price');
         $course_format = get_field('course_format');
@@ -66,7 +67,7 @@
 
                 <div class="hero-course-content">
                     <h1 class="hero-course-title">
-                        <?php echo wp_kses_post(theshala_highlight_text($short_title)); ?>
+                        <?php echo wp_kses_post(theshala_highlight_text($hero_title)); ?>
                     </h1>
 
                     <?php if ($instructor_list) : ?>
@@ -114,7 +115,7 @@
                     <div class="intro-quote-block">
 
                         <?php if ($overview_heading) : ?>
-                            <h2 class="intro-quote-heading">
+                            <h2 class="intro-overview-heading">
                                 <?php echo wp_kses_post(theshala_highlight_text($overview_heading)); ?>
                             </h2>
                         <?php endif; ?>
@@ -413,7 +414,7 @@
         $review_count = $review_cards ? count($review_cards) : 0;
         ?>
 
-        <?php if ($reviews_heading || $featured_review_quote || $review_count > 0) : ?>
+        <?php if ($review_count > 0) : ?> 
             <div class="testimonials-section" id="section-testimonials">
                 <div class="testimonials-inner">
 
@@ -531,6 +532,28 @@
         ?>
 
         <?php if ($instructors) : ?>
+            
+        <?php endif; ?>
+        <!-- End Teacher Band -->
+
+        <!-- Teacher NEW Band -->
+        <?php
+        $instructors = get_field('course_instructors');
+        $instructor_count = is_array($instructors) ? count($instructors) : 0;
+        ?>
+
+        <?php if ($instructor_count === 1) : ?>
+
+            <?php
+            $instructor = $instructors[0];
+            $instructor_id = $instructor->ID;
+
+            $display_name = get_field('display_name', $instructor_id) ?: get_the_title($instructor_id);
+            $role_title = get_field('role_title', $instructor_id);
+            $short_bio = get_field('short_bio', $instructor_id);
+            $main_image = get_field('main_image', $instructor_id) ?: get_field('headshot', $instructor_id);
+            ?>
+
             <div class="teacher-band" id="section-teacher">
                 <div class="teacher-band-grid">
 
@@ -593,8 +616,67 @@
 
                 </div>
             </div>
-        <?php endif; ?>
-        <!-- End Teacher Band -->
+
+            <?php elseif ($instructor_count > 1) : ?>
+
+                <div class="teacher-band teacher-band--multiple" id="section-teacher">
+                    <div class="teacher-band-inner">
+                        <div class="s-div">
+                            <h2>Your <em>teachers</em></h2>
+                        </div>
+
+                        <div class="teacher-multi-grid">
+                            <?php foreach ($instructors as $instructor) : ?>
+                                <?php
+                                $instructor_id = $instructor->ID;
+
+                                $display_name = get_field('display_name', $instructor_id) ?: get_the_title($instructor_id);
+                                $role_title = get_field('role_title', $instructor_id);
+                                $short_bio = get_field('short_bio', $instructor_id);
+                                $main_image = get_field('main_image', $instructor_id) ?: get_field('headshot', $instructor_id);
+                                $profile_link = get_permalink($instructor_id);
+                                ?>
+
+                                <article class="teacher-multi-card">
+                                    <?php if ($main_image) : ?>
+                                        <div class="teacher-multi-img">
+                                            <img
+                                                src="<?php echo esc_url($main_image['url']); ?>"
+                                                alt="<?php echo esc_attr($main_image['alt'] ?: $display_name); ?>"
+                                            >
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="teacher-multi-body">
+                                        <h3 class="teacher-multi-name">
+                                            <?php echo theshala_highlight_text($display_name); ?>
+                                        </h3>
+
+                                        <?php if ($role_title) : ?>
+                                            <span class="teacher-multi-role">
+                                                <?php echo esc_html($role_title); ?>
+                                            </span>
+                                        <?php endif; ?>
+
+                                        <?php if ($short_bio) : ?>
+                                            <p class="teacher-multi-bio">
+                                                <?php echo nl2br(esc_html($short_bio)); ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                        <a href="<?php echo esc_url($profile_link); ?>" class="teacher-multi-link">
+                                            Read profile →
+                                        </a>
+                                    </div>
+                                </article>
+
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+            <!-- End NEW Teacher Band -->
 
         <!-- Shala Gallery -->
          <?php

@@ -178,7 +178,7 @@
 /* ── INTRO — quote + body inline within main-col ── */
 .intro-overview-heading {
   font-family: "Exquise", serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(24px, 3vw, 38px);
   font-weight: 400;
   margin-bottom: 24px;
   color: var(--text-dark);
@@ -1619,6 +1619,113 @@ blockquote.inline-quote {
 .teacher-band .s-div .s-div-rule {
   background: var(--orange);
 }
+
+/* MULTI TEACHER */
+.teacher-band--multiple {
+  background: var(--charcoal-plum);
+  padding: 72px 48px;
+}
+
+.teacher-band-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.teacher-multi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.teacher-multi-card {
+  background: var(--linen);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  padding: 24px;
+  align-items: stretch;
+}
+
+.teacher-multi-img {
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.teacher-multi-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teacher-multi-name {
+  font-family: "Exquise", serif;
+  font-size: clamp(28px, 2.5vw, 36px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--aubergine);
+  margin-bottom: 10px;
+}
+
+.teacher-multi-name em {
+  color: var(--pink);
+  font-style: italic;
+}
+
+.teacher-multi-role {
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 18px;
+}
+
+.teacher-multi-bio {
+  font-family: var(--cormorant);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--aubergine);
+  opacity: 0.82;
+  margin-bottom: 22px;
+}
+
+.teacher-multi-link {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink);
+  border-bottom: 1px solid rgba(212, 0, 98, 0.35);
+  padding-bottom: 2px;
+}
+.teacher-multi-link:hover {
+  color: var(--aubergine);
+  border-color: var(--aubergine);
+}
+
+@media (max-width: 900px) {
+  .teacher-multi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .teacher-band--multiple {
+    padding: 56px 24px;
+  }
+
+  .teacher-multi-card {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-multi-img {
+    min-height: 320px;
+  }
+}
+/* GALLERY */
 
 .gallery-grid {
   display: grid;

@@ -689,3 +689,12 @@
     flex: 1 1 100%;
   }
 }
+
+.acc-body {
+  display: none;
+}
+
+.acc-body.open,
+.acc-item.open .acc-body {
+  display: block;
+}

@@ -39,6 +39,7 @@
   var burger = document.getElementById("navBurger");
   var panel = document.getElementById("navMobilePanel");
   var overlay = document.getElementById("navOverlay");
+  var closeBtn = document.getElementById("navMobileClose");
 
   if (!burger || !panel || !overlay) return;
 
@@ -58,6 +59,12 @@
   overlay.addEventListener("click", function () {
     toggle(false);
   });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      toggle(false);
+    });
+  }
 
   /* Close when any direct link inside panel is tapped */
   panel.querySelectorAll("a").forEach(function (a) {

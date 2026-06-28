@@ -82,6 +82,15 @@
 <div class="nav-overlay" id="navOverlay"></div>
 
 <aside class="nav-mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <button
+        class="nav-mobile-close"
+        id="navMobileClose"
+        type="button"
+        aria-label="Close menu"
+    >
+        ✕
+    </button>
+
     <div class="nav-mobile-accordion" id="navMobileAbout">
         <div class="nav-mobile-accordion-head">
             <a href="<?php echo esc_url(home_url('/about/')); ?>">About</a>

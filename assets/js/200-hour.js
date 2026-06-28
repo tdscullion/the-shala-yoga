@@ -43,29 +43,30 @@
   }
 
   /* ── Gallery lightbox ──────────────────────────────────── */
-  var galleryImgs = [
-    {
-      src: "assets/images/200hr-gallery-1.jpg",
-      alt: "Charli Van Ness — lead teacher",
-    },
-    {
-      src: "assets/images/200hr-gallery-2.jpg",
-      alt: "In the room with Charli",
-    },
-    { src: "assets/images/200hr-gallery-3.jpg", alt: "Studio practice" },
-    { src: "assets/images/200hr-gallery-4.jpg", alt: "Teacher training" },
-    { src: "assets/images/200hr-gallery-5.jpg", alt: "The whole group" },
-  ];
+  /* ── Gallery lightbox ──────────────────────────────────── */
   var currentImg = 0;
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightboxImg");
   var lightboxCounter = document.getElementById("lightboxCounter");
 
+  function getGalleryImgs() {
+    return Array.from(document.querySelectorAll(".gallery-grid .g-cell img"));
+  }
+
   window.openLightbox = function (idx) {
+    var galleryImgs = getGalleryImgs();
+
+    if (!galleryImgs[idx] || !lightbox || !lightboxImg) return;
+
     currentImg = idx;
+
     lightboxImg.src = galleryImgs[idx].src;
-    lightboxImg.alt = galleryImgs[idx].alt;
-    lightboxCounter.textContent = idx + 1 + " / " + galleryImgs.length;
+    lightboxImg.alt = galleryImgs[idx].alt || "";
+
+    if (lightboxCounter) {
+      lightboxCounter.textContent = idx + 1 + " / " + galleryImgs.length;
+    }
+
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
   };
@@ -80,18 +81,19 @@
   };
 
   window.shiftLightbox = function (dir) {
-    currentImg = (currentImg + dir + galleryImgs.length) % galleryImgs.length;
-    lightboxImg.src = galleryImgs[currentImg].src;
-    lightboxImg.alt = galleryImgs[currentImg].alt;
-    lightboxCounter.textContent = currentImg + 1 + " / " + galleryImgs.length;
-  };
+    var galleryImgs = getGalleryImgs();
 
-  document.addEventListener("keydown", function (e) {
-    if (!lightbox || !lightbox.classList.contains("open")) return;
-    if (e.key === "Escape") window.closeLightbox();
-    if (e.key === "ArrowRight") window.shiftLightbox(1);
-    if (e.key === "ArrowLeft") window.shiftLightbox(-1);
-  });
+    if (!galleryImgs.length) return;
+
+    currentImg = (currentImg + dir + galleryImgs.length) % galleryImgs.length;
+
+    lightboxImg.src = galleryImgs[currentImg].src;
+    lightboxImg.alt = galleryImgs[currentImg].alt || "";
+
+    if (lightboxCounter) {
+      lightboxCounter.textContent = currentImg + 1 + " / " + galleryImgs.length;
+    }
+  };
 
   /* ── Testimonials carousel ─────────────────────────────── */
   var testiPos = 0;

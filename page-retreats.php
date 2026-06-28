@@ -11,6 +11,14 @@ $hero_button_1_link = get_field('hero_button_1_link');
 $hero_button_2_text = get_field('hero_button_2_text');
 $hero_button_2_link = get_field('hero_button_2_link');
 
+$banner_image = get_field('banner_image');
+
+$overview_main_image = get_field('overview_main_image');
+$overview_inset_image = get_field('overview_inset_image');
+$venue_image = get_field('venue_image');
+$retreat_teacher_image = get_field('retreat_teacher_image');
+$retreat_gallery = get_field('retreat_gallery');
+
 get_header(); ?>
 
 <main id="main-content">
@@ -55,10 +63,15 @@ get_header(); ?>
         </div>
       </section>
 
-      <!-- BANNER PLACEHOLDER -->
-      <div class="banner-placeholder">
-        <span>— Full-bleed retreat banner image —</span>
-      </div>
+      <!-- BANNER Image -->
+      <?php if ($banner_image) : ?>
+    <div class="banner-image">
+        <img
+            src="<?php echo esc_url($banner_image['url']); ?>"
+            alt="<?php echo esc_attr($banner_image['alt']); ?>"
+        >
+    </div>
+<?php endif; ?>
 
       <!-- STICKY NAV STRIP -->
       <div class="sticky-strip">
@@ -130,16 +143,20 @@ get_header(); ?>
           <div class="intro-right">
             <div class="intro-img-stack">
               <div class="intro-img-main">
-                <img
-                  src="../assets/images/retreat-sri-lanka-yoga-class.jpg"
-                  alt="Yoga at Ulpotha Sri Lanka"
-                />
+               <?php if ($overview_main_image) : ?>
+    <img
+        src="<?php echo esc_url($overview_main_image['url']); ?>"
+        alt="<?php echo esc_attr($overview_main_image['alt']); ?>"
+    >
+<?php endif; ?>
               </div>
               <div class="intro-img-inset">
-                <img
-                  src="../assets/images/retreat-sri-lanka-yoga.jpg"
-                  alt="Retreat yoga practice"
-                />
+                <?php if ($overview_inset_image) : ?>
+    <img
+        src="<?php echo esc_url($overview_inset_image['url']); ?>"
+        alt="<?php echo esc_attr($overview_inset_image['alt']); ?>"
+    >
+<?php endif; ?>
               </div>
             </div>
           </div>
@@ -227,10 +244,12 @@ get_header(); ?>
           </div>
           <div class="venue-right">
             <div class="venue-img">
-              <img
-                src="../assets/images/retreat-sri-lanka-venue.jpg"
-                alt="Ulpotha Sri Lanka"
-              />
+              <?php if ($venue_image) : ?>
+    <img
+        src="<?php echo esc_url($venue_image['url']); ?>"
+        alt="<?php echo esc_attr($venue_image['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
           </div>
         </div>
@@ -335,11 +354,12 @@ get_header(); ?>
         <div class="teacher-inner">
           <div class="teacher-img-wrap">
             <div class="teacher-img">
-              <!-- DEV NOTE: placeholder image — replace src with Gingi Lee headshot URL -->
-              <img
-                src="../assets/images/gingi-lee.jpg"
-                alt="[PLACEHOLDER] Gingi Lee"
-              />
+              <?php if ($retreat_teacher_image) : ?>
+    <img
+        src="<?php echo esc_url($retreat_teacher_image['url']); ?>"
+        alt="<?php echo esc_attr($retreat_teacher_image['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
           </div>
           <div class="teacher-content">
@@ -458,42 +478,54 @@ get_header(); ?>
         <div class="gallery-mosaic">
           <div class="gallery-row gallery-row-1">
             <div class="g-cell g-cell-h">
-              <img
-                src="../assets/images/retreat-sri-lanka-venue.jpg"
-                alt="Ulpotha Sri Lanka"
-              />
+             <?php if (!empty($retreat_gallery[0])) : ?>
+    <img
+        src="<?php echo esc_url($retreat_gallery[0]['url']); ?>"
+        alt="<?php echo esc_attr($retreat_gallery[0]['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
             <div class="g-cell g-cell-h">
-              <img
-                src="../assets/images/retreat-sri-lanka-yoga-class.jpg"
-                alt="Retreat yoga class"
-              />
+              <?php if (!empty($retreat_gallery[1])) : ?>
+    <img
+        src="<?php echo esc_url($retreat_gallery[1]['url']); ?>"
+        alt="<?php echo esc_attr($retreat_gallery[1]['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
             <div class="g-cell g-cell-h">
-              <img
-                src="../assets/images/retreat-sri-lanka-yoga.jpg"
-                alt="Retreat nature"
-              />
+             <?php if (!empty($retreat_gallery[2])) : ?>
+    <img
+        src="<?php echo esc_url($retreat_gallery[2]['url']); ?>"
+        alt="<?php echo esc_attr($retreat_gallery[2]['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
           </div>
           <div class="gallery-row gallery-row-2">
             <div class="g-cell g-cell-sm">
-              <img
-                src="../assets/images/retreat-sri-lanka-gallery-1.jpg"
-                alt="Retreat France"
-              />
+             <?php if (!empty($retreat_gallery[3])) : ?>
+    <img
+        src="<?php echo esc_url($retreat_gallery[3]['url']); ?>"
+        alt="<?php echo esc_attr($retreat_gallery[3]['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
             <div class="g-cell g-cell-sm">
-              <img
-                src="../assets/images/retreat-sri-lanka-gallery-2.jpg"
-                alt="Retreat Puglia"
-              />
+              <?php if (!empty($retreat_gallery[4])) : ?>
+    <img
+        src="<?php echo esc_url($retreat_gallery[4]['url']); ?>"
+        alt="<?php echo esc_attr($retreat_gallery[4]['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
             <div class="g-cell g-cell-sm">
-              <img
-                src="../assets/images/retreat-sri-lanka-gallery-3.jpg"
-                alt="Scotland Retreat"
-              />
+              <?php if (!empty($retreat_gallery[5])) : ?>
+    <img
+        src="<?php echo esc_url($retreat_gallery[5]['url']); ?>"
+        alt="<?php echo esc_attr($retreat_gallery[5]['alt']); ?>"
+    >
+<?php endif; ?>
             </div>
           </div>
         </div>

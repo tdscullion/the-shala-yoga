@@ -6,24 +6,28 @@
 (function () {
   "use strict";
 
-  /* ── ACCORDION ─────────────────────────────────────────────
-     Each accordion group operates independently.
-     Within a group, only one item can be open at a time.
-  ─────────────────────────────────────────────────────────── */
   document.querySelectorAll(".acc-trigger").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var item = btn.closest(".acc-item");
+      var body = item ? item.querySelector(".acc-body") : null;
       var accordion = btn.closest(".accordion");
+
+      if (!item || !body || !accordion) return;
+
       var isOpen = item.classList.contains("open");
 
-      /* Close all items in this group */
       accordion.querySelectorAll(".acc-item").forEach(function (i) {
         i.classList.remove("open");
+
+        var b = i.querySelector(".acc-body");
+        if (b) {
+          b.classList.remove("open");
+        }
       });
 
-      /* Open the clicked item if it was closed */
       if (!isOpen) {
         item.classList.add("open");
+        body.classList.add("open");
       }
     });
   });

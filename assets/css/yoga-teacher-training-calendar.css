@@ -478,7 +478,7 @@ td.td-price.is-free {
 
 /* Hours */
 td.td-hrs {
-  text-align: right;
+  text-align: center;
   font-size: 0.78rem;
   opacity: 0.55;
   white-space: nowrap;
@@ -891,4 +891,25 @@ a.philo-main:hover {
   padding: 40px 20px;
   font-style: italic;
   opacity: 0.8;
+}
+
+.course-list-section {
+  margin-top: 36px;
+  margin-bottom: 56px;
+}
+
+.cal-table tbody tr td:first-child {
+  padding-left: 28px;
+}
+
+.cal-table tbody tr td:last-child {
+  padding-right: 28px;
+}
+
+.cal-table thead th:first-child {
+  padding-left: 28px;
+}
+
+.cal-table thead th:last-child {
+  padding-right: 28px;
 }
