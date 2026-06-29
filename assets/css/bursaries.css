@@ -8,7 +8,7 @@
   margin: 0;
 }
 .section-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   color: var(--aubergine);
@@ -75,7 +75,7 @@
   z-index: 2;
 }
 .page-hero-title {
-  font-family: "Playfair Display", serif;
+   font-family: "Exquise", serif;
   font-size: clamp(32px, 4.5vw, 58px);
   font-weight: 400;
   color: white;
@@ -132,7 +132,7 @@
   border-right: none;
 }
 .stat-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 36px;
   display: block;
   margin-bottom: 4px;
@@ -186,7 +186,7 @@
 }
 .feature-quote::before {
   content: "\201C";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   position: absolute;
@@ -197,7 +197,7 @@
 }
 .feature-quote::after {
   content: "\201D";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   line-height: 0;
@@ -268,7 +268,7 @@
   color: var(--orange);
 }
 .elig-card h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 21px;
   color: var(--aubergine);
   margin-bottom: 20px;
@@ -332,7 +332,7 @@
   align-items: start;
 }
 .apply-col h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 20px;
   color: var(--aubergine);
   margin-bottom: 28px;
@@ -360,7 +360,7 @@
   border-top: 1px solid rgba(59, 19, 46, 0.12);
 }
 .apply-step-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 42px;
   color: var(--pink);
@@ -460,7 +460,7 @@
   padding: 28px;
 }
 .info-card-icon {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 32px;
   color: var(--pink);
   display: block;
@@ -625,7 +625,7 @@
   text-align: center;
 }
 .cta-band h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 40px);
   color: white;
   font-weight: 400;

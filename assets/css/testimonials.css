@@ -19,7 +19,7 @@
   font-weight: 500;
 }
 .t-hero h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1.05;
@@ -106,7 +106,7 @@
   font-weight: 500;
 }
 .section-head h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 36px;
   font-weight: 400;
   color: var(--aubergine);
@@ -201,7 +201,7 @@
   justify-content: center;
   background: linear-gradient(135deg, var(--pinked-linen), var(--dusty-blush));
   color: var(--grey-magenta);
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 68px;
   font-style: italic;
   font-weight: 400;
@@ -221,7 +221,7 @@
 }
 .ed-row.no-image .ed-content::before {
   content: "\201C";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 128px;
   color: var(--pink);
   position: absolute;
@@ -321,7 +321,7 @@
   justify-content: center;
   background: linear-gradient(135deg, var(--pinked-linen), var(--dusty-blush));
   color: var(--grey-magenta);
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 30px;
   font-style: italic;
   font-weight: 400;
@@ -336,7 +336,7 @@
 }
 .voice-card.no-image .voice-text::before {
   content: "\201C";
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   color: var(--pink);
   position: absolute;
@@ -388,7 +388,7 @@
   align-items: center;
 }
 .interview-content h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 32px;
   font-weight: 400;
   color: var(--aubergine);
@@ -470,7 +470,7 @@
   margin: 0 auto;
 }
 .cta-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(30px, 4vw, 52px);
   font-weight: 400;
   color: white;
@@ -701,7 +701,7 @@
   .voice-text::before,
   .voice-card.no-image .voice-text::before {
     content: "\201C";
-    font-family: "Playfair Display", serif;
+    font-family: "Exquise", serif;
     font-size: 64px;
     color: var(--pink);
     position: absolute;

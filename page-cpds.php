@@ -96,7 +96,7 @@ $hero_button_2_link = get_field('hero_button_2_link');
         >
           <div class="fc-bg">
             <img
-              src="https://www.theshalalondon.com/wp-content/uploads/2021/12/TT-Website-HERO-image-copy-3-e1683793704771-1024x800.jpg"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/200-hour-hero.webp"
               alt=""
             />
           </div>
@@ -104,7 +104,7 @@ $hero_button_2_link = get_field('hero_button_2_link');
           <div class="fc-fade"></div>
           <div class="fc-watermark">
             <img
-              src="RYS200_LOGO_transparent.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/RYS200_LOGO_transparent.png"
               alt="Yoga Alliance RYS 200"
             />
           </div>
@@ -138,7 +138,7 @@ $hero_button_2_link = get_field('hero_button_2_link');
         >
           <div class="fc-bg">
             <img
-              src="https://www.staging.theshalaschool.com/wp-content/uploads/why-train-in-the-shala-school-of-yoga.webp"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/300-hour-hero.jpg"
               alt=""
             />
           </div>
@@ -146,7 +146,7 @@ $hero_button_2_link = get_field('hero_button_2_link');
           <div class="fc-fade"></div>
           <div class="fc-watermark">
             <img
-              src="RYS300_LOGO_transparent.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/RYS300_LOGO_transparent.png"
               alt="Yoga Alliance RYS 300"
             />
           </div>
@@ -271,6 +271,8 @@ if ($all_courses->have_posts()) :
             data-tags="all"
             style="--tint: <?php echo esc_attr($image_tint); ?>;"
         >
+
+          <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
             <div class="bg">
                 <?php if ($course_image) : ?>
                     <img
@@ -332,6 +334,7 @@ if ($all_courses->have_posts()) :
             class="card card-typo <?php echo esc_attr($typo_colour); ?>"
             data-tags="all"
         >
+           <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
             <div class="t-tags">
                 <?php if ($format_label) : ?>
                     <span class="pill-studio">

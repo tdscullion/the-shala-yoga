@@ -316,7 +316,7 @@
   color: var(--pink);
 }
 .featured-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: clamp(28px, 3.4vw, 42px);
   line-height: 1.12;
@@ -378,7 +378,7 @@
   gap: 18px;
 }
 .posts-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: clamp(26px, 3vw, 36px);
   color: var(--aubergine);
@@ -446,7 +446,7 @@
   display: block;
 }
 .post-card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 1.2;
@@ -584,7 +584,7 @@
   display: block;
 }
 .newsletter-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: clamp(28px, 3.4vw, 42px);
   color: var(--aubergine);
@@ -666,7 +666,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 .cta-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.8vw, 46px);
   font-weight: 400;
   color: #fff;

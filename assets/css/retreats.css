@@ -68,7 +68,7 @@ h6,
   border-right: none;
 }
 .sticky-info-item.sticky-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 17px;
   font-weight: 400;
   letter-spacing: 0;
@@ -144,7 +144,7 @@ h6,
   margin-bottom: 14px;
 }
 .section-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.8vw, 46px);
   font-weight: 400;
   color: var(--aubergine);
@@ -242,7 +242,7 @@ h6,
   padding: 0 24px;
 }
 .intro-pullquote-mark {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-style: italic;
   font-size: 72px;
   line-height: 0.4;
@@ -426,7 +426,7 @@ h6,
   display: block;
 }
 .rhythm-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 20px;
   font-weight: 400;
   color: var(--aubergine);
@@ -468,7 +468,7 @@ h6,
   white-space: nowrap;
 }
 .word-strip-item .ws-verb {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(18px, 2vw, 26px);
   font-style: italic;
   color: var(--pink);
@@ -483,7 +483,7 @@ h6,
   margin-left: 8px;
 }
 .word-strip-sep {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 20px;
   color: var(--pink);
   padding: 0 18px;
@@ -577,7 +577,7 @@ h6,
   padding: 36px 28px;
 }
 .exp-card-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-style: italic;
   font-size: 54px;
   font-weight: 400;
@@ -587,7 +587,7 @@ h6,
   display: block;
 }
 .exp-card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 19px;
   font-weight: 400;
   color: var(--aubergine);
@@ -708,7 +708,7 @@ h6,
   font-weight: 400;
 }
 .price-row-val {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 22px;
   font-weight: 400;
   color: var(--aubergine);
@@ -718,7 +718,7 @@ h6,
   color: var(--pink);
 }
 .price-row-qual {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-style: italic;
   font-size: 14px;
   color: var(--charcoal-plum);
@@ -783,7 +783,7 @@ h6,
   background: none;
   border: none;
   text-align: left;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 20px;
   font-weight: 400;
   color: var(--aubergine);
@@ -865,7 +865,7 @@ h6,
   font-weight: 500;
 }
 .booking-h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 22px;
   font-weight: 400;
   color: var(--aubergine);
@@ -942,7 +942,7 @@ h6,
   margin: 0 auto;
 }
 .testi-feat-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.6vw, 40px);
   font-weight: 400;
   color: white;
@@ -1062,7 +1062,7 @@ h6,
   margin: 0 auto;
 }
 .cta-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(30px, 4vw, 52px);
   font-weight: 400;
   color: white;

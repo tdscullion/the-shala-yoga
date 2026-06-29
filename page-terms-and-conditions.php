@@ -227,20 +227,22 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
-                <p>
+                <div class="acc-body-inner">
+                  <p>
                   We do not offer refunds where a participant is unable to
                   attend due to cancelled or disrupted transport, government
                   travel advice, border closures, conflict, or other external
                   events beyond our control. Participants are responsible for
                   arranging appropriate travel insurance.
-                </p>
-                <p>
+                  </p>
+                 <p>
                   By booking a place on a course or being accepted onto a
                   training programme, you enter into a contractual relationship
                   with the individual teacher offering the course. The Shala
                   School of Yoga acts solely as a facilitator for payments on
                   behalf of the teacher.
-                </p>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -389,6 +391,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   We do not offer refunds where a participant is unable to
                   attend due to cancelled or disrupted transport, government
@@ -403,6 +406,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   School of Yoga acts solely as a facilitator for payments on
                   behalf of the teacher.
                 </p>
+              </div>
               </div>
             </div>
           </div>
@@ -466,12 +470,14 @@ $hero_subtitle = get_field('hero_subtitle');
                 <span class="acc-trigger-title"
                   >Cancellations &amp; refunds — within 24 hours</span
                 >
-                <span class="acc-icon"
+               <span class="acc-icon"
                   ><svg viewBox="0 0 10 10">
-                    <line x1="5" y1="1" x2="9" y2="5" /></svg
+                    <line x1="5" y1="1" x2="5" y2="9" />
+                    <line x1="1" y1="5" x2="9" y2="5" /></svg
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   No refunds or transfers will be provided unless you are unable
                   to attend due to illness, injury, or pregnancy and can provide
@@ -484,6 +490,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   <strong>no refunds or transfers</strong> will be issued under
                   any circumstances.
                 </p>
+                </div>
               </div>
             </div>
             <div class="acc-item">
@@ -530,25 +537,27 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
-                <p>
-                  We are not liable for refunds, transfers, or compensation
-                  where a participant is unable to attend due to circumstances
-                  outside our control. This includes (but is not limited to):
-                </p>
-                <ul>
-                  <li>War, conflict, civil unrest, or terrorism</li>
-                  <li>Government travel advisories or restrictions</li>
-                  <li>Airspace closures or flight cancellations</li>
-                  <li>Natural disasters or extreme weather</li>
-                  <li>Pandemics or public health restrictions</li>
-                  <li>Visa or immigration issues</li>
-                  <li>Personal travel disruption or accommodation issues</li>
-                </ul>
-                <p>
-                  In such cases, participants remain responsible for the full
-                  course fee. We strongly recommend comprehensive travel
-                  insurance.
-                </p>
+                <div class="acc-body-inner">
+                  <p>
+                    We are not liable for refunds, transfers, or compensation
+                    where a participant is unable to attend due to circumstances
+                    outside our control. This includes (but is not limited to):
+                  </p>
+                  <ul>
+                    <li>War, conflict, civil unrest, or terrorism</li>
+                    <li>Government travel advisories or restrictions</li>
+                    <li>Airspace closures or flight cancellations</li>
+                    <li>Natural disasters or extreme weather</li>
+                    <li>Pandemics or public health restrictions</li>
+                    <li>Visa or immigration issues</li>
+                    <li>Personal travel disruption or accommodation issues</li>
+                  </ul>
+                  <p>
+                    In such cases, participants remain responsible for the full
+                    course fee. We strongly recommend comprehensive travel
+                    insurance.
+                  </p>
+                </div>
               </div>
             </div>
             <div class="acc-item">
@@ -563,6 +572,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   We reserve the right to cancel a course under exceptional
                   circumstances that prevent us from offering the course as
@@ -578,6 +588,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   course or, failing that, (b) give refunds on a pro-rata basis.
                 </p>
               </div>
+              </div>
             </div>
             <div class="acc-item">
               <button class="acc-trigger">
@@ -589,6 +600,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   In the unlikely event that a scheduled teacher is unable to
                   deliver a training due to illness, injury or unforeseen
@@ -603,6 +615,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   availability).
                 </p>
               </div>
+              </div>
             </div>
             <div class="acc-item">
               <button class="acc-trigger">
@@ -614,6 +627,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   Our courses are designed to be attended live — either in
                   person or via livestream. Recordings of live sessions, where
@@ -635,6 +649,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   standards for synchronous (live) contact hours.
                 </p>
               </div>
+              </div>
             </div>
             <div class="acc-item">
               <button class="acc-trigger">
@@ -646,23 +661,25 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
-                <p>
-                  Hybrid courses offer the option to choose an in-studio
-                  experience or to attend via virtual livestream. We do not
-                  offer a mixture of in-studio and livestream on one course.
-                </p>
-                <p>
-                  If you wish to switch between formats, this is sometimes
-                  possible (space permitting) with a minimum of 48 hours notice.
-                  A £25 admin fee applies in all circumstances without
-                  exception.
-                </p>
-                <p>
-                  We reserve the right to make a hybrid course in-studio only or
-                  livestream only if demand is not there for one format. In this
-                  case, you will be offered the option to transfer to the single
-                  format or receive a refund.
-                </p>
+                <div class="acc-body-inner">
+                  <p>
+                    Hybrid courses offer the option to choose an in-studio
+                    experience or to attend via virtual livestream. We do not
+                    offer a mixture of in-studio and livestream on one course.
+                  </p>
+                  <p>
+                    If you wish to switch between formats, this is sometimes
+                    possible (space permitting) with a minimum of 48 hours notice.
+                    A £25 admin fee applies in all circumstances without
+                    exception.
+                  </p>
+                  <p>
+                    We reserve the right to make a hybrid course in-studio only or
+                    livestream only if demand is not there for one format. In this
+                    case, you will be offered the option to transfer to the single
+                    format or receive a refund.
+                  </p>
+                </div>
               </div>
             </div>
             <div class="acc-item">
@@ -675,6 +692,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   If you book the in-studio option but wish to have flexibility
                   to attend via virtual livestream, you can pay an admin fee of
@@ -688,6 +706,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   during our admin team's working hours Monday to Friday
                   (7am–4pm).
                 </p>
+              </div>
               </div>
             </div>
             <div class="acc-item">
@@ -775,6 +794,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   All modules must be completed within
                   <strong>5 years</strong> of the student's first module date.
@@ -800,6 +820,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   are non-refundable once granted. No extensions will be
                   provided for courses prior to January 2020.
                 </p>
+              </div>
               </div>
             </div>
             <div class="acc-item">
@@ -830,6 +851,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   The Shala School of Yoga and course leaders reserve the right
                   to photograph or film sessions for website and marketing
@@ -842,6 +864,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   content in other trainings or public events without permission
                   is prohibited.
                 </p>
+              </div>
               </div>
             </div>
             <div class="acc-item">
@@ -873,6 +896,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   We are fully committed to providing an experience that aligns
                   with the course description. Should you wish to make a
@@ -890,6 +914,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   response is not possible within 30 working days, we will
                   provide an interim update.
                 </p>
+              </div>
               </div>
             </div>
           </div>
@@ -1100,6 +1125,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   Our community is founded on respect, compassion and curiosity
                   — values that extend to how we teach, learn, and connect. We
@@ -1116,6 +1142,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   constructive feedback.
                 </p>
               </div>
+              </div>
             </div>
             <div class="acc-item">
               <button class="acc-trigger">
@@ -1127,6 +1154,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   We will make reasonable adjustments wherever possible to
                   support participation in our trainings, courses, and
@@ -1155,6 +1183,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   formal diagnosis to ask for adjustments — we'll liaise with
                   the tutor and do our best to accommodate your needs.
                 </p>
+              </div>
               </div>
             </div>
           </div>
@@ -1206,6 +1235,7 @@ $hero_subtitle = get_field('hero_subtitle');
                 ></span>
               </button>
               <div class="acc-body">
+                <div class="acc-body-inner">
                 <p>
                   I acknowledge that I am solely responsible for my own health
                   and well-being during the course of the program. I agree to
@@ -1221,6 +1251,7 @@ $hero_subtitle = get_field('hero_subtitle');
                   professional guidance if I require support beyond the scope of
                   the yoga program.
                 </p>
+              </div>
               </div>
             </div>
             <div class="acc-item">

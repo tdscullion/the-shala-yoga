@@ -18,7 +18,7 @@
   margin-bottom: 10px;
 }
 .page-title {
-  font-family: var(--serif);
+  font-family: "Exquise", serif;
   font-size: 2.6rem;
   font-weight: 400;
   color: var(--charcoal);
@@ -51,12 +51,12 @@
   margin-top: 14px;
   font-weight: 300;
   line-height: 1.55;
-  font-family: var(--cormorant);
+  font-family: "Cormorant Garamond", serif;
   font-style: italic;
 }
 .bursary-note a {
   color: var(--pink);
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-style: normal;
   font-size: 10px;
   letter-spacing: 0.12em;
@@ -195,7 +195,7 @@
 
 /* Body content */
 .flagship-card-.flagship-card-eyebrow {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -205,7 +205,7 @@
   margin-bottom: 10px;
 }
 .flagship-card-title {
-  font-family: var(--serif);
+  font-family: "Exquise", serif;
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--charcoal-plum);
@@ -218,17 +218,18 @@
   font-style: italic;
 }
 .flagship-card-meta {
-  font-family: var(--cormorant);
+  font-family: "Cormorant Garamond", serif;
   font-size: 1rem;
   font-style: italic;
   color: var(--charcoal-plum);
   opacity: 0.75;
   line-height: 1.5;
+  margin: 0 auto;
   margin-bottom: 16px;
   max-width: 240px;
 }
 .flagship-card-dates {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -237,14 +238,14 @@
   margin-bottom: 6px;
 }
 .flagship-card-price {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 1.05rem;
   color: var(--pink);
   font-weight: 400;
   margin-bottom: 4px;
 }
 .flagship-card-price-sub {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 9.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -289,7 +290,7 @@
   border-bottom: 1.5px solid var(--greige);
 }
 .section-label h2 {
-  font-family: var(--serif);
+  font-family: "Exquise", serif;
   font-size: 1.1rem;
   color: var(--charcoal);
   font-weight: 400;
@@ -363,7 +364,7 @@
 
 /* Course name */
 td.td-course a {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 0.88rem;
   font-weight: 400;
   color: var(--charcoal);
@@ -374,7 +375,7 @@ td.td-course a:hover {
   color: var(--pink);
 }
 .course-sub {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 9.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -461,14 +462,14 @@ td.td-format {
 /* Price */
 td.td-price {
   text-align: right;
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 0.92rem;
   font-weight: 400;
   color: var(--charcoal);
   white-space: nowrap;
 }
 td.td-price.is-free {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -513,10 +514,10 @@ td.td-cta a:hover {
 .row-saha td.td-course a {
   color: var(--charcoal);
   font-size: 0.88rem;
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
 }
 .row-openday td.td-price {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -526,7 +527,7 @@ td.td-cta a:hover {
 
 /* Philosophy Club section */
 a.philo-main {
-  font-family: var(--sans);
+  font-family: "Jost", sans-serif;
   font-size: 0.88rem;
   font-weight: 400;
   color: var(--charcoal);
@@ -538,7 +539,7 @@ a.philo-main:hover {
   color: var(--pink);
 }
 .philo-session {
-  font-family: var(--cormorant);
+  font-family: "Cormorant Garamond", serif;
   font-size: 0.82rem;
   font-style: italic;
   color: var(--charcoal);
@@ -570,7 +571,7 @@ a.philo-main:hover {
   gap: 10px;
 }
 .accordion-trigger-left h2 {
-  font-family: var(--serif);
+  font-family: "Exquise", serif;
   font-size: 1.1rem;
   color: var(--charcoal);
   font-weight: 400;
@@ -620,7 +621,7 @@ a.philo-main:hover {
   text-align: center;
 }
 .cta-band h2 {
-  font-family: var(--serif);
+  font-family: "Exquise", serif;
   font-size: 2rem;
   color: #fff;
   font-weight: 400;

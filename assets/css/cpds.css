@@ -80,7 +80,7 @@
   padding: 0 48px;
 }
 .section-label h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 40px);
   font-weight: 400;
   color: var(--aubergine);
@@ -198,7 +198,7 @@
 }
 
 .card-img .img-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
@@ -253,7 +253,7 @@
   color: rgba(255, 255, 255, 0.95);
 }
 .card-img .foot-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 21px;
   color: white;
   text-align: right;
@@ -484,7 +484,7 @@
   flex-wrap: wrap;
 }
 .t-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 21px;
   font-weight: 400;
   line-height: 1.2;
@@ -521,7 +521,7 @@
   font-weight: 500;
 }
 .t-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 21px;
   text-align: right;
   line-height: 1;
@@ -536,6 +536,14 @@
   text-decoration: none;
   border-bottom: 1px solid;
   padding-bottom: 2px;
+}
+
+/* Full card link */
+.card-full-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  text-decoration: none;
 }
 
 /* ══ PILL SYSTEM ══ */
@@ -627,7 +635,7 @@
   padding: 38px 32px;
 }
 .card-cta .cta-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 28px;
   font-weight: 400;
   line-height: 1.15;
@@ -775,7 +783,7 @@
   border-radius: 1px;
 }
 .fc-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 28px;
   font-weight: 400;
   color: white;
@@ -824,7 +832,7 @@
   text-align: right;
 }
 .fc-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 26px;
   color: white;
   line-height: 1;
@@ -942,7 +950,7 @@
   border-radius: 1px;
 }
 .od-card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 20px;
   font-weight: 400;
   color: white;
@@ -988,7 +996,7 @@
   margin-top: auto;
 }
 .od-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 21px;
   color: white;
   line-height: 1;
@@ -1021,7 +1029,7 @@
   text-align: center;
 }
 .pink-cta h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 400;
   font-style: normal;

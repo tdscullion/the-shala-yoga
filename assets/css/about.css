@@ -20,7 +20,7 @@
   gap: 16px;
 }
 .carousel-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: clamp(22px, 2.4vw, 30px);
   color: #fff;
@@ -204,7 +204,7 @@
   align-items: start;
 }
 .intro-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 400;
   line-height: 1.2;
@@ -244,7 +244,7 @@
   flex: 1;
 }
 .founder-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 28px;
   line-height: 1.1;
@@ -271,7 +271,7 @@
   position: absolute;
   left: 0;
   top: -6px;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 48px;
   line-height: 1;
   color: var(--pink);
@@ -336,7 +336,7 @@
   border-right: none;
 }
 .stat-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 34px;
   display: block;
   margin-bottom: 4px;
@@ -366,7 +366,7 @@
   align-items: start;
 }
 .what-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(24px, 2.8vw, 34px);
   font-weight: 400;
   line-height: 1.2;
@@ -410,7 +410,7 @@
   margin-bottom: 40px;
 }
 .lineage-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 400;
   color: var(--text-dark);
@@ -442,7 +442,7 @@
   filter: brightness(1.05);
 }
 .lineage-card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 22px;
   color: #fff;
@@ -473,7 +473,7 @@
   gap: 2px;
 }
 .story-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 400;
   color: var(--text-dark);
@@ -507,7 +507,7 @@
   text-align: center;
 }
 .tl-year {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 14px;
   color: var(--pink);
   font-weight: 400;
@@ -530,7 +530,7 @@
   padding-bottom: 4px;
 }
 .tl-body strong {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-weight: 500;
   color: var(--text-dark);
@@ -657,7 +657,7 @@
   max-width: 780px;
 }
 .faculty-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 400;
   color: var(--text-dark);
@@ -688,7 +688,7 @@
   position: absolute;
   left: 18px;
   top: 14px;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   line-height: 1;
   color: var(--pink);
@@ -699,7 +699,7 @@
   position: absolute;
   right: 18px;
   bottom: -8px;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 72px;
   line-height: 1;
   color: var(--pink);
@@ -764,7 +764,7 @@
   color: rgba(255, 255, 255, 0.85);
 }
 .fc-name-lg {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 24px;
   color: var(--aubergine);
@@ -795,7 +795,7 @@
 
 /* Specialist variants */
 .fc-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 18px;
   color: var(--aubergine);
@@ -850,7 +850,7 @@
   margin-bottom: 40px;
 }
 .students-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 400;
   color: var(--text-dark);
@@ -930,7 +930,7 @@
   color: var(--orange);
 }
 .prog-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 400;
   color: var(--text-dark);
@@ -978,7 +978,7 @@
   background: var(--pinked-linen);
 }
 .prog-hours {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 42px;
   color: var(--pink);
   line-height: 1;
@@ -987,7 +987,7 @@
   font-weight: 400;
 }
 .prog-card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 19px;
   color: var(--text-dark);
   font-weight: 400;
@@ -1033,7 +1033,7 @@
   align-items: start;
 }
 .commit-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 400;
   color: var(--text-dark);
@@ -1108,7 +1108,7 @@
   text-align: center;
 }
 .cta-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.8vw, 46px);
   font-weight: 400;
   color: #fff;

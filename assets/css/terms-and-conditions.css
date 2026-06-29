@@ -1,7 +1,7 @@
 /* ══ ANNOUNCEMENT BAR — see snippet-announcement.html ══ */
 /* ══ NAV — see snippet-nav.html ══ */
 /* ══ HEADER — aubergine with faded spiral ══ */
-.hdr {
+/* .hdr {
   background: var(--light-plum);
   position: relative;
   overflow: hidden;
@@ -49,7 +49,7 @@
   flex: 1;
 }
 .hdr-title {
-  font-family: "Playfair Display", serif;
+   font-family: "Exquise", serif;
   font-weight: 400;
   font-size: clamp(30px, 4vw, 52px);
   line-height: 1.08;
@@ -66,7 +66,7 @@
   color: var(--aubergine);
   line-height: 1.55;
   max-width: 520px;
-}
+} */
 
 /* ══ JUMP NAV ══ */
 .page-jumpnav-wrap {
@@ -138,7 +138,7 @@
   margin-bottom: 14px;
 }
 .section-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(22px, 2.8vw, 32px);
   font-weight: 400;
   color: var(--text-dark);
@@ -213,7 +213,7 @@
 .acc-item.open .acc-icon svg {
   transform: rotate(45deg);
 }
-.acc-.acc-item.open .acc-.acc-body p {
+.acc-body p {
   font-family: "Jost", sans-serif;
   font-size: 14px;
   line-height: 1.9;
@@ -261,6 +261,19 @@
   margin-top: 0;
 }
 
+.acc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.acc-item.open .acc-body {
+  grid-template-rows: 1fr;
+}
+
+.acc-body > * {
+  overflow: hidden;
+}
 /* ══ CTA BAND ══ */
 .cta-band {
   background: var(--pink);
@@ -268,7 +281,7 @@
   text-align: center;
 }
 .cta-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(26px, 3.5vw, 42px);
   font-weight: 400;
   color: #fff;
@@ -324,42 +337,11 @@
   border-color: #fff;
 }
 
-/* ══ FOOTER — see snippet-footer.html ══ */
 /* ══ RESPONSIVE ══ */
-@media (max-width: 1100px) {
-  .footer-top {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 28px;
-  }
-  .footer-courses-col {
-    grid-column: span 3;
-  }
-}
+
 @media (max-width: 900px) {
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px 28px;
-  }
-  .footer-brand {
-    grid-column: span 2;
-    max-width: 560px;
-  }
-  .footer-courses-col {
-    grid-column: span 1;
-  }
   .page-wrap {
     padding: 0 32px;
-  }
-  .hdr {
-    flex-direction: column;
-    min-height: auto;
-  }
-  .hdr-spiral-wrap {
-    width: 100%;
-    height: 200px;
-  }
-  .hdr-content {
-    padding: 36px 32px 44px;
   }
   .page-jumpnav {
     flex-wrap: wrap;
@@ -395,12 +377,6 @@
   .page-wrap {
     padding: 0 22px;
   }
-  .hdr-content {
-    padding: 32px 22px 36px;
-  }
-  .hdr-sub {
-    font-size: 17px;
-  }
   .page-jumpnav a {
     flex: 0 0 100%;
     border-right: none;
@@ -413,7 +389,7 @@
   .acc-trigger-title {
     font-size: 17px;
   }
-  .acc-.cta-band {
+  .cta-band {
     padding: 56px 0;
   }
 }

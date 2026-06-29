@@ -2191,21 +2191,6 @@ blockquote.inline-quote {
   .course-header {
     padding: 0 32px 64px;
   }
-  .ch-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    text-align: left;
-  }
-  .ch-img-col img {
-    max-width: 150px;
-    margin: 0 auto;
-  }
-  .ch-title {
-    font-size: clamp(38px, 7vw, 58px);
-  }
-  .ch-sub {
-    font-size: 19px;
-  }
 
   /* Sticky booking bar — allow wrap on mobile */
   .booking-bar {
@@ -2350,30 +2335,55 @@ blockquote.inline-quote {
   .gallery-band {
     padding: 44px 32px 48px;
   }
+
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 220px 220px 220px;
+    grid-template-rows: auto auto auto;
     gap: 5px;
   }
+
+  /* Portrait image */
   .g-a {
-    grid-column: 1 / 3;
-    grid-row: 1;
-  }
-  .g-b {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1 / 3;
+
+    height: 100%;
+    min-height: 100%;
   }
+
+  .g-b {
+    grid-column: 2;
+    grid-row: 1;
+    aspect-ratio: 4 / 3;
+  }
+
   .g-c {
     grid-column: 2;
     grid-row: 2;
+    aspect-ratio: 4 / 3;
   }
+
   .g-d {
     grid-column: 1;
     grid-row: 3;
+    aspect-ratio: 4 / 3;
   }
+
   .g-e {
     grid-column: 2;
     grid-row: 3;
+    aspect-ratio: 4 / 3;
+  }
+
+  .g-cell img,
+  .g-cell img[style] {
+    object-position: center 15% !important;
+  }
+
+  .g-a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Related courses — horizontal scroll */
@@ -2649,8 +2659,8 @@ blockquote.inline-quote {
   .gallery-band {
     padding: 36px 20px 44px;
   }
+
   .gallery-grid {
-    grid-template-rows: 180px 160px 160px;
     gap: 4px;
   }
 
