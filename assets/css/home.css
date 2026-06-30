@@ -732,6 +732,7 @@
     padding: 40px 24px;
   }
   .word-strip-inner {
+    align-items: center;
     flex-direction: column;
     gap: 10px;
   }

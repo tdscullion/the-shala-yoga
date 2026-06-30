@@ -1508,7 +1508,7 @@ blockquote.inline-quote {
 
 /* ── MANTRA STRIP — matches home page word-strip pattern ── */
 .mantra-strip {
-  background: var(--chalk);
+  background: var(--dusty-blush);
   padding: 20px 32px 36px;
   border-top: 1px solid rgba(59, 19, 46, 0.08);
   border-bottom: 1px solid rgba(59, 19, 46, 0.08);

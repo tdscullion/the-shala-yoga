@@ -81,213 +81,10 @@
 }
 
 /* ── HERO ── */
-/* ── EDITORIAL HEADER — 200hr variant (warm chalk + Vimeo video left, text right) ── */
-.course-header {
-  background: linear-gradient(135deg, #f7f3ee 0%, #f1e7dc 100%);
-  padding: 96px 56px;
-  position: relative;
-  overflow: hidden;
-}
-/* Decorative pink spiral — sits behind text column on the right */
-.course-header::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -120px;
-  transform: translateY(-50%);
-  width: 720px;
-  height: 720px;
-  background-image: url("vecteezy_abstractspiralgraphicresource_.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.18;
-  filter: hue-rotate(330deg) saturate(1.8);
-  pointer-events: none;
-  z-index: 1;
-}
-@media (max-width: 900px) {
-  .course-header::before {
-    width: 460px;
-    height: 460px;
-    right: -160px;
-    opacity: 0.12;
-  }
-}
-.ch-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-  position: relative;
-}
-.ch-text-col {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  order: 2;
-}
-/* Video column — left side */
-.ch-img-col {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  overflow: visible;
-  order: 1;
-}
-/* Hero video frame */
-.ch-video-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--aubergine);
-  overflow: hidden;
-  box-shadow: 0 18px 48px -16px rgba(59, 19, 46, 0.35);
-  z-index: 2;
-}
-.ch-video-wrap iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.ch-video-caption {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  margin-top: 14px;
-  display: block;
-  text-align: center;
-}
-@media (max-width: 900px) {
-  .course-header {
-    padding: 64px 32px 72px;
-  }
-  .ch-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .ch-text-col {
-    order: 1;
-  }
-  .ch-img-col {
-    order: 2;
-  }
-}
-.ch-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 18px;
-  display: block;
-}
-.ch-title {
-  font-family: "Exquise", serif;
-  font-size: clamp(44px, 5.4vw, 76px);
-  font-weight: 400;
-  color: var(--aubergine);
-  letter-spacing: -0.01em;
-  line-height: 1.05;
-  margin: 0 0 20px;
-  position: relative;
-  z-index: 1;
-}
-.ch-title em {
-  color: var(--pink);
-  font-style: italic;
-  font-weight: 400;
-}
-.ch-sub {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(20px, 2vw, 24px);
-  font-style: italic;
-  color: var(--text-mid);
-  line-height: 1.45;
-  margin: 0 0 28px;
-  max-width: 640px;
-  position: relative;
-  z-index: 1;
-}
-.ch-rule {
-  width: 48px;
-  height: 2px;
-  background: var(--orange);
-  margin-top: 8px;
-}
-/* Legacy Kids classes still present but unused for 200hr */
-.ch-tag {
-  display: none;
-}
-.ch-meta {
-  display: none;
-}
-.ch-pill {
-  display: none;
-}
-.ch-spiral {
-  display: none;
-}
+
 /* Stats strip — orange band */
 
 /* Stats bar — matches Home page styling */
-.stats-bar {
-  background: var(--orange);
-  padding: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-.stats-bar-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.stat-box {
-  padding: 20px 28px;
-  border-right: 1px solid rgba(59, 19, 46, 0.15);
-}
-.stat-box:last-child {
-  border-right: none;
-}
-.stat-num {
-  font-family: "Exquise", serif;
-  font-size: 36px;
-  display: block;
-  margin-bottom: 4px;
-  line-height: 1;
-  color: var(--aubergine);
-}
-.stat-desc {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  color: var(--aubergine);
-  font-weight: 500;
-  opacity: 0.75;
-}
-@media (max-width: 720px) {
-  .stats-bar-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-box {
-    border-bottom: 1px solid rgba(59, 19, 46, 0.1);
-  }
-}
 
 /* ── PAGE JUMP NAV ── */
 
@@ -313,8 +110,7 @@
   gap: 64px;
   align-items: start;
 }
-.main-col {
-}
+
 .bio-backlink {
   display: inline-flex;
   align-items: center;
@@ -1268,8 +1064,8 @@ blockquote.inline-quote {
   color: white;
 }
 .bc-btn-primary:hover {
-  background: var(--pink-deep);
-  border-color: var(--pink-deep);
+  background: var(--aubergine);
+  border-color: var(--aubergine);
 }
 .bc-btn-ghost {
   background: transparent;
@@ -1999,7 +1795,7 @@ blockquote.inline-quote {
 
 /* ── MANTRA STRIP — matches home page word-strip pattern ── */
 .mantra-strip {
-  background: var(--chalk);
+  background: var(--dusty-blush);
   padding: 20px 32px 36px;
   border-top: 1px solid rgba(59, 19, 46, 0.08);
   border-bottom: 1px solid rgba(59, 19, 46, 0.08);
@@ -2020,7 +1816,6 @@ blockquote.inline-quote {
 }
 .mantra-strip-inner .ws-verb {
   font-family: "Exquise", serif;
-
   font-size: clamp(16px, 1.8vw, 22px);
   font-style: italic;
   color: var(--pink);
@@ -2590,26 +2385,6 @@ blockquote.inline-quote {
 /* ═══════════════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-  /* Hero */
-  .course-header {
-    padding: 0 32px 64px;
-  }
-  .ch-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    text-align: left;
-  }
-  .ch-img-col img {
-    max-width: 150px;
-    margin: 0 auto;
-  }
-  .ch-title {
-    font-size: clamp(38px, 7vw, 58px);
-  }
-  .ch-sub {
-    font-size: 19px;
-  }
-
   /* Sticky booking bar — allow wrap on mobile */
   .booking-bar {
     padding: 0 20px;
@@ -2818,21 +2593,6 @@ blockquote.inline-quote {
 }
 
 @media (max-width: 600px) {
-  /* Hero */
-  .course-header {
-    padding: 0 20px 48px;
-  }
-  .ch-img-col img {
-    max-width: 120px;
-  }
-  .ch-title {
-    font-size: clamp(34px, 9vw, 44px);
-    line-height: 1.1;
-  }
-  .ch-sub {
-    font-size: 17px;
-  }
-
   /* Sticky booking bar — stack tightly */
   .booking-bar {
     padding: 10px 16px;
