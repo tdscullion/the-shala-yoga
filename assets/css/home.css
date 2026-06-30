@@ -1991,18 +1991,42 @@
   .blog-card {
     flex: 0 0 100%;
   }
-  .nl-form {
-    flex-direction: column;
-  }
-  .nl-input {
-    border-right: 1px solid rgba(255, 255, 255, 0.35);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-  }
   .newsletter {
-    padding: 64px 24px;
+    padding: 56px 20px;
   }
+
   .newsletter h3 {
-    font-size: clamp(22px, 6vw, 30px);
+    font-size: clamp(26px, 7vw, 34px);
+  }
+
+  .newsletter p {
+    font-size: 17px;
+    margin-bottom: 28px;
+  }
+
+  .nl-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nl-input {
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 52px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .nl-btn {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 24px;
+  }
+
+  .nl-note {
+    margin-top: 16px;
   }
   /* .gallery-band {
     padding: 64px 0;
