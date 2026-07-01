@@ -987,7 +987,7 @@ $gallery_image_5 = get_field('gallery_image_5');
                 </div>
 
                   <div class="retreat-copy">
-                      <div class="retreat-accent"></div>
+                      <!-- <div class="retreat-accent"></div> -->
 
                       <?php if ($retreat_title) : ?>
                           <h3 class="retreat-title">
@@ -1066,14 +1066,7 @@ $gallery_image_5 = get_field('gallery_image_5');
               Vahni. Same teachers, same community, same space — a new name with
               a fresh focus on wellbeing.
             </p>
-            <div
-              style="
-                display: flex;
-                gap: 12px;
-                flex-wrap: wrap;
-                align-items: center;
-                margin-top: 28px;
-              "
+            <div class="vb-btns"
             >
               <a
                 href="https://vahnilondon.com/schedule"

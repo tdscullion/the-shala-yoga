@@ -85,6 +85,7 @@
   align-items: stretch;
   background: var(--aubergine);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 0;
 }
 .page-jumpnav a {
   font-family: "Jost", sans-serif;
@@ -114,6 +115,7 @@
 @media (max-width: 600px) {
   .page-jumpnav {
     flex-wrap: wrap;
+    display: none;
   }
   .page-jumpnav a {
     flex: 0 0 50%;
@@ -181,66 +183,6 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 40px;
-}
-
-/* ══ STATS BAR ══ */
-.stats-bar {
-  background: var(--orange);
-  padding: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-.stats-bar-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.stat-box {
-  padding: 20px 28px;
-  border-right: 1px solid rgba(59, 19, 46, 0.15);
-}
-.stat-box:last-child {
-  border-right: none;
-}
-.stat-num {
-  font-family: "Exquise", serif;
-  font-size: 36px;
-  display: block;
-  margin-bottom: 4px;
-  line-height: 1;
-  color: var(--aubergine);
-}
-.stat-desc {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  color: var(--aubergine);
-  font-weight: 500;
-  opacity: 0.75;
-}
-@media (max-width: 900px) {
-  .stats-bar-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-box {
-    border-bottom: 1px solid rgba(59, 19, 46, 0.1);
-  }
-  .stat-box:nth-child(2) {
-    border-right: none;
-  }
-}
-@media (max-width: 600px) {
-  .stats-bar-inner {
-    padding: 0 24px;
-  }
-  .stat-box {
-    padding: 18px 20px;
-  }
-  .stat-num {
-    font-size: 30px;
-  }
 }
 
 /* ══ COURSE CAROUSEL ══ */
@@ -1487,25 +1429,26 @@
   transition: background 0.2s;
 }
 .retreat-btn:hover {
-  background: var(--pink-deep);
+  background: var(--aubergine);
 }
 
 /* ══ VAHNI BANNER — chalk ══ */
 .vahni-banner {
   background: var(--chalk);
   padding: 72px 48px;
-  position: relative;
   border-top: 1px solid var(--linen);
   border-bottom: 1px solid var(--linen);
 }
+
 .vahni-banner-inner {
-  max-width: 1240px;
+  max-width: 1100px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 48px;
+  gap: 56px;
 }
+
 .vb-eyebrow {
   font-family: "Jost", sans-serif;
   font-size: 9px;
@@ -1516,61 +1459,54 @@
   margin-bottom: 12px;
   font-weight: 500;
 }
+
 .vb-title {
   font-family: "Exquise", serif;
-  font-size: clamp(22px, 2.8vw, 36px);
+  font-size: clamp(26px, 3vw, 42px);
   color: var(--aubergine);
   line-height: 1.1;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-weight: 400;
 }
+
 .vb-title em {
   font-style: italic;
   color: var(--pink);
 }
+
 .vb-body {
   font-family: "Cormorant Garamond", serif;
   font-size: 18px;
   color: var(--charcoal-plum);
   line-height: 1.7;
-  max-width: 520px;
+  max-width: 560px;
 }
+
+.vb-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 28px;
+}
+
 .vahni-logo-wrap {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-width: 260px;
-  flex-shrink: 0;
+  justify-content: flex-start;
 }
+
 .vahni-logo-wrap img {
-  min-height: 72px;
-  max-height: 140px;
-  width: auto;
+  width: min(100%, 360px);
+  height: auto;
   display: block;
+  mix-blend-mode: multiply;
 }
-.btn-vahni {
-  display: inline-block;
-  padding: 12px 32px;
-  background: var(--pink);
-  color: white;
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.btn-vahni:hover {
-  background: var(--pink-deep);
-  color: white;
-}
+
+.btn-vahni,
 .btn-vahni-outline {
   display: inline-block;
   padding: 12px 32px;
-  background: transparent;
-  border: 1px solid var(--charcoal-plum);
-  color: var(--charcoal-plum);
   font-family: "Jost", sans-serif;
   font-size: 11px;
   letter-spacing: 0.16em;
@@ -1579,6 +1515,23 @@
   transition: all 0.2s;
   white-space: nowrap;
 }
+
+.btn-vahni {
+  background: var(--pink);
+  color: white;
+}
+
+.btn-vahni:hover {
+  background: var(--aubergine);
+  color: white;
+}
+
+.btn-vahni-outline {
+  background: transparent;
+  border: 1px solid var(--charcoal-plum);
+  color: var(--charcoal-plum);
+}
+
 .btn-vahni-outline:hover {
   background: var(--charcoal-plum);
   color: white;
@@ -1843,14 +1796,7 @@
   .reason-num {
     font-size: 28px;
   }
-  /* .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 220px 220px;
-    gap: 5px;
-  }
-  .g-tall {
-    grid-row: span 1;
-  } */
+
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -1874,14 +1820,26 @@
     height: 420px;
   }
   .vahni-banner-inner {
-    flex-direction: column;
+    max-width: 640px;
+    grid-template-columns: 1fr;
     gap: 36px;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
   }
+
+  .vb-body {
+    max-width: none;
+  }
+
+  .vb-btns {
+    justify-content: center;
+  }
+
   .vahni-logo-wrap {
-    margin: 0 auto;
-    min-width: 0;
+    justify-content: center;
+  }
+
+  .vahni-logo-wrap img {
+    width: min(100%, 300px);
   }
   .section-header-row {
     flex-direction: column;
@@ -1969,6 +1927,7 @@
     border-top: none;
   }
   .reason-strip {
+    text-align: center;
     padding: 20px 0;
   }
   .testi-card {
@@ -2029,21 +1988,6 @@
   .nl-note {
     margin-top: 16px;
   }
-  /* .gallery-band {
-    padding: 64px 0;
-  }
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 4px;
-    padding: 0 20px;
-  }
-  .g-cell {
-    height: 200px;
-  }
-  .g-tall {
-    grid-row: span 1;
-  } */
   .gallery-band-header {
     padding-left: 20px;
     padding-right: 20px;
@@ -2119,7 +2063,11 @@
   .retreat-collage {
     grid-template-rows: repeat(3, 160px);
   }
+  .retreat-copy {
+    text-align: center;
+  }
   .retreat-meta {
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 18px;
   }
@@ -2144,10 +2092,25 @@
     padding-left: 16px;
   }
   .vb-title {
-    font-size: 24px;
+    font-size: 26px;
   }
+
   .vb-body {
     font-size: 16px;
+  }
+
+  .vb-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-vahni,
+  .btn-vahni-outline {
+    text-align: center;
+  }
+
+  .vahni-logo-wrap img {
+    width: min(100%, 240px);
   }
   .testi-carousel-head {
     margin-bottom: 16px;

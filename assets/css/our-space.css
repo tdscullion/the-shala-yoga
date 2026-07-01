@@ -372,7 +372,12 @@
   }
 }
 @media (max-width: 600px) {
-  .studio-copy {
+  .studio-copy,
+  .facilities-copy,
+  .building-copy,
+  .artwork-copy,
+  .derek-copy {
+    text-align: center;
     padding: 48px 24px;
   }
 }
