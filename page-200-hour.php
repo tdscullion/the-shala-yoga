@@ -871,11 +871,6 @@ $suggested_courses = get_field('suggested_courses');
                   />
               <?php endif; ?>
               <div class="g-tint"></div>
-              <!-- <div class="g-caption">
-                <span class="g-caption-text"
-                  >Charli Van Ness — lead teacher</span
-                >
-              </div> -->
               <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-b" onclick="openLightbox(1)">

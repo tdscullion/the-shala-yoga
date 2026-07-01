@@ -29,8 +29,8 @@ $hero_subtitle = get_field('hero_subtitle', $blog_page_id);
         </div>
       </section>
 
-      <!-- FILTER BAR -->
-      <nav class="filter-bar" aria-label="Filter posts by topic">
+      <!-- FILTER BAR Needs Taggs for blogs-->
+      <!-- <nav class="filter-bar" aria-label="Filter posts by topic">
         <div class="filter-bar-inner">
           <span class="filter-label">Topics</span>
 
@@ -72,10 +72,10 @@ $hero_subtitle = get_field('hero_subtitle', $blog_page_id);
             />
           </div>
         </div>
-      </nav>
+      </nav> -->
 
       <!-- ALL TOPICS EXPANDED PANEL -->
-      <div class="topics-panel" id="topicsPanel" aria-hidden="true">
+      <!-- <div class="topics-panel" id="topicsPanel" aria-hidden="true">
         <div class="topics-panel-inner">
           <div class="topics-panel-grid">
             <div class="topics-panel-group">
@@ -124,7 +124,7 @@ $hero_subtitle = get_field('hero_subtitle', $blog_page_id);
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- FEATURED POST -->
       <section class="featured-section">
@@ -429,18 +429,6 @@ $hero_subtitle = get_field('hero_subtitle', $blog_page_id);
         </div>
 
           <!-- Pagination -->
-          <!-- Static -->
-          <!-- <nav class="pagination" aria-label="Blog pagination">
-            <a href="#" class="prev disabled">← Prev</a>
-            <span class="current">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <span class="ellipsis">…</span>
-            <a href="#">13</a>
-            <a href="#" class="next">Next →</a>
-          </nav> -->
-          <!-- End Static -->
           <nav class="pagination" aria-label="Blog pagination">
             <?php
             echo paginate_links([

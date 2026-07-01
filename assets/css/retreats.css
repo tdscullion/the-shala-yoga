@@ -1325,6 +1325,9 @@ h6,
   .exp-grid {
     grid-template-columns: 1fr;
   }
+  .exp-card {
+    text-align: center;
+  }
 
   /* Gallery — 2-col → 1-col per style guide */
   .gallery-row-1,
@@ -1347,5 +1350,6 @@ h6,
   /* Booking panel — slightly tighter on phone */
   .booking-panel {
     padding: 32px 24px;
+    text-align: center;
   }
 }

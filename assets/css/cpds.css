@@ -859,7 +859,6 @@
   background: var(--chalk);
   margin-top: 0;
   padding: 60px 48px;
-  border-top: 1px solid var(--linen);
 }
 .od-inner {
   max-width: 1240px;

@@ -2744,6 +2744,7 @@ blockquote.inline-quote {
     font-size: 12.5px;
     display: block;
     width: 100%;
+    text-align: center;
   }
   .bar-meta {
     margin-left: 0;
@@ -2751,6 +2752,7 @@ blockquote.inline-quote {
     display: block;
     width: 100%;
     padding: 2px 0 0;
+    text-align: center;
   }
   .bar-btns {
     width: 100%;

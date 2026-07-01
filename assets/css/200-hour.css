@@ -12,6 +12,7 @@
   justify-content: space-between;
   transform: translateY(-110px);
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10;
 }
 .booking-bar.visible {
   transform: translateY(0);
@@ -2205,8 +2206,6 @@ blockquote.inline-quote {
 }
 
 /* Form */
-.interest-form {
-}
 .interest-form-card {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -2504,29 +2503,35 @@ blockquote.inline-quote {
 
   /* Gallery */
   .gallery-band {
-    padding: 44px 32px 48px;
+    padding: 44px 12px 48px;
   }
+
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 220px 220px 220px;
-    gap: 5px;
+    grid-template-rows: 170px 170px 170px;
+    gap: 4px;
   }
+
   .g-a {
-    grid-column: 1 / 3;
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .g-b {
+    grid-column: 2;
     grid-row: 1;
   }
-  .g-b {
-    grid-column: 1;
-    grid-row: 2;
-  }
+
   .g-c {
     grid-column: 2;
     grid-row: 2;
   }
+
   .g-d {
     grid-column: 1;
     grid-row: 3;
   }
+
   .g-e {
     grid-column: 2;
     grid-row: 3;
@@ -2605,6 +2610,7 @@ blockquote.inline-quote {
     font-size: 12.5px;
     display: block;
     width: 100%;
+    text-align: center;
   }
   .bar-meta {
     margin-left: 0;
@@ -2612,6 +2618,7 @@ blockquote.inline-quote {
     display: block;
     width: 100%;
     padding: 2px 0 0;
+    text-align: center;
   }
   .bar-btns {
     width: 100%;
@@ -2619,8 +2626,8 @@ blockquote.inline-quote {
   .bar-btn {
     flex: 1;
     text-align: center;
-    padding: 8px 10px;
-    font-size: 9px;
+    padding: 8px 8px;
+    font-size: 8px;
   }
 
   /* Announcement bar */
@@ -2790,10 +2797,11 @@ blockquote.inline-quote {
 
   /* Gallery */
   .gallery-band {
-    padding: 36px 20px 44px;
+    padding: 36px 12px 44px;
   }
+
   .gallery-grid {
-    grid-template-rows: 180px 160px 160px;
+    grid-template-rows: 170px 170px 170px;
     gap: 4px;
   }
 
@@ -3537,7 +3545,7 @@ blockquote.inline-quote {
 @media (max-width: 600px) {
   .openday-block {
     padding: 36px 20px 40px;
-    margin: 0 -20px 48px;
+    margin: 0 -20px 0px;
   }
 }
 
@@ -3572,5 +3580,11 @@ blockquote.inline-quote {
 @media (max-width: 600px) {
   .quote-strip {
     padding: 56px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .apply-step {
+    grid-template-columns: 40px 1fr;
+    gap: 0 10px;
   }
 }
