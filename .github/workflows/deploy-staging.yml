@@ -1,0 +1,27 @@
+name: Deploy theme to WPX staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Upload theme files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SFTP
+        uses: pressidium/lftp-mirror-action@v1
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          user: ${{ secrets.FTP_USERNAME }}
+          pass: ${{ secrets.FTP_PASSWORD }}
+          localDir: "."
+          remoteDir: "/domains/staging.theshalalondon.com/public_html/wp-content/themes/the-shala-build"
+          reverse: true
+          options: "--verbose --exclude-glob .git* --exclude-glob .github*"

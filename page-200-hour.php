@@ -643,7 +643,7 @@ $suggested_courses = get_field('suggested_courses');
                 <?php
                 if (!empty($main_teachers[0])) :
                     $teacher = $main_teachers[0];
-                    $card_image = get_field('card_image', $teacher->ID);
+                    $card_image = get_field('main_image', $teacher->ID);
 
                     if ($card_image) :
                 ?>
@@ -688,7 +688,7 @@ $suggested_courses = get_field('suggested_courses');
                   <?php
                 if (!empty($main_teachers[1])) :
                     $teacher = $main_teachers[1];
-                    $card_image = get_field('card_image', $teacher->ID);
+                    $card_image = get_field('main_image', $teacher->ID);
 
                     if ($card_image) :
                 ?>
