@@ -138,8 +138,8 @@ $flagship_cards = get_field('course_flagship_cards');
 
         <!-- SECTION: SUMMER 2026 -->
         <div class="accordion-section">
-            <div class="section-label">
-                <h2>Upcomming Courses</h2>
+            <div">
+                <h2 class="h3-sub">Upcoming <em>Courses</em></h2>
             </div>
             <table class="cal-table">
               <thead>

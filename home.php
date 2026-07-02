@@ -126,46 +126,95 @@ $hero_subtitle = get_field('hero_subtitle', $blog_page_id);
         </div>
       </div> -->
 
-      <!-- FEATURED POST -->
+      <!-- FEATURED POST DYNAMIC-->
+     <?php
+      $blog_page_id = get_option('page_for_posts');
+      $featured_post = get_field('featured_blog_post', $blog_page_id);
+
+      if ($featured_post) :
+          $featured_post_id = is_object($featured_post) ? $featured_post->ID : $featured_post;
+
+          $featured_title = get_the_title($featured_post_id);
+          $featured_link = get_permalink($featured_post_id);
+          $featured_excerpt = get_the_excerpt($featured_post_id);
+          $featured_date = get_the_date('M Y', $featured_post_id);
+          $featured_image = get_the_post_thumbnail_url($featured_post_id, 'large');
+          $featured_categories = get_the_category($featured_post_id);
+          $featured_category = !empty($featured_categories) ? $featured_categories[0]->name : 'Blog';
+      ?>
+
       <section class="featured-section">
         <div class="featured-inner">
-          <span class="featured-eyebrow">Latest</span>
-          <a href="/blog/the-shala-vahni-a-new-chapter" class="featured-card">
+          <span class="featured-eyebrow">Featured</span>
+
+          <a href="<?php echo esc_url($featured_link); ?>" class="featured-card">
             <div class="featured-img">
               <span class="featured-img-tag">Featured</span>
-              <img
-                src="assets/images/blog-featured.jpg"
-                alt="The Shala &amp; Vahni — a new chapter"
-              />
+
+              <?php if ($featured_image) : ?>
+                <img
+                  src="<?php echo esc_url($featured_image); ?>"
+                  alt="<?php echo esc_attr($featured_title); ?>"
+                />
+              <?php endif; ?>
             </div>
+
             <div class="featured-text">
               <div class="featured-meta">
-                <span class="featured-cat">A New Chapter</span>
+                <span class="featured-cat"><?php echo esc_html($featured_category); ?></span>
                 <span class="dot"></span>
-                <span>Feb 2026</span>
+                <span><?php echo esc_html($featured_date); ?></span>
               </div>
+
               <h2 class="featured-title">
-                The Shala &amp; Vahni — <em>a new chapter</em>
+                <?php echo esc_html($featured_title); ?>
               </h2>
-              <p class="featured-excerpt">
-                After nearly three decades — 10,227 days of holding space,
-                teaching, learning and shared practice — The Shala enters an
-                exciting new era as classes and workshops continue under Vahni
-                in the same beloved space.
-              </p>
+
+              <?php if ($featured_excerpt) : ?>
+                <p class="featured-excerpt">
+                  <?php echo esc_html($featured_excerpt); ?>
+                </p>
+              <?php endif; ?>
+
               <span class="featured-link">Read the full piece →</span>
             </div>
           </a>
         </div>
       </section>
 
+      <?php endif; ?>
+
       <!-- POSTS GRID -->
+       <?php
+        $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+        query_posts(array(
+            'post_type'      => 'post',
+            'posts_per_page' => 9,
+            'paged'          => $paged,
+        ));
+        ?>
       <section class="posts-section">
         <div class="posts-inner">
           <div class="posts-header">
             <h2 class="posts-h2">More from <em>the journal</em></h2>
-            <span class="posts-count">Showing 1–9 of 64 articles</span>
-          </div>
+
+            <?php
+            global $wp_query;
+
+            $posts_per_page = (int) $wp_query->query_vars['posts_per_page'];
+            $current_page   = max(1, get_query_var('paged'));
+
+            $start = (($current_page - 1) * $posts_per_page) + 1;
+            $end   = min($start + $posts_per_page - 1, $wp_query->found_posts);
+            ?>
+
+            <?php if ($wp_query->found_posts > 0) : ?>
+                <span class="posts-count">
+                    Showing <?php echo esc_html($start); ?>–<?php echo esc_html($end); ?> of <?php echo esc_html($wp_query->found_posts); ?> articles
+                </span>
+            <?php endif; ?>
+        </div>
           <!-- Static -->
           <!-- <div class="posts-grid">
             <a href="#" class="post-card">

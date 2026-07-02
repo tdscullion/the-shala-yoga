@@ -320,7 +320,8 @@
   font-weight: 400;
   font-size: clamp(28px, 3.4vw, 42px);
   line-height: 1.12;
-  color: var(--aubergine);
+  /* color: var(--aubergine); */
+  color: var(--pink);
   margin-bottom: 20px;
   letter-spacing: -0.005em;
 }
@@ -523,7 +524,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--charcoal-plum);
+  color: var(--chalk);
   text-decoration: none;
   padding: 10px 14px;
   min-width: 42px;

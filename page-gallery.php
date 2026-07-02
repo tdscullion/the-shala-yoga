@@ -40,10 +40,14 @@ $gallery_retreats_images = get_field('gallery_retreats_images');
                   <?php if ($gallery_all_images) : ?>
                       <?php foreach ($gallery_all_images as $index => $image) : ?>
                           <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
-                              <img
-                                  src="<?php echo esc_url($image['url']); ?>"
-                                  alt="<?php echo esc_attr($image['alt']); ?>"
-                              >
+                             <img
+                                src="<?php echo esc_url($image['url']); ?>"
+                                alt="<?php echo esc_attr($image['alt'] ?: 'The Shala gallery image'); ?>"
+                                width="<?php echo esc_attr($image['width']); ?>"
+                                height="<?php echo esc_attr($image['height']); ?>"
+                                loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>"
+                                fetchpriority="<?php echo $index === 0 ? 'high' : 'auto'; ?>"
+                            >
                               <div class="m-tint"></div>
                               <div class="m-zoom">+</div>
                           </div>
@@ -58,10 +62,14 @@ $gallery_retreats_images = get_field('gallery_retreats_images');
                   <?php if ($gallery_200_hour_images) : ?>
                       <?php foreach ($gallery_200_hour_images as $index => $image) : ?>
                           <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
-                              <img
-                                  src="<?php echo esc_url($image['url']); ?>"
-                                  alt="<?php echo esc_attr($image['alt']); ?>"
-                              >
+                             <img
+                                    src="<?php echo esc_url($image['url']); ?>"
+                                    alt="<?php echo esc_attr($image['alt'] ?: 'The Shala gallery image'); ?>"
+                                    width="<?php echo esc_attr($image['width']); ?>"
+                                    height="<?php echo esc_attr($image['height']); ?>"
+                                    loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>"
+                                    fetchpriority="<?php echo $index === 0 ? 'high' : 'auto'; ?>"
+                                >
                               <div class="m-tint"></div>
                               <div class="m-zoom">+</div>
                           </div>
@@ -77,9 +85,13 @@ $gallery_retreats_images = get_field('gallery_retreats_images');
                       <?php foreach ($gallery_300_hour_images as $index => $image) : ?>
                           <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
                               <img
-                                  src="<?php echo esc_url($image['url']); ?>"
-                                  alt="<?php echo esc_attr($image['alt']); ?>"
-                              >
+                                    src="<?php echo esc_url($image['url']); ?>"
+                                    alt="<?php echo esc_attr($image['alt'] ?: 'The Shala gallery image'); ?>"
+                                    width="<?php echo esc_attr($image['width']); ?>"
+                                    height="<?php echo esc_attr($image['height']); ?>"
+                                    loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>"
+                                    fetchpriority="<?php echo $index === 0 ? 'high' : 'auto'; ?>"
+                                >
                               <div class="m-tint"></div>
                               <div class="m-zoom">+</div>
                           </div>
@@ -95,9 +107,13 @@ $gallery_retreats_images = get_field('gallery_retreats_images');
                       <?php foreach ($gallery_cpds_images as $index => $image) : ?>
                           <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
                               <img
-                                  src="<?php echo esc_url($image['url']); ?>"
-                                  alt="<?php echo esc_attr($image['alt']); ?>"
-                              >
+                                    src="<?php echo esc_url($image['url']); ?>"
+                                    alt="<?php echo esc_attr($image['alt'] ?: 'The Shala gallery image'); ?>"
+                                    width="<?php echo esc_attr($image['width']); ?>"
+                                    height="<?php echo esc_attr($image['height']); ?>"
+                                    loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>"
+                                    fetchpriority="<?php echo $index === 0 ? 'high' : 'auto'; ?>"
+                                >
                               <div class="m-tint"></div>
                               <div class="m-zoom">+</div>
                           </div>
@@ -113,8 +129,12 @@ $gallery_retreats_images = get_field('gallery_retreats_images');
                       <?php foreach ($gallery_retreats_images as $index => $image) : ?>
                           <div class="m-cell c<?php echo esc_attr($index + 1); ?>">
                               <img
-                                  src="<?php echo esc_url($image['url']); ?>"
-                                  alt="<?php echo esc_attr($image['alt']); ?>"
+                                src="<?php echo esc_url($image['url']); ?>"
+                                alt="<?php echo esc_attr($image['alt'] ?: 'The Shala gallery image'); ?>"
+                                width="<?php echo esc_attr($image['width']); ?>"
+                                height="<?php echo esc_attr($image['height']); ?>"
+                                loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>"
+                                fetchpriority="<?php echo $index === 0 ? 'high' : 'auto'; ?>"
                               >
                               <div class="m-tint"></div>
                               <div class="m-zoom">+</div>

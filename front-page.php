@@ -1159,7 +1159,7 @@ $gallery_image_5 = get_field('gallery_image_5');
                               </p>
 
                               <span class="blog-meta">
-                                  <?php echo esc_html(get_the_author()); ?> · <?php echo esc_html(get_the_date('F Y')); ?>
+                                  <?php echo esc_html(get_the_author()); ?>
                               </span>
                           </div>
                       </a>

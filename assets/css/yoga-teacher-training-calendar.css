@@ -271,13 +271,15 @@
   align-self: center;
 }
 .flagship-card-cta:hover {
-  background: var(--pink-d);
+  background: var(--chalk);
+  color: var(--pink);
 }
 .flagship-card-cta.is-orange {
   background: var(--orange);
 }
 .flagship-card-cta.is-orange:hover {
-  background: var(--orange-d);
+  background: var(--chalk);
+  color: var(--orange);
 }
 
 /* ── SECTION LABEL ── */
