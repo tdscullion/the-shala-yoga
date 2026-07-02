@@ -965,7 +965,7 @@
 .fac-card {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+  cursor: default;
   height: 480px;
 }
 .fac-img {
@@ -999,6 +999,13 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 36px 28px;
+  z-index: 3;
+  pointer-events: none;
+}
+.fac-colour .fac-link {
+  position: relative;
+  z-index: 4;
+  pointer-events: auto;
 }
 .fac-card:hover .fac-img {
   opacity: 0;

@@ -13,6 +13,8 @@
         $course_price = get_field('course_price');
         $course_format = get_field('course_format');
         $instructors = get_field('course_instructors');
+        $studio_link = get_field('course_momence_link_studio');
+        $livestream_link = get_field('course_momence_link_livestream');
 
         $instructor_names = [];
 
@@ -27,32 +29,64 @@
         ?>
 
         <div class="booking-bar" id="bookingBar">
-            <div class="bar-left">
-                <span class="bar-title">
-                    <?php echo esc_html($short_title); ?>
-                </span>
-
-                <?php if ($instructor_list || $display_date || $course_price) : ?>
-                    <span class="bar-meta">
-                        <?php echo esc_html(implode(' · ', array_filter([
-                            $instructor_list,
-                            $display_date,
-                            $course_price,
-                        ]))); ?>
+            <div class="booking-bar-inner">
+                <div class="bar-left">
+                    <span class="bar-title">
+                        <?php echo esc_html($short_title); ?>
                     </span>
-                <?php endif; ?>
 
-                <?php if ($course_format) : ?>
-                    <span class="bar-format">
-                        <?php echo esc_html($course_format); ?>
-                    </span>
-                <?php endif; ?>
-            </div>
+                    <?php if ($instructor_list || $display_date || $course_price) : ?>
+                        <span class="bar-meta">
+                            <?php echo esc_html(implode(' · ', array_filter([
+                                $instructor_list,
+                                $display_date,
+                                $course_price,
+                            ]))); ?>
+                        </span>
+                    <?php endif; ?>
 
-            <div class="bar-btns">
-                <a href="#express-interest" class="bar-btn bar-btn-primary">
-                    Register Interest
-                </a>
+                    <?php if ($course_format) : ?>
+                        <span class="bar-format">
+                            <?php echo esc_html($course_format); ?>
+                        </span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="bar-btns">
+
+                    <?php if ($studio_link || $livestream_link) : ?>
+
+                        <?php if ($studio_link) : ?>
+                            <a
+                                href="<?php echo esc_url($studio_link); ?>"
+                                class="bar-btn bar-btn-primary"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Book In Studio
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if ($livestream_link) : ?>
+                            <a
+                                href="<?php echo esc_url($livestream_link); ?>"
+                                class="bar-btn bar-btn-primary"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Book Livestream
+                            </a>
+                        <?php endif; ?>
+
+                    <?php else : ?>
+
+                        <a href="#express-interest" class="bar-btn bar-btn-primary">
+                            Register Interest
+                        </a>
+
+                    <?php endif; ?>
+
+                </div>
             </div>
         </div>
 
@@ -331,9 +365,37 @@
                             <hr class="bc-sep">
                         <?php endif; ?>
 
-                        <a href="#express-interest" class="bc-btn bc-btn-primary">
-                            Register Interest
-                        </a>
+                        <?php if ($studio_link || $livestream_link) : ?>
+
+                            <?php if ($studio_link) : ?>
+                                <a
+                                    href="<?php echo esc_url($studio_link); ?>"
+                                    class="bc-btn bc-btn-primary"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    Book In Studio
+                                </a>
+                            <?php endif; ?>
+
+                            <?php if ($livestream_link) : ?>
+                                <a
+                                    href="<?php echo esc_url($livestream_link); ?>"
+                                    class="bc-btn bc-btn-ghost"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    Book Livestream
+                                </a>
+                            <?php endif; ?>
+
+                        <?php else : ?>
+
+                            <a href="#express-interest" class="bc-btn bc-btn-primary">
+                                Register Interest
+                            </a>
+
+                        <?php endif; ?>
 
                         <a href="#section-dates" class="bc-btn bc-btn-ghost">
                             View Dates

@@ -700,8 +700,8 @@ $gallery_image_5 = get_field('gallery_image_5');
                                   <?php endif; ?>
 
                                   <a href="<?php echo esc_url($faculty_link); ?>" class="fac-link">
-                                      About <?php echo esc_html($first_name); ?> →
-                                  </a>
+                                    About <?php echo esc_html($first_name); ?> →
+                                </a>
                               </div>
                           </div>
 

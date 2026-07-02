@@ -125,7 +125,9 @@ $hero_button_2_link = get_field('hero_button_2_link');
             </div>
             <div class="fc-right">
               <div class="fc-price">£3,250</div>
-              <a href="#" class="fc-cta">Find Out More →</a>
+                <a href="<?php echo esc_url(home_url('/300-hour/')); ?>" class="fc-cta">
+                  Find Out More →
+              </a>
             </div>
           </div>
         </article>
@@ -167,7 +169,9 @@ $hero_button_2_link = get_field('hero_button_2_link');
             </div>
             <div class="fc-right">
               <div class="fc-price">£3,900+</div>
-              <a href="#" class="fc-cta">Find Out More →</a>
+              <a href="<?php echo esc_url(home_url('/300-hour/')); ?>" class="fc-cta">
+                  Find Out More →
+              </a>
             </div>
           </div>
         </article>
@@ -250,13 +254,26 @@ if ($all_courses->have_posts()) :
             $teacher_names = implode(', ', $names);
         }
 
-        $format_label = '';
+        $format_label = $course_format;
 
-        if (is_array($course_format)) {
-            $format_label = $course_format['label'] ?? implode(' + ', $course_format);
-        } else {
-            $format_label = $course_format;
+        /* Filter tags */
+        $filter_tags = ['all'];
+
+        $format_string = strtolower($course_format);
+
+        if (strpos($format_string, 'studio') !== false) {
+            $filter_tags[] = 'studio';
         }
+
+        if (
+            strpos($format_string, 'live') !== false ||
+            strpos($format_string, 'livestream') !== false ||
+            strpos($format_string, 'online') !== false
+        ) {
+            $filter_tags[] = 'live';
+        }
+
+        $filter_tags = implode(' ', array_unique($filter_tags));
 
         $is_image_card = $card_index % 2 === 0;
 
@@ -268,7 +285,7 @@ if ($all_courses->have_posts()) :
 
         <article
             class="card card-img"
-            data-tags="all"
+            data-tags="<?php echo esc_attr($filter_tags); ?>"
             style="--tint: <?php echo esc_attr($image_tint); ?>;"
         >
 
@@ -332,7 +349,7 @@ if ($all_courses->have_posts()) :
 
         <article
             class="card card-typo <?php echo esc_attr($typo_colour); ?>"
-            data-tags="all"
+            data-tags="<?php echo esc_attr($filter_tags); ?>"
         >
            <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
             <div class="t-tags">
