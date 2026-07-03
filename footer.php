@@ -75,23 +75,66 @@
             </div>
 
             <div class="footer-courses-col">
-                <h4>2026 Courses</h4>
-                <a href="#">Elemental Nidra | Jul</a>
-                <a href="#">Theming | Aug</a>
-                <a href="#">Yoga for Neurodivergence | Aug</a>
-                <a href="#">Inversions, Arm Balances &amp; Backbends | Sep</a>
-                <a href="#">Beyond Asana Core 1 | Sep &amp; Oct</a>
-                <a href="#">Post-Natal Baby &amp; Me | Oct</a>
-                <a href="#">Sacred Breath | Pranayama | Oct &amp; Nov</a>
-                <a href="#">Yoga Nidra | Nov</a>
-                <a href="#">Menstrual Health | Nov</a>
-                <a href="#">Sacred Sound &amp; Ceremony | Dec</a>
-                <a href="#">Embodied Asana Core 2 | Jan</a>
-                <a href="#">Somatic Yoga | Intuitive You | Jan</a>
-                <a href="#">Yin Yoga | Feb</a>
-                <a href="#">Pregnancy Yoga | Mar</a>
+                <h4>Upcoming Courses</h4>
+
+                <?php
+
+                $today = date('Ymd');
+
+                $footer_courses = new WP_Query([
+                    'post_type'      => 'course',
+                    'posts_per_page' => 12,
+                    'meta_key'       => 'start_date',
+                    'orderby'        => 'meta_value',
+                    'order'          => 'ASC',
+                    'meta_query'     => [
+                        [
+                            'key'     => 'start_date',
+                            'value'   => $today,
+                            'compare' => '>=',
+                            'type'    => 'NUMERIC',
+                        ],
+                    ],
+                ]);
+
+                if ($footer_courses->have_posts()) :
+                    while ($footer_courses->have_posts()) :
+                        $footer_courses->the_post();
+
+                        $footer_title = get_field('footer_title');
+
+                        if (!$footer_title) {
+                            $footer_title = get_field('short_title');
+                        }
+
+                        if (!$footer_title) {
+                            $footer_title = get_the_title();
+                        }
+
+                        $start_date = get_field('start_date');
+
+                        $month = '';
+
+                        if ($start_date) {
+                            $month = date('M', strtotime($start_date));
+                        }
+                ?>
+
+                    <a href="<?php the_permalink(); ?>">
+                        <?php echo esc_html($footer_title); ?>
+
+                        <?php if ($month) : ?>
+                            | <?php echo esc_html($month); ?>
+                        <?php endif; ?>
+                    </a>
+
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
+
             </div>
-        </div>
 
         <div class="footer-bottom">
             <p>

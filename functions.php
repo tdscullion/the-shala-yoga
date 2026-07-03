@@ -462,6 +462,15 @@ function theshala_enqueue_assets() {
         );
     }
 
+    if (is_page_template('page-signup.php')) {
+        wp_enqueue_style(
+            'theshala-signup',
+            get_template_directory_uri() . '/assets/css/signup.css',
+            ['theshala-main', 'theshala-nav', 'theshala-footer', 'theshala-heroes'],
+            filemtime(get_template_directory() . '/assets/css/signup.css')
+        );
+    }
+
     if (is_home()) {
         wp_enqueue_style(
             'theshala-blog',
