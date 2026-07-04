@@ -501,15 +501,24 @@ $hero_subtitle = get_field('hero_subtitle', $blog_page_id);
             offers — featured pieces, new courses and a selection of news,
             delivered with care.
           </p>
-          <form class="newsletter-form" onsubmit="event.preventDefault()">
-            <input
-              type="email"
-              placeholder="Your email address"
-              aria-label="Email address"
-              required
-            />
-            <button type="submit">Let me in</button>
-          </form>
+           <div class="newsletter-form newsletter-form-momence">
+
+              <div id="momence-plugin-lead-form"></div>
+
+              <script
+                  async
+                  type="module"
+                  id="momence-plugin-lead-form-src"
+                  host_id="9055"
+                  fields="fullName,email"
+                  token="Ra7GErbXD5"
+                  country_code="gb"
+                  source_id="654"
+                  data-field-def='{"fullName":{"type":"text","label":"Full name","required":true,"hidden":false,"placeholder":"Full Name"},"email":{"type":"email","label":"Email","required":true}}'
+                  src="https://momence.com/plugin/lead-form/lead-form.js">
+              </script>
+
+          </div>
         </div>
       </section>
 

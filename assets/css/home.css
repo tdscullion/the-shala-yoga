@@ -1627,81 +1627,119 @@
   color: var(--text-light);
 }
 
-/* ══ NEWSLETTER — pink ══ */
+/* ═══════════════════════════════
+   NEWSLETTER
+═══════════════════════════════ */
+
 .newsletter {
   background: var(--pink);
   padding: 80px 48px;
 }
+
 .newsletter-inner {
-  max-width: 560px;
+  max-width: 760px;
   margin: 0 auto;
   text-align: center;
 }
+
 .newsletter h3 {
   font-family: "Exquise", serif;
   font-size: clamp(26px, 3.2vw, 40px);
-  color: white;
-  margin-bottom: 12px;
   font-weight: 400;
+  color: #fff;
+  margin-bottom: 12px;
 }
+
 .newsletter h3 em {
-  font-style: italic;
   color: var(--orange);
+  font-style: italic;
 }
+
 .newsletter p {
   font-family: "Cormorant Garamond", serif;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 34px;
   line-height: 1.7;
-}
-.nl-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.nl-input {
-  flex: 1 1 200px;
-  min-width: 0;
-  padding: 13px 18px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: white;
-  font-family: "Jost", sans-serif;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.nl-input::placeholder {
-  color: rgba(255, 255, 255, 0.55);
-}
-.nl-input:focus {
-  border-color: white;
-}
-.nl-btn {
-  padding: 13px 24px;
-  background: var(--orange);
-  border: none;
-  color: white;
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.2s;
-  white-space: nowrap;
-  flex: 0 0 auto;
-}
-.nl-btn:hover {
-  background: #c97d00;
-}
-.nl-note {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 34px;
 }
 
+.nl-note {
+  margin-top: 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===========================
+   MOMENCE NEWSLETTER
+=========================== */
+
+.nl-form {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.nl-form #momence-plugin-lead-form,
+.nl-form .momence-lead_form-base_container,
+.nl-form form {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.nl-form form {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.nl-form .momence-lead_form-field {
+  margin: 0 !important;
+}
+
+.nl-form .momence-lead_form-field_label {
+  display: none !important;
+}
+
+.nl-form .momence-lead_form-field_input {
+  height: 48px !important;
+  padding: 12px 16px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+  font-family: "Jost", sans-serif !important;
+}
+
+.nl-form .momence-lead_form-field_input::placeholder {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.nl-form .momence-lead_form-actions {
+  width: auto !important;
+  display: flex !important;
+  margin: 0 !important;
+  grid-column: auto !important;
+}
+
+.nl-form .momence-lead_form-submit_btn {
+  height: 48px !important;
+  padding: 0 28px !important;
+  background: var(--orange) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+
+.nl-form .momence-lead_form-submit_btn:hover {
+  background: #c97d00 !important;
+}
 /* ══ ANIMATE ══ */
 @keyframes fadeUp {
   from {

@@ -510,7 +510,7 @@ endif;
         </p>
         <div class="pink-cta-btns">
           <a
-            href="https://www.theshalalondon.com/newsletters-school-of-yoga/"
+            href="<?php echo esc_url(home_url('/signup/')); ?>"
             class="pcb-fill"
             >Join Newsletter</a
           >

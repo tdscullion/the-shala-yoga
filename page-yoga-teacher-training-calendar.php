@@ -305,7 +305,7 @@ $flagship_cards = get_field('course_flagship_cards');
         </p>
         <div class="cta-btns">
           <a
-            href="https://www.theshalalondon.com/newsletters-shala/"
+            href="<?php echo esc_url(home_url('/signup/')); ?>"
             target="_blank"
             rel="noopener"
             class="btn-white"

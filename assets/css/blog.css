@@ -650,6 +650,75 @@
   background: var(--grey-magenta);
 }
 
+/* ===================================
+   BLOG NEWSLETTER MOMENCE FORM
+=================================== */
+
+.newsletter-form-momence {
+  max-width: 720px;
+  margin: 36px auto 0;
+}
+
+.newsletter-form-momence #momence-plugin-lead-form,
+.newsletter-form-momence .momence-lead_form-base_container,
+.newsletter-form-momence form {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.newsletter-form-momence form {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.newsletter-form-momence .momence-lead_form-field {
+  margin: 0 !important;
+}
+
+.newsletter-form-momence .momence-lead_form-field_label {
+  display: none !important;
+}
+
+.newsletter-form-momence .momence-lead_form-field_input {
+  height: 50px !important;
+  padding: 12px 18px !important;
+  background: #fff !important;
+  border: 1px solid rgba(59, 19, 46, 0.18) !important;
+  border-radius: 0 !important;
+  color: var(--charcoal) !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.newsletter-form-momence .momence-lead_form-field_input::placeholder {
+  color: rgba(59, 19, 46, 0.45) !important;
+}
+
+.newsletter-form-momence .momence-lead_form-actions {
+  margin: 0 !important;
+}
+
+.newsletter-form-momence .momence-lead_form-submit_btn {
+  height: 50px !important;
+  padding: 0 32px !important;
+  background: var(--pink) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+
+.newsletter-form-momence .momence-lead_form-submit_btn:hover {
+  background: var(--orange) !important;
+}
+
 /* ══ CTA BAND ══ */
 .cta-band {
   background: var(--pink);

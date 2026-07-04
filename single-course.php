@@ -1160,8 +1160,8 @@
         <?php endif; ?>
         <!-- Suggested Courses End -->
 
-        <!-- Contact Form -->
-         <div class="interest-section" id="express-interest">
+       <!-- EXPRESS INTEREST -->
+        <div class="interest-section" id="express-interest">
             <div class="interest-inner">
 
                 <div class="interest-copy">
@@ -1172,7 +1172,7 @@
                     <p class="interest-body">
                         Not ready to book yet — or want to hear about future dates?
                         Register your interest and we'll be in touch with everything you
-                        need to know including when new dates are announced.
+                        need to know, including when new dates are announced.
                     </p>
 
                     <p class="interest-reassure">
@@ -1183,55 +1183,33 @@
                 <div class="interest-form">
                     <div class="interest-form-card">
 
-                        <div class="int-field">
-                            <label class="int-label" for="int-name">Your Name</label>
-                            <input
-                                class="int-input"
-                                id="int-name"
-                                type="text"
-                                placeholder="First and last name"
+                        <?php
+                        $momence_form_code = get_field('momence_form_code');
+
+                        if ($momence_form_code) :
+                            echo $momence_form_code;
+                        else :
+                        ?>
+
+                            <p class="int-note">
+                                No interest form has been added for this course yet.
+                            </p>
+
+                            <a
+                                href="mailto:teachertraining@theshala.co.uk?subject=Course%20Enquiry"
+                                class="int-submit"
                             >
-                        </div>
+                                Email Us →
+                            </a>
 
-                        <div class="int-field">
-                            <label class="int-label" for="int-email">Email Address</label>
-                            <input
-                                class="int-input"
-                                id="int-email"
-                                type="email"
-                                placeholder="your@email.com"
-                            >
-                        </div>
-
-                        <div class="int-field">
-                            <label class="int-label" for="int-background">
-                                Additional Information
-                                <span class="int-label-optional">(optional)</span>
-                            </label>
-
-                            <textarea
-                                class="int-input int-textarea"
-                                id="int-background"
-                                placeholder="E.g. yoga teacher, school teacher, something else — helps us tailor our reply"
-                            ></textarea>
-                        </div>
-
-                        <button class="int-submit" type="button" onclick="handleInterestSubmit(this)">
-                            Register My Interest →
-                        </button>
-
-                        <p class="int-note">
-                            We'll only use your details to contact you about this course and related Shala School news.
-                            Unsubscribe at any time.
-                        </p>
+                        <?php endif; ?>
 
                     </div>
                 </div>
 
             </div>
         </div>
-        <!-- End Contact Form -->
-       
+        <!-- END EXPRESS INTEREST -->
 
     <?php endwhile; ?>
 

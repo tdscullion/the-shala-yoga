@@ -913,8 +913,8 @@ $hero_subtitle = get_field('hero_subtitle');
             through before you start, please don't hesitate to get in touch.
           </p>
           <div class="cta-buttons">
-            <a href="#" class="btn-white">Book a Call</a>
-            <a href="#" class="btn-ghost-w">Newsletter Sign Up</a>
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-white">Book a Call</a>
+            <a href="<?php echo esc_url(home_url('/signup/')); ?>" class="btn-ghost-w">Newsletter Sign Up</a>
           </div>
         </div>
       </section>

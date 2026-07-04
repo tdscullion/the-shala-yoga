@@ -1184,20 +1184,20 @@ $gallery_image_5 = get_field('gallery_image_5');
             thoughtfully.
           </p>
           <div class="nl-form">
-            <input
-              class="nl-input"
-              type="text"
-              placeholder="Full name"
-              id="nlName"
-            />
-            <input
-              class="nl-input"
-              type="email"
-              placeholder="your@email.com"
-              id="nlEmail"
-            />
-            <button class="nl-btn" onclick="handleNL(this)">Subscribe</button>
-          </div>
+             <div id="momence-plugin-lead-form"></div>
+            <script
+                async
+                type="module"
+                id="momence-plugin-lead-form-src"
+                host_id="9055"
+                fields="fullName,email"
+                token="Ra7GErbXD5"
+                country_code="gb"
+                source_id="654"
+                data-field-def='{"fullName":{"type":"text","label":"Full name","required":true,"hidden":false,"placeholder":"Full Name"},"email":{"type":"email","label":"Email","required":true}}'
+                src="https://momence.com/plugin/lead-form/lead-form.js"
+            ></script>
+            </div>
           <p class="nl-note">No spam. Unsubscribe at any time.</p>
         </div>
       </section>

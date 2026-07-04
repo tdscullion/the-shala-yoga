@@ -2091,6 +2091,112 @@ blockquote.inline-quote {
   font-style: normal;
 }
 
+/* MOMENCE FORM STYLE OVERIDES */
+/* MOMENCE FORM STYLE OVERIDES */
+/* MOMENCE FORM STYLE OVERIDES */
+/* Momence form overrides */
+.interest-form-card #momence-plugin-lead-form,
+.interest-form-card .momence-lead_form-base_container,
+.interest-form-card form {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  font-family: "Jost", sans-serif !important;
+}
+
+.interest-form-card .momence-lead_form-field {
+  margin-bottom: 18px !important;
+}
+
+.interest-form-card .momence-lead_form-field_label {
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.interest-form-card .momence-lead_form-field_input,
+.interest-form-card .momence-lead_form-field input,
+.interest-form-card .react-tel-input .form-control {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 48px !important;
+  padding: 12px 16px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 0 !important;
+  color: white !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  outline: none !important;
+}
+
+.interest-form-card .momence-lead_form-field_input::placeholder,
+.interest-form-card input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.interest-form-card .react-tel-input {
+  background: transparent !important;
+}
+
+.interest-form-card .react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.interest-form-card .momence-lead_form-submit_btn,
+.interest-form-card button[type="submit"] {
+  width: 100% !important;
+  min-height: 50px !important;
+  margin-top: 4px !important;
+  background: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: var(--pink) !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+}
+
+.interest-form-card .momence-lead_form-submit_btn:hover,
+.interest-form-card button[type="submit"]:hover {
+  background: var(--orange) !important;
+  color: white !important;
+}
+
+.interest-form-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 40px;
+}
+
+.interest-form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.interest-form-card {
+  width: 100%;
+  max-width: 560px;
+}
+
+.momence-lead_form-actions {
+  margin-top: 8px !important;
+}
+
+/* END MOMENCE FORM STYLE OVERIDES */
+/* END MOMENCE FORM STYLE OVERIDES */
+/* END MOMENCE FORM STYLE OVERIDES */
+
 /* ── UTILITY STRIP — hidden ── */
 .utility-strip {
   display: none;

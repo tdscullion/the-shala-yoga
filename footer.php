@@ -30,7 +30,9 @@
                     <p class="footer-newsletter-copy">
                         Seasonal updates, course openings &amp; reflections from the mat.
                     </p>
-                    <a href="https://www.theshalalondon.com/newsletters-shala/" class="footer-newsletter-link">Sign up →</a>
+                    <a href="<?php echo esc_url(home_url('/signup/')); ?>" class="footer-newsletter-link">
+                        Sign up →
+                    </a>
                 </div>
             </div>
 
@@ -71,7 +73,7 @@
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact Us</a>
 
                 <h4>Vahni Yoga Classes</h4>
-                <a href="https://www.vahni.com" target="_blank" rel="noopener">Visit Vahni →</a>
+                <a href="https://www.vahnilondon.com/" target="_blank" rel="noopener">Visit Vahni →</a>
             </div>
 
             <div class="footer-courses-col">

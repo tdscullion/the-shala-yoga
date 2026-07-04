@@ -471,6 +471,15 @@ function theshala_enqueue_assets() {
         );
     }
 
+   if (is_singular('course') && get_post_field('post_name', get_queried_object_id()) === 'yoga-philosophy-club') {
+        wp_enqueue_style(
+            'shala-course-philosophy',
+            get_template_directory_uri() . '/assets/css/course-philosophy.css',
+            array(),
+            filemtime(get_template_directory() . '/assets/css/course-philosophy.css')
+        );
+    }
+
     if (is_home()) {
         wp_enqueue_style(
             'theshala-blog',

@@ -1,9 +1,48 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* :root {
+  --pink:          #D40062;
+  --orange:        #F39900;
+  --aubergine:     #3B132E;
+  --chalk:         #F7F3EE;
+  --linen:         #E8DCD9;
+  --greige:        #CFC6BD;
+  --charcoal-plum: #4B3A43;
+  --light-plum:    #887479;
+  --grey-magenta:  #614051;
+  --dusty-blush:   #E6C6CF;
+  --pinked-linen:  #F0E4E6;
+  --text-dark:     #3B132E;
+  --text-mid:      #3B132E;
+  --text-light:    #887479;
+  --white:         #FDFAF8;
+  /* legacy alias — pink-deep removed from palette, mapped to grey-magenta */
+/* --pink-deep:     #614051;
+} */
+
+/* html { scroll-behavior: smooth; }
+body {
+  background: var(--chalk);
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+} */
+
+/* ── NAV ── see snippet-nav.html (master) — placeholder strip used here ── */
+
+/* ── STICKY BOOKING BAR ── */
 .booking-bar {
   position: fixed;
-  top: 69px;
+  top: 66px;
   left: 0;
   right: 0;
-  z-index: 199;
+  z-index: 198;
   background: var(--orange);
   padding: 0 48px;
   height: 52px;
@@ -12,13 +51,12 @@
   justify-content: space-between;
   transform: translateY(-110px);
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 10;
 }
 .booking-bar.visible {
   transform: translateY(0);
 }
 .bar-title {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
   font-size: 15px;
   font-weight: 400;
   color: var(--aubergine);
@@ -82,10 +120,166 @@
 }
 
 /* ── HERO ── */
+/* ── EDITORIAL HEADER (Option A) ── */
+.course-header {
+  background: #3b132e;
+  padding: 0 56px 96px;
+  position: relative;
+  overflow: hidden;
+}
+.ch-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.ch-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ch-img-col img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  opacity: 0.85;
+  filter: brightness(0) saturate(100%) invert(19%) sepia(88%) saturate(2668%)
+    hue-rotate(316deg) brightness(95%) contrast(101%);
+}
+.ch-text-col {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
 
+.ch-tag {
+  display: inline-block;
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  margin-bottom: 18px;
+  width: fit-content;
+}
+.ch-eyebrow {
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 18px;
+}
+.ch-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(44px, 6vw, 84px);
+  font-weight: 400;
+  color: var(--pink);
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+  margin: 0 0 16px;
+  position: relative;
+  z-index: 1;
+}
+.ch-title em {
+  color: var(--pink);
+  font-style: italic;
+}
+.ch-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+  margin: 0 0 24px;
+  max-width: 640px;
+  position: relative;
+  z-index: 1;
+}
+.ch-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ch-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 1px;
+  margin-right: 8px;
+}
+.ch-spiral {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 220px;
+  opacity: 0.08;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+.course-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--orange);
+}
 /* Stats strip — orange band */
 
-/* Stats bar — matches Home page styling */
+.hero-stats {
+  display: flex;
+  gap: 0;
+  background: var(--orange);
+  margin: 0;
+  padding: 0 48px;
+}
+.h-stat {
+  flex: 1;
+  padding: 20px 28px 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+.h-stat:first-child {
+}
+.h-stat:last-child {
+  border-right: none;
+}
+.h-stat-label {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 5px;
+}
+.h-stat-value {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: white;
+  line-height: 1.15;
+  display: block;
+}
+.h-stat-sub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 3px;
+  display: block;
+  letter-spacing: 0.04em;
+}
 
 /* ── PAGE JUMP NAV ── */
 
@@ -100,7 +294,7 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
 }
 .body-wrap {
   max-width: 1240px;
@@ -111,7 +305,8 @@
   gap: 64px;
   align-items: start;
 }
-
+.main-col {
+}
 .bio-backlink {
   display: inline-flex;
   align-items: center;
@@ -139,7 +334,7 @@
 
 /* ── INTRO — quote + body inline within main-col ── */
 .intro-overview-heading {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 400;
   margin-bottom: 24px;
@@ -156,86 +351,31 @@
   padding-bottom: 36px;
   border-bottom: 1px solid var(--linen);
 }
-/* ── PULL QUOTES — shared system ─────────────────────────────
-   .feature-quote  Tier 1 — hero moment, big decorative pink ❝ ❞
-   .inline-quote   Tier 2 — supporting voices, restrained
-   ─────────────────────────────────────────────────────────── */
-.feature-quote,
-blockquote.feature-quote {
-  position: relative;
-  padding: 20px 0;
-  margin: 36px 0;
+.intro-pull-quote {
   font-family: "Cormorant Garamond", serif;
-  font-size: 26px;
-  font-style: italic;
+  font-size: clamp(24px, 3vw, 34px);
   font-weight: 300;
-  line-height: 1.4;
-  color: var(--pink);
-}
-.feature-quote::before {
-  content: "\201C";
-  font-family: "Exquise", serif;
-  font-size: 72px;
-  color: var(--pink);
-  position: absolute;
-  left: 0;
-  top: -18px;
-  line-height: 1;
-  opacity: 0.7;
-}
-.feature-quote::after {
-  content: "\201D";
-  font-family: "Exquise", serif;
-  font-size: 72px;
-  color: var(--pink);
-  line-height: 0;
-  vertical-align: -0.4em;
-  margin-left: 6px;
-  opacity: 0.7;
-}
-.feature-quote-attr {
-  display: block;
-  margin-top: 16px;
-  font-style: normal;
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-light);
-}
-.feature-quote-attr::before {
-  content: "";
-  display: inline-block;
-  width: 28px;
-  height: 1px;
-  background: var(--linen);
-  vertical-align: middle;
-  margin-right: 12px;
-}
-.inline-quote,
-p.inline-quote,
-blockquote.inline-quote {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 24px;
   font-style: italic;
-  font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--pink);
-  margin: 28px 0 32px;
+  margin-bottom: 36px;
 }
-.inline-quote-attr {
+.intro-pull-quote .intro-attr-inline {
   font-family: "Jost", sans-serif;
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-light);
   font-style: normal;
-  margin-left: 14px;
-  vertical-align: middle;
   white-space: nowrap;
+  margin-left: 16px;
+  vertical-align: middle;
 }
-.inline-quote-attr::before {
+.intro-pull-quote .intro-attr-inline::before {
   content: "— ";
+}
+.intro-attr {
+  display: none;
 }
 .intro-body {
   font-family: "Cormorant Garamond", serif;
@@ -272,23 +412,8 @@ blockquote.inline-quote {
 .suitability {
   margin-bottom: 72px;
 }
-.suitability-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 32px;
-}
-.suitability-grid .suitability {
-  margin-bottom: 0;
-}
-@media (max-width: 600px) {
-  .suitability-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
 .suitability-heading {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(17px, 2vw, 22px);
   font-weight: 400;
   color: var(--text-dark);
@@ -345,7 +470,7 @@ blockquote.inline-quote {
   margin-bottom: 36px;
 }
 .s-div h2 {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif !important;
   font-size: clamp(20px, 2.6vw, 30px) !important;
   font-weight: 400;
   color: var(--text-dark);
@@ -571,7 +696,7 @@ blockquote.inline-quote {
   border-left: 1px solid rgba(243, 153, 0, 0.35);
 }
 .sched-date {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
   font-size: 48px;
   font-weight: 400;
   color: var(--pink);
@@ -669,11 +794,7 @@ blockquote.inline-quote {
   position: relative;
   z-index: 1;
 }
-@media (max-width: 600px) {
-  .testimonials-section {
-    padding: 52px 24px;
-  }
-}
+
 .testi-featured {
   padding-bottom: 52px;
   margin-bottom: 44px;
@@ -798,16 +919,7 @@ blockquote.inline-quote {
 .testimonials-section .s-div .s-div-rule {
   background: var(--orange);
 }
-@media (max-width: 900px) {
-  .testi-card {
-    flex: 0 0 calc(50% - 7px);
-  }
-}
-@media (max-width: 600px) {
-  .testi-card {
-    flex: 0 0 100%;
-  }
-}
+
 .testimonials-section .s-div-old-placeholder {
   display: none;
 }
@@ -832,7 +944,7 @@ blockquote.inline-quote {
   display: none;
 }
 .teacher-name {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
   font-size: 28px;
   font-weight: 400;
   color: white;
@@ -883,11 +995,12 @@ blockquote.inline-quote {
   margin-bottom: 3px;
 }
 .bc-meta-value {
-  font-family: "Exquise", serif;
-  font-size: 16px;
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--text-dark);
   display: block;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 .bc-meta-sub {
   font-family: "Jost", sans-serif;
@@ -908,8 +1021,7 @@ blockquote.inline-quote {
   padding: 24px 28px;
 }
 .bc-price {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: 38px;
   font-weight: 400;
   color: var(--aubergine);
@@ -980,26 +1092,6 @@ blockquote.inline-quote {
   border-top: 1px solid var(--linen);
   margin: 18px 0;
 }
-.bc-full-schedule {
-  display: inline-block;
-  margin-top: 12px;
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--pink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--pink);
-  padding-bottom: 2px;
-  transition:
-    color 0.2s,
-    border-color 0.2s;
-}
-.bc-full-schedule:hover {
-  color: var(--aubergine);
-  border-bottom-color: var(--aubergine);
-}
 .bc-info {
   font-size: 12px;
   line-height: 1.7;
@@ -1065,8 +1157,8 @@ blockquote.inline-quote {
   color: white;
 }
 .bc-btn-primary:hover {
-  background: var(--aubergine);
-  border-color: var(--aubergine);
+  background: var(--pink-deep);
+  border-color: var(--pink-deep);
 }
 .bc-btn-ghost {
   background: transparent;
@@ -1089,57 +1181,6 @@ blockquote.inline-quote {
 }
 .bc-discount strong {
   color: var(--pink);
-}
-.bc-openday {
-  background: var(--chalk);
-  border: 1px solid rgba(59, 19, 46, 0.1);
-  padding: 16px 18px;
-  margin-top: 16px;
-}
-.bc-openday-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 8px;
-}
-.bc-openday-date {
-  font-family: "Exquise", serif;
-
-  font-weight: 400;
-  font-size: 18px;
-  color: var(--aubergine);
-  line-height: 1.25;
-  margin: 0 0 8px;
-}
-.bc-openday-copy {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 14px;
-  color: var(--text-mid);
-  line-height: 1.55;
-  margin: 0 0 10px;
-}
-.bc-openday-link {
-  display: inline-block;
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--pink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--pink);
-  padding-bottom: 2px;
-  transition:
-    color 0.2s,
-    border-color 0.2s;
-}
-.bc-openday-link:hover {
-  color: var(--aubergine);
-  border-bottom-color: var(--aubergine);
 }
 .bc-interest {
   display: block;
@@ -1187,235 +1228,6 @@ blockquote.inline-quote {
   text-decoration-color: var(--pink);
 }
 
-/* ── 200HR SIDEBAR ADDITIONS ── */
-/* Module schedule list (compact rows, label | date) */
-.bc-module-list {
-  margin-bottom: 6px;
-}
-.bc-module-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(59, 19, 46, 0.06);
-}
-.bc-module-row:last-child {
-  border-bottom: none;
-}
-.bc-mod-label {
-  font-family: "Jost", sans-serif;
-  font-size: 12px;
-  color: var(--text-mid);
-  letter-spacing: 0.02em;
-}
-.bc-mod-date {
-  font-family: "Jost", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-dark);
-  letter-spacing: 0.01em;
-}
-.bc-module-row--grad {
-  margin-top: 0;
-  padding: 7px 0;
-  border-top: none;
-  border-bottom: none;
-}
-.bc-module-row--grad .bc-mod-label {
-  color: var(--text-mid);
-  font-weight: 400;
-  text-transform: none;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-}
-.bc-module-row--grad .bc-mod-date {
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-/* Future cohorts — compact in panel */
-.bc-future-cohorts {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px dashed rgba(59, 19, 46, 0.18);
-}
-.bc-future-cohorts-label {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 10px;
-}
-.bc-future-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 5px 0;
-  font-family: "Jost", sans-serif;
-  font-size: 12px;
-}
-.bc-future-row .bc-fr-label {
-  color: var(--text-mid);
-}
-.bc-future-row .bc-fr-date {
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-/* PROMINENT OPEN DAY BOX — pink background to make it pop */
-.bc-openday-prominent {
-  background: var(--pink);
-  padding: 22px 22px 24px;
-  margin-top: 16px;
-  color: white;
-}
-.bc-openday-prominent .bc-od-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 10px;
-}
-.bc-openday-prominent .bc-od-heading {
-  font-family: "Exquise", serif;
-
-  font-size: 30px;
-  font-weight: 400;
-  color: white;
-  line-height: 1.05;
-  margin: 0 0 6px;
-  letter-spacing: -0.01em;
-}
-.bc-openday-prominent .bc-od-heading em {
-  font-style: italic;
-  color: white;
-}
-.bc-openday-prominent .bc-od-date {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0 0 12px;
-  display: block;
-}
-.bc-openday-prominent .bc-od-copy {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0 0 16px;
-}
-.bc-openday-prominent .bc-od-cta {
-  display: block;
-  text-align: center;
-  background: white;
-  color: var(--pink);
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 14px 18px;
-  text-decoration: none;
-  transition:
-    background 0.2s,
-    color 0.2s;
-}
-.bc-openday-prominent .bc-od-cta:hover {
-  background: var(--aubergine);
-  color: white;
-}
-
-/* Pricing rows */
-.bc-pricing-rows {
-  margin-bottom: 4px;
-}
-.bc-pricing-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 7px 0;
-  font-family: "Jost", sans-serif;
-  font-size: 12px;
-}
-.bc-pr-label {
-  color: var(--text-mid);
-}
-.bc-pr-val {
-  color: var(--text-dark);
-  font-weight: 500;
-}
-.bc-pricing-row--total {
-  border-top: 1px solid var(--linen);
-  margin-top: 4px;
-  padding-top: 10px;
-}
-.bc-pricing-row--total .bc-pr-label {
-  color: var(--aubergine);
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-}
-.bc-pricing-row--total .bc-pr-val {
-  color: var(--pink);
-  font-size: 14px;
-}
-
-/* Deposit caption under price */
-.bc-deposit {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  color: rgba(59, 19, 46, 0.6);
-  margin-top: 4px;
-  display: block;
-  letter-spacing: 0.02em;
-}
-
-/* WAITLIST VARIANT — reusable for any fully-booked cohort */
-.bc-waitlist {
-  background: var(--pinked-linen);
-  padding: 16px 18px;
-  margin-bottom: 18px;
-  border-left: 2px solid var(--orange);
-}
-.bc-waitlist-copy {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  color: var(--text-mid);
-  line-height: 1.55;
-  margin: 6px 0 0;
-}
-.bc-waitlist-copy strong {
-  color: var(--aubergine);
-  font-weight: 500;
-  font-style: normal;
-}
-.bc-status-pill {
-  display: inline-block;
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 4px 11px;
-  background: var(--orange);
-  color: white;
-  border-radius: 1px;
-}
-
-/* Single RYS200 badge (larger than the Kids Yoga paired badges) */
-.booking-card-header .bc-badges img[alt*="RYS 200"] {
-  width: auto;
-  height: 64px;
-}
-
 .future-dates {
   margin-top: 48px;
   padding-top: 32px;
@@ -1432,8 +1244,7 @@ blockquote.inline-quote {
   margin-bottom: 14px;
 }
 .future-dates-heading {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 400;
   color: var(--aubergine);
@@ -1463,8 +1274,7 @@ blockquote.inline-quote {
   border-bottom: none;
 }
 .future-run-dates {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   color: var(--aubergine);
   font-weight: 400;
@@ -1477,7 +1287,7 @@ blockquote.inline-quote {
   color: var(--text-light);
 }
 
-/* ── AIMS GRID (8-item variant for 200hr) ── */
+/* ── AIMS GRID ── */
 .aims-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1489,29 +1299,17 @@ blockquote.inline-quote {
   position: relative;
   overflow: hidden;
 }
-.aim-item:nth-child(8n + 1) {
+.aim-item:nth-child(1) {
   background: var(--pink);
 }
-.aim-item:nth-child(8n + 2) {
+.aim-item:nth-child(2) {
   background: var(--aubergine);
 }
-.aim-item:nth-child(8n + 3) {
+.aim-item:nth-child(3) {
   background: var(--pinked-linen);
 }
-.aim-item:nth-child(8n + 4) {
+.aim-item:nth-child(4) {
   background: var(--orange);
-}
-.aim-item:nth-child(8n + 5) {
-  background: var(--aubergine);
-}
-.aim-item:nth-child(8n + 6) {
-  background: var(--pink);
-}
-.aim-item:nth-child(8n + 7) {
-  background: var(--orange);
-}
-.aim-item:nth-child(8n + 8) {
-  background: var(--pinked-linen);
 }
 .aim-item::before {
   display: none;
@@ -1519,16 +1317,12 @@ blockquote.inline-quote {
 .aim-num {
   display: none;
 }
-.aim-item:nth-child(8n + 1) .aim-num,
-.aim-item:nth-child(8n + 2) .aim-num,
-.aim-item:nth-child(8n + 4) .aim-num,
-.aim-item:nth-child(8n + 5) .aim-num,
-.aim-item:nth-child(8n + 6) .aim-num,
-.aim-item:nth-child(8n + 7) .aim-num {
+.aim-item:nth-child(1) .aim-num,
+.aim-item:nth-child(2) .aim-num,
+.aim-item:nth-child(4) .aim-num {
   color: rgba(255, 255, 255, 0.45);
 }
-.aim-item:nth-child(8n + 3) .aim-num,
-.aim-item:nth-child(8n + 8) .aim-num {
+.aim-item:nth-child(3) .aim-num {
   color: var(--pink);
 }
 .aim-text {
@@ -1539,16 +1333,12 @@ blockquote.inline-quote {
   position: relative;
   z-index: 1;
 }
-.aim-item:nth-child(8n + 1) .aim-text,
-.aim-item:nth-child(8n + 2) .aim-text,
-.aim-item:nth-child(8n + 4) .aim-text,
-.aim-item:nth-child(8n + 5) .aim-text,
-.aim-item:nth-child(8n + 6) .aim-text,
-.aim-item:nth-child(8n + 7) .aim-text {
+.aim-item:nth-child(1) .aim-text,
+.aim-item:nth-child(2) .aim-text,
+.aim-item:nth-child(4) .aim-text {
   color: rgba(255, 255, 255, 0.9);
 }
-.aim-item:nth-child(8n + 3) .aim-text,
-.aim-item:nth-child(8n + 8) .aim-text {
+.aim-item:nth-child(3) .aim-text {
   color: var(--aubergine);
 }
 
@@ -1562,18 +1352,11 @@ blockquote.inline-quote {
   max-width: 1240px;
   margin: 0 auto;
 }
-.related-head-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 28px;
-}
 .related-head {
   display: flex;
   align-items: center;
   gap: 16px;
-  flex: 1;
+  margin-bottom: 28px;
 }
 .related-head h2 {
   font-size: clamp(20px, 2vw, 28px);
@@ -1585,29 +1368,6 @@ blockquote.inline-quote {
   flex: 1;
   height: 1px;
   background: var(--greige);
-}
-.related-arrows {
-  display: none;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.related-arrow {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(59, 19, 46, 0.25);
-  background: transparent;
-  color: var(--aubergine);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  transition: all 0.2s;
-}
-.related-arrow:hover {
-  background: var(--pink);
-  border-color: var(--pink);
-  color: white;
 }
 .related-grid {
   display: grid;
@@ -1685,8 +1445,7 @@ blockquote.inline-quote {
   margin-bottom: 10px;
 }
 .rc-title {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   font-weight: 400;
   color: white;
@@ -1719,8 +1478,7 @@ blockquote.inline-quote {
   font-weight: 500;
 }
 .rc-price {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -1732,8 +1490,7 @@ blockquote.inline-quote {
   text-align: center;
 }
 .page-footer h3 {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: clamp(24px, 3.5vw, 38px);
   font-weight: 400;
   font-style: italic;
@@ -1796,13 +1553,13 @@ blockquote.inline-quote {
 
 /* ── MANTRA STRIP — matches home page word-strip pattern ── */
 .mantra-strip {
-  background: var(--dusty-blush);
+  background: var(--chalk);
   padding: 20px 32px 36px;
   border-top: 1px solid rgba(59, 19, 46, 0.08);
   border-bottom: 1px solid rgba(59, 19, 46, 0.08);
 }
 .mantra-strip-inner {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -1816,7 +1573,7 @@ blockquote.inline-quote {
   gap: 0;
 }
 .mantra-strip-inner .ws-verb {
-  font-family: "Exquise", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(16px, 1.8vw, 22px);
   font-style: italic;
   color: var(--pink);
@@ -1831,24 +1588,10 @@ blockquote.inline-quote {
   margin-left: 6px;
 }
 .mantra-strip-inner .word-strip-sep {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   color: var(--greige);
   padding: 0 16px;
-}
-@media (max-width: 600px) {
-  .mantra-strip {
-    padding: 32px 20px;
-  }
-  .mantra-strip-inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-  .mantra-strip-inner .word-strip-sep {
-    display: none;
-  }
 }
 
 /* ── TEACHER BAND — full-width bg, centred inner grid ── */
@@ -1883,8 +1626,11 @@ blockquote.inline-quote {
   display: block;
   transition: filter 0.5s ease;
 }
+.teacher-band-img img {
+  filter: grayscale(100%) brightness(1) contrast(0.95);
+}
 .teacher-band-img:hover img {
-  filter: grayscale(70%) brightness(1.05) contrast(1);
+  filter: grayscale(100%) brightness(1) contrast(0.95);
 }
 .teacher-band-img::after {
   content: "";
@@ -1901,6 +1647,11 @@ blockquote.inline-quote {
 }
 .teacher-band .s-div h2 em {
   color: var(--orange);
+}
+.teacher-band .s-div h2 .teacher-band-name {
+  color: white;
+  font-style: normal;
+  font-weight: 400;
 }
 .teacher-band .s-div .s-div-eyebrow {
   color: var(--orange);
@@ -1952,10 +1703,9 @@ blockquote.inline-quote {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 22%;
   filter: grayscale(100%) brightness(1.05) contrast(0.88);
   transition:
-    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.88),
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     filter 0.5s ease;
   display: block;
 }
@@ -2146,8 +1896,7 @@ blockquote.inline-quote {
   position: absolute;
   bottom: -20px;
   right: -10px;
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: 120px;
   font-weight: 400;
   font-style: italic;
@@ -2176,8 +1925,7 @@ blockquote.inline-quote {
   margin-bottom: 16px;
 }
 .interest-heading {
-  font-family: "Exquise", serif;
-
+  font-family: "Playfair Display", serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   color: white;
@@ -2202,6 +1950,84 @@ blockquote.inline-quote {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
+}
+
+/* Form */
+.interest-form {
+}
+.interest-form-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 36px;
+}
+.int-field {
+  margin-bottom: 18px;
+}
+.int-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+.int-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-family: "Jost", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.int-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.int-input:focus {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+}
+.int-input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.int-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+.int-submit {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: white;
+  border: none;
+  color: var(--pink);
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.22s;
+  margin-top: 4px;
+}
+.int-submit:hover {
+  background: var(--orange);
+  color: white;
+}
+.int-note {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 14px;
+  line-height: 1.6;
+  text-align: center;
+  font-style: normal;
 }
 
 /* MOMENCE FORM STYLE OVERIDES */
@@ -2368,7 +2194,281 @@ blockquote.inline-quote {
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1020px) {
+
+/* ── PHONE — hide sticky booking bar entirely; primary CTA already in card ── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ══ ANNOUNCEMENT BAR ══ */
+.ann-dismiss:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ══ FOOTER ══ see snippet-footer.html (master) — placeholder strip used here ══ */
+
+/* ── TOPICS GRID ── */
+.topics-band {
+  background: #f5e6ea;
+  margin: 0 -48px;
+  padding: 56px 48px 64px;
+}
+.topics-band .s-div h2 em {
+  color: var(--pink);
+}
+.topics-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.topics-intro {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-mid);
+  max-width: 720px;
+  margin: 0 0 32px;
+  font-style: italic;
+}
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+.topic-head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 4px;
+  min-height: 0;
+}
+.topic-head .topic-num,
+.topic-head .topic-status {
+  display: none;
+}
+.topic-card {
+  background: var(--chalk);
+  border: 1px solid rgba(59, 19, 46, 0.08);
+  padding: 24px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.topic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(59, 19, 46, 0.08);
+  border-color: rgba(212, 0, 98, 0.25);
+}
+.topic-num {
+  display: none;
+}
+.topic-date {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 12px;
+  display: block;
+}
+.topic-date.tbc {
+  color: var(--light-plum);
+}
+.topic-title {
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--aubergine);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+.topic-title em {
+  color: var(--pink);
+  font-style: italic;
+}
+.topic-blurb {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-mid);
+  margin: 0 0 14px;
+  flex: 1;
+}
+.topic-questions {
+  list-style: none;
+  padding: 14px 0 0;
+  margin: 0 0 18px;
+  border-top: 1px solid rgba(59, 19, 46, 0.1);
+}
+.topic-questions li {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-mid);
+  padding: 4px 0 4px 16px;
+  position: relative;
+  font-style: italic;
+}
+.topic-questions li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--pink);
+  font-weight: 700;
+  top: 4px;
+}
+.topic-book {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--pink);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: background 0.2s ease;
+  margin-top: auto;
+}
+.topic-book:hover {
+  background: var(--pink-deep, #b00050);
+}
+.topic-book.disabled {
+  background: transparent;
+  color: var(--light-plum);
+  border: 1px solid rgba(136, 116, 121, 0.35);
+  pointer-events: none;
+}
+.topic-status {
+  display: none;
+}
+.topic-status.status-tbc {
+  display: none;
+}
+
+.curriculum-dates-band {
+  background: var(--chalk);
+  padding: 64px 48px;
+}
+.curriculum-dates-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.curriculum-dates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.cd-col .s-div {
+  margin-bottom: 32px;
+}
+.cd-col .s-div h2 {
+  color: var(--aubergine) !important;
+  font-size: clamp(22px, 2.4vw, 32px) !important;
+}
+.cd-col .s-div h2 em {
+  color: var(--pink);
+}
+.cd-dates .sched-day {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(59, 19, 46, 0.12);
+  align-items: start;
+}
+.cd-dates .sched-day:first-child {
+  border-top: 1px solid rgba(59, 19, 46, 0.12);
+}
+.cd-dates .sched-date {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--pink);
+  line-height: 1;
+  display: block;
+}
+.cd-dates .sched-dow {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lightened-plum);
+  margin-top: 6px;
+  display: block;
+}
+.cd-dates .sched-label {
+  font-family: "Jost", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 500;
+}
+.cd-dates .sched-detail {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  color: var(--aubergine);
+  line-height: 1.55;
+}
+.cd-dates .sched-time {
+  font-size: 12px;
+  color: var(--lightened-plum);
+  margin-top: 8px;
+  display: block;
+  letter-spacing: 0.06em;
+}
+.cd-curriculum .acc-item {
+  border-bottom-color: rgba(59, 19, 46, 0.12);
+}
+
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE — canonical 1100 / 900 / 600 (Shala Style Guide)
+   ════════════════════════════════════════════════════════ */
+
+/* ── Tier 1: tablet / wide (1100) ── */
+@media (max-width: 1100px) {
+  .body-wrap {
+    padding: 56px 36px;
+  }
+  .testimonials-section {
+    padding: 64px 36px;
+  }
+  .lower-wrap {
+    padding: 0 36px 64px;
+  }
+}
+
+/* ── Tier 2: tablet / narrow (900) ── */
+@media (max-width: 900px) {
+  /* Hero stacks */
+  .ch-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ch-img-col img {
+    max-width: 180px;
+  }
+
+  /* Sidebar drops below main */
   .body-wrap {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -2376,6 +2476,8 @@ blockquote.inline-quote {
   .side-col {
     position: static;
   }
+
+  /* Teacher band stacks */
   .teacher-band {
     padding: 0;
   }
@@ -2391,10 +2493,8 @@ blockquote.inline-quote {
   .teacher-band-img {
     min-height: 420px;
   }
-  .interest-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+
+  /* Intro magazine stacks */
   .intro-magazine {
     grid-template-columns: 1fr;
   }
@@ -2406,1214 +2506,199 @@ blockquote.inline-quote {
   .intro-mag-right {
     padding: 44px 44px;
   }
-}
 
-/* ═══════════════════════════════════════════════════════ */
-/* ══ PAGE-SPECIFIC MOBILE RULES — 900px & 600px         ══ */
-/* ═══════════════════════════════════════════════════════ */
-
-@media (max-width: 900px) {
-  /* Sticky booking bar — allow wrap on mobile */
-  .booking-bar {
-    padding: 0 20px;
-    height: auto;
-    min-height: 52px;
-    flex-wrap: wrap;
-    gap: 8px 14px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transform: translateY(-200px);
-  }
-  .booking-bar.visible {
-    transform: translateY(0);
-  }
-  .bar-title {
-    font-size: 13px;
-  }
-  .bar-meta {
-    font-size: 10px;
-    margin-left: 10px;
-  }
-  .bar-btns {
-    gap: 8px;
-  }
-  .bar-btn {
-    padding: 7px 14px;
-    font-size: 9.5px;
-    letter-spacing: 0.12em;
-  }
-
-  /* Body wrap — stack sidebar below main */
-  .body-wrap {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 56px 32px;
-  }
-  .side-col {
-    position: static;
-  }
-
-  /* Aims grid — 1 col */
-  .aims-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* Curriculum + Dates — stack */
-  .curriculum-dates-band {
-    padding: 52px 32px;
-  }
-  .curriculum-dates-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  /* Schedule — tighten columns */
-  .schedule-band {
-    padding: 44px 32px 48px;
-  }
-  .sched-day {
-    grid-template-columns: 100px 1fr;
-    gap: 0 24px;
-  }
-  .sched-topics-col {
-    grid-column: 1 / -1;
-    border-left: none;
-    padding-left: 0;
-    margin-top: 12px;
-    border-top: 1px solid var(--greige);
-    padding-top: 16px;
-  }
-  .sched-date {
-    font-size: 40px;
-  }
-
-  /* Teacher band */
-  .teacher-band {
-    padding: 0;
-  }
-  .teacher-band-grid {
-    grid-template-columns: 1fr;
-  }
-  .teacher-band-text {
-    padding: 52px 32px;
-  }
-  .teacher-band-img {
-    min-height: 360px;
-  }
-  .teacher-band-img img {
-    object-position: center 18% !important;
-  }
-
-  /* Gallery images — keep faces in frame on mobile */
-  .g-cell img,
-  .g-cell img[style] {
-    object-position: center 15% !important;
-  }
-
-  /* Testimonials */
-  .testimonials-section {
-    padding: 64px 32px;
-  }
-  .testi-featured {
-    padding-bottom: 36px;
-    margin-bottom: 32px;
-  }
-  .testi-featured-left {
-    padding-bottom: 36px;
-  }
-  .testi-featured-quote {
-    font-size: 22px;
-  }
-  .testi-card {
-    flex: 0 0 calc(50% - 7px);
-    padding: 22px 20px;
-  }
-
-  /* Gallery */
-  .gallery-band {
-    padding: 44px 12px 48px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 170px 170px 170px;
-    gap: 4px;
-  }
-
-  .g-a {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-
-  .g-b {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .g-c {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .g-d {
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .g-e {
-    grid-column: 2;
-    grid-row: 3;
-  }
-
-  /* Related courses — horizontal scroll */
-  .related {
-    padding: 52px 32px;
-  }
-  .related-arrows {
-    display: flex;
-  }
-  .related-head::after {
-    display: none;
-  }
-  .related-grid {
-    display: flex;
-    grid-template-columns: none;
-    gap: 12px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 8px;
-    margin: 0 -32px;
-    padding-left: 32px;
-    padding-right: 32px;
-    scroll-behavior: smooth;
-  }
-  .related-grid::-webkit-scrollbar {
-    height: 3px;
-  }
-  .related-grid::-webkit-scrollbar-thumb {
-    background: rgba(59, 19, 46, 0.2);
-  }
-  .rc {
-    flex: 0 0 calc(50% - 6px);
-    scroll-snap-align: start;
-    height: 300px;
-  }
-
-  /* Express interest */
-  .interest-section {
-    padding: 56px 32px;
-  }
+  /* Interest section stacks */
   .interest-inner {
     grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .interest-form-card {
-    padding: 28px;
-  }
-
-  /* Lower wrap */
-  .lower-wrap {
-    padding: 44px 32px 48px;
-  }
-
-  /* Curriculum band inside main col */
-  .curriculum-band {
-    margin: 0 -32px;
-    padding: 32px 32px 40px;
-  }
-}
-
-@media (max-width: 600px) {
-  /* Sticky booking bar — stack tightly */
-  .booking-bar {
-    padding: 10px 16px;
-  }
-  .bar-left {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-  .bar-title {
-    font-size: 12.5px;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-  .bar-meta {
-    margin-left: 0;
-    font-size: 10px;
-    display: block;
-    width: 100%;
-    padding: 2px 0 0;
-    text-align: center;
-  }
-  .bar-btns {
-    width: 100%;
-  }
-  .bar-btn {
-    flex: 1;
-    text-align: center;
-    padding: 8px 8px;
-    font-size: 8px;
-  }
-
-  /* Announcement bar */
-
-  /* Body wrap */
-  .body-wrap {
-    padding: 40px 20px;
-    gap: 32px;
-  }
-
-  /* Intro */
-  .intro-overview-heading,
-  .intro-body {
-    font-size: 16.5px;
-  }
-  .feature-quote {
-    font-size: 20px;
-    margin: 28px 0;
-  }
-  .feature-quote::before,
-  .feature-quote::after {
-    font-size: 54px;
-  }
-  .inline-quote {
-    font-size: 19px;
-  }
-  .intro-quote-block {
-    margin-bottom: 36px;
-    padding-bottom: 28px;
-  }
-
-  /* Suitability */
-  .s-pill {
-    font-size: 17px;
-  }
-
-  /* Accordion */
-  .acc-trigger {
-    font-size: 17px;
-    padding: 18px 0;
-    gap: 12px;
-  }
-  .acc-inner ul li,
-  .acc-inner p {
-    font-size: 15.5px;
-    line-height: 1.65;
-  }
-
-  /* Sidebar booking card */
-  .booking-card-header {
-    padding: 20px 22px;
-  }
-  .bc-price {
-    font-size: 32px;
-  }
-  .bc-badges img {
-    width: 60px;
-    height: 60px;
-  }
-  .booking-card-body {
-    padding: 20px 22px;
-  }
-  .bc-meta-strip {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .bc-meta-item {
-    padding: 10px 12px;
-  }
-  .bc-meta-value {
-    font-size: 14px;
-  }
-  .bc-btn {
-    padding: 13px;
-    font-size: 10.5px;
-  }
-
-  /* Aims */
-  .aim-item {
-    padding: 22px 20px;
-  }
-  .aim-text {
-    font-size: 16px;
-  }
-
-  /* Curriculum + Dates */
-  .curriculum-dates-band {
-    padding: 40px 20px;
-  }
-  .curriculum-dates-grid {
     gap: 40px;
   }
 
-  /* Schedule */
-  .schedule-band {
-    padding: 36px 20px 44px;
-  }
-  .sched-day {
-    grid-template-columns: 80px 1fr;
-    gap: 0 18px;
-    padding: 22px 0;
-  }
-  .sched-date {
-    font-size: 34px;
-  }
-  .sched-detail {
-    font-size: 16px;
-  }
-  .sched-label {
-    font-size: 10px;
-    letter-spacing: 0.18em;
-  }
-  .sched-time-inline {
-    display: inline-block;
-    margin: 4px 0 0;
-    padding: 0;
-    border: none;
-    margin-left: 0;
-  }
-
-  /* Future dates */
-  .future-dates {
-    margin-top: 36px;
-    padding-top: 24px;
-  }
-  .future-run {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding: 12px 0;
-  }
-  .future-run-dates {
-    font-size: 16px;
-  }
-
-  /* Teacher band */
-  .teacher-band-text {
-    padding: 40px 20px 48px;
-  }
-  .teacher-band-img {
-    min-height: 280px;
-  }
-  .teacher-name {
-    font-size: 24px;
-  }
-  .teacher-bio {
-    font-size: 16px;
-  }
-
-  /* Testimonials */
-  .testimonials-section {
-    padding: 48px 20px;
-  }
-  .testi-featured-quote {
-    font-size: 19px;
-  }
-  .testi-track {
-    gap: 12px;
-  }
-  .testi-card {
-    flex: 0 0 100%;
-    padding: 22px 20px;
-  }
-  .testi-quote {
-    font-size: 16px;
-  }
-
-  /* Gallery */
-  .gallery-band {
-    padding: 36px 12px 44px;
-  }
-
-  .gallery-grid {
-    grid-template-rows: 170px 170px 170px;
-    gap: 4px;
-  }
-
-  /* Related courses — 1 card full width */
-  .related {
-    padding: 40px 20px;
-  }
-  .related-grid {
-    margin: 0;
-    padding: 0 0 8px;
-    gap: 10px;
-  }
-  .rc {
-    flex: 0 0 100%;
-    height: 280px;
-  }
-
-  /* Express interest */
-  .interest-section {
-    padding: 44px 20px;
-  }
-  .interest-heading {
-    font-size: clamp(26px, 7vw, 34px);
-  }
-  .interest-body {
-    font-size: 17px;
-  }
-  .interest-form-card {
-    padding: 22px;
-  }
-
-  /* Lower wrap */
-  .lower-wrap {
-    padding: 36px 20px 40px;
-  }
-
-  /* Curriculum band inside main */
-  .curriculum-band {
-    margin: 0 -20px;
-    padding: 28px 20px 32px;
-  }
-
-  /* Section headings */
-  .s-div h2 {
-    font-size: clamp(22px, 5vw, 28px) !important;
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ══ FOOTER — see snippet-footer.html ══ */
-/* ── CURRICULUM + COURSE DATES BAND ── */
-.curriculum-dates-band {
-  background: var(--chalk);
-  padding: 88px 48px;
-}
-.curriculum-dates-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-.curriculum-dates-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: start;
-}
-.cd-col {
-  min-width: 0;
-}
-.cd-dates .sched-day {
-  grid-template-columns: 90px 1fr;
-  gap: 0 24px;
-  padding: 22px 0;
-}
-.cd-dates .sched-date {
-  font-size: 36px;
-}
-.cd-dates .sched-dow {
-  font-size: 9.5px;
-  letter-spacing: 0.12em;
-  margin-top: 5px;
-}
-.cd-dates .sched-label {
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  margin-bottom: 6px;
-}
-.cd-dates .sched-detail {
-  font-size: 16px;
-  line-height: 1.55;
-}
-.cd-dates .sched-time-inline {
-  font-size: 9.5px;
-  margin-left: 6px;
-  padding-left: 8px;
-}
-.cd-dates .sched-type-pill {
-  font-size: 8.5px;
-  padding: 2px 7px;
-  margin-left: 6px;
-}
-
-/* ── USEFUL INFORMATION signpost list (below curriculum accordion) ── */
-.useful-info {
-  margin-top: 40px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(59, 19, 46, 0.12);
-}
-.useful-info-heading {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 16px;
-}
-.useful-info-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.useful-info-list li {
-  border-bottom: 1px solid rgba(59, 19, 46, 0.08);
-}
-.useful-info-list li:last-child {
-  border-bottom: none;
-}
-.useful-info-list a {
-  display: block;
-  padding: 12px 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
-  color: var(--aubergine);
-  text-decoration: none;
-  transition:
-    color 0.2s,
-    padding-left 0.2s;
-}
-.useful-info-list a:hover {
-  color: var(--pink);
-  padding-left: 6px;
-}
-@media (max-width: 900px) {
+  /* Curriculum dates stacks */
   .curriculum-dates-grid {
     grid-template-columns: 1fr;
     gap: 56px;
   }
-}
-
-/* ── BURSARY NOTE (inline aubergine-tinted block) ── */
-.bursary-note {
-  background: rgba(59, 19, 46, 0.04);
-  border-left: 3px solid var(--orange);
-  padding: 22px 24px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 16px;
-  color: var(--aubergine);
-  line-height: 1.65;
-}
-.bursary-note strong {
-  display: block;
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 8px;
-}
-.bursary-note a {
-  color: var(--pink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-/* ── APPLY STEPS (numbered 4-step block) ── */
-.apply-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-bottom: 52px;
-}
-.apply-step {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 0 24px;
-  padding: 26px 0;
-  border-bottom: 1px solid rgba(59, 19, 46, 0.12);
-  align-items: start;
-}
-.apply-step:first-child {
-  border-top: 1px solid rgba(59, 19, 46, 0.12);
-}
-.apply-step-num {
-  font-family: "Exquise", serif;
-
-  font-weight: 400;
-  font-size: 42px;
-  color: var(--pink);
-  line-height: 1;
-}
-.apply-step-title {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 10px;
-  display: block;
-}
-.apply-step-text {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
-  color: var(--aubergine);
-  line-height: 1.65;
-}
-.apply-step-text a {
-  color: var(--pink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.apply-btn {
-  display: inline-block;
-  margin-top: 32px;
-  padding: 14px 36px;
-  background: var(--pink);
-  color: white;
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.apply-btn:hover {
-  background: var(--grey-magenta);
-}
-
-/* ── TEACHERS BAND (full-width, Gingi + Charli paired — landscape portraits over full bios) ── */
-.teachers-band {
-  background: var(--charcoal-plum);
-  padding: 96px 56px;
-}
-.teachers-band-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-.teachers-band .s-div {
-  text-align: left;
-  margin-bottom: 56px;
-}
-.teachers-band .s-div-rule {
-  margin-left: 0;
-  margin-right: 0;
-  background: var(--orange);
-}
-.teachers-band .s-div h2 {
-  color: white !important;
-}
-.teachers-band .s-div h2 em {
-  color: var(--orange);
-  font-style: italic;
-}
-.teachers-band .s-div-eyebrow {
-  color: rgba(255, 255, 255, 0.75);
-}
-.teachers-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-}
-.teacher-compact {
-  display: flex;
-  flex-direction: column;
-}
-.tc-img {
-  width: 100%;
-  aspect-ratio: 3/2;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  margin-bottom: 28px;
-}
-.tc-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.tc-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 10px;
-}
-.tc-name {
-  font-family: "Exquise", serif;
-
-  font-weight: 400;
-  font-size: clamp(28px, 3vw, 38px);
-  color: white;
-  margin: 0 0 8px;
-  line-height: 1.15;
-}
-.tc-creds {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.65);
-  display: block;
-  margin-bottom: 22px;
-}
-.tc-bio {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.92);
-  line-height: 1.7;
-  margin: 0 0 14px;
-}
-.tc-bio:last-of-type {
-  margin-bottom: 24px;
-}
-.tc-more {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--orange);
-  text-decoration: none;
-  border-bottom: 1px solid var(--orange);
-  padding-bottom: 2px;
-  align-self: flex-start;
-}
-.tc-more:hover {
-  color: white;
-  border-bottom-color: white;
-}
-
-/* ── Specialist Faculty — 3-up sub-row ── */
-.faculty-divider {
-  margin-top: 72px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-.faculty-divider-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  text-align: center;
-  margin-bottom: 10px;
-}
-.faculty-divider-heading {
-  font-family: "Exquise", serif;
-
-  font-size: clamp(24px, 2.4vw, 32px);
-  font-weight: 400;
-  color: white;
-  text-align: center;
-  margin: 0 0 8px;
-  line-height: 1.2;
-}
-.faculty-divider-heading em {
-  color: var(--pink);
-  font-style: italic;
-}
-.faculty-divider-sub {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  margin: 0 auto 48px;
-  max-width: 620px;
-  line-height: 1.55;
-}
-.visiting-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-}
-.vt-card {
-  display: flex;
-  flex-direction: column;
-}
-.vt-img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  margin-bottom: 18px;
-}
-.vt-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.vt-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 8px;
-}
-.vt-name {
-  font-family: "Exquise", serif;
-
-  font-weight: 400;
-  font-size: 22px;
-  color: white;
-  margin: 0 0 6px;
-  line-height: 1.2;
-}
-.vt-creds {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.6);
-  display: block;
-  margin-bottom: 14px;
-}
-.vt-bio {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15.5px;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.65;
-  margin: 0 0 14px;
-}
-.vt-more {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--orange);
-  text-decoration: none;
-  border-bottom: 1px solid var(--orange);
-  padding-bottom: 2px;
-  align-self: flex-start;
-}
-.vt-more:hover {
-  color: white;
-  border-bottom-color: white;
-}
-@media (max-width: 900px) {
-  .visiting-row {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-}
-
-/* ── Graduate video block ── */
-.grad-videos {
-  padding: 0 0 56px;
-  max-width: 1240px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.grad-videos-head {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.grad-videos-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 10px;
-}
-.grad-videos-heading {
-  font-family: "Exquise", serif;
-
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400;
-  color: white;
-  margin: 0 0 12px;
-  line-height: 1.2;
-}
-.grad-videos-heading em {
-  color: var(--pink);
-  font-style: italic;
-}
-.grad-videos-sub {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 18px;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 auto;
-  max-width: 620px;
-  line-height: 1.55;
-}
-.grad-videos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-.grad-video-card {
-  display: flex;
-  flex-direction: column;
-}
-.grad-video-frame {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: var(--aubergine);
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-.grad-video-frame iframe,
-.grad-video-frame video {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-.grad-video-name {
-  font-family: "Exquise", serif;
-
-  font-weight: 400;
-  font-size: 20px;
-  color: white;
-  margin: 0 0 4px;
-}
-.grad-video-name em {
-  color: var(--pink);
-  font-style: italic;
-}
-.grad-video-meta {
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-}
-@media (max-width: 800px) {
-  .grad-videos-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-/* ── CPD Signpost (already qualified?) ── */
-.cpd-signpost {
-  background: var(--linen);
-  padding: 64px 48px;
-}
-.cpd-signpost-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 40px;
-  align-items: center;
-}
-.cpd-signpost-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--pink);
-  display: block;
-  margin-bottom: 12px;
-}
-.cpd-signpost-heading {
-  font-family: "Exquise", serif;
-  font-size: clamp(24px, 2.6vw, 32px);
-  font-weight: 400;
-  color: var(--aubergine);
-  margin: 0 0 12px;
-  line-height: 1.2;
-}
-.cpd-signpost-heading em {
-  color: var(--pink);
-  font-style: italic;
-}
-.cpd-signpost-body {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 17px;
-  font-style: italic;
-  color: var(--text-mid);
-  line-height: 1.6;
-  max-width: 640px;
-  margin: 0;
-}
-.cpd-signpost-cta {
-  display: inline-flex;
-  align-items: center;
-  height: 52px;
-  padding: 0 28px;
-  background: var(--aubergine);
-  color: white;
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-.cpd-signpost-cta:hover {
-  background: var(--pink);
-}
-@media (max-width: 800px) {
-  .cpd-signpost {
+  .curriculum-dates-band {
     padding: 48px 24px;
   }
-  .cpd-signpost-inner {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-@media (max-width: 900px) {
-  .teachers-band {
-    padding: 72px 32px;
-  }
-  .teachers-row {
-    grid-template-columns: 1fr;
-    gap: 64px;
-  }
-}
-@media (max-width: 600px) {
-  .teachers-band {
-    padding: 56px 20px;
-  }
-  .tc-bio {
-    font-size: 16px;
+
+  /* Testimonials — featured already block; carousel cards 2-up */
+  .testi-card {
+    flex: 0 0 calc(50% - 7px);
   }
 }
 
-/* ── OPEN DAYS editorial banner block ── */
-.openday-block {
-  background: var(--pink);
-  border-left: none;
-  padding: 56px 48px 60px;
-  margin: 0 -48px 56px;
-  box-shadow: 0 8px 32px rgba(212, 0, 98, 0.18);
-}
-.openday-text {
-  max-width: 760px;
-}
-.openday-eyebrow {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: white;
-  display: block;
-  margin-bottom: 14px;
-}
-.openday-heading {
-  font-family: "Exquise", serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3vw, 40px);
-  color: white;
-  line-height: 1.2;
-  margin: 0 0 22px;
-  font-style: normal;
-}
-.openday-heading em {
-  font-style: italic;
-  color: var(--orange);
-  font-weight: 500;
-}
-.openday-copy {
-  font-family: "Jost", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  color: white;
-  line-height: 1.65;
-  margin: 0 0 16px;
-}
-.openday-cta {
-  display: inline-block;
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--pink);
-  background: white;
-  padding: 14px 24px;
-  text-decoration: none;
-  margin-top: 10px;
-  transition:
-    background 0.2s,
-    color 0.2s;
-}
-.openday-cta:hover {
-  background: var(--orange);
-  color: white;
-}
-.openday-dates {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: white;
-  margin-top: 18px;
-  display: block;
-}
-@media (max-width: 900px) {
-  .openday-block {
-    padding: 44px 32px 48px;
-    margin: 0 -32px 56px;
-  }
-}
+/* ── Tier 3: phone (600) ── */
 @media (max-width: 600px) {
-  .openday-block {
-    padding: 36px 20px 40px;
-    margin: 0 -20px 0px;
+  /* Page padding */
+  .body-wrap {
+    padding: 40px 24px;
+  }
+  .lower-wrap {
+    padding: 0 24px 48px;
+  }
+
+  /* Hero */
+  .course-header {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 0 24px 64px;
+  }
+  .ch-img-col {
+    height: 260px;
+  }
+  .ch-text-col {
+    padding: 36px 24px;
+  }
+
+  /* Teacher band */
+  .teacher-band {
+    background: var(--charcoal-plum);
+    padding: 0;
+  }
+  .teacher-band-text {
+    padding: 40px 24px 52px;
+  }
+  .teacher-band-img {
+    min-height: 320px;
+  }
+  .teacher-info {
+    padding: 0;
+  }
+
+  /* Outcomes / aims grid single column */
+  .aims-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: 48px 24px 56px;
+  }
+  .testi-card {
+    flex: 0 0 100%;
+  }
+
+  /* Word strip stacks vertically */
+  .mantra-strip {
+    padding: 32px 20px;
+  }
+  .mantra-strip-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .mantra-strip-inner .word-strip-sep {
+    display: none;
+  }
+
+  /* Topics single column */
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+  .topics-band {
+    margin: 0 -24px;
+    padding: 40px 24px 48px;
+  }
+
+  /* Related courses single column */
+  .related {
+    padding: 40px 24px;
+  }
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gallery — fallback 2-col if visible */
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 180px 140px 180px;
+  }
+  .gallery-band {
+    padding: 40px 24px 48px;
+  }
+
+  /* Schedule band */
+  .schedule-band {
+    padding: 40px 24px 48px;
+  }
+
+  /* Sticky booking bar hidden — CTAs already in panel */
+  .booking-bar {
+    display: none !important;
+  }
+
+  /* Express interest */
+  .interest-section {
+    padding: 48px 24px;
+  }
+  .interest-reassure {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .interest-form-card {
+    padding: 24px;
+  }
+
+  /* Utility strip */
+  .utility-strip {
+    padding: 24px;
+  }
+  .utility-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  /* Intro magazine inner padding tighter */
+  .intro-mag-left {
+    padding: 36px 24px;
+  }
+  .intro-mag-right {
+    padding: 36px 24px;
   }
 }
 
-/* ── SCRIPTURE QUOTE STRIP (standalone pull-quote) ── */
-.quote-strip {
-  background: var(--chalk);
-  padding: 72px 48px;
-  text-align: center;
+/* ── moved from inline styles during split ── */
+.suitability--compact {
+  margin-bottom: 48px;
 }
-.quote-strip-inner {
-  max-width: 820px;
-  margin: 0 auto;
+.bc-sep--tight {
+  margin-bottom: 16px;
 }
-.quote-strip-text {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
+.testi-carousel-head--end {
+  justify-content: flex-end;
+}
+.testi-carousel-control-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.testi-carousel-label {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.related-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(20px, 2vw, 28px);
   font-weight: 400;
-  font-size: clamp(22px, 2.4vw, 30px);
   color: var(--aubergine);
-  line-height: 1.45;
-  margin: 0 0 20px;
+  letter-spacing: 0;
+  text-transform: none;
 }
-.quote-strip-attr {
-  font-family: "Jost", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-  display: block;
+.rc--charcoal {
+  --rt: rgba(75, 58, 67, 1);
 }
-@media (max-width: 600px) {
-  .quote-strip {
-    padding: 56px 24px;
-  }
+.rc--pinkdeep {
+  --rt: rgba(140, 0, 63, 1);
 }
-@media (max-width: 600px) {
-  .apply-step {
-    grid-template-columns: 40px 1fr;
-    gap: 0 10px;
-  }
+.rc--orangebrown {
+  --rt: rgba(139, 82, 0, 1);
+}
+.muted-small {
+  opacity: 0.5;
+  font-size: 9px;
 }

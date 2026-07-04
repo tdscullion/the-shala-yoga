@@ -1642,7 +1642,7 @@ $suggested_courses = get_field('suggested_courses');
       </div>
 
       <!-- EXPRESS INTEREST -->
-      <div class="interest-section" id="express-interest">
+      <!-- <div class="interest-section" id="express-interest">
         <div class="interest-inner">
           <div class="interest-copy">
             <h2 class="interest-heading">
@@ -1702,7 +1702,56 @@ $suggested_courses = get_field('suggested_courses');
             </div>
           </div>
         </div>
+      </div> -->
+
+      <!-- TEST 200 ENQUIRE FORM -->
+       <!-- EXPRESS INTEREST -->
+      <div class="interest-section" id="express-interest">
+          <div class="interest-inner">
+
+              <div class="interest-copy">
+                  <h2 class="interest-heading">
+                      Interested in the <em>200-hour?</em>
+                  </h2>
+
+                  <p class="interest-body">
+                      Not ready to apply yet — or want to hear about future cohorts?
+                      Register your interest and we'll be in touch with everything you
+                      need to know, including Open Day dates and when the next intake
+                      opens.
+                  </p>
+
+                  <p class="interest-reassure">
+                      No commitment required · No spam, ever · Priority notification of
+                      new intakes
+                  </p>
+              </div>
+
+              <div class="interest-form">
+                  <div class="interest-form-card">
+
+
+                      <div id="momence-plugin-lead-form"></div> 
+                      <script async type="module" id="momence-plugin-lead-form-src" host_id="9055" fields="firstName,lastName,email" token="Ra7GErbXD5" country_code="gb" source_id="659" data-field-def='{"firstName":{"type":"text","label":"First name","required":true},"lastName":{"type":"text","label":"Last name","required":true},"email":{"type":"email","label":"Email","required":true}}' src="https://momence.com/plugin/lead-form/lead-form.js" ></script>
+
+                      <style>
+                          :root {
+                              --momenceColorBackground: #FBFBFB;
+                              --momenceColorPrimary: 212, 0, 98;
+                              --momenceColorBlack: 81, 18, 62;
+                          }
+                      </style>
+                      <!-- <p class="int-note">
+                          We'll only use your details to contact you about this course and related
+                          Shala School news. Unsubscribe at any time.
+                      </p> -->
+                  </div>
+                  
+              </div>
+
+          </div>
       </div>
+
     </main>
 
 <?php get_footer(); ?>

@@ -40,7 +40,7 @@ $hero_subtitle = get_field('hero_subtitle');
             <div>
               <h3 class="section-h2">We'd <em>love</em> to hear from you</h3>
 
-              <div class="contact-form-wrap">
+              <!-- <div class="contact-form-wrap">
                 <h3 class="form-heading">Send us a <em>message</em></h3>
                 <p class="form-sub">
                   Tell us a little about your enquiry and we'll make sure it
@@ -90,7 +90,19 @@ $hero_subtitle = get_field('hero_subtitle');
                 <button class="form-submit" onclick="handleSubmit(this)">
                   Send Message
                 </button>
-              </div>
+              </div> -->
+              <div class="contact-form-wrap">
+    <h3 class="form-heading">Send us a <em>message</em></h3>
+
+    <p class="form-sub">
+        Have a question about teacher training, CPDs, retreats or anything else?
+        Email us and we’ll make sure your message reaches the right person.
+    </p>
+
+    <a href="mailto:teachertraining@theshala.co.uk" class="form-submit">
+        Email Us
+    </a>
+</div>
             </div>
 
             <div>
@@ -405,12 +417,11 @@ $hero_subtitle = get_field('hero_subtitle');
               <span class="social-card-name">YouTube</span>
               <span class="social-card-handle">The Shala School of Yoga</span>
             </a>
-            <a
+         <a
               class="social-card"
-              href="https://www.theshalalondon.com/newsletters-shala/"
-              target="_blank"
+              href="<?php echo esc_url( home_url( '/signup/' ) ); ?>"
               style="background: var(--aubergine)"
-            >
+          >
               <div class="social-card-icon">
                 <svg viewBox="0 0 24 24">
                   <path
@@ -441,7 +452,7 @@ $hero_subtitle = get_field('hero_subtitle');
               >Book a Call</a
             >
             <a
-              href="https://www.theshalalondon.com/newsletters-shala/"
+              href="<?php echo esc_url(home_url('/signup/')); ?>"
               target="_blank"
               class="btn-ghost-w"
               >Newsletter Sign Up</a

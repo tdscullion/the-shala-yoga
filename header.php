@@ -14,7 +14,7 @@
 <div id="announcementBar">
     <p>
         Classes &amp; workshops now run by <strong>Vahni</strong> in the same space.
-        <a href="https://www.vahni.com" target="_blank" rel="noopener">Visit Vahni →</a>
+        <a href="https://www.vahnilondon.com/" target="_blank" rel="noopener">Visit Vahni →</a>
     </p>
     <button class="ann-dismiss" aria-label="Close announcement">✕</button>
 </div>
