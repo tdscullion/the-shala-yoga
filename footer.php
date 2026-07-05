@@ -41,23 +41,24 @@
                 <a href="<?php echo esc_url(home_url('/200-hour/')); ?>">200-Hour YTT</a>
                 <a href="<?php echo esc_url(home_url('/300-hour/')); ?>">300-Hour YTT</a>
                 <a href="<?php echo esc_url(home_url('/cpds/')); ?>">Modules &amp; CPDs</a>
-                <a href="#">On Demand</a>
+                <a href="<?php echo esc_url(home_url('/cpds/')); ?>">On Demand</a>
                 <a href="<?php echo esc_url(home_url('/retreats/')); ?>">Retreats</a>
 
                 <h4>Community</h4>
-                <a href="#">200-Hour Open Day</a>
-                <a href="#">Yoga Philosophy Club</a>
-                <a href="#">Saha Gatherings</a>
+                <a href="<?php echo esc_url(home_url('/courses/200-hour-yoga-teacher-training-open-day/')); ?>">200-Hour Open Day</a>
+
+                <a href="<?php echo esc_url(home_url('/courses/yoga-philosophy-club/')); ?>">Yoga Philosophy Club</a>
+
+                <a href="<?php echo esc_url(home_url('/courses/yoga-teachers-circle-saha-gatherings-the-yoga-teacher-community/')); ?>">Saha Gatherings</a>
             </div>
 
             <div class="footer-col">
                 <h4>About</h4>
-                <a href="<?php echo esc_url(home_url('/about/')); ?>">About the Shala</a>
+                <a href="<?php echo esc_url(home_url('/about-the-shala/')); ?>">About the Shala</a>
                 <a href="<?php echo esc_url(home_url('/faculty/')); ?>">Our Faculty</a>
                 <a href="<?php echo esc_url(home_url('/our-space/')); ?>">Our Space</a>
                 <a href="<?php echo esc_url(home_url('/testimonials/')); ?>">Testimonials</a>
                 <a href="<?php echo esc_url(home_url('/bursaries/')); ?>">Bursaries</a>
-                <a href="#">Jobs</a>
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact Us</a>
                 <a href="<?php echo esc_url(home_url('/blog/')); ?>">Blog</a>
             </div>
@@ -65,8 +66,8 @@
             <div class="footer-col">
                 <h4>Legal</h4>
                 <a href="<?php echo esc_url(home_url('/terms-and-conditions/')); ?>">Terms &amp; Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Cookie Policy</a>
+                <!-- <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a> -->
 
                 <h4>Support</h4>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>">Course FAQs</a>
