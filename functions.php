@@ -64,11 +64,11 @@ function theshala_register_post_types() {
             'add_new_item' => __('Add New Faculty Member', 'theshala'),
             'edit_item' => __('Edit Faculty Member', 'theshala'),
         ],
-        'public' => true,
+       'public' => true,
         'menu_icon' => 'dashicons-groups',
         'has_archive' => true,
         'rewrite' => [
-            'slug' => 'faculty',
+            'slug' => 'yoga-teacher',
         ],
         'supports' => [
             'title',
@@ -212,7 +212,7 @@ function theshala_enqueue_assets() {
         );
     }
 
-    if (is_post_type_archive('faculty')) {
+    if (is_page('faculty')) {
         wp_enqueue_style(
             'theshala-faculty-archive',
             get_template_directory_uri() . '/assets/css/faculty.css',
