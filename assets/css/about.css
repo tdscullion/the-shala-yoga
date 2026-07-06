@@ -262,6 +262,7 @@
   line-height: 1.8;
   color: var(--charcoal-plum);
   margin-bottom: 22px;
+  font-family: "Cormorant Garamond", serif;
 }
 .founder-quote {
   position: relative;

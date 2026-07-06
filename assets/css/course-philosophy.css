@@ -63,7 +63,7 @@ body {
   transform: translateY(0);
 }
 .bar-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 15px;
   font-weight: 400;
   color: var(--aubergine);
@@ -186,7 +186,7 @@ body {
   margin-bottom: 18px;
 }
 .ch-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(44px, 6vw, 84px);
   font-weight: 400;
   color: var(--pink);
@@ -274,7 +274,7 @@ body {
   margin-bottom: 5px;
 }
 .h-stat-value {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: white;
   line-height: 1.15;
@@ -301,7 +301,7 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
 }
 .body-wrap {
   max-width: 1240px;
@@ -341,7 +341,7 @@ body {
 
 /* ── INTRO — quote + body inline within main-col ── */
 .intro-overview-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 400;
   margin-bottom: 24px;
@@ -420,7 +420,7 @@ body {
   margin-bottom: 72px;
 }
 .suitability-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(17px, 2vw, 22px);
   font-weight: 400;
   color: var(--text-dark);
@@ -703,7 +703,7 @@ body {
   border-left: 1px solid rgba(243, 153, 0, 0.35);
 }
 .sched-date {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 48px;
   font-weight: 400;
   color: var(--pink);
@@ -951,7 +951,7 @@ body {
   display: none;
 }
 .teacher-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 28px;
   font-weight: 400;
   color: white;
@@ -1028,7 +1028,7 @@ body {
   padding: 24px 28px;
 }
 .bc-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 38px;
   font-weight: 400;
   color: var(--aubergine);
@@ -1251,7 +1251,7 @@ body {
   margin-bottom: 14px;
 }
 .future-dates-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 400;
   color: var(--aubergine);
@@ -1281,7 +1281,7 @@ body {
   border-bottom: none;
 }
 .future-run-dates {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: var(--aubergine);
   font-weight: 400;
@@ -1452,7 +1452,7 @@ body {
   margin-bottom: 10px;
 }
 .rc-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   font-weight: 400;
   color: white;
@@ -1485,7 +1485,7 @@ body {
   font-weight: 500;
 }
 .rc-price {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -1497,7 +1497,7 @@ body {
   text-align: center;
 }
 .page-footer h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(24px, 3.5vw, 38px);
   font-weight: 400;
   font-style: italic;
@@ -1580,7 +1580,7 @@ body {
   gap: 0;
 }
 .mantra-strip-inner .ws-verb {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(16px, 1.8vw, 22px);
   font-style: italic;
   color: var(--pink);
@@ -1595,7 +1595,7 @@ body {
   margin-left: 6px;
 }
 .mantra-strip-inner .word-strip-sep {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 18px;
   color: var(--greige);
   padding: 0 16px;
@@ -1903,7 +1903,7 @@ body {
   position: absolute;
   bottom: -20px;
   right: -10px;
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 120px;
   font-weight: 400;
   font-style: italic;
@@ -1932,7 +1932,7 @@ body {
   margin-bottom: 16px;
 }
 .interest-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   color: white;
@@ -2295,7 +2295,7 @@ body {
   color: var(--light-plum);
 }
 .topic-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: 19px;
   font-weight: 400;
   color: var(--aubergine);
@@ -2405,7 +2405,7 @@ body {
   border-top: 1px solid rgba(59, 19, 46, 0.12);
 }
 .cd-dates .sched-date {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-weight: 400;
   font-size: 36px;
   color: var(--pink);
@@ -2689,7 +2689,7 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 .related-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Exquise", serif;
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 400;
   color: var(--aubergine);
