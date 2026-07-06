@@ -103,7 +103,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   transition: transform 0.5s ease;
 }
 .c-card:hover img {
@@ -907,6 +907,12 @@
   color: var(--aubergine);
   font-weight: 500;
 }
+.prog-logo {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  display: block;
+}
 .prog-intro {
   font-size: 15px;
   line-height: 1.75;
@@ -975,12 +981,12 @@
   border-color: var(--pink);
 }
 /* YA logo badge — uses actual logo images from project */
-.prog-ya-logo-img {
+.prog-logo {
   width: 80px;
   height: 80px;
   object-fit: contain;
   display: block;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
 }
 
 /* ── COMMITMENT ── */

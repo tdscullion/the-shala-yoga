@@ -84,7 +84,7 @@ $about_faculty_grid = get_field('about_faculty_grid');
                               src="<?php echo esc_url($image['url']); ?>"
                               alt="<?php echo esc_attr($image['alt']); ?>"
                           >
-                          <div class="c-filter"></div>
+                          <!-- <div class="c-filter"></div> -->
                       </div>
 
                   <?php endforeach; ?>
@@ -278,7 +278,6 @@ $about_faculty_grid = get_field('about_faculty_grid');
               <div class="timeline-item">
                 <div class="tl-year-wrap">
                   <span class="tl-year">1997</span>
-                  <div class="tl-dot"></div>
                 </div>
                 <div class="tl-body">
                   <strong>The Shala is born</strong>Originally known as Sangam,
@@ -290,7 +289,6 @@ $about_faculty_grid = get_field('about_faculty_grid');
               <div class="timeline-item">
                 <div class="tl-year-wrap">
                   <span class="tl-year">2000s</span>
-                  <div class="tl-dot"></div>
                 </div>
                 <div class="tl-body">
                   <strong>Growing roots across South London</strong>Over the
@@ -302,7 +300,6 @@ $about_faculty_grid = get_field('about_faculty_grid');
               <div class="timeline-item">
                 <div class="tl-year-wrap">
                   <span class="tl-year">2014</span>
-                  <div class="tl-dot"></div>
                 </div>
                 <div class="tl-body">
                   <strong>West Norwood</strong>The Shala settles into its
@@ -313,7 +310,6 @@ $about_faculty_grid = get_field('about_faculty_grid');
               <div class="timeline-item">
                 <div class="tl-year-wrap">
                   <span class="tl-year">2016</span>
-                  <div class="tl-dot"></div>
                 </div>
                 <div class="tl-body">
                   <strong>The School is founded</strong>The Shala School of Yoga
@@ -325,7 +321,6 @@ $about_faculty_grid = get_field('about_faculty_grid');
               <div class="timeline-item">
                 <div class="tl-year-wrap">
                   <span class="tl-year">2026</span>
-                  <div class="tl-dot"></div>
                 </div>
                 <div class="tl-body">
                   <strong
@@ -338,7 +333,6 @@ $about_faculty_grid = get_field('about_faculty_grid');
               <div class="timeline-item">
                 <div class="tl-year-wrap">
                   <span class="tl-year">Now</span>
-                  <div class="tl-dot"></div>
                 </div>
                 <div class="tl-body">
                   <strong>A new era for the Shala School of Yoga</strong>The
@@ -618,38 +612,52 @@ $about_faculty_grid = get_field('about_faculty_grid');
           </p>
           <div class="prog-grid">
             <div class="prog-card">
-              <!-- TODO: add RYS200 logo once available -->
+              <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys200-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 200 Accredited"
+                  class="prog-logo"
+              >
+
               <span class="prog-hours">200h</span>
+
               <h3 class="prog-card-title">Level 1 Teacher Training</h3>
               <p class="prog-card-desc">
-                A comprehensive immersion for those beginning their teaching
-                journey or deepening personal practice. The full foundation
-                programme.
+                  A comprehensive immersion for those beginning their teaching
+                  journey or deepening personal practice. The full foundation
+                  programme.
               </p>
-              <a href="/200-hour" class="prog-card-link">Explore 200-Hour →</a>
+              <a href="/200-hour-yoga-teacher-training/" class="prog-card-link">Explore 200-Hour →</a>
             </div>
             <div class="prog-card">
-              <!-- TODO: add RYS300 logo once available -->
+                 <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys300-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 200 Accredited"
+                  class="prog-logo"
+              >
+
               <span class="prog-hours">300h</span>
-              <h3 class="prog-card-title">Level 2 Advanced Training</h3>
-              <p class="prog-card-desc">
-                For teachers with a 200-hour qualification seeking to refine and
-                expand their offerings. Deepen practice, broaden speciality.
-              </p>
-              <a href="/300-hour" class="prog-card-link">Explore 300-Hour →</a>
+                <h3 class="prog-card-title">Level 2 Advanced Training</h3>
+                <p class="prog-card-desc">
+                    For teachers with a 200-hour qualification seeking to refine and
+                    expand their offerings. Deepen practice, broaden speciality.
+                </p>
+                <a href="/300-hour" class="prog-card-link">Explore 300-Hour →</a>
             </div>
             <div class="prog-card">
-              <!-- TODO: add YACEP logo once available -->
+               <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/yacep-logo.png'); ?>"
+                  alt="Yoga Alliance YACEP Accredited"
+                  class="prog-logo"
+              >
+
               <span class="prog-hours">CPD</span>
               <h3 class="prog-card-title">CPD &amp; Modules</h3>
               <p class="prog-card-desc">
-                Ongoing professional development in specialised areas — from
-                one-day workshops to week-long intensives. Craft your own unique
-                learning path.
+                  Ongoing professional development in specialised areas — from
+                  one-day workshops to week-long intensives. Craft your own unique
+                  learning path.
               </p>
-              <a href="/cpds" class="prog-card-link"
-                >View CPD &amp; Modules →</a
-              >
+              <a href="/cpds" class="prog-card-link">Explore CPD &amp; Modules →</a>
             </div>
           </div>
         </div>

@@ -52,6 +52,13 @@ body {
   transform: translateY(-110px);
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+.booking-bar-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .booking-bar.visible {
   transform: translateY(0);
 }
@@ -1157,7 +1164,7 @@ body {
   color: white;
 }
 .bc-btn-primary:hover {
-  background: var(--pink-deep);
+  background: var(--aubergine);
   border-color: var(--pink-deep);
 }
 .bc-btn-ghost {

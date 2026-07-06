@@ -45,7 +45,7 @@
                 <a href="<?php echo esc_url(home_url('/retreats/')); ?>">Retreats</a>
 
                 <h4>Community</h4>
-                <a href="<?php echo esc_url(home_url('/courses/200-hour-yoga-teacher-training-open-day/')); ?>">200-Hour Open Day</a>
+                <a href="<?php echo esc_url(home_url('/courses/200-hour-open-day/')); ?>">200-Hour Open Day</a>
 
                 <a href="<?php echo esc_url(home_url('/courses/yoga-philosophy-club/')); ?>">Yoga Philosophy Club</a>
 
@@ -138,6 +138,8 @@
                 ?>
 
             </div>
+
+            </div> 
 
         <div class="footer-bottom">
             <p>

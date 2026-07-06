@@ -409,11 +409,11 @@ endif;
           </header>
 
           <div class="od-grid">
-            <!-- Anatomy -->
+            
             <article class="od-card" style="--tint: rgba(75, 58, 67, 1)">
               <div class="od-bg">
                 <img
-                  src="https://www.theshalalondon.com/wp-content/uploads/2021/12/TT-Website-HERO-image-copy-3-e1683793704771-1024x800.jpg"
+                 src="https://staging.theshalalondon.com/wp-content/uploads/2026/06/advanced-300-hour-yoga-teacher-training.jpg"
                   alt="Yoga Anatomy"
                 />
               </div>
@@ -437,11 +437,10 @@ endif;
               </div>
             </article>
 
-            <!-- Philosophy -->
             <article class="od-card" style="--tint: rgba(97, 64, 81, 1)">
               <div class="od-bg">
                 <img
-                  src="https://www.theshalalondon.com/wp-content/uploads/2025/11/Saha-Gatherings-photo-6-819x1024.jpg"
+                  src="https://staging.theshalalondon.com/wp-content/uploads/2026/06/300-hour-teacher-training-shala-london.jpg"
                   alt="Yoga Philosophy"
                   style="object-position: center 25%"
                 />
@@ -466,11 +465,11 @@ endif;
               </div>
             </article>
 
-            <!-- Business -->
+            
             <article class="od-card" style="--tint: rgba(243, 153, 0, 1)">
               <div class="od-bg">
                 <img
-                  src="https://www.staging.theshalaschool.com/wp-content/uploads/slide-somatic-yoga-1024x683-1.webp"
+                  src="https://staging.theshalalondon.com/wp-content/uploads/2026/06/300-hour-beyond-the-postures-module.jpg"
                   alt="Business of Yoga"
                 />
               </div>
