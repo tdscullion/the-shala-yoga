@@ -215,11 +215,13 @@
   font-style: italic;
   color: var(--pink);
 }
-.intro-body {
+.intro-body p {
   font-size: 17px;
   line-height: 1.85;
   color: var(--charcoal);
+  font-family: "Cormorant Garamond", serif;
 }
+
 .intro-body p + p {
   margin-top: 16px;
 }
@@ -340,10 +342,11 @@
   color: var(--pink);
 }
 
-.what-body {
+.what-body p {
   font-size: 17px;
   line-height: 1.85;
   color: var(--charcoal);
+  font-family: "Cormorant Garamond", serif;
 }
 .what-body p + p {
   margin-top: 18px;
@@ -633,6 +636,7 @@
 .faculty-intro {
   font-size: 17px;
   line-height: 1.8;
+  font-family: "Cormorant Garamond", serif;
   color: var(--charcoal);
 }
 
@@ -853,6 +857,7 @@
   line-height: 1.85;
   color: var(--charcoal);
   margin-bottom: 16px;
+  font-family: "Cormorant Garamond", serif;
 }
 .students-include {
   margin-top: 24px;
@@ -1012,10 +1017,11 @@
   font-style: italic;
   color: var(--pink);
 }
-.commit-body {
+.commit-body p {
   font-size: 17px;
   line-height: 1.85;
   color: var(--charcoal);
+  font-family: "Cormorant Garamond", serif;
 }
 .commit-body p + p {
   margin-top: 16px;
