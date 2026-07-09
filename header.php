@@ -88,7 +88,7 @@
             <a href="<?php echo esc_url(home_url('/cpds/')); ?>">CPDs</a>
             <a href="<?php echo esc_url(home_url('/retreats/')); ?>">Retreats</a>
             <a href="<?php echo esc_url(home_url('/blog/')); ?>">Blog</a>
-            <a href="https://momence.com/sign-in" class="nav-login">Log In</a>
+            <a href="https://momence.com/sign-in" class="nav-login" target="_blank" rel="noopener">Log In</a>
             <a href="mailto:teachertraining@theshala.co.uk" class="nav-msg">Message Us</a>
         </div>
 
@@ -147,6 +147,6 @@
     <a href="<?php echo esc_url(home_url('/cpds/')); ?>">CPDs</a>
     <a href="<?php echo esc_url(home_url('/retreats/')); ?>">Retreats</a>
     <a href="<?php echo esc_url(home_url('/blog/')); ?>">Blog</a>
-    <a href="https://momence.com/sign-in" class="nav-mobile-login">Log In</a>
+    <a href="https://momence.com/sign-in" class="nav-mobile-login" target="_blank" rel="noopener">Log In</a>
     <a href="mailto:teachertraining@theshala.co.uk" class="nav-mobile-msg">✉ Message Us</a>
 </aside>
