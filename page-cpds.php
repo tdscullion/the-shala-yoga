@@ -17,9 +17,9 @@ $hero_button_2_link = get_field('hero_button_2_link');
       <section class="hero-standard bg-linen text-on-light">
         <div class="hero-standard-inner">
           <img
-            class="hero-standard-spiral"
+            class="hero-standard-spiral spiral-rotate"
             src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
-            alt=""
+            alt="decorative spiral image"
             aria-hidden="true"
           />
           <div class="hero-standard-content">
@@ -177,228 +177,235 @@ $hero_button_2_link = get_field('hero_button_2_link');
         </article>
       </section>
 
-<!-- Upcoming COURSES --> 
-<header class="section-label" id="sec-2026">
-    <h2>Upcoming <em>Courses</em></h2>
-</header>
+      <!-- Upcoming COURSES -->
+      <header class="section-label" id="sec-2026">
+          <h2>Upcoming <em>Courses</em></h2>
+      </header>
 
-<section class="grid" id="grid-2026">
+      <section class="grid" id="grid-2026">
 
-<?php
-$today = date('Ymd');
+      <?php
+      $today = date('Ymd');
 
-$all_courses = new WP_Query([
-    'post_type'      => 'course',
-    'posts_per_page' => -1,
-    'meta_key'       => 'start_date',
-    'orderby'        => 'meta_value',
-    'order'          => 'ASC',
-    'meta_query'     => [
-        [
-            'key'     => 'start_date',
-            'value'   => $today,
-            'compare' => '>=',
-            'type'    => 'NUMERIC',
-        ],
-    ],
-]);
+      $all_courses = new WP_Query([
+          'post_type'      => 'course',
+          'posts_per_page' => -1,
+          'meta_key'       => 'start_date',
+          'orderby'        => 'meta_value',
+          'order'          => 'ASC',
+          'meta_query'     => [
+              [
+                  'key'     => 'start_date',
+                  'value'   => $today,
+                  'compare' => '>=',
+                  'type'    => 'NUMERIC',
+              ],
+          ],
+      ]);
 
-$card_index = 0;
+      $card_index = 0;
+      $image_tint_index = 0;
+      $typo_colour_index = 0;
 
-$image_tints = [
-    'rgba(59,19,46,1)',
-    'rgba(97,64,81,1)',
-    'rgba(212,0,98,1)',
-    'rgba(243,153,0,1)',
-];
+      $image_tints = [
+          'rgba(59,19,46,1)',   // aubergine
+          'rgba(97,64,81,1)',   // grey-magenta
+          'rgba(212,0,98,1)',   // pink
+          'rgba(243,153,0,1)',  // orange
+      ];
 
-$typo_colours = [
-    'c-plinen',
-    'c-pink',
-    'c-orange',
-    'c-aubergine',
-    'c-blush',
-    'c-charcoal',
-    'c-greige',
-];
+      $typo_colours = [
+          'c-plinen',
+          'c-pink',
+          'c-linen',
+          'c-aubergine',
+          'c-blush',
+          'c-charcoal',
+          'c-greige',
+      ];
 
-if ($all_courses->have_posts()) :
-    while ($all_courses->have_posts()) :
-        $all_courses->the_post();
+      if ($all_courses->have_posts()) :
+          while ($all_courses->have_posts()) :
+              $all_courses->the_post();
 
-        $course_id = get_the_ID();
+              $course_id = get_the_ID();
 
-        $course_title = get_field('short_title', $course_id);
+              $course_title = get_field('short_title', $course_id);
 
-        if (!$course_title) {
-            $course_title = get_the_title($course_id);
-        }
+              if (!$course_title) {
+                  $course_title = get_the_title($course_id);
+              }
 
-        $course_image = get_field('course_card_image', $course_id);
-        $course_dates = get_field('course_card_dates', $course_id);
-        $course_price = get_field('course_price', $course_id);
-        $course_format = get_field('course_format', $course_id);
-        $course_instructors = get_field('course_instructors', $course_id);
+              $course_image = get_field('course_card_image', $course_id);
+              $course_dates = get_field('course_card_dates', $course_id);
+              $course_price = get_field('course_price', $course_id);
+              $course_format = get_field('course_format', $course_id);
+              $course_instructors = get_field('course_instructors', $course_id);
 
-        $teacher_names = '';
+              $teacher_names = '';
 
-        if ($course_instructors) {
-            $names = [];
+              if ($course_instructors) {
+                  $names = [];
 
-            foreach ($course_instructors as $instructor) {
-                $names[] = is_object($instructor)
-                    ? get_the_title($instructor->ID)
-                    : get_the_title($instructor);
-            }
+                  foreach ($course_instructors as $instructor) {
+                      $names[] = is_object($instructor)
+                          ? get_the_title($instructor->ID)
+                          : get_the_title($instructor);
+                  }
 
-            $teacher_names = implode(', ', $names);
-        }
+                  $teacher_names = implode(', ', $names);
+              }
 
-        $format_label = $course_format;
+              $format_label = $course_format;
 
-        /* Filter tags */
-        $filter_tags = ['all'];
+              /* Filter tags */
+              $filter_tags = ['all'];
 
-        $format_string = strtolower($course_format);
+              $format_string = strtolower($course_format);
 
-        if (strpos($format_string, 'studio') !== false) {
-            $filter_tags[] = 'studio';
-        }
+              if (strpos($format_string, 'studio') !== false) {
+                  $filter_tags[] = 'studio';
+              }
 
-        if (
-            strpos($format_string, 'live') !== false ||
-            strpos($format_string, 'livestream') !== false ||
-            strpos($format_string, 'online') !== false
-        ) {
-            $filter_tags[] = 'live';
-        }
+              if (
+                  strpos($format_string, 'live') !== false ||
+                  strpos($format_string, 'livestream') !== false ||
+                  strpos($format_string, 'online') !== false
+              ) {
+                  $filter_tags[] = 'live';
+              }
 
-        $filter_tags = implode(' ', array_unique($filter_tags));
+              $filter_tags = implode(' ', array_unique($filter_tags));
 
-        $is_image_card = $card_index % 2 === 0;
+              $is_image_card = $card_index % 2 !== 0;
 
-        $image_tint = $image_tints[$card_index % count($image_tints)];
-        $typo_colour = $typo_colours[$card_index % count($typo_colours)];
-?>
+              if ($is_image_card) {
+                  $image_tint = $image_tints[$image_tint_index % count($image_tints)];
+                  $image_tint_index++;
+              } else {
+                  $typo_colour = $typo_colours[$typo_colour_index % count($typo_colours)];
+                  $typo_colour_index++;
+              }
+      ?>
 
-    <?php if ($is_image_card) : ?>
+          <?php if ($is_image_card) : ?>
 
-        <article
-            class="card card-img"
-            data-tags="<?php echo esc_attr($filter_tags); ?>"
-            style="--tint: <?php echo esc_attr($image_tint); ?>;"
-        >
+              <article
+                  class="card card-img"
+                  data-tags="<?php echo esc_attr($filter_tags); ?>"
+                  style="--tint: <?php echo esc_attr($image_tint); ?>;"
+              >
 
-          <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
-            <div class="bg">
-                <?php if ($course_image) : ?>
-                    <img
-                        src="<?php echo esc_url($course_image['url']); ?>"
-                        alt="<?php echo esc_attr($course_image['alt']); ?>"
-                    >
-                <?php endif; ?>
-            </div>
+                <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
+                  <div class="bg">
+                      <?php if ($course_image) : ?>
+                          <img
+                              src="<?php echo esc_url($course_image['url']); ?>"
+                              alt="<?php echo esc_attr($course_image['alt']); ?>"
+                          >
+                      <?php endif; ?>
+                  </div>
 
-            <div class="tint"></div>
-            <div class="fade"></div>
+                  <div class="tint"></div>
+                  <div class="fade"></div>
 
-            <div class="content">
-                <div class="img-top">
-                    <?php if ($format_label) : ?>
-                        <div class="card-tags">
-                            <span class="pill-studio">
-                                <?php echo esc_html($format_label); ?>
-                            </span>
-                        </div>
-                    <?php endif; ?>
+                  <div class="content">
+                      <div class="img-top">
+                          <?php if ($format_label) : ?>
+                              <div class="card-tags">
+                                  <span class="pill-studio">
+                                      <?php echo esc_html($format_label); ?>
+                                  </span>
+                              </div>
+                          <?php endif; ?>
 
-                    <div class="img-title">
-                        <?php echo esc_html($course_title); ?>
-                    </div>
+                          <div class="img-title">
+                              <?php echo esc_html($course_title); ?>
+                          </div>
 
-                    <?php if ($teacher_names) : ?>
-                        <div class="img-teacher">
-                            <?php echo esc_html($teacher_names); ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
+                          <?php if ($teacher_names) : ?>
+                              <div class="img-teacher">
+                                  <?php echo esc_html($teacher_names); ?>
+                              </div>
+                          <?php endif; ?>
+                      </div>
 
-                <div class="img-bottom">
-                    <div class="img-foot">
-                        <?php if ($course_dates) : ?>
-                            <div class="foot-date">
-                                <strong><?php echo esc_html($course_dates); ?></strong>
-                            </div>
-                        <?php endif; ?>
+                      <div class="img-bottom">
+                          <div class="img-foot">
+                              <?php if ($course_dates) : ?>
+                                  <div class="foot-date">
+                                      <strong><?php echo esc_html($course_dates); ?></strong>
+                                  </div>
+                              <?php endif; ?>
 
-                        <?php if ($course_price) : ?>
-                            <div class="foot-price">
-                                <?php echo esc_html($course_price); ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
+                              <?php if ($course_price) : ?>
+                                  <div class="foot-price">
+                                      <?php echo esc_html($course_price); ?>
+                                  </div>
+                              <?php endif; ?>
+                          </div>
 
-                    <a href="<?php the_permalink(); ?>" class="img-cta">
-                        Find Out More →
-                    </a>
-                </div>
-            </div>
-        </article>
+                          <a href="<?php the_permalink(); ?>" class="img-cta">
+                              Find Out More →
+                          </a>
+                      </div>
+                  </div>
+              </article>
 
-    <?php else : ?>
+          <?php else : ?>
 
-        <article
-            class="card card-typo <?php echo esc_attr($typo_colour); ?>"
-            data-tags="<?php echo esc_attr($filter_tags); ?>"
-        >
-           <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
-            <div class="t-tags">
-                <?php if ($format_label) : ?>
-                    <span class="pill-studio">
-                        <?php echo esc_html($format_label); ?>
-                    </span>
-                <?php endif; ?>
-            </div>
+              <article
+                  class="card card-typo <?php echo esc_attr($typo_colour); ?>"
+                  data-tags="<?php echo esc_attr($filter_tags); ?>"
+              >
+                <a href="<?php the_permalink(); ?>" class="card-full-link" aria-label="<?php echo esc_attr('View ' . $course_title); ?>"></a>
+                  <div class="t-tags">
+                      <?php if ($format_label) : ?>
+                          <span class="pill-studio">
+                              <?php echo esc_html($format_label); ?>
+                          </span>
+                      <?php endif; ?>
+                  </div>
 
-            <div class="t-title">
-                <?php echo esc_html($course_title); ?>
-            </div>
+                  <div class="t-title">
+                      <?php echo esc_html($course_title); ?>
+                  </div>
 
-            <?php if ($teacher_names) : ?>
-                <div class="t-teacher">
-                    <?php echo esc_html($teacher_names); ?>
-                </div>
-            <?php endif; ?>
+                  <?php if ($teacher_names) : ?>
+                      <div class="t-teacher">
+                          <?php echo esc_html($teacher_names); ?>
+                      </div>
+                  <?php endif; ?>
 
-            <div class="t-foot">
-                <?php if ($course_dates) : ?>
-                    <div class="t-date">
-                        <strong><?php echo esc_html($course_dates); ?></strong>
-                    </div>
-                <?php endif; ?>
+                  <div class="t-foot">
+                      <?php if ($course_dates) : ?>
+                          <div class="t-date">
+                              <strong><?php echo esc_html($course_dates); ?></strong>
+                          </div>
+                      <?php endif; ?>
 
-                <?php if ($course_price) : ?>
-                    <div class="t-price">
-                        <?php echo esc_html($course_price); ?>
-                    </div>
-                <?php endif; ?>
-            </div>
+                      <?php if ($course_price) : ?>
+                          <div class="t-price">
+                              <?php echo esc_html($course_price); ?>
+                          </div>
+                      <?php endif; ?>
+                  </div>
 
-            <a href="<?php the_permalink(); ?>" class="t-cta">
-                Find Out More →
-            </a>
-        </article>
+                  <a href="<?php the_permalink(); ?>" class="t-cta">
+                      Find Out More →
+                  </a>
+              </article>
 
-    <?php endif; ?>
+          <?php endif; ?>
 
-<?php
-        $card_index++;
-    endwhile;
-    wp_reset_postdata();
-endif;
-?>
+      <?php
+              $card_index++;
+          endwhile;
+          wp_reset_postdata();
+      endif;
+      ?>
 
-</section>
+      </section>
 
 
       <!-- ON DEMAND -->

@@ -26,9 +26,9 @@ get_header(); ?>
       <section class="hero-standard bg-greige text-on-light">
         <div class="hero-standard-inner">
           <img
-            class="hero-standard-spiral"
+            class="hero-standard-spiral spiral-rotate"
             src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
-            alt=""
+            alt="decorative spiral image"
             aria-hidden="true"
           />
           <div class="hero-standard-content">

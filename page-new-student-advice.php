@@ -885,7 +885,7 @@ $hero_subtitle = get_field('hero_subtitle');
             </a>
             <a
               class="social-card"
-              href="#"
+              href="<?php echo esc_url(home_url('/signup/')); ?>"
               target="_blank"
               style="background: var(--aubergine)"
             >

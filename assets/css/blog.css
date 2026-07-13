@@ -1029,6 +1029,17 @@
   .cta-band {
     padding: 56px 22px;
   }
+
+  .newsletter-form-momence form {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+  .newsletter-form-momence .momence-lead_form-actions {
+    width: 100%;
+  }
+  .newsletter-form-momence .momence-lead_form-submit_btn {
+    width: 100%;
+  }
   .cta-h2 {
     font-size: 30px;
   }

@@ -4,6 +4,9 @@
 .page-jumpnav-wrap {
   background: var(--aubergine);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 69px; /* nav (66px) + .nav-pink-rule (3px) */
+  z-index: 190;
 }
 .page-jumpnav {
   display: flex;
@@ -603,19 +606,12 @@
   .page-wrap {
     padding: 0 20px;
   }
-  .hdr-content {
-    padding: 28px 20px 36px;
-  }
-  .hdr-title {
-    font-size: clamp(32px, 8vw, 42px);
-  }
-  .hdr-sub {
-    font-size: 16px;
-    line-height: 1.5;
-  }
   .section-band,
   .bring-band {
     padding: 48px 0;
+  }
+  .page-jumpnav-wrap {
+    display: none;
   }
   .page-jumpnav a {
     flex: 0 0 100%;

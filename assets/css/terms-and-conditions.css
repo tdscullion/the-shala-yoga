@@ -1,78 +1,15 @@
 /* ══ ANNOUNCEMENT BAR — see snippet-announcement.html ══ */
 /* ══ NAV — see snippet-nav.html ══ */
 /* ══ HEADER — aubergine with faded spiral ══ */
-/* .hdr {
-  background: var(--light-plum);
-  position: relative;
-  overflow: hidden;
-  min-height: 280px;
-  display: flex;
-  align-items: stretch;
-  flex-direction: row;
-}
-.hdr-spiral-wrap {
-  position: relative;
-  flex-shrink: 0;
-  width: 38%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-.hdr-spiral-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.9;
-  filter: sepia(80%) saturate(120%) hue-rotate(295deg) brightness(0.82);
-}
-.hdr-spiral-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(136, 116, 121, 0) 40%,
-    var(--light-plum) 100%
-  );
-  z-index: 2;
-  pointer-events: none;
-}
-.hdr-content {
-  position: relative;
-  z-index: 3;
-  padding: 52px 60px 52px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-}
-.hdr-title {
-   font-family: "Exquise", serif;
-  font-weight: 400;
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1.08;
-  color: #fff;
-  margin-bottom: 16px;
-}
-.hdr-title em {
-  font-style: italic;
-  color: var(--orange);
-}
-.hdr-sub {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 19px;
-  color: var(--aubergine);
-  line-height: 1.55;
-  max-width: 520px;
-} */
 
 /* ══ JUMP NAV ══ */
 .page-jumpnav-wrap {
   background: var(--aubergine);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 69px; /* nav (66px) + .nav-pink-rule (3px) */
+  z-index: 190;
 }
 .page-jumpnav {
   display: flex;
@@ -358,24 +295,11 @@
   }
 }
 @media (max-width: 600px) {
-  footer {
-    padding: 48px 20px 28px;
-  }
-  .footer-top {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding-bottom: 36px;
-  }
-  .footer-brand,
-  .footer-courses-col {
-    grid-column: span 1;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .page-wrap {
     padding: 0 22px;
+  }
+  .page-jumpnav-wrap {
+    display: none;
   }
   .page-jumpnav a {
     flex: 0 0 100%;

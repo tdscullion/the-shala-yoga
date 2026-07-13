@@ -136,145 +136,138 @@ $flagship_cards = get_field('course_flagship_cards');
         </div>
     <?php endif; ?>
 
+        
         <!-- SECTION: SUMMER 2026 -->
         <div class="accordion-section">
             <div">
-                <h2 class="h3-sub">Upcoming <em>Courses</em></h2>
+                <h2 class="h3-sub">Upcoming Teacher Training <em>Courses</em></h2>
             </div>
             <table class="cal-table">
-              <thead>
+            <thead>
                 <tr>
-                  <th style="width: 26%">Course</th>
-                  <th style="width: 19%">Date</th>
-                  <th style="width: 17%">Teacher</th>
-                  <th style="width: 13%">Format</th>
-                  <th class="th-price" style="width: 9%">Price</th>
-                  <th class="th-hrs" style="width: 7%">Hours</th>
-                  <th style="width: 9%"></th>
+                <th style="width: 26%">Course</th>
+                <th style="width: 19%">Date</th>
+                <th style="width: 17%">Teacher</th>
+                <th style="width: 13%">Format</th>
+                <th class="th-price" style="width: 9%">Price</th>
+                <th class="th-hrs" style="width: 7%">Hours</th>
+                <th style="width: 9%"></th>
                 </tr>
-              </thead>
-              <?php
-              $today = date('Ymd');
+            </thead>
+            <?php
+            $today = date('Ymd');
 
-              $upcoming_courses = new WP_Query([
-                  'post_type'      => 'course',
-                  'posts_per_page' => -1,
-                  'meta_key'       => 'start_date',
-                  'orderby'        => 'meta_value',
-                  'order'          => 'ASC',
-                  'meta_query'     => [
-                      [
-                          'key'     => 'start_date',
-                          'value'   => $today,
-                          'compare' => '>=',
-                          'type'    => 'NUMERIC',
-                      ],
-                  ],
-              ]);
+            $upcoming_courses = new WP_Query([
+                'post_type'      => 'course',
+                'posts_per_page' => -1,
+                'meta_key'       => 'start_date',
+                'orderby'        => 'meta_value',
+                'order'          => 'ASC',
+                'meta_query'     => [
+                    [
+                        'key'     => 'start_date',
+                        'value'   => $today,
+                        'compare' => '>=',
+                        'type'    => 'NUMERIC',
+                    ],
+                ],
+            ]);
 
-              if ($upcoming_courses->have_posts()) :
-                  while ($upcoming_courses->have_posts()) :
-                      $upcoming_courses->the_post();
+            if ($upcoming_courses->have_posts()) :
+                while ($upcoming_courses->have_posts()) :
+                    $upcoming_courses->the_post();
 
-                      $course_id = get_the_ID();
+                    $course_id = get_the_ID();
 
-                      $start_date = get_field('start_date', $course_id);
-                      $end_date = get_field('end_date', $course_id);
-                      $course_price = get_field('course_price', $course_id);
-                      $course_hours = get_field('course_hours', $course_id);
-                      $course_format = get_field('course_format', $course_id);
-                      $course_instructors = get_field('course_instructors', $course_id);
+                    $course_title = get_field('short_title', $course_id);
+                    if (!$course_title) {
+                        $course_title = get_the_title();
+                    }
 
-                      $start_date_obj = $start_date ? DateTime::createFromFormat('Ymd', $start_date) : false;
-                      $end_date_obj = $end_date ? DateTime::createFromFormat('Ymd', $end_date) : false;
+                    $course_card_dates = get_field('course_card_dates', $course_id);
+                    $course_price = get_field('course_price', $course_id);
+                    $course_hours = get_field('course_hours', $course_id);
+                    $course_format = get_field('course_format', $course_id);
+                    $course_instructors = get_field('course_instructors', $course_id);
 
-                      $formatted_start_date = $start_date_obj ? $start_date_obj->format('j M Y') : '';
-                      $formatted_end_date = $end_date_obj ? $end_date_obj->format('j M Y') : '';
+                    $format_label = '';
 
-                      $display_date = $formatted_start_date;
+                    if (is_array($course_format)) {
+                        $format_label = $course_format['label'] ?? implode(' + ', $course_format);
+                    } else {
+                        $format_label = $course_format;
+                    }
 
-                      if ($formatted_end_date && $formatted_end_date !== $formatted_start_date) {
-                          $display_date = $formatted_start_date . ' – ' . $formatted_end_date;
-                      }
+                    $format_class = 'fp-live';
 
-                      $format_label = '';
+                    if (stripos($format_label, 'studio') !== false) {
+                        $format_class = 'fp-studio';
+                    } elseif (stripos($format_label, 'online') !== false || stripos($format_label, 'livestream') !== false) {
+                        $format_class = 'fp-live';
+                    } elseif (stripos($format_label, 'hybrid') !== false) {
+                        $format_class = 'fp-hybrid';
+                    }
 
-                      if (is_array($course_format)) {
-                          $format_label = $course_format['label'] ?? implode(' + ', $course_format);
-                      } else {
-                          $format_label = $course_format;
-                      }
+                    $teacher_names = '';
 
-                      $format_class = 'fp-live';
+                    if ($course_instructors) {
+                        if (is_array($course_instructors)) {
+                            $names = [];
 
-                      if (stripos($format_label, 'studio') !== false) {
-                          $format_class = 'fp-studio';
-                      } elseif (stripos($format_label, 'online') !== false || stripos($format_label, 'livestream') !== false) {
-                          $format_class = 'fp-live';
-                      } elseif (stripos($format_label, 'hybrid') !== false) {
-                          $format_class = 'fp-hybrid';
-                      }
+                            foreach ($course_instructors as $instructor) {
+                                if (is_object($instructor)) {
+                                    $names[] = get_the_title($instructor->ID);
+                                } else {
+                                    $names[] = get_the_title($instructor);
+                                }
+                            }
 
-                      $teacher_names = '';
-
-                      if ($course_instructors) {
-                          if (is_array($course_instructors)) {
-                              $names = [];
-
-                              foreach ($course_instructors as $instructor) {
-                                  if (is_object($instructor)) {
-                                      $names[] = get_the_title($instructor->ID);
-                                  } else {
-                                      $names[] = get_the_title($instructor);
-                                  }
-                              }
-
-                              $teacher_names = implode(', ', $names);
-                          } else {
-                              $teacher_names = get_the_title($course_instructors);
-                          }
-                      }
+                            $teacher_names = implode(', ', $names);
+                        } else {
+                            $teacher_names = get_the_title($course_instructors);
+                        }
+                    }
                     ?>
 
-                      <tr class="row-live">
-                          <td class="td-course">
-                              <a href="<?php the_permalink(); ?>">
-                                  <?php the_title(); ?>
-                              </a>
-                          </td>
+                    <tr class="row-live">
+                        <td class="td-course">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php echo esc_html($course_title); ?>
+                            </a>
+                        </td>
 
-                          <td class="td-date">
-                              <?php if ($display_date) : ?>
-                                  <strong><?php echo esc_html($display_date); ?></strong>
-                              <?php endif; ?>
-                          </td>
+                        <td class="td-date">
+                            <?php if ($course_card_dates) : ?>
+                                <strong><?php echo esc_html($course_card_dates); ?></strong>
+                            <?php endif; ?>
+                        </td>
 
-                          <td class="td-teacher">
-                              <?php echo esc_html($teacher_names); ?>
-                          </td>
+                        <td class="td-teacher">
+                            <?php echo esc_html($teacher_names); ?>
+                        </td>
 
-                          <td class="td-format">
-                              <?php if ($format_label) : ?>
-                                  <span class="format-pill <?php echo esc_attr($format_class); ?>">
-                                      <?php echo esc_html($format_label); ?>
-                                  </span>
-                              <?php endif; ?>
-                          </td>
+                        <td class="td-format">
+                            <?php if ($format_label) : ?>
+                                <span class="format-pill <?php echo esc_attr($format_class); ?>">
+                                    <?php echo esc_html($format_label); ?>
+                                </span>
+                            <?php endif; ?>
+                        </td>
 
-                          <td class="td-price">
-                              <?php echo esc_html($course_price); ?>
-                          </td>
+                        <td class="td-price">
+                            <?php echo esc_html($course_price); ?>
+                        </td>
 
-                          <td class="td-hrs">
-                              <?php echo esc_html($course_hours); ?>
-                          </td>
+                        <td class="td-hrs">
+                            <?php echo esc_html($course_hours); ?>
+                        </td>
 
-                          <td class="td-cta">
-                              <a href="<?php the_permalink(); ?>">More →</a>
-                          </td>
-                      </tr>
+                        <td class="td-cta">
+                            <a href="<?php the_permalink(); ?>">More →</a>
+                        </td>
+                    </tr>
 
-             <?php
+            <?php
                 endwhile;
                 wp_reset_postdata();
 
@@ -289,10 +282,8 @@ $flagship_cards = get_field('course_flagship_cards');
 
             <?php endif; ?>
             </table>
-         
-          <!-- /accordion-body -->
         </div>
-        
+        <!-- END -->
       </div>
       <!-- /main -->
 

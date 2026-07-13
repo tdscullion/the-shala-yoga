@@ -48,9 +48,9 @@ $suggested_courses = get_field('suggested_courses');
       <section class="hero-standard bg-linen text-on-light" id="top">
         <div class="hero-standard-inner">
           <img
-            class="hero-standard-spiral"
+            class="hero-standard-spiral spiral-rotate"
             src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
-            alt=""
+            alt="decorative spiral image"
             aria-hidden="true"
           />
           <div class="hero-standard-content">
@@ -270,8 +270,13 @@ $suggested_courses = get_field('suggested_courses');
           <div class="booking-card">
             <div class="booking-card-header">
               <div class="bc-price">£3,250</div>
-              <!-- TODO: add RYS200 logo once available -->
-              <div class="bc-badges"></div>
+              <div class="bc-badges">
+                <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys200-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 200 Accredited"
+                  class="prog-logo"
+              >
+              </div>
             </div>
             <div class="booking-card-body">
               <div class="bc-meta-strip">
@@ -356,10 +361,6 @@ $suggested_courses = get_field('suggested_courses');
               <hr class="bc-sep" />
               <span class="bc-dates-label">Good to know</span>
               <ul class="bc-notes">
-                <li>
-                  Application fee is deducted from the course fee if accepted.
-                  Deposit is non-refundable.
-                </li>
                 <li>
                   Prefer a different payment plan? Pay your deposit and email us
                   to arrange. Full payment must be received before the course
@@ -481,9 +482,8 @@ $suggested_courses = get_field('suggested_courses');
             <div class="grad-videos-grid">
               <div class="grad-video-card">
                 <div class="grad-video-frame">
-                  <!-- TODO: update with correct Vimeo IDs -->
                   <iframe
-                    src="https://player.vimeo.com/video/260404994?byline=0&title=0&portrait=0"
+                    src="https://player.vimeo.com/video/837951971?byline=0&title=0&portrait=0"
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowfullscreen
                     title="Graduate testimonial 1"
@@ -496,7 +496,7 @@ $suggested_courses = get_field('suggested_courses');
                 <div class="grad-video-frame">
                   <!-- TODO: update with correct Vimeo ID -->
                   <iframe
-                    src="https://player.vimeo.com/video/260404994?byline=0&title=0&portrait=0"
+                    src="https://player.vimeo.com/video/970546281?byline=0&title=0&portrait=0"
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowfullscreen
                     title="Graduate testimonial 2"
@@ -506,46 +506,19 @@ $suggested_courses = get_field('suggested_courses');
                 <span class="grad-video-meta">Course Graduate · 2023</span>
               </div>
             </div>
-            <div style="text-align: right; margin-top: 32px">
-              <a
-                href="/testimonials"
-                style="
-                  font-family: &quot;Jost&quot;, sans-serif;
-                  font-size: 11px;
-                  font-weight: 400;
-                  letter-spacing: 0.2em;
-                  text-transform: uppercase;
-                  color: var(--orange);
-                  text-decoration: none;
-                  border-bottom: 1px solid var(--orange);
-                  padding-bottom: 3px;
-                "
-                >Read more graduate testimonials →</a
-              >
-            </div>
           </div>
           <div class="testi-featured">
             <div class="testi-featured-left">
               <p class="testi-featured-quote">
-                I came into this expecting to be taught how to teach yoga. What
+                "I came into this expecting to be taught how to teach yoga. What
                 I learned was how to find myself as a teacher — my own voice, my
-                own way. That gift of self-belief is priceless.
+                own way. That gift of self-belief is priceless."
               </p>
               <span class="testi-featured-name">Course Graduate</span>
             </div>
           </div>
           <div class="testi-carousel-head" style="justify-content: flex-end">
             <div style="display: flex; align-items: center; gap: 16px">
-              <span
-                style="
-                  font-family: &quot;Jost&quot;, sans-serif;
-                  font-size: 9px;
-                  letter-spacing: 0.24em;
-                  text-transform: uppercase;
-                  color: rgba(255, 255, 255, 0.5);
-                "
-                >More testimonials</span
-              >
               <div class="testi-arrows">
                 <button class="testi-arrow" onclick="shiftTesti(-1)">←</button>
                 <button class="testi-arrow" onclick="shiftTesti(1)">→</button>
@@ -591,6 +564,23 @@ $suggested_courses = get_field('suggested_courses');
               </div>
             </div>
           </div>
+          <div style="text-align: center; margin-top: 32px">
+              <a
+                href="/testimonials"
+                style="
+                  font-family: &quot;Jost&quot;, sans-serif;
+                  font-size: 11px;
+                  font-weight: 400;
+                  letter-spacing: 0.2em;
+                  text-transform: uppercase;
+                  color: var(--orange);
+                  text-decoration: none;
+                  border-bottom: 1px solid var(--orange);
+                  padding-bottom: 3px;
+                "
+                >Read more graduate testimonials →</a
+              >
+            </div>
         </div>
       </div>
 
@@ -870,18 +860,14 @@ $suggested_courses = get_field('suggested_courses');
                       alt="<?php echo esc_attr($gallery_images[0]['alt']); ?>"
                   />
               <?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-b" onclick="openLightbox(1)">
-             <?php if (!empty($gallery_images[1])) : ?>
+            <?php if (!empty($gallery_images[1])) : ?>
                   <img
                       src="<?php echo esc_url($gallery_images[1]['url']); ?>"
                       alt="<?php echo esc_attr($gallery_images[1]['alt']); ?>"
                   />
               <?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-c" onclick="openLightbox(2)">
               <?php if (!empty($gallery_images[2])) : ?>
@@ -890,8 +876,6 @@ $suggested_courses = get_field('suggested_courses');
                       alt="<?php echo esc_attr($gallery_images[2]['alt']); ?>"
                   />
               <?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-d" onclick="openLightbox(3)">
               <?php if (!empty($gallery_images[3])) : ?>
@@ -900,8 +884,6 @@ $suggested_courses = get_field('suggested_courses');
                       alt="<?php echo esc_attr($gallery_images[3]['alt']); ?>"
                   />
               <?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-e" onclick="openLightbox(4)">
                 <?php if (!empty($gallery_images[4])) : ?>
@@ -910,13 +892,10 @@ $suggested_courses = get_field('suggested_courses');
                         alt="<?php echo esc_attr($gallery_images[4]['alt']); ?>"
                     />
                 <?php endif; ?>
-             
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
           </div>
           <div style="text-align: center; margin-top: 32px">
-            <a
+            
               href="/gallery"
               style="
                 font-family: &quot;Jost&quot;, sans-serif;

@@ -86,6 +86,9 @@
   background: var(--aubergine);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 0;
+  position: sticky;
+  top: 69px; /* nav (66px) + .nav-pink-rule (3px) — keep in sync if either changes */
+  z-index: 190; /* below nav (200) and .nav-pink-rule (199), above page content */
 }
 .page-jumpnav a {
   font-family: "Jost", sans-serif;
@@ -2009,25 +2012,27 @@
     margin-bottom: 28px;
   }
 
+  /* NEW — targets the real Momence-rendered classes */
   .nl-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    max-width: 100%;
   }
 
-  .nl-input {
-    flex: none;
-    width: 100%;
-    height: auto;
-    min-height: 52px;
-    padding: 14px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+  .nl-form form {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
   }
 
-  .nl-btn {
+  .nl-form .momence-lead_form-field_input {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .nl-form .momence-lead_form-actions {
+    width: 100% !important;
+  }
+
+  .nl-form .momence-lead_form-submit_btn {
     width: 100%;
-    min-height: 52px;
-    padding: 14px 24px;
   }
 
   .nl-note {

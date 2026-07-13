@@ -47,7 +47,7 @@ $gallery_image_5 = get_field('gallery_image_5');
       <section class="hero-home">
         <div class="hero-home-inner">
           <div class="hero-home-spiral" aria-hidden="true">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>" alt="Spiral pattern" />
+            <img class="spiral-rotate" src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>" alt="Spiral pattern" />
           </div>
 
           <div class="hero-home-titlewrap">
@@ -311,6 +311,11 @@ $gallery_image_5 = get_field('gallery_image_5');
               <div class="path-card-body">
                 <div class="path-logo-wrap">
                   <!-- TODO: add RYS200 logo once available -->
+                    <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys200-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 200 Accredited"
+                  class="prog-logo"
+              >
                 </div>
                 <span class="path-icon">200</span>
                 <div class="path-title">200-Hour <em>Teacher Training</em></div>
@@ -329,6 +334,11 @@ $gallery_image_5 = get_field('gallery_image_5');
               <div class="path-card-body">
                 <div class="path-logo-wrap">
                   <!-- TODO: add RYS300 logo once available -->
+                   <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys300-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 300 Accredited"
+                  class="prog-logo"
+              >
                 </div>
                 <span class="path-icon">300</span>
                 <div class="path-title">
@@ -340,7 +350,7 @@ $gallery_image_5 = get_field('gallery_image_5');
                   create your own unique learning pathway.
                 </p>
                 <div class="path-meta">
-                  300 hours · Studio + Livestream · from £tbc
+                  300 hours · In Studio + Livestream · from £3,900
                 </div>
                 <a href="/300-hour" class="path-link">Explore the 300-Hour →</a>
               </div>
@@ -348,13 +358,16 @@ $gallery_image_5 = get_field('gallery_image_5');
             <div class="path-card">
               <div class="path-card-body">
                 <div class="path-logo-wrap">
-                  <!-- TODO: add YACEP logo once available -->
+                  <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/yacep-logo.png'); ?>"
+                  alt="Yoga Alliance YACEP Accredited"
+                  class="prog-logo"
+              >
                 </div>
                 <span class="path-icon">CPD</span>
-                <div class="path-title">Modules <em>&amp;</em> CPD Courses</div>
+                <div class="path-title">CPD Training <em>Modules</em></div>
                 <p class="path-desc">
-                  25+ specialist courses a year, from Yin to Trauma Informed
-                  Yoga, Elemental Mandala and Yoga Nidra.
+                  25 specialist courses a year from Yin to Trauma Informed Yoga, Elemental Mandala Vinyasa and Yoga Nidra. 
                 </p>
                 <div class="path-meta">
                   15–60 hours · Various formats · £75–£675
@@ -418,7 +431,7 @@ $gallery_image_5 = get_field('gallery_image_5');
               <div class="fc-rest">
                 <span class="fc-rest-tag">Yoga Alliance 200-RYS</span>
                 <div class="fc-rest-title">
-                  200-Hour Yoga Teacher <em>Training</em>
+                  <em>200-Hour</em> Yoga Teacher Training
                 </div>
                 <div class="fc-rest-teacher">
                   Gingi Lee &amp; Charli Van Ness
@@ -429,7 +442,7 @@ $gallery_image_5 = get_field('gallery_image_5');
                   >Level 1 · 200-RYS · In Studio</span
                 >
                 <h3 class="fc-hover-title">
-                  200-Hour Yoga Teacher <em>Training</em>
+                  <em>200-Hour</em> Yoga Teacher Training
                 </h3>
                 <p class="fc-hover-desc">
                   A transformative foundation including 200+ hours of asana,
@@ -447,7 +460,7 @@ $gallery_image_5 = get_field('gallery_image_5');
                     ><span class="fcs-val">Sep 2026</span>
                   </div>
                   <div>
-                    <span class="fcs-label">Investment</span
+                    <span class="fcs-label">Price</span
                     ><span class="fcs-val">£3,250</span>
                   </div>
                 </div>
@@ -470,16 +483,16 @@ $gallery_image_5 = get_field('gallery_image_5');
               <div class="fc-rest">
                 <span class="fc-rest-tag">Yoga Alliance 300-RYS</span>
                 <div class="fc-rest-title">
-                  300-Hour Yoga Teacher <em>Training</em>
+                  <em>300-Hour</em> Yoga Teacher Training
                 </div>
-                <div class="fc-rest-teacher">For Qualified Teachers</div>
+                <div class="fc-rest-teacher"> with Melanie Cooper, Gingi Lee & Faculty</div>
               </div>
               <div class="fc-hover-layer">
                 <span class="fc-hover-level"
-                  >Level 2 · 300-RYS · Studio + Online</span
+                  >Level 2 · 300-RYS · In Studio + Livestream</span
                 >
                 <h3 class="fc-hover-title">
-                  300-Hour Yoga Teacher <em>Training</em>
+                  <em>300-Hour</em> Yoga Teacher Training
                 </h3>
                 <p class="fc-hover-desc">
                   A modular programme for qualified teachers to diversify,
@@ -494,11 +507,11 @@ $gallery_image_5 = get_field('gallery_image_5');
                   </div>
                   <div>
                     <span class="fcs-label">Format</span
-                    ><span class="fcs-val">Studio + Online</span>
+                    ><span class="fcs-val">In Studio + Online</span>
                   </div>
                   <div>
                     <span class="fcs-label">From</span
-                    ><span class="fcs-val">£3,750</span>
+                    ><span class="fcs-val">£3,900</span>
                   </div>
                 </div>
                 <a href="/300-hour" class="fc-cta">Discover the 300-Hour →</a>
@@ -551,7 +564,7 @@ $gallery_image_5 = get_field('gallery_image_5');
             <div class="reason-strip">
               <span class="reason-num">2</span>
               <div class="reason-title">
-                <em>Exceptional</em> Senior Teachers
+                Exceptional <em>Senior Teachers</em>
               </div>
               <p class="reason-body">
                 Our faculty bring decades of expertise in their specialised
@@ -561,7 +574,7 @@ $gallery_image_5 = get_field('gallery_image_5');
             </div>
             <div class="reason-strip">
               <span class="reason-num">3</span>
-              <div class="reason-title">Intimate <em>Learning Spaces</em></div>
+              <div class="reason-title"><em>Intimate</em> Learning Spaces</div>
               <p class="reason-body">
                 With just 20–24 students per course, your unique potential is
                 truly seen, supported, and challenged to evolve.
@@ -579,7 +592,7 @@ $gallery_image_5 = get_field('gallery_image_5');
             <div class="reason-strip">
               <span class="reason-num">5</span>
               <div class="reason-title">
-                Traditional <em>Meets</em> Contemporary
+                Traditional Meets <em>Contemporary</em>
               </div>
               <p class="reason-body">
                 Comprehensive training at the crossroads of ancient wisdom and
@@ -590,7 +603,7 @@ $gallery_image_5 = get_field('gallery_image_5');
             <div class="reason-strip">
               <span class="reason-num">6</span>
               <div class="reason-title">
-                A Community Where <em>Transformation Happens</em>
+                A <em>Community</em> Where Transformation Happens
               </div>
               <p class="reason-body">
                 A collaborative learning community where real change happens
@@ -779,11 +792,9 @@ $gallery_image_5 = get_field('gallery_image_5');
           </div>
           <div class="testi-featured">
             <p class="testi-featured-quote">
-              The Shala's training was the most profound experience of my life.
-              Gingi and the faculty don't just teach you to teach — they help
-              you become yourself.
+              This course has truly been life-changing. It was a journey to the depth of my soul, opening my mind and my heart... I feel incredibly fortunate to have had this opportunity of community, connection and personal transformation.
             </p>
-            <span class="testi-featured-name">200-Hour Graduate, 2024</span>
+            <span class="testi-featured-name">Zaynah S</span>
           </div>
           <div class="testi-carousel-head">
             <div class="testi-arrows">
@@ -795,58 +806,78 @@ $gallery_image_5 = get_field('gallery_image_5');
             <div class="testi-track" id="testiTrack">
               <div class="testi-card">
                 <p class="testi-quote">
-                  I've done CPDs with a lot of schools. The Shala is different —
-                  there's a rigour and a warmth here that I've never found
-                  anywhere else. Worth every penny.
+                 "A creative modern yoga teacher training programme put together by the most talented, authentic, and experienced yoga teachers... this is a yoga course for a lifetime!"
                 </p>
-                <span class="testi-name">Tom B., Yin Yoga CPD, 2025</span>
+                <span class="testi-name">José G</span>
               </div>
               <div class="testi-card">
                 <p class="testi-quote">
-                  The intimacy of the group made all the difference. With only
-                  20-odd students, you're genuinely known and seen — and that
-                  changes the quality of the whole experience.
+                  "The sense of community that was created throughout the course was incredible and has given me a feeling of huge support and confidence to go out into the world and spread the wonders of yoga to others."
                 </p>
                 <span class="testi-name"
-                  >Priya D., 200-Hour Graduate, 2023</span
+                  >Bianca B</span
                 >
               </div>
               <div class="testi-card">
                 <p class="testi-quote">
-                  Melanie's anatomy teaching is like nothing else I've
-                  encountered — precise, poetic, and genuinely transformative.
-                  It changed how I understand my own body.
+                  ""The space itself is a sanctuary, the teachers are down-to-earth and warm as well as being experts in their fields, and the course content is exceptional."
                 </p>
-                <span class="testi-name">James W., 300-Hour Module, 2025</span>
+                <span class="testi-name">Izzy H</span>
               </div>
               <div class="testi-card">
                 <p class="testi-quote">
-                  I came to the Shala as a practitioner and left as a teacher.
-                  But more than that, I left as a more complete human being.
-                  That is the gift of this place.
+                  "I had the privilege to learn from the most knowledgeable, kind, and compassionate experts in the yoga universe."
                 </p>
                 <span class="testi-name"
-                  >Fiona L., 200-Hour Graduate, 2024</span
+                  >Vaho V</span
                 >
               </div>
               <div class="testi-card">
                 <p class="testi-quote">
-                  The Shala community is something I didn't know I needed. The
-                  connections I made during training are still the most
-                  nourishing relationships in my teaching life.
+                 "The focus on finding my own voice as a teacher is a gift that I will forever be grateful for as it has opened up a world of possibilities and aspirations for me."
                 </p>
                 <span class="testi-name"
-                  >Marcus O., 200-Hour Graduate, 2022</span
+                  >LC</span
                 >
               </div>
               <div class="testi-card">
                 <p class="testi-quote">
-                  Gingi is an extraordinary teacher. He somehow holds the entire
-                  space — every student's journey — with grace, humour, and a
-                  wisdom that is genuinely rare.
+                 "10/10, you won't find another school like The Shala!"
                 </p>
                 <span class="testi-name"
-                  >Aoife C., 200-Hour Graduate, 2025</span
+                  >Graduate</span
+                >
+              </div>
+              <div class="testi-card">
+                <p class="testi-quote">
+                 "It allows you to find out who you are on your own terms and gives space for you to become the best teacher YOU can be without imposing any restrictions or external values on you."
+                </p>
+                <span class="testi-name"
+                  >Shelley G</span
+                >
+              </div>
+              <div class="testi-card">
+                <p class="testi-quote">
+                 "The centre "genuinely radiates warmth, intention, and high vibrations. Every part of the centre feels like a safe space for embracing growth and deep transformation. I always come away feeling fuller, more equipped for life and for teaching"
+                </p>
+                <span class="testi-name"
+                  >300 hour graduate</span
+                >
+              </div>
+              <div class="testi-card">
+                <p class="testi-quote">
+                "Everyone at the Shala has been super supportive, kind but essentially great at giving teachers extra tools to go out and offer more. They literally try to give you as much of their knowledge and experience."
+                </p>
+                <span class="testi-name"
+                  >AG</span
+                >
+              </div>
+              <div class="testi-card">
+                <p class="testi-quote">
+                "It has been such a momentous journey and I have relished every second. I could never have foreseen how it has changed me both inside and out."
+                </p>
+                <span class="testi-name"
+                  >KT</span
                 >
               </div>
             </div>
@@ -1095,7 +1126,7 @@ $gallery_image_5 = get_field('gallery_image_5');
         </div>
       </div>
 
-      <!-- BLOG -->
+     <!-- BLOG -->
       <section class="blog-section" id="section-blog">
         <h2 class="sr-only">Blog</h2>
         <div class="blog-inner">
@@ -1157,10 +1188,6 @@ $gallery_image_5 = get_field('gallery_image_5');
                               <p class="blog-excerpt">
                                   <?php echo esc_html(wp_trim_words($post_excerpt, 22)); ?>
                               </p>
-
-                              <span class="blog-meta">
-                                  <?php echo esc_html(get_the_author()); ?>
-                              </span>
                           </div>
                       </a>
 

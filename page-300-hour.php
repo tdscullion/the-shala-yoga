@@ -52,9 +52,9 @@ $suggested_courses = get_field('suggested_courses');
       <section class="hero-standard bg-linen text-on-light" id="top">
         <div class="hero-standard-inner">
           <img
-            class="hero-standard-spiral"
+            class="hero-standard-spiral spiral-rotate"
             src="<?php echo esc_url(get_template_directory_uri() . '/assets/spirals/spiral-1-cropped.png'); ?>"
-            alt=""
+            alt="decorative spiral image"
             aria-hidden="true"
           />
           <div class="hero-standard-content">
@@ -269,7 +269,13 @@ $suggested_courses = get_field('suggested_courses');
                 Pay per module
               </div>
               <!-- TODO: add RYS300 logo once available -->
-              <div class="bc-badges"></div>
+              <div class="bc-badges">
+                <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys300-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 300 Accredited"
+                  class="prog-logo"
+              >
+              </div>
             </div>
             <div class="booking-card-body">
               <div class="bc-meta-strip">
@@ -976,58 +982,48 @@ $suggested_courses = get_field('suggested_courses');
           </div>
           <div class="gallery-grid">
             <div class="g-cell g-a" onclick="openLightbox(0)">
-             <?php if (!empty($gallery_images[0])) : ?>
-                  <img
-                      src="<?php echo esc_url($gallery_images[0]['url']); ?>"
-                      alt="<?php echo esc_attr($gallery_images[0]['alt']); ?>"
-                  />
+              <?php if (!empty($gallery_images[0])) : ?>
+                <img
+                    src="<?php echo esc_url($gallery_images[0]['url']); ?>"
+                    alt="<?php echo esc_attr($gallery_images[0]['alt']); ?>"
+                />
               <?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
             </div>
             <div class="g-cell g-b" onclick="openLightbox(1)">
               <?php if (!empty($gallery_images[1])) : ?>
-    <img
-        src="<?php echo esc_url($gallery_images[1]['url']); ?>"
-        alt="<?php echo esc_attr($gallery_images[1]['alt']); ?>"
-    />
-<?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
+                <img
+                    src="<?php echo esc_url($gallery_images[1]['url']); ?>"
+                    alt="<?php echo esc_attr($gallery_images[1]['alt']); ?>"
+                />
+              <?php endif; ?>
             </div>
             <div class="g-cell g-c" onclick="openLightbox(2)">
-             <?php if (!empty($gallery_images[2])) : ?>
-    <img
-        src="<?php echo esc_url($gallery_images[2]['url']); ?>"
-        alt="<?php echo esc_attr($gallery_images[2]['alt']); ?>"
-    />
-<?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
+              <?php if (!empty($gallery_images[2])) : ?>
+                <img
+                    src="<?php echo esc_url($gallery_images[2]['url']); ?>"
+                    alt="<?php echo esc_attr($gallery_images[2]['alt']); ?>"
+                />
+              <?php endif; ?>
             </div>
             <div class="g-cell g-d" onclick="openLightbox(3)">
               <?php if (!empty($gallery_images[3])) : ?>
-    <img
-        src="<?php echo esc_url($gallery_images[3]['url']); ?>"
-        alt="<?php echo esc_attr($gallery_images[3]['alt']); ?>"
-    />
-<?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
+                <img
+                    src="<?php echo esc_url($gallery_images[3]['url']); ?>"
+                    alt="<?php echo esc_attr($gallery_images[3]['alt']); ?>"
+                />
+              <?php endif; ?>
             </div>
             <div class="g-cell g-e" onclick="openLightbox(4)">
               <?php if (!empty($gallery_images[4])) : ?>
-    <img
-        src="<?php echo esc_url($gallery_images[4]['url']); ?>"
-        alt="<?php echo esc_attr($gallery_images[4]['alt']); ?>"
-    />
-<?php endif; ?>
-              <div class="g-tint"></div>
-              <div class="g-overlay"><div class="g-zoom">+</div></div>
+                <img
+                    src="<?php echo esc_url($gallery_images[4]['url']); ?>"
+                    alt="<?php echo esc_attr($gallery_images[4]['alt']); ?>"
+                />
+              <?php endif; ?>
             </div>
           </div>
           <div style="text-align: center; margin-top: 32px">
-            <a
+            
               href="/gallery"
               style="
                 font-family: &quot;Jost&quot;, sans-serif;
@@ -1046,18 +1042,18 @@ $suggested_courses = get_field('suggested_courses');
         </div>
       </div>
 
-      <!-- Lightbox -->
-      <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
-        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-        <button class="lightbox-nav lightbox-prev" onclick="shiftLightbox(-1)">
-          ←
-        </button>
-        <div class="lightbox-inner"><img id="lightboxImg" src="" alt="" /></div>
-        <button class="lightbox-nav lightbox-next" onclick="shiftLightbox(1)">
-          →
-        </button>
-        <span class="lightbox-counter" id="lightboxCounter"></span>
-      </div>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="shiftLightbox(-1)">
+    ←
+  </button>
+  <div class="lightbox-inner"><img id="lightboxImg" src="" alt="" /></div>
+  <button class="lightbox-nav lightbox-next" onclick="shiftLightbox(1)">
+    →
+  </button>
+  <span class="lightbox-counter" id="lightboxCounter"></span>
+</div>
 
       <!-- CURRICULUM + VIDEO/DATES -->
       <div class="curriculum-dates-band">

@@ -233,6 +233,11 @@ $hero_subtitle = get_field('hero_subtitle');
           <div class="section-h2-row">
             <p class="section-h2">200-Hour <em>Questions</em></p>
             <!-- TODO: add Yoga Alliance RYS 200 logo once available -->
+              <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys200-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 300 Accredited"
+                  class="prog-logo section-h2-logo"
+              >
           </div>
           <div class="accordion">
             <div class="acc-item">
@@ -480,6 +485,11 @@ $hero_subtitle = get_field('hero_subtitle');
           <div class="section-h2-row">
             <p class="section-h2">300-Hour <em>Questions</em></p>
             <!-- TODO: add Yoga Alliance RYS 300 logo once available -->
+              <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys300-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 300 Accredited"
+                  class="section-h2-logo"
+              >
           </div>
           <div class="accordion">
             <div class="acc-item">
@@ -638,6 +648,11 @@ $hero_subtitle = get_field('hero_subtitle');
           <div class="section-h2-row">
             <p class="section-h2">Module <em>Questions</em></p>
             <!-- TODO: add Yoga Alliance YACEP logo once available -->
+              <img
+                  src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/yacep-logo.png'); ?>"
+                  alt="Yoga Alliance RYS 300 Accredited"
+                  class="prog-logo section-h2-logo"
+              >
           </div>
           <div class="accordion">
             <div class="acc-item">

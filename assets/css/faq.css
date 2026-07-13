@@ -136,6 +136,9 @@
   align-items: stretch;
   background: var(--aubergine);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 69px; /* nav (66px) + .nav-pink-rule (3px) */
+  z-index: 190;
 }
 .page-jumpnav a {
   font-family: "Jost", sans-serif;
@@ -639,5 +642,11 @@
   }
   .logo-banner-item img {
     height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-jumpnav {
+    display: none;
   }
 }

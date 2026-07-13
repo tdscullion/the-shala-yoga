@@ -40,7 +40,7 @@
                 <h4>Training</h4>
                 <a href="<?php echo esc_url(home_url('/200-hour/')); ?>">200-Hour YTT</a>
                 <a href="<?php echo esc_url(home_url('/300-hour/')); ?>">300-Hour YTT</a>
-                <a href="<?php echo esc_url(home_url('/cpds/')); ?>">Modules &amp; CPDs</a>
+                <a href="<?php echo esc_url(home_url('/cpds/')); ?>">CPD Training Modules</a>
                 <a href="<?php echo esc_url(home_url('/cpds/')); ?>">On Demand</a>
                 <a href="<?php echo esc_url(home_url('/retreats/')); ?>">Retreats</a>
 
@@ -66,11 +66,10 @@
             <div class="footer-col">
                 <h4>Legal</h4>
                 <a href="<?php echo esc_url(home_url('/terms-and-conditions/')); ?>">Terms &amp; Conditions</a>
-                <!-- <a href="#">Privacy Policy</a>
-                <a href="#">Cookie Policy</a> -->
+                <a href="#">Policy</a>
 
                 <h4>Support</h4>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>">Course FAQs</a>
+                <a href="<?php echo esc_url(home_url('/faq/')); ?>">FAQs</a>
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact Us</a>
 
                 <h4>Vahni Yoga Classes</h4>

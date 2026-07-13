@@ -631,7 +631,7 @@ $about_faculty_grid = get_field('about_faculty_grid');
             <div class="prog-card">
                  <img
                   src="<?php echo esc_url(get_template_directory_uri() . '/assets/logos/rys300-logo.png'); ?>"
-                  alt="Yoga Alliance RYS 200 Accredited"
+                  alt="Yoga Alliance RYS 300 Accredited"
                   class="prog-logo"
               >
 
