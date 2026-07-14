@@ -318,7 +318,7 @@ $gallery_image_5 = get_field('gallery_image_5');
               >
                 </div>
                 <span class="path-icon">200</span>
-                <div class="path-title">200-Hour <em>Teacher Training</em></div>
+                <div class="path-title"><em>200-Hour</em> Teacher Training</div>
                 <p class="path-desc">
                   Our flagship Level 1 programme — a comprehensive, Yoga
                   Alliance accredited foundation for both aspiring teachers and
@@ -342,7 +342,7 @@ $gallery_image_5 = get_field('gallery_image_5');
                 </div>
                 <span class="path-icon">300</span>
                 <div class="path-title">
-                  300-Hour <em>Advanced Training</em>
+                  <em>300-Hour</em> Advanced Training
                 </div>
                 <p class="path-desc">
                   Our highly respected Level 2 programme for 200-hour qualified
@@ -365,7 +365,7 @@ $gallery_image_5 = get_field('gallery_image_5');
               >
                 </div>
                 <span class="path-icon">CPD</span>
-                <div class="path-title">CPD Training <em>Modules</em></div>
+                <div class="path-title"><em>CPD</em> Training Modules</div>
                 <p class="path-desc">
                   25 specialist courses a year from Yin to Trauma Informed Yoga, Elemental Mandala Vinyasa and Yoga Nidra. 
                 </p>
